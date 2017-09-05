@@ -20,8 +20,8 @@ module bcdcounter(
 		  output logic [3:0] Q,
 		  output logic       carry
 		  );
-
-   assign 	carry = (Q == 9) & enb;
+    parameter COUNT_CEILING = 10;
+   assign 	carry = (Q == COUNT_CEILING-1) & enb;
    
    always_ff @( posedge clk )
      begin

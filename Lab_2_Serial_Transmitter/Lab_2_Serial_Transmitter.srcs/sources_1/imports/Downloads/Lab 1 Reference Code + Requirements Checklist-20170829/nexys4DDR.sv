@@ -22,22 +22,32 @@
 module nexys4DDR (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
-//		  input logic [15:0]  SW,
-//		  input logic 	      BTNC,
-//		  input logic 	      BTNU, 
+		  input logic [7:0]  SW,
+		  input logic 	      BTNC,
+		  input logic 	      BTNU, 
 //		  input logic 	      BTNL, 
 //		  input logic 	      BTNR,
 //		  input logic 	      BTND,
 //		  output logic [6:0]  SEGS,
 //		  output logic [7:0]  AN,
 //		  output logic 	      DP,
-//		  output logic [15:0] LED,
-		  input logic         UART_TXD_IN,
+		  output logic [1:0]   LED,
+//		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT
 //		  output logic        UART_CTS		  
             );
   // add SystemVerilog code & module instantiations here
+  
+    logic debounced_reset;
+    logic debounced_send;
+    assign LED[1] = LED[0];
+    //Debouncers for the reset and send buttons
+    debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
+    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_send));
+     
+    rtl_transmitter #(.BAUD(9600)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(debounced_send),.data(SW[7:0]),
+                           .txd(UART_RXD_OUT),.rdy(LED[0]));
    
 
 
