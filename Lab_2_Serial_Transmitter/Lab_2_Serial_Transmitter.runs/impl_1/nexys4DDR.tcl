@@ -42,23 +42,23 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir {C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.xpr} [current_project]
-  set_property ip_repo_paths {{c:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/ip}} [current_project]
-  set_property ip_output_repo {{c:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/ip}} [current_project]
-  add_files -quiet {{C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1/nexys4DDR.dcp}}
-  read_xdc {{C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc}}
+  set_property webtalk.parent_dir C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/wt [current_project]
+  set_property parent.project_path C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.xpr [current_project]
+  set_property ip_repo_paths c:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/ip [current_project]
+  set_property ip_output_repo c:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.cache/ip [current_project]
+  add_files -quiet C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1/nexys4DDR.dcp
+  read_xdc {{C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc}}
   link_design -top nexys4DDR -part xc7a100tcsg324-1
   write_hwdef -file nexys4DDR.hwdef
   close_msg_db -file init_design.pb

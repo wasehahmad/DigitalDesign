@@ -5,12 +5,12 @@ Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/rtl_transmitter.sv" Line 23. Module rtl_transmitter(BAUD=10000000) has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv" Line 23. Module transmitter_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/rtl_transmitter.sv" Line 23. Module rtl_transmitter(BAUD=10000000) has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv" Line 23. Module transmitter_fsm has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/rtl_transmitter.sv" Line 23. Module rtl_transmitter(BAUD=10000000) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv" Line 23. Module transmitter_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/rtl_transmitter.sv" Line 23. Module rtl_transmitter(BAUD=10000000) has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv" Line 23. Module transmitter_fsm has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.clkenb(DIVFREQ=10000000)

@@ -32,8 +32,8 @@ module transmitter_fsm(
     parameter D = 8;
     parameter N = 4;
     
-    typedef enum logic {
-        IDLE=1'b0, TRANSMITTING=1'b1 
+    typedef enum logic[1:0] {
+        IDLE=2'd0, TRANSMITTING=2'd1, ENDED = 2'd2 
     } states_t;
     
     states_t state, next;
@@ -48,9 +48,10 @@ module transmitter_fsm(
         txd = 1'b1;
         next = IDLE;
         unique case (state)
-            IDLE:
+            IDLE: begin
                 if (send) next = TRANSMITTING;
                 else next = IDLE;
+            end
             TRANSMITTING: begin
                 rdy = 0;
                 if(count == 0)begin
@@ -59,13 +60,20 @@ module transmitter_fsm(
                 end
                 else if (count == 4'd9)begin
                     txd = 1;
-                    next = IDLE;
+                    next = ENDED;
                 end
                 else begin
                     txd = data[count-1]; 
                     next = TRANSMITTING;
                 end               
             end
+            ENDED:begin
+                rdy = 0;
+                if(count ==0)next = IDLE;
+                else next = ENDED;
+            
+            end 
+            
         endcase
     end
 endmodule

@@ -48,14 +48,15 @@ module rtl_transmitter_bench;
          @(posedge clk);
          // do a reset and check that it worked
          reset = 1;
+         send=0;
          @(posedge clk);
          
-        #1 reset = 0;
+        #10 reset = 0;
         #10 data = 8'b01010101;
-        #10 send = 1;
+        #1 send = 1;
         #10 send = 0;
         
-        repeat(97) @(posedge clk);
+        repeat(200) @(posedge clk);
         #10 data = 8'b00110011;
         #10 send = 1;
         #10 send = 0;

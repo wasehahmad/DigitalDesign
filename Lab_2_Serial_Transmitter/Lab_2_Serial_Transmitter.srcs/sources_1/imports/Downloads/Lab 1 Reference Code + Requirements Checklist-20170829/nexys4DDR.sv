@@ -34,7 +34,10 @@ module nexys4DDR (
 		  output logic [1:0]   LED,
 //		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
-		  output logic        UART_RXD_OUT
+		  output logic        UART_RXD_OUT,
+		  output logic        txd_ext,
+		  output logic        rdy_ext,
+		  output logic        send_ext
 //		  output logic        UART_CTS		  
             );
   // add SystemVerilog code & module instantiations here
@@ -42,6 +45,10 @@ module nexys4DDR (
     logic debounced_reset;
     logic debounced_send;
     assign LED[1] = LED[0];
+    assign txd_ext = UART_RXD_OUT;
+    assign rdy_ext = LED[0];
+    assign send_ext = debounced_send;
+    
     //Debouncers for the reset and send buttons
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_send));

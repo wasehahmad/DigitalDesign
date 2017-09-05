@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/
+webtalk_init -webtalk_dir C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue Sep 05 10:11:28 2017" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue Sep 05 15:10:07 2017" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2016.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "1577090" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -12,9 +12,9 @@ webtalk_add_data -client project -key target_family -value "not_applicable" -con
 webtalk_add_data -client project -key target_device -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "de267aa2-0527-46a6-acfa-3e693a1944e6" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "59e3576503ef5c85ad87bbaa7c479a10" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "13c6a793ba224e2a815bfab7aec5bcce" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "27" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "5" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz" -context "user_environment"
@@ -37,7 +37,7 @@ webtalk_add_data -client xsim -key Total_Nets -value "86" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Processes -value "26" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "7" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip unimacro_ver unisims_ver " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "0.14_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "39312_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 2432028203 -regid "" -xml C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "0.16_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "39292_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 1972988403 -regid "" -xml C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.sim/sim_1/behav/xsim.dir/rtl_transmitter_bench_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

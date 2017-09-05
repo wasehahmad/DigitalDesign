@@ -2,11 +2,11 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Tue Sep 05 10:50:37 2017
-# Process ID: 11924
-# Current directory: C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1
+# Start of session at: Tue Sep 05 15:34:06 2017
+# Process ID: 11552
+# Current directory: C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
-# Log file: C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1/nexys4DDR.vds
-# Journal file: C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1\vivado.jou
+# Log file: C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1/nexys4DDR.vds
+# Journal file: C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source nexys4DDR.tcl -notrace

@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Sep 05 10:50:58 2017
-| Host         : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
+| Date         : Tue Sep 05 15:34:28 2017
+| Host         : ECE400-9SQCJH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file nexys4DDR_utilization_synth.rpt -pb nexys4DDR_utilization_synth.pb
 | Design       : nexys4DDR
 | Device       : 7a100tcsg324-1
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   65 |     0 |     63400 |  0.10 |
-|   LUT as Logic          |   65 |     0 |     63400 |  0.10 |
+| Slice LUTs*             |   68 |     0 |     63400 |  0.11 |
+|   LUT as Logic          |   68 |     0 |     63400 |  0.11 |
 |   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |   78 |     0 |    126800 |  0.06 |
-|   Register as Flip Flop |   78 |     0 |    126800 |  0.06 |
+| Slice Registers         |   79 |     0 |    126800 |  0.06 |
+|   Register as Flip Flop |   79 |     0 |    126800 |  0.06 |
 |   Register as Latch     |    0 |     0 |    126800 |  0.00 |
 | F7 Muxes                |    0 |     0 |     31700 |  0.00 |
 | F8 Muxes                |    0 |     0 |     15850 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 78    |          Yes |       Reset |            - |
+| 79    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   14 |     0 |       210 |  6.67 |
+| Bonded IOB                  |   17 |     0 |       210 |  8.10 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         6 |  0.00 |
@@ -146,15 +146,15 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   78 |        Flop & Latch |
-| LUT4     |   63 |                 LUT |
+| FDRE     |   79 |        Flop & Latch |
+| LUT4     |   66 |                 LUT |
+| LUT2     |   18 |                 LUT |
 | CARRY4   |   18 |          CarryLogic |
-| LUT2     |   16 |                 LUT |
 | IBUF     |   11 |                  IO |
-| LUT5     |   10 |                 LUT |
-| LUT6     |    6 |                 LUT |
-| LUT1     |    6 |                 LUT |
-| OBUF     |    3 |                  IO |
+| LUT6     |    9 |                 LUT |
+| OBUF     |    6 |                  IO |
+| LUT5     |    6 |                 LUT |
+| LUT1     |    5 |                 LUT |
 | LUT3     |    2 |                 LUT |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
