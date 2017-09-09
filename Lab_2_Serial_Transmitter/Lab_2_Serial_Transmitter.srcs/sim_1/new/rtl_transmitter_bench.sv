@@ -53,25 +53,19 @@ module rtl_transmitter_bench;
          
         #10 reset = 0;
         #10 data = 8'b01010101;
-        #1 send = 1;
-        #10 send = 0;
-        
+        #1 send = 1;//keep send high for first few messages
+        #20 send = 0;
         repeat(200) @(posedge clk);
         #10 data = 8'b00110011;
         #10 send = 1;
-        #10 send = 0;
-        repeat(100) @(posedge clk);
+        repeat(200) @(posedge clk);
         #10 data = 8'b00001111;
-        #10 send = 1;
-        #10 send = 0;
+        
         repeat(100) @(posedge clk);
-        #10 data = 8'b00000000;
         #10 send = 1;
-        #10 send = 0;
+        #10 data = 8'b00000000;
         repeat(100) @(posedge clk);
         #10 data = 8'b11111111;
-        #10 send = 1;
-        #10 send = 0;
         repeat(100) @(posedge clk);
          
          $stop();  // all done - suspend simulation

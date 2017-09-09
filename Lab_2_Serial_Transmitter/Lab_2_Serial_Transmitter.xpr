@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="C:/Users/ahmadw/Desktop/Lab491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.xpr">
+<Project Version="7" Minor="14" Path="C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="13c6a793ba224e2a815bfab7aec5bcce"/>
@@ -25,7 +25,7 @@
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Lab_2_Serial_Transmitter.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="nexys4_ddr"/>
-    <Option Name="WTXSimLaunchSim" Val="91"/>
+    <Option Name="WTXSimLaunchSim" Val="120"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
