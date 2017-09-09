@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Sep 09 14:37:25 2017">
+<application name="pa" timeStamp="Sat Sep 09 15:55:08 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="fccaac4bdf7946aab5b32b2fe54f3f17" type="ProjectID"/>
 <property name="ProjectIteration" value="20" type="ProjectIteration"/>
@@ -32,14 +32,123 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SetTopNode" value="3" type="JavaHandler"/>
 <property name="ShowView" value="8" type="JavaHandler"/>
 <property name="SimulationClose" value="12" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="35" type="JavaHandler"/>
-<property name="SimulationRun" value="24" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="49" type="JavaHandler"/>
+<property name="SimulationRun" value="25" type="JavaHandler"/>
 <property name="SimulationRunAll" value="1" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="42" type="JavaHandler"/>
-<property name="SimulationStep" value="3" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="57" type="JavaHandler"/>
+<property name="SimulationStep" value="4" type="JavaHandler"/>
 <property name="ViewTaskProgramandDebug" value="1" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="10" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="11" type="JavaHandler"/>
 <property name="ViewTaskSimulation" value="7" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="1" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="15" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_STEP, simulation_live_step" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="14" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, Vivado Synthesis Report ; Sat Sep 09 14:37:49 EDT 2017 ; 26012 ; , 1" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, Vivado Synthesis Report ; Sat Sep 09 14:37:49 EDT 2017 ; 26012 ; , 1, Vivado Synthesis Report, 0, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.ExpReportTreePanel_EXP_REPORT_TREE_TABLE, Vivado Synthesis Report ; Sat Sep 09 14:37:49 EDT 2017 ; 26012 ; , 1, Vivado Synthesis Report, 0, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, nexys4DDR (nexys4DDR.sv" value="4" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PACodeView_SAVE_AS, Save File As..." value="2" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_PAR_REPORT, PAR Report" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 11" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="19" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_IN, Waveform Viewer_zoom_in" value="9" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="18" type="GuiResourceData"/>
+<property name="RDIResource.ProgressDialog_BACKGROUND, Background" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 174" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 119, 103, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 130, 180" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 151, 96" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 161, 190" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 171, 189" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 172, 184" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 172, 256" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 189, 103" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 209, 155" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 211, 155" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 254, 132" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 255, 225" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 255, 225, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 268, 210" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 30, 158" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 305, 109" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 357, 125, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 359, 125" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 384, 214" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 399, 107" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 417, 108" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 492, 354" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 539, 451, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 540, 363, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 544, 291" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 590, 394, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 615, 111" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 851, 354" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, data[7:0]], 3, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResourceCommand.RDICommands_WAVEFORM_SAVE_CONFIGURATION, Waveform Viewer_waveform_save_configuration" value="1" type="GuiResourceData"/>
+<property name="Vivado Synthesis Report - synth_1, 107, 66" value="1" type="GuiResourceData"/>
+<property name="Vivado Synthesis Report - synth_1, 109, 62, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="Vivado Synthesis Report - synth_1, 168, 66, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="Vivado Synthesis Report - synth_1, 80, 159" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 104, 226" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 104, 248" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 107, 300" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 111, 366" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 112, 234" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 112, 311" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 113, 175" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 113, 333" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 114, 233" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 124, 229" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 124, 279" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 129, 250" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 134, 215" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 146, 297" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 148, 297" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 154, 177" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 154, 315" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 154, 330" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 155, 241" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 155, 242" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 156, 284" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 156, 377" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 178, 244" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 187, 152" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 222, 296" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 223, 244" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 224, 266" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 226, 262" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 236, 210" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 241, 332" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 246, 247" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 246, 332" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 248, 336" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 251, 312" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 251, 333" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 258, 210" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 258, 213" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 264, 264" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 265, 219" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 53, 297" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 55, 301" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 55, 346" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 56, 353" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 68, 314" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter_bench.sv, 88, 287" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 438, 498" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="1" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="0" type="TclMode"/>
 </item>
 </section>
 </application>

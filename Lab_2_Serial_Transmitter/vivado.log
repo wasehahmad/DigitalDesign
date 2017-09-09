@@ -892,3 +892,7 @@ Time resolution is 1 ps
 WARNING: 0ns : none of the conditions were true for unique case from File:C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv:50
 WARNING: 5ns : none of the conditions were true for unique case from File:C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab_2_Serial_Transmitter/Lab_2_Serial_Transmitter.srcs/sources_1/new/transmitter_fsm.sv:50
 run 11 us
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 09 15:55:14 2017...
