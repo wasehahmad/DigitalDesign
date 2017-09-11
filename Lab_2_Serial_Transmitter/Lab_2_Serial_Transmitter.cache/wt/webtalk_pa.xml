@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Sep 09 18:53:20 2017">
+<application name="pa" timeStamp="Mon Sep 11 16:43:44 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="fccaac4bdf7946aab5b32b2fe54f3f17" type="ProjectID"/>
 <property name="ProjectIteration" value="20" type="ProjectIteration"/>
@@ -20,7 +20,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSources" value="5" type="JavaHandler"/>
 <property name="AutoConnectTarget" value="2" type="JavaHandler"/>
 <property name="EditDelete" value="1" type="JavaHandler"/>
-<property name="EditUndo" value="36" type="JavaHandler"/>
+<property name="EditUndo" value="37" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="7" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="6" type="JavaHandler"/>
@@ -31,11 +31,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SaveFileProxyHandler" value="2" type="JavaHandler"/>
 <property name="SetTopNode" value="3" type="JavaHandler"/>
 <property name="ShowView" value="8" type="JavaHandler"/>
-<property name="SimulationClose" value="12" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="49" type="JavaHandler"/>
-<property name="SimulationRun" value="25" type="JavaHandler"/>
+<property name="SimulationClose" value="13" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="50" type="JavaHandler"/>
+<property name="SimulationRun" value="27" type="JavaHandler"/>
 <property name="SimulationRunAll" value="1" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="57" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="60" type="JavaHandler"/>
 <property name="SimulationStep" value="4" type="JavaHandler"/>
 <property name="ViewTaskProgramandDebug" value="1" type="JavaHandler"/>
 <property name="ViewTaskProjectManager" value="11" type="JavaHandler"/>
@@ -43,13 +43,73 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformSaveConfiguration" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, nexys4DDR (nexys4DDR.sv" value="4" type="GuiResourceData"/>
-<property name="rtl_transmitter.sv, 172, 618" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="3" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, nexys4DDR (nexys4DDR.sv" value="6" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="2" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="1" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="8" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="2" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1203, 212" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1224, 135" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1232, 150" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 156, 29" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 157, 30" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 159, 30" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 159, 35" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 198, 203" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 253, 64" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 256, 57" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 294, 209" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 424, 1" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 573, 18" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 602, 152" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 629, 155" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 68, 29" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 85, 192" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 2*" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, data[7:0]], 3, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 149, 451" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 219, 407" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 231, 445" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 444, 448" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 467, 639" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 497, 456" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 501, 452" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 503, 451" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 504, 452" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 504, 453" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 506, 454" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 506, 465" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 519, 457" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 522, 450" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 522, 458" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 525, 451" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 525, 452" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 595, 587" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 598, 570" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 125, 520" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 141, 297" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 159, 502" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 160, 538" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 167, 602" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 168, 574" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 170, 284" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 178, 280" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 194, 603" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 205, 616" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 208, 621" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 217, 264" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 217, 278" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 232, 469" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 249, 616" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 48, 606" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="12" type="GuiMode"/>
+<property name="GuiMode" value="13" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="10" type="TclMode"/>
+<property name="TclMode" value="11" type="TclMode"/>
 </item>
 </section>
 </application>

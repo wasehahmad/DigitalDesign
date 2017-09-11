@@ -1,14 +1,23 @@
-//-----------------------------------------------------------------------------
-// Title         : transmitter_fsm
-// Project       : Lab 2
-//-----------------------------------------------------------------------------
-// File          : transmitter_fsm.sv
-// Author        : Waseh Ahmad & Geoff Watson
-// Created       : 9/05/2017
-//-----------------------------------------------------------------------------
-// Description :
-// This module provides a finite state machine to transmit data serially.
-//-----------------------------------------------------------------------------
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 09/05/2017 08:23:44 AM
+// Design Name: 
+// Module Name: transmitter_fsm
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 module transmitter_fsm(
@@ -17,6 +26,7 @@ module transmitter_fsm(
     input logic send,
     input logic [D-1:0] data,
     input logic [N-1:0] count,
+    output logic sending,
     output logic rdy,
     output logic txd
     );
@@ -35,7 +45,8 @@ module transmitter_fsm(
     end
     
     always_comb begin
-        rdy = 1'b1;
+        sending = 1'b0;
+        rdy = 1'b1; 
         txd = 1'b1;
         next = IDLE;
         unique case (state)
@@ -44,6 +55,7 @@ module transmitter_fsm(
                 else next = IDLE;
             end
             TRANSMITTING: begin
+                sending = 1;
                 rdy = 0;
                 if(count == 0)begin
                     txd = 0;//start signal
@@ -59,8 +71,9 @@ module transmitter_fsm(
                 end               
             end
             ENDED:begin
-                rdy = 0;
-                if(count ==0)next = IDLE;
+                sending = 1;
+                rdy = 1;
+                if(count ==0 )next = IDLE;
                 else next = ENDED;
             
             end 
