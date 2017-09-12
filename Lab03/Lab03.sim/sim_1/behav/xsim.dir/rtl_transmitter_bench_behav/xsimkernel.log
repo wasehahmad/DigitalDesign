@@ -1,0 +1,4 @@
+Running: xsim.dir/rtl_transmitter_bench_behav/xsimk.exe -simmode gui -wdb rtl_transmitter_bench_behav.wdb -simrunnum 0 -socket 50385
+Design successfully loaded
+Design Loading Memory Usage: 8640 KB (Peak: 8640 KB)
+Design Loading CPU Usage: 0 ms
