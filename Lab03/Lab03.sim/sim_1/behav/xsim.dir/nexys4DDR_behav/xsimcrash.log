@@ -1,0 +1,40 @@
+Unable to capture context for thread 17108 in process 11516, can not generate back trace
+Unable to capture context for thread 13884 in process 11516, can not generate back trace
+Unable to capture context for thread 17108 in process 11516, can not generate back trace
+Unable to capture context for thread 13884 in process 11516, can not generate back trace
+Exception at PC 0x00007FFC617ABB93
+Printing stacktrace...
+
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788
+[0]  [0x00007FFC617ABB93]
+[1]  [0x00007FFC617ABB93]
+[2]  [0x00007FFC617AB4A1]
+[3]  [0x00007FFC617AB3EF]
+[4]  [0x00007FFC617919FE]
+[5]  [0x00007FFC61790ED1]
+[6]  [0x00007FFC61790D76]
+[7]  [0x00007FFC617379F6]
+[8]  [0x00007FFC61727AFB]
+[9]  [0x00007FFC6184E90A]
+[10]  [0x00007FFC61869F87]
+[11]  [0x00007FFC6186A05F]
+[12] (BaseThreadInitThunk+0x14) [0x00007FFCB8818364]
+[13] (RtlUserThreadStart+0x21) [0x00007FFCB89270D1]
+Done
+Exception at PC 0x00007FFCB4DC7788
+Exception at PC 0x00007FFCB4DC7788

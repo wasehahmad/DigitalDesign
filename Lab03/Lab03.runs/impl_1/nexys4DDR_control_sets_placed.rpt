@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Sep 12 10:27:05 2017
+| Date         : Tue Sep 12 15:20:05 2017
 | Host         : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file nexys4DDR_control_sets_placed.rpt
 | Design       : nexys4DDR
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     8 |
-| Unused register locations in slices containing registers |    35 |
+| Number of unique control sets                            |     9 |
+| Unused register locations in slices containing registers |    40 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               9 |            5 |
+| No           | No                    | No                     |              12 |            8 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              80 |           22 |
+| No           | Yes                   | No                     |             104 |           26 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              12 |            4 |
+| Yes          | Yes                   | No                     |              12 |            3 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -48,14 +48,15 @@ Table of Contents
 +----------------------+-----------------------------------+--------------------------------------------------+------------------+----------------+
 |     Clock Signal     |           Enable Signal           |                 Set/Reset Signal                 | Slice Load Count | Bel Load Count |
 +----------------------+-----------------------------------+--------------------------------------------------+------------------+----------------+
-|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_BAUD_2_PULSE/E[0] | U_TRANSMITTER/U_WAIT_BIT_COUNTER/Q[3]_i_1__1_n_0 |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_FSM/E[0]          | U_TRANSMITTER/U_BIT_COUNTER/Q[3]_i_1_n_0         |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_FSM/Q_reg[3][0]   | U_TRANSMITTER/U_2_BIT_COUNTER/Q[3]_i_1__0_n_0    |                2 |              4 |
-|  CLK100MHZ_IBUF_BUFG |                                   |                                                  |                5 |              9 |
-|  CLK100MHZ_IBUF_BUFG |                                   | U_TRANSMITTER/U_FSM/q_reg[9][0]                  |                3 |             11 |
-|  CLK100MHZ_IBUF_BUFG |                                   | U_TRANSMITTER/U_FSM/SR[0]                        |                4 |             15 |
-|  CLK100MHZ_IBUF_BUFG |                                   | U_RESET_DEBOUNCE/count_reg[26]_i_1__0_n_0        |                8 |             27 |
-|  CLK100MHZ_IBUF_BUFG |                                   | U_SEND_DEBOUNCE/count_reg[26]_i_1_n_0            |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_BAUD_2_PULSE/E[0] | U_TRANSMITTER/U_WAIT_BIT_COUNTER/Q[3]_i_1__0_n_0 |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_FSM/E[0]          | U_TRANSMITTER/U_FSM/Q_reg[0][0]                  |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG | U_TRANSMITTER/U_FSM/Q_reg[0]_0[0] | U_TRANSMITTER/U_2_BIT_COUNTER/Q[3]_i_1__1_n_0    |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG |                                   | U_TRANSMITTER/U_FSM/q_reg[9][0]                  |                4 |             11 |
+|  CLK100MHZ_IBUF_BUFG |                                   |                                                  |                8 |             12 |
+|  CLK100MHZ_IBUF_BUFG |                                   | U_TRANSMITTER/U_FSM/SR[0]                        |                4 |             12 |
+|  CLK100MHZ_IBUF_BUFG |                                   | U_RESET_DEBOUNCE/button_state_next1              |                8 |             27 |
+|  CLK100MHZ_IBUF_BUFG |                                   | U_SEND_CONT/count_reg[26]_i_1__0_n_0             |                5 |             27 |
+|  CLK100MHZ_IBUF_BUFG |                                   | U_SEND_PULSE/count_reg[26]_i_1__1_n_0            |                5 |             27 |
 +----------------------+-----------------------------------+--------------------------------------------------+------------------+----------------+
 
 

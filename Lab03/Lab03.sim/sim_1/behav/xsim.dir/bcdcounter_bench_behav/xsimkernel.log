@@ -2,3 +2,6 @@ Running: xsim.dir/bcdcounter_bench_behav/xsimk.exe -simmode gui -wdb bcdcounter_
 Design successfully loaded
 Design Loading Memory Usage: 8612 KB (Peak: 8612 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 9140 KB (Peak: 9140 KB)
+Simulation CPU Usage: 0 ms

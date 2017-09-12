@@ -33,7 +33,7 @@ module rtl_transmitter_self_check_bench;
    logic        rdy;
    
 // instantiate device under verification (counter)
-      rtl_transmitter #(.BAUD(10000000),.BAUD2(20000000)) DUV(.clk_100mhz(clk),.reset(reset),.send(send),.data(data),
+      rtl_transmitter #(.BAUD(50000),.BAUD2(100000)) DUV(.clk_100mhz(clk),.reset(reset),.send(send),.data(data),
                           .txd(txd),.rdy(rdy));
 
     // clock generator with period=20 time units
@@ -45,12 +45,11 @@ module rtl_transmitter_self_check_bench;
     
     task check_reset;
           reset = 1;
-          enb = 0;
           @(posedge clk) #1;
-          check("reset clears Q",Q,4'd0);
+          check("reset clears txd",txd,1);
+          check("reset clears rdy",txd,1);
           repeat (4) @(posedge clk); #1;
-          check("reset holds Q=0 when enb=0", Q, 0);    
-          enb = 1;
+          check("reset holds txd", txd, 1);    
           repeat (3) @(posedge clk); #1;
           check("reset holds Q=0 when enb=1", Q, 0);
           reset = 0;

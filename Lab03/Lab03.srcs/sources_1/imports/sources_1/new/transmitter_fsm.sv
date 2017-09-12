@@ -31,6 +31,7 @@ module transmitter_fsm(
     output logic sending,
     output logic one_bit_sending,
     output logic waiting,
+    output logic reset_counter,
     output logic rdy,
     output logic txen,
     output logic txd
@@ -38,21 +39,24 @@ module transmitter_fsm(
     parameter D = 8;
     parameter N = 4;
     
-    logic max_count;
+    logic [3:0] max_count;
     assign max_count = 8;
     
     typedef enum logic[2:0] {
         IDLE=3'd0, START=3'd1, DATA_HIGH_FIRST=3'd2, DATA_LOW_FIRST=3'd3, DATA_HIGH_SECOND=3'd4, DATA_LOW_SECOND=3'd5, ENDED = 3'd6 
     } states_t;
     
-    states_t state, next, last;
+    states_t state, next, last, next_last;
     
     always_ff @(posedge clk) begin
         if (reset) begin 
             state <= IDLE;
-            last <= START;//assume that next byte is sent immediately
         end
-        else state <= next;
+        else begin
+            state <= next;
+            last <= next_last;
+            
+        end
     end
     
     always_comb begin
@@ -62,6 +66,8 @@ module transmitter_fsm(
         txd = 1'b1;
         txen = 1'b0;
         next = IDLE;
+        reset_counter = 0;
+        next_last = ENDED;
         
         unique case (state)
         
@@ -72,15 +78,21 @@ module transmitter_fsm(
             
             START: begin
                 sending = 1;
+                one_bit_sending = 1;
                 rdy = 0;
                 txen = 1;
-                
-                if(data[count] == 0)begin
-                    next = DATA_LOW_FIRST;
+                if(count == max_count)begin
+                    next = last;
+                    reset_counter = 1;
                 end
                 else begin
-                    next = DATA_HIGH_FIRST;
-                end  
+                    if(data[count] == 0)begin
+                        next = DATA_LOW_FIRST;
+                    end
+                    else begin
+                        next = DATA_HIGH_FIRST;
+                    end  
+                end
                 
             end
 
@@ -90,14 +102,15 @@ module transmitter_fsm(
                 txd = 0;
                 txen = 1;
                 one_bit_sending = 1;
-                if(count ==max_count-1)begin
-                    rdy=1;
-                    last = send?START:ENDED;
+                next = bit_count == 1 ? DATA_LOW_SECOND : DATA_LOW_FIRST;
+                if(count == max_count-1)begin
+                    rdy = 1;
+                    next_last = send ? START : next_last;
                 end
                 else begin
                     rdy = 0;
                 end
-                next = bit_count == 1 ? DATA_LOW_SECOND : DATA_LOW_FIRST;
+                
             end
             
             DATA_HIGH_FIRST:begin
@@ -105,15 +118,14 @@ module transmitter_fsm(
                 txd = 1;
                 txen = 1;
                 one_bit_sending = 1;
-                if(count ==max_count-1)begin
+                next = bit_count == 1 ? DATA_HIGH_SECOND : DATA_HIGH_FIRST;
+                if(count == max_count-1)begin
                     rdy=1;
-                    last = send?START:ENDED;
+                    next_last = send ? START : next_last;
                 end
                 else begin
                     rdy = 0;
                 end
-                next = bit_count == 1 ? DATA_HIGH_SECOND : DATA_HIGH_FIRST;
-
             end
             
             DATA_LOW_SECOND:begin
@@ -122,14 +134,15 @@ module transmitter_fsm(
                 txen = 1;
                 one_bit_sending = 1;
                 if(count == max_count-1)begin
-                    rdy=1;
-                    last = (last == ENDED || send)?START:ENDED;
-                    next = last;
+                    rdy=1;                    
+                    next_last = send ? START : next_last;
+//                    next = bit_count == 0 ? next_last : DATA_LOW_SECOND ;
                 end
                 else begin
                     rdy = 0; 
-                    next = bit_count == 0 ? START : DATA_LOW_SECOND;
+//                    next = bit_count == 0 ? START : DATA_HIGH_SECOND;
                 end
+                next = bit_count == 0 ? START : DATA_LOW_SECOND;
             end
             
             DATA_HIGH_SECOND:begin
@@ -138,14 +151,15 @@ module transmitter_fsm(
                 txen = 1;
                 one_bit_sending = 1;
                 if(count == max_count-1)begin
-                    rdy=1;
-                    last = (last == ENDED || send)?START:ENDED;
-                    next = last;
+                    rdy=1;                    
+                    next_last = send ? START : next_last;
+//                    next = bit_count == 0 ? next_last : DATA_HIGH_SECOND;
                 end
                 else begin
-                    rdy = 0;
-                    next = bit_count == 0 ? START : DATA_HIGH_SECOND;
+                    rdy = 0; 
+//                    next = bit_count == 0 ? START : DATA_HIGH_SECOND;
                 end
+                next = bit_count == 0 ? START : DATA_HIGH_SECOND;
             end
             
             ENDED:begin

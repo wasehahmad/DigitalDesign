@@ -22,7 +22,7 @@
 module nexys4DDR (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
-		  input logic [7:0]  SW,
+		  input logic [8:0]  SW,
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
 //		  input logic 	      BTNL, 
@@ -47,13 +47,16 @@ module nexys4DDR (
     assign LED[1] = LED[0];
     assign txd_ext = UART_RXD_OUT;
     assign rdy_ext = LED[0];
-    assign send_ext = debounced_send;
+    assign send_ext = continuous_send | pulse_send;
     
     //Debouncers for the reset and send buttons
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
-    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_send));
-     
-    rtl_transmitter #(.BAUD(9600)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(debounced_send),.data(SW[7:0]),
+    
+    debounce U_SEND_CONT(.clk(CLK100MHZ), .button_in(SW[8]), .button_out(continuous_send));
+    
+    debounce U_SEND_PULSE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(pulse_send)); 
+    
+    rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send_ext),.data(SW[7:0]),
                            .txd(UART_RXD_OUT),.rdy(LED[0]));
    
 

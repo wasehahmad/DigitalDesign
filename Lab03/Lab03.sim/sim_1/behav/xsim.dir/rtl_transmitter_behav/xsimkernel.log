@@ -2,3 +2,6 @@ Running: xsim.dir/rtl_transmitter_behav/xsimk.exe -simmode gui -wdb rtl_transmit
 Design successfully loaded
 Design Loading Memory Usage: 9328 KB (Peak: 9328 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9808 KB (Peak: 9808 KB)
+Simulation CPU Usage: 15 ms

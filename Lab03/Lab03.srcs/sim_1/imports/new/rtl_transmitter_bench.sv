@@ -30,7 +30,7 @@ module rtl_transmitter_bench;
    logic        rdy;
    
 // instantiate device under verification (counter)
-      rtl_transmitter #(.BAUD(10000000),.BAUD2(20000000)) DUV(.clk_100mhz(clk),.reset(reset),.send(send),.data(data),
+      rtl_transmitter #(.BAUD(50000),.BAUD2(100000)) DUV(.clk_100mhz(clk),.reset(reset),.send(send),.data(data),
                           .txd(txd),.rdy(rdy));
    
      // clock generator with period=20 time units
@@ -48,25 +48,27 @@ module rtl_transmitter_bench;
          @(posedge clk);
          // do a reset and check that it worked
          reset = 1;
-         send=0;
+         send=1;
          @(posedge clk);
          
         #10 reset = 0;
-        #10 data = 8'b01010101;
-        #1 send = 1;//keep send high for first few messages
-        #20 send = 0;
-        repeat(200) @(posedge clk);
-        #10 data = 8'b00110011;
-        #10 send = 1;
-        repeat(200) @(posedge clk);
-        #10 data = 8'b00001111;
+//        #10 data = 8'b01010101;
+//        #1 send = 1;//keep send high for first few messages
+//        #20 send = 0;
+//        repeat(200) @(posedge clk);
+//        #10 data = 8'b00110011;
+//        #10 send = 1;
+//        repeat(200) @(posedge clk);
+//        #10 data = 8'b00001111;
         
-        repeat(100) @(posedge clk);
-        #10 send = 1;
-        #10 data = 8'b00000000;
-        repeat(100) @(posedge clk);
+//        repeat(100) @(posedge clk);
+//        #10 send = 1;
+//        #10 data = 8'b00000000;
+//        repeat(100) @(posedge clk);
         #10 data = 8'b11111111;
-        repeat(100) @(posedge clk);
+        
+        @(posedge clk);
+        send = 0;
          
          $stop();  // all done - suspend simulation
       end // initial
