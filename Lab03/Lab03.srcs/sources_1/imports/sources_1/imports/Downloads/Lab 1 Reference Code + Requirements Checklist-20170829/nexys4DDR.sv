@@ -22,7 +22,7 @@
 module nexys4DDR (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
-		  input logic [8:0]  SW,
+		  input logic [5:0]  SW,
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
 //		  input logic 	      BTNL, 
@@ -31,33 +31,37 @@ module nexys4DDR (
 //		  output logic [6:0]  SEGS,
 //		  output logic [7:0]  AN,
 //		  output logic 	      DP,
-		  output logic [1:0]   LED,
+		  output logic        LED[0],
 //		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
 		  output logic        txd_ext,
 		  output logic        rdy_ext,
-		  output logic        send_ext
+		  output logic        txen
 //		  output logic        UART_CTS		  
             );
   // add SystemVerilog code & module instantiations here
   
     logic debounced_reset;
-    logic debounced_send;
-    assign LED[1] = LED[0];
+//    logic debounced_send;
     assign txd_ext = UART_RXD_OUT;
     assign rdy_ext = LED[0];
-    assign send_ext = continuous_send | pulse_send;
+    logic send_int;
+    logic [7:0] data;
+    
+    
+    
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(pulse_run),.length(SW[5:0]),.send(send_int),.data(data),.ready(LED[0]));
     
     //Debouncers for the reset and send buttons
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
-    debounce U_SEND_CONT(.clk(CLK100MHZ), .button_in(SW[8]), .button_out(continuous_send));
+    //debounce U_SEND_CONT(.clk(CLK100MHZ), .button_in(SW[8]), .button_out(continuous_send));
     
-    debounce U_SEND_PULSE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(pulse_send)); 
+    debounce U_SEND_PULSE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(pulse_run)); 
     
-    rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send_ext),.data(SW[7:0]),
-                           .txd(UART_RXD_OUT),.rdy(LED[0]));
+    rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send_int),.data(data),
+                           .txd(UART_RXD_OUT),.rdy(LED[0]),.txen(txen));
    
 
 

@@ -20,6 +20,7 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/single_pulser.sv}
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/clkenb.sv}
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/bcdcounter.sv}
+  {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2.sv}
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/debounce.sv}
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv}
