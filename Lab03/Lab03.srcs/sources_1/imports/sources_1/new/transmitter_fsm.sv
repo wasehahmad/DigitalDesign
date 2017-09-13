@@ -67,11 +67,11 @@ module transmitter_fsm(
         txen = 1'b0;
         next = IDLE;
         reset_counter = 0;
-        next_last = ENDED;
         
         unique case (state)
         
             IDLE: begin
+                next_last = ENDED;
                 if (send) next = START;
                 else next = IDLE;
             end
@@ -83,6 +83,7 @@ module transmitter_fsm(
                 txen = 1;
                 if(count == max_count)begin
                     next = last;
+                    next_last = ENDED;
                     reset_counter = 1;
                 end
                 else begin
@@ -163,6 +164,7 @@ module transmitter_fsm(
             end
             
             ENDED:begin
+                
                 waiting = 1;
                 one_bit_sending = 1;
                 rdy = 1;
