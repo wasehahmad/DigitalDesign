@@ -27,6 +27,7 @@ module rtl_transmitter(
     input logic [7:0] data,
     output logic txd,
     output logic txen,
+//    output logic [2:0] curr_state,
     output logic rdy
     );
     
@@ -58,6 +59,7 @@ module rtl_transmitter(
     logic baud_pulse_2_out;
     logic [3:0] bit_counter_out;
     logic [3:0] wait_counter_out;
+//    assign curr_state = 3'd0;
     
     
     
@@ -80,7 +82,7 @@ module rtl_transmitter(
     transmitter_fsm U_FSM(.clk(clk_100mhz), .reset(reset), .send(send), .data(data), 
                           .count(counter_out), .bit_count(bit_counter_out), .wait_counter(wait_counter_out),
                           .rdy(rdy), .txd(txd), .txen(txen), .reset_counter(reset_counter),
-                          .sending(sending), .one_bit_sending(one_bit_sending), .waiting(waiting));
+                          .sending(sending), .one_bit_sending(one_bit_sending), .waiting(waiting)/*,.curr_state(curr_state)*/);
     
     //use bcd counter to keep track of which bit was sent last
     //fsm to move between states(READY SENDING 

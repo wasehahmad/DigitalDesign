@@ -1,9 +1,10 @@
 0.4
 2016.2
 C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.sim/sim_1/behav/glbl.v,1464879896,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sim_1/imports/new/rtl_transmitter_bench.sv,1505237696,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/clkenb.sv,1504995734,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/bcdcounter.sv,1504995734,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/single_pulser.sv,1504995734,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv,1505243689,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/new/transmitter_fsm.sv,1505265707,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sim_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2_bench.sv,1505348876,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2.sv,1474062850,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/clkenb.sv,1505339418,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/bcdcounter.sv,1505339418,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 2 Reference Code-20170904/single_pulser.sv,1505339418,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv,1505339418,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.srcs/sources_1/imports/sources_1/new/transmitter_fsm.sv,1505347937,verilog,,,,,,,,,,,

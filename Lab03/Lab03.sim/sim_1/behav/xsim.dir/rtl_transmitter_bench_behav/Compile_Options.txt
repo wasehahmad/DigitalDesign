@@ -1,1 +1,0 @@
--wto "83f6e1599ada4e8393d091507958fa27" --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "rtl_transmitter_bench_behav" "xil_defaultlib.rtl_transmitter_bench" "xil_defaultlib.glbl" -log "elaborate.log" 

@@ -34,12 +34,14 @@ module transmitter_fsm(
     output logic reset_counter,
     output logic rdy,
     output logic txen,
+    output logic [2:0] curr_state,
     output logic txd
     );
     parameter D = 8;
     parameter N = 4;
     
     logic [3:0] max_count;
+    assign curr_state = state;
     assign max_count = 8;
     
     typedef enum logic[2:0] {
@@ -51,6 +53,7 @@ module transmitter_fsm(
     always_ff @(posedge clk) begin
         if (reset) begin 
             state <= IDLE;
+            
         end
         else begin
             state <= next;
@@ -79,7 +82,7 @@ module transmitter_fsm(
             START: begin
                 sending = 1;
                 one_bit_sending = 1;
-                rdy = 0;
+                rdy = count == max_count-1;
                 txen = 1;
                 if(count == max_count)begin
                     next = last;

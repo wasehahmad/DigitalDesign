@@ -32,10 +32,10 @@ module mxtest_bench;
 	logic txen;
 	logic txd;
 
-    assign length = 5;
+    assign length = 1;
     
 	// Instantiate the Unit Under Test (UUT)
-	mxtest #(.WAIT_TIME(50)) U_MXTEST (
+	mxtest_2  U_MXTEST (
 		.clk(clk), 
 		.reset(reset), 
 		.run(run), 
@@ -47,12 +47,13 @@ module mxtest_bench;
 
 	
 // Instantiate transmitter
-		mx3 #(.BIT_RATE(25000000)) U_TRANS (
-		.clk(clk), 
+//#(.BIT_RATE(25000000))
+		rtl_transmitter  #(.BAUD(50000),.BAUD2(100000)) U_TRANS (
+		.clk_100mhz(clk), 
 		.reset(reset), 
 		.send(send), 
 		.data(data), 
-		.ready(ready), 
+		.rdy(ready), 
 		.txen(txen), 
 		.txd(txd)
 	);
@@ -61,8 +62,8 @@ module mxtest_bench;
 
   // clock oscillator
 	always begin
-	   clk = 0; #50;
-		clk = 1; #50;
+	   clk = 0; #5;
+		clk = 1; #5;
 	end
 
    // stimulus

@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Wed Sep 13 18:13:56 2017
+| Date             : Wed Sep 13 21:10:31 2017
 | Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.100 |
-| Dynamic (W)              | 0.003 |
+| Total On-Chip Power (W)  | 0.103 |
+| Dynamic (W)              | 0.006 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.5  |
@@ -49,17 +49,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      366 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      138 |     63400 |            0.22 |
-|   CARRY4       |    <0.001 |       22 |     15850 |            0.14 |
-|   Register     |    <0.001 |      129 |    126800 |            0.10 |
-|   F7/F8 Muxes  |    <0.001 |        4 |     63400 |           <0.01 |
-|   Others       |     0.000 |       16 |       --- |             --- |
-| Signals        |    <0.001 |      289 |       --- |             --- |
-| I/O            |     0.001 |       14 |       210 |            6.67 |
+| Clocks         |    <0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      291 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      114 |     63400 |            0.18 |
+|   CARRY4       |    <0.001 |       15 |     15850 |            0.09 |
+|   Register     |    <0.001 |      101 |    126800 |            0.08 |
+|   Others       |     0.000 |       14 |       --- |             --- |
+| Signals        |    <0.001 |      228 |       --- |             --- |
+| I/O            |     0.004 |       14 |       210 |            6.67 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.100 |          |           |                 |
+| Total          |     0.103 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +70,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.017 |       0.002 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
+| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,9 +137,8 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| nexys4DDR              |     0.003 |
+| nexys4DDR              |     0.006 |
 |   U_RESET_DEBOUNCE     |    <0.001 |
-|   U_SEND_PULSE         |    <0.001 |
 |   U_TEST               |    <0.001 |
 |   U_TRANSMITTER        |    <0.001 |
 |     U_2_BIT_COUNTER    |    <0.001 |
