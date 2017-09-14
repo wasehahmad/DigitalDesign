@@ -30,7 +30,7 @@ Compiling module xil_defaultlib.bcdcounter(COUNT_CEILING=9)
 Compiling module xil_defaultlib.clkenb(DIVFREQ=100000)
 Compiling module xil_defaultlib.bcdcounter(COUNT_CEILING=2)
 Compiling module xil_defaultlib.bcdcounter(COUNT_CEILING=5)
-Compiling module xil_defaultlib.transmitter_fsm
+Compiling module xil_defaultlib.transmitter_fsm(WAIT_BITS=2)
 Compiling module xil_defaultlib.rtl_transmitter
 Compiling module xil_defaultlib.mxtest_bench
 Compiling module xil_defaultlib.glbl

@@ -150,7 +150,7 @@ module transmitter_fsm(
                     rdy=1;                    
                     next_last = send ? START : next_last;
                     if(bit_count == 0) begin
-                        next = data[count]== 0? last:DATA_LOW_SECOND ;//check logic here
+                        next = data[count]== 0? last:DATA_LOW_SECOND ;//check timing here to see if last has changed or not
                     end
                 end
                 else begin //read data and see where to go next
@@ -163,29 +163,33 @@ module transmitter_fsm(
             
             DATA_HIGH_SECOND:begin
                 sending = 1;
+                one_bit_sending = 1;
                 txd = 0;
                 txen = 1;
-                one_bit_sending = 1;
+                
                 if(count == max_count-1)begin
                     rdy=1;                    
                     next_last = send ? START : next_last;
-//                    next = bit_count == 0 ? next_last : DATA_HIGH_SECOND;
+                    if(bit_count == 0) begin
+                        next = data[count]== 0? last:DATA_HIGH_SECOND ;//check timing here to see if last has changed or not
+                    end
                 end
-                else begin
+                else begin //read data and see where to go next
                     rdy = 0; 
-//                    next = bit_count == 0 ? START : DATA_HIGH_SECOND;
+                    if(bit_count == 0) begin
+                        next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
+                    end
                 end
-                next = bit_count == 0 ? START : DATA_HIGH_SECOND;
             end
             
             ENDED:begin
-                //
+            
                 txen =1 ;
                 waiting = 1;
                 one_bit_sending = 1;
                 rdy = 1;
                 if(wait_counter == WAIT_BITS*2)   next = IDLE;
-                else                    next = ENDED;
+                else                              next = ENDED;
 
             end 
             
