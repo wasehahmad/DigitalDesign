@@ -32,7 +32,7 @@ module mxtest_bench;
 	logic txen;
 	logic txd;
 
-    assign length = 1;
+    assign length = 2;
     
 	// Instantiate the Unit Under Test (UUT)
 	mxtest_2  U_MXTEST (

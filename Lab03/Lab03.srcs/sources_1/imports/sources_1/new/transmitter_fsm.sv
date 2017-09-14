@@ -41,6 +41,7 @@ module transmitter_fsm(
     parameter WAIT_BITS = 2;
     
     logic [3:0] max_count;
+    logic last_ready;
     assign max_count = 8;
     
     typedef enum logic[2:0] {
@@ -57,6 +58,7 @@ module transmitter_fsm(
         else begin
             state <= next;
             last <= next_last;
+            last_ready <= rdy;
             
         end
     end
@@ -69,6 +71,7 @@ module transmitter_fsm(
         txen = 1'b0;
         next = IDLE;
         reset_counter = 0;
+        next_last = ENDED;
         
         unique case (state)
         
@@ -90,7 +93,7 @@ module transmitter_fsm(
 //                if(count == max_count)begin
 //                    next = last;
 //                    next_last = ENDED;
-//                    reset_counter = 1;
+                    
 //                end
 //                else begin
 //                    if(data[count] == 0)begin
@@ -114,7 +117,7 @@ module transmitter_fsm(
                 
                 if(count == max_count-1)begin
                     rdy = 1;
-                    next_last = send ? START : next_last;
+                    next_last = send ? ((data[0] ==0)?DATA_LOW_FIRST:DATA_HIGH_FIRST) : next_last;
                 end
                 else begin
                     rdy = 0;
@@ -133,7 +136,7 @@ module transmitter_fsm(
                 
                 if(count == max_count-1)begin
                     rdy=1;
-                    next_last = send ? START : next_last;
+                    next_last = send ? ((data[0] ==0)? DATA_LOW_FIRST : DATA_HIGH_FIRST) : next_last;
                 end
                 else begin
                     rdy = 0;
@@ -146,18 +149,25 @@ module transmitter_fsm(
                 txd = 1;
                 txen = 1;
                 
-                if(count == max_count-1)begin
-                    rdy=1;                    
-                    next_last = send ? START : next_last;
-                    if(bit_count == 0) begin
-                        next = data[count]== 0? last:DATA_LOW_SECOND ;//check timing here to see if last has changed or not
-                    end
+                if(count == max_count)begin
+                    rdy=1;
+                    next = last;    
+                    reset_counter = 1;            
+                    
+//                    if(bit_count == 0) begin
+//                        next = data[count]== 0? last:DATA_LOW_SECOND ;//check timing here to see if last has changed or not
+//                    end
                 end
+//                else if(count == max_count -1)begin
+//                    rdy = last_ready; //take previous value of ready. will only be high if previous state had it high
+//                end
                 else begin //read data and see where to go next
-                    rdy = 0; 
+                    rdy = last_ready; 
+                    next_last = send ? ((data[0] ==0)?DATA_LOW_FIRST:DATA_HIGH_FIRST) : next_last;
                     if(bit_count == 0) begin
                         next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
                     end
+                    else next = DATA_LOW_SECOND;
                 end
             end
             
@@ -167,18 +177,24 @@ module transmitter_fsm(
                 txd = 0;
                 txen = 1;
                 
-                if(count == max_count-1)begin
+                if(count == max_count)begin
                     rdy=1;                    
-                    next_last = send ? START : next_last;
-                    if(bit_count == 0) begin
-                        next = data[count]== 0? last:DATA_HIGH_SECOND ;//check timing here to see if last has changed or not
-                    end
+                    next = last ;
+                    reset_counter = 1;
+//                    if(bit_count == 0) begin
+//                        next = data[count]== 0? last:DATA_HIGH_SECOND ;//check timing here to see if last has changed or not
+//                    end
                 end
+//                else if(count == max_count -1)begin
+//                    rdy = last_ready; //take previous value of ready. will only be high if previous state had it high
+//                end
                 else begin //read data and see where to go next
-                    rdy = 0; 
+                    rdy = last_ready; 
+                    next_last = send ? ((data[0] ==0)?DATA_LOW_FIRST:DATA_HIGH_FIRST) : next_last;
                     if(bit_count == 0) begin
                         next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
                     end
+                    else next = DATA_HIGH_SECOND;
                 end
             end
             
