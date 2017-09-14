@@ -27,13 +27,14 @@ module rtl_transmitter(
     input logic [7:0] data,
     output logic txd,
     output logic txen,
-//    output logic [2:0] curr_state,
     output logic rdy
     );
     
     
     parameter BAUD = 50000;
     parameter BAUD2 = 100000;
+    parameter WAIT_BITS = 2;
+    
     logic clk_baud_out;
     logic baud_pulse_out;
     logic [3:0] counter_out;
@@ -59,7 +60,6 @@ module rtl_transmitter(
     logic baud_pulse_2_out;
     logic [3:0] bit_counter_out;
     logic [3:0] wait_counter_out;
-//    assign curr_state = 3'd0;
     
     
     
@@ -75,14 +75,14 @@ module rtl_transmitter(
     bcdcounter #(.COUNT_CEILING(2)) U_2_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & one_bit_sending), .Q(bit_counter_out));
     
     //counts time for two bits to send. waiting in IDLE state
-    bcdcounter #(.COUNT_CEILING(5)) U_WAIT_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & waiting), .Q(wait_counter_out));
+    bcdcounter #(.COUNT_CEILING(WAIT_BITS*2+1)) U_WAIT_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & waiting), .Q(wait_counter_out));
     
     
     //==========================================================================
-    transmitter_fsm U_FSM(.clk(clk_100mhz), .reset(reset), .send(send), .data(data), 
+    transmitter_fsm #(.WAIT_BITS(WAIT_BITS)) U_FSM(.clk(clk_100mhz), .reset(reset), .send(send), .data(data), 
                           .count(counter_out), .bit_count(bit_counter_out), .wait_counter(wait_counter_out),
                           .rdy(rdy), .txd(txd), .txen(txen), .reset_counter(reset_counter),
-                          .sending(sending), .one_bit_sending(one_bit_sending), .waiting(waiting)/*,.curr_state(curr_state)*/);
+                          .sending(sending), .one_bit_sending(one_bit_sending), .waiting(waiting));
     
     //use bcd counter to keep track of which bit was sent last
     //fsm to move between states(READY SENDING 

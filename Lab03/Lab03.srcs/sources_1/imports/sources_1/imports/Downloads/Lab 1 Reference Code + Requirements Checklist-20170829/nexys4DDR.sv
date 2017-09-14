@@ -46,15 +46,14 @@ module nexys4DDR (
   // add SystemVerilog code & module instantiations here
   
     logic debounced_reset;
-//    logic debounced_send;
-    assign rdy_ext = LED[0];
+    assign LED[0] = rdy_ext;
     logic send_int;
     logic [7:0] data;
     assign send = send_int;
     
-//    assign JB = 3'd0;
+    //assign JB = 3'd0;
     
-    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(SW[5:0]),.send(send_int),.data(data),.ready(LED[0]));
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(SW[5:0]),.send(send_int),.data(data),.ready(rdy_ext));
     
     //Debouncers for the reset and send buttons
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
@@ -64,7 +63,7 @@ module nexys4DDR (
     //debounce U_SEND_PULSE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(pulse_run)); 
     
     rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send_int),.data(data),
-                           .txd(txd_ext),.rdy(LED[0]),.txen(txen)/*,.curr_state(JB[2:0])*/);
+                           .txd(txd_ext),.rdy(rdy_ext),.txen(txen)/*,.curr_state(JB[2:0])*/);
    
 
 
