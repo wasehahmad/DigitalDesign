@@ -25,7 +25,7 @@
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Lab03.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="nexys4_ddr"/>
-    <Option Name="WTXSimLaunchSim" Val="154"/>
+    <Option Name="WTXSimLaunchSim" Val="205"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -147,17 +147,10 @@
     </FileSet>
     <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sim_1/imports/Downloads/check_p.sv">
+      <File Path="$PSRCDIR/sim_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2_bench.sv">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/check_p.sv"/>
-          <Attr Name="ImportTime" Val="1505498543"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sim_1/new/rtl_transmitter_self_check_bench.sv">
-        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/mxtest_2 - Extended mxtest module-20170913/mxtest_2_bench.sv"/>
+          <Attr Name="ImportTime" Val="1474062860"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -173,11 +166,19 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sim_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2_bench.sv">
+      <File Path="$PSRCDIR/sim_1/imports/Downloads/check_p.sv">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/mxtest_2 - Extended mxtest module-20170913/mxtest_2_bench.sv"/>
-          <Attr Name="ImportTime" Val="1474062860"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/check_p.sv"/>
+          <Attr Name="ImportTime" Val="1505498543"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/rtl_transmitter_self_check_bench.sv">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -205,7 +206,7 @@
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="rtl_transmitter_self_check_bench"/>
+        <Option Name="TopModule" Val="mxtest_bench"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>

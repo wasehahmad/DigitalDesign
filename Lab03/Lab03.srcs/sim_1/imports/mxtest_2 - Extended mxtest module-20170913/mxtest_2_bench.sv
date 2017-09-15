@@ -76,8 +76,9 @@ module mxtest_bench;
 	   // Wait 100 ns for global reset to finish
 		#100;
 	   @(posedge clk) #1;
+       run = 1;
 	   reset = 0;
-	   run = 1;
+
 	   repeat (400) @(posedge clk) #1;
 	   $stop;
 	end

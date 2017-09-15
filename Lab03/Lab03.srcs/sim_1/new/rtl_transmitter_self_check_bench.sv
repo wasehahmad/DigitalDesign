@@ -43,13 +43,14 @@ module rtl_transmitter_self_check_bench;
         #5 clk = 1;
         #5 ;
     end
-    
+
+    //=======================================================================================    
     //test steady state txd = 1, rdy = 1, txen = 0
     task check_no_transmission;
         integer i;
         
         reset = 1;
-        @(posedge clk) #1;
+        repeat(10)@(posedge clk); #1;
         reset = 0;
         for (i = 0; i <= 100; i++) begin
             check_ok("txen no transmission check", txen, 0);
@@ -58,12 +59,13 @@ module rtl_transmitter_self_check_bench;
             repeat(10) @(posedge clk);
         end
     endtask
-    
+
+    //=======================================================================================    
     task check_ready;
         integer i;
         
         reset = 1;
-        @(posedge clk) #1;
+        repeat(10)@(posedge clk); #1;
         reset = 0;
         send = 1;
         data = 8'b01010101;
@@ -82,13 +84,42 @@ module rtl_transmitter_self_check_bench;
             repeat(1000) @(posedge clk);
         end
     endtask
+//=======================================================================================    
+    task check_txen;
+        integer i;
+                
+        reset = 1;
+        repeat(10)@(posedge clk); #1;
+        reset = 0;
+        check_ok("TXEN is low before send is first asserted", txen, 0);  
+        send = 1;
+        data = 8'b00000000;
+        @(posedge clk);
+        #1;
+        check_ok("TXEN goes high after send is asserted", txen, 1);
+        send = 0;   
+        //check that txen goes high 
+        for(i=0;i<8;i++)begin //check that it remains high till the end of the last bit
+            repeat(2000) @(posedge clk); #1;
+            check_ok("TXEN stays high for all the bits", txen, 1);
+        end
+        for(i=0;i<4;i++)begin //check that it remains high till the end of the last bit
+            check_ok("TXEN Stays high for EOF", txen, 0);
+            repeat(1000) @(posedge clk); #1;        
+        end
+        @(posedge clk) #1;
+        check_ok("TXEN is low after EOF", txen, 0);
+         
+    endtask
 
-    
+ 
+//=======================================================================================   
     initial begin
         reset = 0;
         send = 0;
         check_no_transmission;
         check_ready;
+        check_txen;
     end
     
     

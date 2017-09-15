@@ -77,35 +77,14 @@ module transmitter_fsm(
         
             IDLE: begin
                 next_last = ENDED;
-                if (send) next = START;
+                if (send)begin
+                    sending = 1;
+                    one_bit_sending = 1;
+                    next = data[count]==0? DATA_LOW_FIRST : DATA_HIGH_FIRST;
+                end
                 else next = IDLE;
             end
-            
-            START: begin //transition to start sending the bits //dont come back to this state again //
-                rdy = 0;
-                txen = 1;
-                if(data[count] == 0)begin
-                    next = DATA_LOW_FIRST;
-                end
-                else begin
-                    next = DATA_HIGH_FIRST;
-                end
-//                if(count == max_count)begin
-//                    next = last;
-//                    next_last = ENDED;
-                    
-//                end
-//                else begin
-//                    if(data[count] == 0)begin
-//                        next = DATA_LOW_FIRST;
-//                    end
-//                    else begin
-//                        next = DATA_HIGH_FIRST;
-//                    end  
-//                end
-                
-            end
-
+                       
             DATA_LOW_FIRST:begin 
                 
                 one_bit_sending = 1;
