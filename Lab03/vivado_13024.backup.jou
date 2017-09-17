@@ -1,0 +1,122 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Fri Sep 15 16:07:51 2017
+# Process ID: 13024
+# Current directory: C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6396 C:\Users\ahmadw\Desktop\ECE491\DigitalDesign\Lab03\Lab03.xpr
+# Log file: C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/vivado.log
+# Journal file: C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.runs/impl_1/nexys4DDR.bit} [lindex [get_hw_devices] 0]
+current_hw_device [lindex [get_hw_devices] 0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices] 0]
+set_property PROBES.FILE {} [lindex [get_hw_devices] 0]
+set_property PROGRAM.FILE {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab03/Lab03.runs/impl_1/nexys4DDR.bit} [lindex [get_hw_devices] 0]
+program_hw_devices [lindex [get_hw_devices] 0]
+refresh_hw_device [lindex [get_hw_devices] 0]
+launch_simulation
+source rtl_transmitter_self_check_bench.tcl
+run 10 ms
+run 10 ms
+close_sim
+launch_simulation
+source rtl_transmitter_self_check_bench.tcl
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rtl_transmitter_bench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source rtl_transmitter_bench.tcl
+relaunch_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top mxtest_bench [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source mxtest_bench.tcl
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+close_sim
+launch_simulation
+source mxtest_bench.tcl
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+relaunch_sim
+run 10 ms
+run 10 ms
+close_sim
+current_sim simulation_3
+close_sim
+close_sim

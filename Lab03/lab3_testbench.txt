@@ -1,14 +1,6 @@
 NEED TO DO
 
-4.  TXEN should be low when nothing is being transmitted
-5.  TXEN is high until the end of the EOF
 
-6.  When TXD is 0, the first half of the bit is low, sencond half is high (10 us == 1000 clock cycles???)
-7.  When TXD is 1, the first half of the bit is high, sencond half is low (10 us == 1000 clock cycles???)
-8.  Total byte time is 160 us (16000 clock cycles??)
-9.  TXD matches data (test first 2 bits and last 2 bits)
-10. Transmission of 2 bytes takes 320 us (32000 clock cycles)
-11. At the end of the byte when send is low, TXD is high for two cycles (EOF) and TXEN is high as well
 
 
 
@@ -20,4 +12,12 @@ IMPLEMENTED
 2.  Ready is low from bits 0-6 of the transmission
 3.  Ready is high when notihng is being transmitted
 
+4.  TXEN should be low when nothing is being transmitted
+5.  TXEN is high until the end of the EOF
 
+6.  When TXD is 0, the first half of the bit is low, sencond half is high (10 us == 1000 clock cycles???)
+7.  When TXD is 1, the first half of the bit is high, sencond half is low (10 us == 1000 clock cycles???)
+8.  Total byte time is 160 us (16000 clock cycles??)
+9.  TXD matches data (test first 2 bits and last 2 bits)
+10. Transmission of 2 bytes takes 320 us (32000 clock cycles)
+11. At the end of the byte when send is low, TXD is high for two cycles (EOF) and TXEN is high as well

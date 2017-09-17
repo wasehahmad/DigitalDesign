@@ -99,19 +99,97 @@ module rtl_transmitter_self_check_bench;
         check_ok("TXEN goes high after send is asserted", txen, 1);
         send = 0;   
         //check that txen goes high 
-        for(i=0;i<8;i++)begin //check that it remains high till the end of the last bit
+        for(i=0;i<7;i++)begin //check that it remains high till the end of the last bit
             repeat(2000) @(posedge clk); #1;
             check_ok("TXEN stays high for all the bits", txen, 1);
         end
-        for(i=0;i<4;i++)begin //check that it remains high till the end of the last bit
-            check_ok("TXEN Stays high for EOF", txen, 0);
-            repeat(1000) @(posedge clk); #1;        
+        do begin
+            #1;
+        end while(rdy==0);//move to the beginning of last bit
+        for(i=0;i<3;i++)begin
+            check_ok("TXEN stays high for last bit and EOF", txen, 1);
+            repeat(2000) @(posedge clk); #1;
         end
         @(posedge clk) #1;
         check_ok("TXEN is low after EOF", txen, 0);
          
     endtask
+//=======================================================================================   
 
+
+    task check_txd;
+        integer i;
+                        
+        reset = 1;
+        repeat(10)@(posedge clk); #1;
+        reset = 0;
+        #1;
+        data = 8'b10101010;
+        send = 1;
+        //check first half is low, second half is high
+        @(posedge clk);
+        #1; send =0; i=0;
+        do begin
+            @(posedge clk);i++;
+            check("TXD is low first for a 0 bit",txd,0);             
+        end while(i<=1000);
+        @(posedge clk); #1;
+        i=0;//reset i
+        do begin
+            @(posedge clk);i++;
+            check("TXD is high second for a 0 bit",txd,1);             
+        end while(i<=1000);
+        i=0;//reset i
+        do begin
+            
+            check("TXD is high First for a 1 bit",txd,1);
+            @(posedge clk);i++;             
+        end while(i<1000);
+        i=0;//reset i
+        do begin
+            
+            check("TXD is low second for a 1 bit",txd,0);  
+            @(posedge clk);i++;           
+        end while(i<1000);
+        
+    endtask
+//=======================================================================================   
+
+    task check_consecutive_bytes;
+        integer count;
+                        
+        reset = 1;
+        repeat(1000)@(posedge clk); #1;
+        reset = 0;
+        #1;
+        data = 8'b10101010;
+        send = 1;
+        @(posedge clk);
+        #1; count = 0;
+        do begin
+            count++;
+            @(posedge clk);                
+        end while(rdy == 0);
+        do begin
+            count++;
+            @(posedge clk);                
+        end while(rdy == 1);
+        assert(count > 15990 && count <16010);$display ("OK. One byte transmission takes approximately 16000 clock cycles");//20 clock cycle error window
+        do begin
+            count++;
+            @(posedge clk);                
+        end while(rdy == 0);
+        do begin
+            count++;
+            @(posedge clk);                
+        end while(rdy == 1);
+        @(posedge clk);
+        assert(count > 31990 && count <32010);$display ("OK. Two byte transmission takes approximately 32000 clock cycles");//20 clock cycle error window
+
+    
+    endtask 
+ 
+ 
  
 //=======================================================================================   
     initial begin
@@ -120,6 +198,8 @@ module rtl_transmitter_self_check_bench;
         check_no_transmission;
         check_ready;
         check_txen;
+        check_txd;
+        check_consecutive_bytes;
     end
     
     
