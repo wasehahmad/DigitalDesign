@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Fri Sep 15 16:30:14 2017
+| Date             : Sun Sep 17 13:14:06 2017
 | Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.103 |
-| Dynamic (W)              | 0.006 |
+| Total On-Chip Power (W)  | 0.102 |
+| Dynamic (W)              | 0.005 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.5  |
@@ -50,16 +50,16 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      285 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      113 |     63400 |            0.18 |
+| Slice Logic    |    <0.001 |      284 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      112 |     63400 |            0.18 |
 |   CARRY4       |    <0.001 |       15 |     15850 |            0.09 |
 |   Register     |    <0.001 |      100 |    126800 |            0.08 |
 |   F7/F8 Muxes  |    <0.001 |        1 |     63400 |           <0.01 |
 |   Others       |     0.000 |       12 |       --- |             --- |
-| Signals        |    <0.001 |      220 |       --- |             --- |
-| I/O            |     0.004 |       14 |       210 |            6.67 |
+| Signals        |    <0.001 |      218 |       --- |             --- |
+| I/O            |     0.003 |       14 |       210 |            6.67 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.103 |          |           |                 |
+| Total          |     0.102 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -138,7 +138,7 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| nexys4DDR              |     0.006 |
+| nexys4DDR              |     0.005 |
 |   U_RESET_DEBOUNCE     |    <0.001 |
 |   U_TEST               |    <0.001 |
 |   U_TRANSMITTER        |    <0.001 |
