@@ -56,6 +56,29 @@ module receiver_bench;
         rxd = 0;//start
         repeat(10417) @(posedge clk);
         
+        rxd = 0;
+        repeat(10417) @(posedge clk);
+        rxd = 0;
+        repeat(10417) @(posedge clk);
+        rxd = 0;
+        repeat(10417) @(posedge clk);
+        rxd = 0;
+        repeat(10417) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        
+        rxd = 1;//stop
+        repeat(10417) @(posedge clk);
+        
+        rxd = 0;//start
+        repeat(10417) @(posedge clk);
+        
         rxd = 1;
         repeat(10417) @(posedge clk);
         rxd = 0;
@@ -73,10 +96,8 @@ module receiver_bench;
         rxd = 0;
         repeat(10417) @(posedge clk);
         
-        rxd = 0;
+        rxd = 1;//stop
         repeat(10417) @(posedge clk);
-        
-        rxd = 1;
 
         
             
