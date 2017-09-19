@@ -46,8 +46,8 @@ module nexys4DDR (
     receiver_top U_RECEIVER(.clk(CLK100MHZ), .reset(BTNC), .rxd(UART_TXD_IN), .rdy(LED[0]), .data(data), .ferr(LED[1]));
 
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(BTNC),
-                    .d0(data[0]),.d1(data[1]),.d2(data[2]),.d3(data[3]),.d4(data[4]),.d5(data[5]),.d6(data[6]),.d7(data[7]),
-                    .dp0(0),.dp1(0),.dp2(0),.dp3(0),.dp4(0),.dp5(0),.dp6(0),.dp7(0),
+                    .d0(data[3:0]),.d1(data[7:4]),.d2(0),.d3(0),.d4(0),.d5(0),.d6(0),.d7(0),
+                    .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
 
    
