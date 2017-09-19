@@ -1,0 +1,17 @@
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 60909ac0284d4bc8aca8621b6e07218e --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot receiver_bench_behav xil_defaultlib.receiver_bench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv" Line 20. Module clkenb(DIVFREQ=153600) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv" Line 20. Module clkenb(DIVFREQ=153600) doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.clkenb(DIVFREQ=153600)
+Compiling module xil_defaultlib.receiver_fsm
+Compiling module xil_defaultlib.receiver_top_default
+Compiling module xil_defaultlib.receiver_bench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot receiver_bench_behav
