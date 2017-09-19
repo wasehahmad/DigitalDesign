@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad & Geoff Watson
 // 
 // Create Date: 09/05/2017 09:16:13 AM
 // Design Name: 
@@ -15,7 +15,7 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+// This module is test bench implemented for the teting of the manchester transmitter
 //////////////////////////////////////////////////////////////////////////////////
 
 

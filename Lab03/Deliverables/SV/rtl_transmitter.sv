@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad and Geoff Watson
 // 
 // Create Date: 09/04/2017 04:12:52 PM
 // Design Name: 
@@ -16,7 +16,7 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+// This module is the top level module for the manchester transmitter
 //////////////////////////////////////////////////////////////////////////////////
 
 

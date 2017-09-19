@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad & Geoff Watson
 // 
 // Create Date: 09/05/2017 08:23:44 AM
 // Design Name: 
@@ -16,7 +16,7 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+// This module provides the FSM for the transmission of data according to the manchester standard
 //////////////////////////////////////////////////////////////////////////////////
 
 

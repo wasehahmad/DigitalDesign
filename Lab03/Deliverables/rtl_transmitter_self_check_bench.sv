@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad & Geoff Watson
 // 
 // Create Date: 09/12/2017 10:34:47 AM
 // Design Name: 
@@ -16,7 +16,7 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
+// This module is the self checking testbench for a manchester transmitter
 //////////////////////////////////////////////////////////////////////////////////
 
 
