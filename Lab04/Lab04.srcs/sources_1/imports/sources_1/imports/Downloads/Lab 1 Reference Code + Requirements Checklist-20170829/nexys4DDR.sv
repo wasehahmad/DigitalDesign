@@ -35,20 +35,22 @@ module nexys4DDR (
 		  output logic [1:0]  LED,
 		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
-//		  output logic        UART_RXD_OUT,
+		  output logic        UART_RXD_OUT,
 		  output logic        txd_ext,
-		  output logic        rdy_ext,
+//		  output logic        rdy_ext,
 		  output logic        ferr
 //		  output logic        UART_CTS		  
             );
-            
+    logic rdy;    
+        
     assign ferr= LED[1];
-//    assign UART_RXD_OUT = 1;
-    assign rdy_ext = LED[0];
+    assign UART_RXD_OUT = 1;
+    assign LED[0] = rdy;
+//    assign rdy_ext = rdy;
     assign txd_ext = UART_TXD_IN;
   // add SystemVerilog code & module instantiations here
     logic [7:0] data;
-    receiver_top U_RECEIVER(.clk(CLK100MHZ), .reset(BTNC), .rxd(UART_TXD_IN), .rdy(LED[0]), .data(data), .ferr(LED[1]));
+    receiver_top U_RECEIVER(.clk(CLK100MHZ), .reset(BTNC), .rxd(UART_TXD_IN), .rdy(rdy), .data(data), .ferr(LED[1]));
 
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(BTNC),
                     .d0(data[3:0]),.d1(data[7:4]),.d2(0),.d3(0),.d4(0),.d5(0),.d6(0),.d7(0),
