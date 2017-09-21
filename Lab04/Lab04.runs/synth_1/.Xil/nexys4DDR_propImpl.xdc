@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:{C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc} rfile:{../../../Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc} id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc} rfile:{../../../Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc} id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { CLK100MHZ }]; #IO_L12P_T1_MRCC_35 Sch=clk100mhz
 set_property src_info {type:XDC file:1 line:33 export:INPUT save:INPUT read:READ} [current_design]
@@ -39,5 +39,11 @@ set_property src_info {type:XDC file:1 line:77 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN U13   IOSTANDARD LVCMOS33 } [get_ports { AN[7] }]; #IO_L23N_T3_A02_D18_14 Sch=AN[7]
 set_property src_info {type:XDC file:1 line:84 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
+set_property src_info {type:XDC file:1 line:96 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33 } [get_ports {txd_ext}]; #IO_L20N_T3_A19_15 Sch=ja[1]
+set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { rdy_ext }]; #IO_L21N_T3_DQS_A18_15 Sch=ja[2]
+set_property src_info {type:XDC file:1 line:98 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports { ferr }]; #IO_L21P_T3_DQS_15 Sch=ja[3]
 set_property src_info {type:XDC file:1 line:219 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN C4    IOSTANDARD LVCMOS33 } [get_ports { UART_TXD_IN }]; #IO_L7P_T1_AD6P_35 Sch=uart_txd_in

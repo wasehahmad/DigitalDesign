@@ -47,7 +47,7 @@ module receiver_bench;
     task send_data_task;
         integer i;
         
-        for(i=0;i<10;i++)begin
+        for(i=0;i<5;i++)begin
             rxd = 0;//start
             repeat(10417) @(posedge clk);
             
@@ -76,6 +76,7 @@ module receiver_bench;
    
         // initial block generates stimulus
     initial begin
+        rxd = 1;
         reset = 0;
         @(posedge clk);
         // do a reset and check that it worked
@@ -84,24 +85,31 @@ module receiver_bench;
         #1;
         reset = 0;
         
+        repeat(10417) @(posedge clk);
+        rxd = 0;
+        repeat(1000) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        
+        
         rxd = 0;//start
         repeat(10417) @(posedge clk);
         
         rxd = 0;
         repeat(10417) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
         rxd = 0;
         repeat(10417) @(posedge clk);
         rxd = 0;
         repeat(10417) @(posedge clk);
         rxd = 0;
         repeat(10417) @(posedge clk);
-        rxd = 1;
+        rxd = 0;
         repeat(10417) @(posedge clk);
-        rxd = 1;
+        rxd = 0;
         repeat(10417) @(posedge clk);
-        rxd = 1;
-        repeat(10417) @(posedge clk);
-        rxd = 1;
+        rxd = 0;
         repeat(10417) @(posedge clk);
         
         rxd = 1;//stop
@@ -163,7 +171,13 @@ module receiver_bench;
         repeat(10417) @(posedge clk);
         rxd = 1;//stop
         repeat(10417) @(posedge clk);
-
+        
+        
+        rxd = 0;
+        repeat(1000) @(posedge clk);
+        rxd = 1;
+        repeat(10417) @(posedge clk);
+        send_data_task;
         
             
         

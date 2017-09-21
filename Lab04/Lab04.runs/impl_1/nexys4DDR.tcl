@@ -48,16 +48,17 @@ set_msg_config -id {HDL 9-1654} -limit 100000
 start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
   set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir {C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.xpr} [current_project]
-  set_property ip_repo_paths {{c:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.cache/ip}} [current_project]
-  set_property ip_output_repo {{c:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.cache/ip}} [current_project]
-  add_files -quiet {{C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.runs/synth_1/nexys4DDR.dcp}}
-  read_xdc {{C:/Users/watsongd/Desktop/491 Labs/DigitalDesign/Lab04/Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc}}
+  set_property webtalk.parent_dir C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.cache/wt [current_project]
+  set_property parent.project_path C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.xpr [current_project]
+  set_property ip_repo_paths c:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.cache/ip [current_project]
+  set_property ip_output_repo c:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.cache/ip [current_project]
+  add_files -quiet C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.runs/synth_1/nexys4DDR.dcp
+  read_xdc {{C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc}}
   link_design -top nexys4DDR -part xc7a100tcsg324-1
   write_hwdef -file nexys4DDR.hwdef
   close_msg_db -file init_design.pb

@@ -37,6 +37,7 @@ module receiver_fsm(
     logic [4:0] count, ncount;
     logic [3:0] bit_count, n_bit_count;
     logic data_en;
+    logic ferr_next;
     
     typedef enum logic[2:0] {
             IDLE=3'd0, SPUR_CHK=3'd1, RECEIVING=3'd2,  FERR_CHK=3'd3, FERR_SEEN=3'd4, START = 3'd5
@@ -51,6 +52,7 @@ module receiver_fsm(
                 count <= 0;
                 bit_count <= 0;
                 data <=8'b11111111;
+                ferr<=0;
                 
             end
             else begin
@@ -59,24 +61,27 @@ module receiver_fsm(
                 count <= ncount;
                 bit_count <= n_bit_count;
                 data <= data_en ? {rxd,data[7:1]} : data;
+                ferr<=ferr_next;
             end
         end
         
         always_comb begin
             //defaults
             rdy = 1;
-            ferr = 0;
             ncount = count;
             n_bit_count = bit_count;
             restart_16_clk = 0;
             temp_data = 0;
             data_en = 0;
             n_start_state = IDLE;
+            ferr_next = 0;
 
 
             
             unique case (state)
-                START: begin
+
+            
+                START: begin 
                     n_start_state = START;
                     rdy = 0; 
                     if (rxd == 0) begin 
@@ -88,6 +93,7 @@ module receiver_fsm(
                 
             
                 IDLE: begin
+                    ferr_next = ferr;
                     if (rxd == 0) begin 
                         next = SPUR_CHK;
                         restart_16_clk = 1;
@@ -96,9 +102,12 @@ module receiver_fsm(
                 end
                 
                 SPUR_CHK: begin
+                    ferr_next = ferr;
                     if (baud16_clk) ncount = count + 1;
-                    if(start_state == START)n_start_state = START;
-                    
+                    if(start_state == START)begin
+                        n_start_state = START;
+                        rdy = 0;
+                    end
                     if (count == 8) begin
                         ncount = 0;
                         n_bit_count = 0;
@@ -139,7 +148,7 @@ module receiver_fsm(
                 
                 FERR_SEEN: begin
                     rdy = 0;
-                    ferr = 1;
+                    ferr_next = 1;
                     if (rxd == 0)next = FERR_SEEN;
                     else next = IDLE;
                 end
