@@ -92,6 +92,18 @@ module receiver_bench;
         repeat(10417) @(posedge clk);
         
         
+        
+        
+        //============================== ferr
+        rxd = 0;
+        #10000000;
+        rxd = 1;
+        repeat(20417) @(posedge clk);
+        
+        
+        //==============================
+        
+        
         rxd = 0;//start
         repeat(10417) @(posedge clk);
         

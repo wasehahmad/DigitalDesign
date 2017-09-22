@@ -22,9 +22,10 @@
 module nexys4DDR (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
-//		  input logic [7:0]   SW,
+		  input logic [7:0]   SW,
+		  input logic         run,
 		  input logic 	      BTNC,
-//		  input logic 	      BTNU, 
+		  input logic 	      BTNU, 
 //		  input logic 	      run, 
 //		  input logic 	      BTNL, 
 //		  input logic 	      BTNR,
@@ -36,21 +37,46 @@ module nexys4DDR (
 		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
-		  output logic        txd_ext,
-//		  output logic        rdy_ext,
-		  output logic        ferr
+		  output logic        transmitted,
+		  output logic        ferr,
+		  output logic        rxd_rdy
+//		  output logic        ferr
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
         
-    assign ferr= LED[1];
+//    assign ferr= LED[1];
+//    assign UART_RXD_OUT = 1;
+    
+
+    logic debounced_send;
+    logic cont_send;
+    logic send;
+    assign send = debounced_send | cont_send;
+    logic txd;
+    logic rxd;
+    
+    assign rxd = UART_TXD_IN; 
     assign UART_RXD_OUT = 1;
-    assign LED[0] = rdy;
-//    assign rdy_ext = rdy;
-    assign txd_ext = UART_TXD_IN;
+   
+
+    
+    
   // add SystemVerilog code & module instantiations here
     logic [7:0] data;
-    receiver_top U_RECEIVER(.clk(CLK100MHZ), .reset(BTNC), .rxd(UART_TXD_IN), .rdy(rdy), .data(data), .ferr(LED[1]));
+    logic [7:0] data_2;
+    
+    assign transmitted = txd;  
+    
+    
+    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(debounced_send));
+    debounce U_SEND_CONT(.clk(CLK100MHZ), .button_in(run), .button_out(cont_send));
+    
+    rtl_transmitter(.clk_100mhz(CLK100MHZ),.reset(BTNC),.send(send),.data(SW[7:0]),.txd(txd),.rdy());
+    
+    receiver_top U_RECEIVER_RTERM(.clk(CLK100MHZ), .reset(BTNC), .rxd(rxd), .rdy(LED[0]), .data(data), .ferr(LED[1]));
+    
+    receiver_top U_RECEIVER_TXD(.clk(CLK100MHZ), .reset(BTNC), .rxd(txd), .rdy(rxd_rdy), .data(data_2), .ferr(ferr));
 
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(BTNC),
                     .d0(data[3:0]),.d1(data[7:4]),.d2(0),.d3(0),.d4(0),.d5(0),.d6(0),.d7(0),

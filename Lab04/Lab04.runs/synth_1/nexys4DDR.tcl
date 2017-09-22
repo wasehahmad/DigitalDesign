@@ -17,12 +17,17 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
 read_verilog -library xil_defaultlib -sv {
+  C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/new/transmitter_fsm.sv
+  {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 2 Reference Code-20170919/single_pulser.sv}
+  {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv}
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/lab01_7_segment/seven_seg.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/new/receiver_fsm.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/lab01_7_segment/mux8_parm.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/lab01_7_segment/decoder_3_8_en.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/lab01_7_segment/lab01_7_segment.srcs/sources_1/new/counter.sv
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv}
+  {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/Downloads/Lab 2 Reference Code-20170919/debounce.sv}
+  C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/new/rtl_transmitter.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/new/receiver_top.sv
   C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/lab01_7_segment/dispctl.sv
   {C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab04/Lab04.srcs/sources_1/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv}
