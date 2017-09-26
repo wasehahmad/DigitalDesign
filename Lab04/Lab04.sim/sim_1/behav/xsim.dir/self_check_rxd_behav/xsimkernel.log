@@ -1,0 +1,4 @@
+Running: xsim.dir/self_check_rxd_behav/xsimk.exe -simmode gui -wdb self_check_rxd_behav.wdb -simrunnum 0 -socket 50723
+Design successfully loaded
+Design Loading Memory Usage: 8652 KB (Peak: 8652 KB)
+Design Loading CPU Usage: 0 ms
