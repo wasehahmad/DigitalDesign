@@ -63,10 +63,20 @@ module txd_rxd_bench;  // signals for connecting the counter
         
         txd_data = 8'h88;
         send = 1;
-        @(posedge clk);
-//        send = 0;
+        repeat(10417*9)@(posedge clk);
         
+        txd_data = 8'b01010101;
         
+        repeat(10417*9)@(posedge clk);
+        
+        txd_data = 8'b00110011;
+                
+        repeat(10417*9)@(posedge clk);
+        
+        txd_data = 8'b00001111;
+                
+        repeat(10417*9)@(posedge clk);
+        send = 0;
         
             
         
