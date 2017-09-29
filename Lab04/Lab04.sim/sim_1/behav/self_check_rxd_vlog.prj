@@ -1,9 +1,9 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  "../../../Lab04.srcs/sources_1/new/receiver_fsm.sv"
 sv xil_defaultlib  "../../../Lab04.srcs/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv"
+sv xil_defaultlib  "../../../Lab04.srcs/sources_1/imports/Downloads/Lab 3 Reference Code-20170919/check_p.sv"
 sv xil_defaultlib  "../../../Lab04.srcs/sources_1/new/receiver_top.sv"
-sv xil_defaultlib  "../../../Lab04.srcs/sim_1/imports/Lab 3 Reference Code-20170912/check_p.sv"
-sv xil_defaultlib  "../../../Lab04.srcs/sim_1/new/self_check_rxd.sv"
+sv xil_defaultlib  "../../../Lab04.srcs/sim_1/imports/new/self_check_rxd.sv"
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
