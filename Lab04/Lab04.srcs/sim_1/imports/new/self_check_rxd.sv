@@ -39,6 +39,15 @@ module self_check_rxd;
     #5 clk = 1;
     #5 ;
     end
+    
+    task send_0;
+        rxd = 0;
+        repeat(10417)@(posedge clk); #1;
+    endtask
+    task send_1;
+        rxd = 1;
+        repeat(10417)@(posedge clk); #1;
+    endtask
 
     //===================================SIM TEST 1==========================================    
     //test initial stsrt state rdy = 0, ferr = 0, data = 8'b00000000
@@ -84,32 +93,83 @@ module self_check_rxd;
         $display ("START: single byte reception ---------------------------------------------");
         reset = 0;
         rxd = 1;
-        repeat(100)@(posedge clk); #1;
-        rxd = 0;
-        repeat(10417)@(posedge clk); #1;//start bit
-        rxd = 1;
-        repeat(10417)@(posedge clk); #1;//bit 1
-        rxd = 0;
-        repeat(10417)@(posedge clk); #1;//bit 2
-        rxd = 1;
-        repeat(10417)@(posedge clk); #1;//bit 3
-        rxd = 0;
-        repeat(10417)@(posedge clk); #1;//bit 4
-        rxd = 1;
-        repeat(10417)@(posedge clk); #1;//bit 5
-        rxd = 0;
-        repeat(10417)@(posedge clk); #1;//bit 6
-        rxd = 1;
-        repeat(10417)@(posedge clk); #1;//bit 7
-        rxd = 0;
-        repeat(10417)@(posedge clk); #1;//bit 8
-        rxd = 1;
-        repeat(10417)@(posedge clk); #1;//stop bit
-        check_ok("rdy spurious start check", rdy, 1);
-        check_ok("ferr spurious start check", ferr, 0);
-        check_ok("data spurious start check", data, 8'b01010101);
+        repeat(1000)@(posedge clk); #1;
+        send_0;//start bit
+        send_1;//bit 1
+        send_0;//bit 2
+        send_1;//bit 3
+        send_0;//bit 4
+        send_1;//bit 5
+        send_0;//bit 6
+        send_1;//bit 7
+        send_0;//bit 8
+        send_1;//stop bit
+        check_ok("rdy single byte check", rdy, 1);
+        check_ok("ferr single byte check", ferr, 0);
+        check_ok("data single byte check", data, 8'b01010101);
         $display ("END: single byte reception -----------------------------------------------");
     endtask
+    
+    //===================================SIM TEST 4==========================================    
+    //test that we send a multiple byte correctly
+    task check_multiple_byte_reception;
+        integer i;
+        $display ("START: multiple byte reception ---------------------------------------------");
+        reset = 0;
+        rxd = 1;
+        repeat(1000)@(posedge clk); #1;
+        send_0;//start bit
+        send_1;//bit 1
+        send_1;//bit 2
+        send_0;//bit 3
+        send_0;//bit 4
+        send_1;//bit 5
+        send_1;//bit 6
+        send_0;//bit 7
+        send_0;//bit 8
+        send_1;//stop bit
+        check_ok("rdy multiple middle byte check", rdy, 1);
+        check_ok("ferr multiple middle byte check", ferr, 0);
+        check_ok("data multiple middle byte check", data, 8'b00110011);
+        send_0;//start bit
+        send_1;//bit 1
+        send_1;//bit 2
+        send_1;//bit 3
+        send_1;//bit 4
+        send_0;//bit 5
+        send_0;//bit 6
+        send_0;//bit 7
+        send_0;//bit 8
+        send_1;//stop bit
+        check_ok("rdy multiple last byte check", rdy, 1);
+        check_ok("ferr multiple last byte check", ferr, 0);
+        check_ok("data multiple last byte check", data, 8'b00001111);
+        $display ("END: multiple byte reception -----------------------------------------------");
+    endtask
+    
+    //===================================SIM TEST 5==========================================    
+    //test that we send a ackkowledge 
+    task check_framing_error_recognition;
+        integer i;
+        $display ("START:framing error reception ---------------------------------------------");
+        reset = 0;
+        rxd = 1;
+        repeat(1000)@(posedge clk); #1;
+        send_0;//start bit
+        send_1;//bit 1
+        send_1;//bit 2
+        send_1;//bit 3
+        send_1;//bit 4
+        send_1;//bit 5
+        send_1;//bit 6
+        send_1;//bit 7
+        send_0;//bit 8
+        send_0;//framing error
+        check_ok("rdy framing error check", rdy, 0);
+        check_ok("ferr framing error check", ferr, 1);
+        check_ok("data framing error check", data, 8'b01111111);
+        $display ("END: framing error reception -----------------------------------------------");
+    endtask    
     
     //=======================================================================================   
     initial begin
@@ -117,5 +177,7 @@ module self_check_rxd;
         check_start_state;
         check_spurious_start;
         check_single_byte_reception;
+        check_multiple_byte_reception;
+        check_framing_error_recognition;
     end
 endmodule
