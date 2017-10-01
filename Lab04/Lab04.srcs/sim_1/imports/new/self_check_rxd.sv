@@ -58,7 +58,7 @@ module self_check_rxd;
         rxd = 1;
         repeat(10)@(posedge clk); #1;
         reset = 0;
-        for (i = 0; i <= 100; i++) begin
+        for (i = 0; i <= 10; i++) begin
             check_ok("rdy start state check", rdy, 0);
             check_ok("ferr start state check", ferr, 0);
             check_ok("data start state check", data, 8'b11111111);
