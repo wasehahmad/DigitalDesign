@@ -147,7 +147,7 @@ module self_check_rxd;
         $display ("END: multiple byte reception -----------------------------------------------");
     endtask
     
-    //===================================SIM TEST 5==========================================    
+    //===================================SIM TEST 5===========================================  
     //test that we send a ackkowledge 
     task check_framing_error_recognition;
         integer i;
@@ -171,7 +171,7 @@ module self_check_rxd;
         $display ("END: framing error reception -----------------------------------------------");
     endtask    
     
-    //=======================================================================================   
+    //========================================================================================
     initial begin
         reset = 0;
         check_start_state;
