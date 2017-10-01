@@ -27,8 +27,6 @@ module txd_rxd_bench;  // signals for connecting the counter
       logic rdy;
       logic ferr;
       logic [7:0] rxd_data;
-      logic [7:0] not_data;
-      assign not_data = ~rxd_data;
       logic send;
       logic [7:0] txd_data;
       logic txd_rdy;
@@ -47,6 +45,14 @@ module txd_rxd_bench;  // signals for connecting the counter
        #5 ;
         end
 
+
+
+    task check_rxd_txd;
+        assert(rdy==1)$display("New data is ready to be received");
+        assert (rxd_data == txd_data) $display ("Received Data is the same as Transmittd data %b",rxd_data);
+        assert (ferr == 0)$display ("No Framing Error occurred at this transmission");
+
+    endtask
    
    
         // initial block generates stimulus
@@ -63,19 +69,21 @@ module txd_rxd_bench;  // signals for connecting the counter
         
         txd_data = 8'h88;
         send = 1;
-        repeat(10417*9)@(posedge clk);
+        repeat(10417*10)@(posedge clk);
+        @(posedge clk);check_rxd_txd;
         
         txd_data = 8'b01010101;
+        repeat(10417*10)@(posedge clk);
+        @(posedge clk);check_rxd_txd;
         
-        repeat(10417*9)@(posedge clk);
+        txd_data = 8'b00110011;       
+        repeat(10417*10)@(posedge clk);
+        @(posedge clk);check_rxd_txd;
         
-        txd_data = 8'b00110011;
-                
-        repeat(10417*9)@(posedge clk);
+        txd_data = 8'b00001111;                
+        repeat(10417*10)@(posedge clk);
+        @(posedge clk);check_rxd_txd;
         
-        txd_data = 8'b00001111;
-                
-        repeat(10417*9)@(posedge clk);
         send = 0;
         
             
