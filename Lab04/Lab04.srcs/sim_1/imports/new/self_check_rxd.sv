@@ -177,7 +177,9 @@ module self_check_rxd;
         check_start_state;
         check_spurious_start;
         check_single_byte_reception;
+        repeat(100000)@(posedge clk);
         check_multiple_byte_reception;
         check_framing_error_recognition;
+        check_single_byte_reception;
     end
 endmodule
