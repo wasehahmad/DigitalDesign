@@ -1,3 +1,6 @@
 *.jou
 *.str
 *.ini
+*.log
+*.wdf
+*.wdm
