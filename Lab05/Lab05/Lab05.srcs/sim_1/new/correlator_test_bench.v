@@ -40,6 +40,7 @@ module correlator_test_bench;
     logic reset;
     logic enb;
     logic d_in;
+    logic din_rxd;
     logic [4:0] csum_0;
     logic h_out_0,l_out_0;
     logic [4:0] csum_1;
@@ -50,14 +51,26 @@ module correlator_test_bench;
     //one tenth of the clock frequency is the sample rate
     clkenb #(.DIVFREQ(10000000)) U_SAMPLE_CLOCK(.clk(clk),.reset(reset),.enb(samp_clk));
     
+    //sampling the transmitted data at the BAUD RATE
+    always_ff @(posedge clk) begin
+        if(samp_clk) din_rxd  = d_in_noisy;
+        else din_rxd = d_in_noisy;
     
-//    logic d_out;
-//    jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(d_in_noisy),.dout(d_out));
+    end
     
+    logic d_out;
+    jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(din_rxd),.dout(d_out));
+    
+    //output to see where we synchronize
+    logic sync_falling;
+    logic sync_rising;
+    
+    single_pulser U_RISE(.clk(clk), .din(h_out_0), .d_pulse(sync_rising));
+    single_pulser U_FALL(.clk(clk), .din(h_out_1), .d_pulse(sync_falling));
 
 
-    correlator #(.PATTERN(16'b0000000011111111)) DUV_0(.clk(clk),.reset(reset),.enb(enb),.d_in(d_in_noisy),.csum(csum_0),.h_out(h_out_0),.l_out(l_out_0));
-    correlator #(.PATTERN(16'b1111111100000000)) DUV_1(.clk(clk),.reset(reset),.enb(enb),.d_in(d_in_noisy),.csum(csum_1),.h_out(h_out_1),.l_out(l_out_1));
+    correlator #(.PATTERN(16'b0000000011111111)) DUV_0(.clk(clk),.reset(reset),.enb(enb && samp_clk ),.d_in(d_out),.csum(csum_0),.h_out(h_out_0),.l_out(l_out_0));
+    correlator #(.PATTERN(16'b1111111100000000)) DUV_1(.clk(clk),.reset(reset),.enb(enb && samp_clk ),.d_in(d_out),.csum(csum_1),.h_out(h_out_1),.l_out(l_out_1));
     
     task send_0;
         d_in = 0;
