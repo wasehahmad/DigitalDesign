@@ -3,16 +3,20 @@
 // Project       : ECE 491
 //-----------------------------------------------------------------------------
 // File          : nexys4DDR.sv
-// Author        : Waseh Ahmad & Geoff Watson
-// Created       : 9.26.2017
+// Author        : John Nestor  <nestorj@nestorj-mbpro-15>
+// Created       : 22.07.2016
+// Last modified : 22.07.2016
 //-----------------------------------------------------------------------------
 // Description :
-// This file provides a starting point for Lab 4 and includes some basic I/O
+// This file provides a starting point for Lab 1 and includes some basic I/O
 // ports.  To use, un-comment the port declarations and the corresponding
 // configuration statements in the constraints file "Nexys4DDR.xdc".
 // This module only declares some basic i/o ports; additional ports
 // can be added - see the board documentation and constraints file
 // more information
+//-----------------------------------------------------------------------------
+// Modification history :
+// 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
 module nexys4DDR (

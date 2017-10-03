@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad & Geoff Watson
 // 
 // Create Date: 09/19/2017 08:12:16 AM
 // Design Name: 
