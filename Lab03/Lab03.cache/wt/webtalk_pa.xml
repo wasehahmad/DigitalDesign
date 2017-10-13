@@ -3,7 +3,11 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< Updated upstream
 <application name="pa" timeStamp="Sun Sep 17 20:32:46 2017">
+=======
+<application name="pa" timeStamp="Mon Sep 18 20:55:10 2017">
+>>>>>>> Stashed changes
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="45ee9d688ea54146a8ff325f9122f81b" type="ProjectID"/>
 <property name="ProjectIteration" value="52" type="ProjectIteration"/>
@@ -23,7 +27,12 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="EditUndo" value="7" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="58" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
+<<<<<<< Updated upstream
 <property name="OpenHardwareManager" value="33" type="JavaHandler"/>
+=======
+<property name="OpenHardwareManager" value="31" type="JavaHandler"/>
+<property name="OpenProject" value="1" type="JavaHandler"/>
+>>>>>>> Stashed changes
 <property name="ProgramDevice" value="1" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
 <property name="RunBitgen" value="51" type="JavaHandler"/>
@@ -42,6 +51,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ViewTaskSimulation" value="11" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
+<<<<<<< Updated upstream
 <property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="1" type="GuiResourceData"/>
 <property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="1" type="GuiResourceData"/>
 <property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="6" type="GuiResourceData"/>
@@ -118,6 +128,24 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="GuiMode" value="12" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
 <property name="TclMode" value="11" type="TclMode"/>
+=======
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, nexys4DDR (nexys4DDR.sv" value="8" type="GuiResourceData"/>
+<property name="PAResourceEtoH.GettingStartedView_OPEN_PROJECT, Open Project" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 1091, 381, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 1092, 381" value="1" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 1123, 436" value="2" type="GuiResourceData"/>
+<property name="rtl_transmitter.sv, 1123, 436, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 203, 73" value="10" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 203, 73, false, false, false, false, true" value="3" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 203, 87" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 211, 77" value="1" type="GuiResourceData"/>
+<property name="transmitter_fsm.sv, 211, 77, false, false, false, false, true" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="1" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="0" type="TclMode"/>
+>>>>>>> Stashed changes
 </item>
 </section>
 </application>

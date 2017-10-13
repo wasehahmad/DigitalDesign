@@ -20,8 +20,7 @@
 
 
 
-module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, LTHRESH=3, W=$clog2(LEN)+1)
-          (
+module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, LTHRESH=3, W=$clog2(LEN)+1)(
 	      input logic 	   clk,
 	      input logic 	   reset,
 	      input logic 	   enb,
@@ -30,38 +29,30 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
 	      output logic 	   h_out,  
 	      output logic 	   l_out
 	      );
-
-
-   logic [LEN-1:0]  shreg, match;
+    
+    logic [LEN-1:0] shreg, it_matches;
    
+    //my function that counts the ones in the input
+    function int my_countones(input [LEN-1:0] num_matches);
+        int i;
+        static int ones = 0;
+        for(i = 0; i < LEN; i++) begin
+            if(num_matches[i] == 1) begin
+                ones = ones + 1;
+            end
+        end
+        return ones;
+    endfunction
    
-   // shift register shifts from right to left so that oldest data is on
-   // the left and newest data is on the right
-   always_ff  @(posedge clk)
-     if (reset) shreg <= '0;
-     else if (enb) shreg <= { shreg[LEN-2:0], d_in };
-   
-   assign match = shreg ^~ PATTERN;
-
-   assign csum = $countones(match);
-
-   assign h_out = csum >= HTHRESH;
-   
-   assign l_out = csum <= LTHRESH;
+    // shift register shifts from right to left so that oldest data is on
+    // the left and newest data is on the right
+    always_ff  @(posedge clk)
+        if (reset) shreg <= '0;
+        else if (enb) shreg <= { shreg[LEN-2:0], d_in };
+    
+        assign it_matches = shreg ^~ PATTERN;
+        assign csum = my_countones(it_matches);
+        assign h_out = csum >= HTHRESH;
+        assign l_out = csum <= LTHRESH;
 
 endmodule
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			       ;
