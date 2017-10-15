@@ -48,6 +48,9 @@ module man_receiver #(parameter DATA_WIDTH = 8)(
         
     end
     
+
+       
+    
     //sampler that varies frequency of sampling based on input
     variable_sampler #(.BAUD(50000),.SAMPLE_FREQ(16)) U_SAMPLER(.clk(clk),.reset(reset), .speed_up(speed_up),.slow_down(slow_down),
                                                                .diff_amt(phase_diff),.enb(sample));

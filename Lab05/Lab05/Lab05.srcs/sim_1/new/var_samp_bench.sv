@@ -59,8 +59,6 @@ module var_samp_bench;
         @(posedge clk);#1;
         phase_dif = 0;
         speed_up = 0;
-
-
-    
+        
     end
 endmodule

@@ -30,19 +30,24 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
 	      output logic     speed_up,
 	      output logic     slow_down,
 	      output logic 	   h_out,  
-	      output logic 	   l_out
+	      output logic 	   l_out,
+	      output logic     write
 	      );
     
     logic [LEN-1:0] shreg, it_matches;
     logic pulsed,prev_pulsed;
+    assign write = pulsed;
    
     //my function that counts the ones in the input
-    function int my_countones(input [LEN-1:0] num_matches);
+    function int my_countones(input [LEN-1:0] num_matches); 
         int i;
-        static int ones = 0;
+        int ones;
+        ones = 0;
+//        $display("num matches = %b", num_matches);
         for(i = 0; i < LEN; i++) begin
             if(num_matches[i] == 1) begin
                 ones = ones + 1;
+//                $display("ones = %d",ones);
             end
         end
         return ones;
@@ -52,17 +57,20 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
     function logic [W-1:0] phase_diff(input [LEN-1:0] register);
         //xxx0000000011111 111
         //start in the center location i.e. after the 8th bit from LSB
-        static int i;
-        static int found = 0;
+        int i;
+        int found ;
         logic [W-1:0] count;
         count = 0;
+        found = 0;
         //static int count;
 
         //try and find what the relative position of the edge is
-        for(i=LEN/2;i>=0 && !found;i-- )begin
+        for(i=LEN/2-1;i>=0 && !found;i-- )begin
+//            $display("i = %d",i);
             if(register[i] != DIGIT)found = 1;//if edge hasnt been found
             else count++;  
         end
+//        $display("phase_dif = %d",count);
         return count; 
     endfunction
    
@@ -76,19 +84,41 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
         end
         else if (enb)begin
             shreg <= { shreg[LEN-2:0], d_in };
-            if(h_out && !prev_pulsed)begin
-                pulsed <=1;//register pulsed until l_out mutually exclusive
-                prev_pulsed <=1;
-            end
-            else if(l_out)  prev_pulsed <= 0;//register unpulsed until h_out
-            else pulsed<=0;
-
         end
+        if(h_out && !prev_pulsed)begin
+            pulsed <=1;//register pulsed until l_out mutually exclusive
+            prev_pulsed <=1;
+        end
+        else if(l_out)  prev_pulsed <= 0;//register unpulsed until h_out
+
+        //turn off the pulse after one clock cycle
+        if(prev_pulsed)pulsed<=0;
     end
         //get the diff value for one clock cycles
-        assign diff = pulsed?phase_diff(shreg):0;
-        assign speed_up  = diff > (LEN-HTHRESH) && pulsed;
-        assign slow_down = diff < (LEN-HTHRESH) && pulsed;
+        logic [W-1:0] temp_diff;
+        assign temp_diff = pulsed?phase_diff(shreg):0;
+        
+        always_comb begin
+            if(temp_diff>3 && pulsed)begin
+                diff = temp_diff-(LEN-HTHRESH);
+                speed_up = 1 ;
+                slow_down = 0;
+            end
+            else if(temp_diff<3 && pulsed)begin
+                diff = (LEN-HTHRESH)-temp_diff;
+                slow_down = 1 ;
+                speed_up = 0;
+            end
+            else begin
+                slow_down = 0;
+                speed_up = 0;
+                diff = '0;
+            end
+        end
+        
+        
+//        assign speed_up  = (diff > (LEN-HTHRESH)) && pulsed;
+//        assign slow_down = (diff < (LEN-HTHRESH)) && pulsed;
         
         assign it_matches = shreg ^~ PATTERN;
         assign csum = my_countones(it_matches);

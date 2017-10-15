@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Oct 03 11:59:44 2017">
+<application name="pa" timeStamp="Sun Oct 15 01:52:49 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="96409b7f00c749148d812ea42cb976b8" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -17,24 +17,855 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
+<property name="AddSources" value="4" type="JavaHandler"/>
+<property name="EditUndo" value="53" type="JavaHandler"/>
 <property name="NewProject" value="3" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
-<property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="5" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="4" type="JavaHandler"/>
+<property name="SetTopNode" value="7" type="JavaHandler"/>
+<property name="ShowView" value="4" type="JavaHandler"/>
+<property name="SimulationBreak" value="4" type="JavaHandler"/>
+<property name="SimulationClose" value="9" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="77" type="JavaHandler"/>
+<property name="SimulationRun" value="14" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="91" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="10" type="JavaHandler"/>
+<property name="ViewTaskSimulation" value="6" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="4" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
 <property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="FINISH, Finish" value="1" type="GuiResourceData"/>
+<property name="NEXT, Next " value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, Add or create simulation sources" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="5" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, correlator_with_sampler_bench" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, SystemVerilog, 2" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="5" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="5" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_BREAK, simulation_live_break" value="5" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="68" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="74" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="12" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_0_CRITICAL_WARNING, 4 critical warnings" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, man_receiver (man_receiver.sv" value="9" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files, correlator_with_sampler_bench.sv], 14, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files, correlator_with_sampler_bench.sv], 14, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files], 13, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files], 13, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, correlator_test_bench (correlator_test_bench.v" value="12" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, correlator_with_sampler_bench (correlator_with_sampler_bench.sv" value="6" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, var_samp_bench (var_samp_bench.sv" value="3" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 12" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 8" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager, Add Sources], 2, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager], 0, true" value="9" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="12" type="GuiResourceData"/>
 <property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Simulation Settings], 10, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, Create New Project" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.GettingStartedView_OPEN_PROJECT, Open Project" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ADVANCED, Advanced, 4" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ELABORATION, Elaboration, 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_NETLIST, Netlist, 3" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATION, Simulation, 2" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation], 9, true" value="6" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [Analysis Results, sim_1], 2, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 1" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 10" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 100" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 65" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, ms, 1" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, us, 2" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, DIVAMT[31:0] ; 16 ; Array, 12, DIVAMT[31:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, DIVAMT[31:0] ; 16 ; Array, 8, 16, 1, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, INCR_AMT[31:0] ; 100000 ; Array, 14, INCR_AMT[31:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, Name, 0" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, accumulated[31:0] ; -3800000 ; Array, 8, accumulated[31:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, csum_1[4:0] ; 0a ; Array, 14, csum_1[4:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, d_out ; 0 ; Logic, 22, d_out, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, diff[4:0] ; 00 ; Array, 10, 00, 1, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, diff[4:0] ; 00 ; Array, 10, diff[4:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, diff[4:0] ; 03 ; Array, 5, diff[4:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, enb ; 0 ; Logic, 4, enb, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, it_matches[15:0] ; ff3f ; Array, 7, it_matches[15:0], 0, true" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, it_matches[15:0] ; ff3f ; Array, 7, it_matches[15:0], 0, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, pulsed ; 0 ; Logic, 12, pulsed, 0, false" value="3" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, pulsed ; 0 ; Logic, 5, pulsed, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[15:0] ; 0000 ; Array, 10, shreg[15:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[15:0] ; 0000 ; Array, 10, shreg[15:0], 0, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[15:0] ; 0410 ; Array, 10, shreg[15:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[15:0] ; 11b7 ; Array, 10, 11b7, 1, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[15:0] ; 11b7 ; Array, 2, 11b7, 1, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, slow_down_o ; 0 ; Logic, 3, slow_down_o, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, slow_down_z ; 0 ; Logic, 2, slow_down_z, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, speed_up_o ; 0 ; Logic, 1, speed_up_o, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, speed_up_z ; 0 ; Logic, 0, speed_up_z, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, U_CORREL_ZERO ; correlator ; Verilog Module, 2, U_CORREL_ZERO, 0, false" value="9" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, U_SAMPLER ; variable_sampler ; Verilog Module, 1, U_SAMPLER, 0, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, correlator_with_sampler_bench ; correlator_with_sampler_bench ; Verilog Module, 0, correlator_with_sampler_bench, 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SrcChooserPanel_CREATE_FILE, Create File" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="6" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="5" type="GuiResourceData"/>
+<property name="RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, run 1000, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="80" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_IN, Waveform Viewer_zoom_in" value="3" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="8" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_BLANK_OPERATIONS, Blank Operations" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_COMMANDS_TO_FOLD_TEXT, Folding" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_DIFF_WITH, Diff with" value="1" type="GuiResourceData"/>
+<property name="RDIResource.ProgressDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 298" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 316" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 329" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 362" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 691" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 319" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 326" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 327" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 335" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 435" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 490" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 576" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 585" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 603" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 10, 593" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 10, 683" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 101, 429" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1011, -70" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1031, 233" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1048, 189" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1054, 38" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 106, 483" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1074, 578" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1087, 370" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 109, 472" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1091, 142" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 11, 693" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 110, 455" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1107, 480" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1111, 488" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 112, 688" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1121, 283" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1159, 486" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1193, 275" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 12, 617" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 12, 654" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 120, 712" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1202, 402" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 121, 187" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1212, 480" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1232, 305" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1243, 489" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 125, 597" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 127, 483" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 127, 589" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1286, 541" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1294, 281" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1299, 485" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 13, 370" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1335, 278" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1342, 0" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 136, 704" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1366, 485" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 137, 687" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1384, 432" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 139, 565" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1394, 72" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1397, 213" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 140, 293" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 141, 727" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1435, 483" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1438, 489" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1450, 483" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1455, 193" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 146, 693" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1476, 483" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 148, 458" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1485, 186" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 149, 678" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 153, 581" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 154, -55" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1550, 8" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 156, 699" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 16, 306" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1605, 219" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 165, 330" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 167, 218" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 168, 507" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 17, 673" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 173, 389" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 173, 436" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 173, 99" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 179, 105" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 18, 414" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 18, 607" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 180, 298" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1865, 342" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1870, 513" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 188, 461" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 189, 584" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 189, 686" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 19, 411" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 191, 126" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1914, 510" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 192, 531" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 195, 729" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 198, 707" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 207, 672" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 21, 429" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 215, 494" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 22, 644" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 223, 404" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 224, 624" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 229, 399" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 229, 686" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 23, 675" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 232, 386" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 236, 427" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 238, 371" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 239, 371" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 243, 407" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 248, 302" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 248, 373" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 25, 379" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 25, 392" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 26, 645" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 261, -5" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 277, 395" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 283, 473" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 284, 426" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 285, 212" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 285, 656" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 29, 435" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 291, 415" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 297, 381" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 297, 391" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 299, 363" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 343" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 393" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 416" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 424" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 30, 401" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 301, 612" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 306, 349" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 307, 451" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 31, 500" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 312, 303" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 324, 305" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 33, 696" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 333, 404" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 34, 575" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 34, 630" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 340, 48" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 344, -61" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 344, 76" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 349, 377" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 350, 378" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 358, -24" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 358, 82" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 36, 452" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 363, 460" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 370, 442" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 377, 441" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 378, 154" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 380, -51" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 381, 16" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 383, 156" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 391, 465" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 396, 440" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 358" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 418" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 481" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 400, 156" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 403, 362" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 404, 85" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 406, 304" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 407, 228" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 411, 405" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 414, 8, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 416, -16" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 416, 413" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 418, -7" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 420, 423" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 429, 399" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 43, 163" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 441, 501" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 441, 73" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 442, 57" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 446, 281" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 455, -139" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 46, 489" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 463, 160" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 463, 486" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 470, 153" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 473, 159" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 473, 8" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 475, 411" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 479, 441" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 482, 449" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 490, 320" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 492, -30" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 492, 295" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 496, 439" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 51, 369" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 511, 458" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 512, 495" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 52, 154" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 52, 4" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 52, 436" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 536, 394" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 536, 403" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 538, 449" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 539, 166" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 540, 346" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 541, 402" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 566, 159" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 568, 386" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 585, 705" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 586, 419" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 594, 362" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 595, 301" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 597, 550" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 6, 355" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 6, 480" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 60, 379" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 61, 432" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 61, 664" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 62, 306" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 621, -8" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 623, 150" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 637, 5" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 643, 203" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 657, 159" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 663, 301" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 67, 473" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 672, -61" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 674, 361" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 675, 365" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 684, 448" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 686, 218" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 689, 11" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 7, 498" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 7, 499" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 70, 672" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 705, 212" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 708, 373" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 712, 167" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 715, 14" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 718, 312" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 72, 710" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 729, 473" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 74, 371" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 74, 724" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 742, 531" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 75, 144" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 755, 299" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 771, 383" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 772, 136" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 777, 407" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 78, 570" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 782, 451" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 791, 511" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 796, -45" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 802, 252" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 81, 433" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 817, -52" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 83, 310" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 83, 420" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 83, 489" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 845, -3" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 862, 10" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 87, 296" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 872, 277" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 88, 351" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 88, 419" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 89, 402" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 89, 614" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 891, 168" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 893, 247" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 897, 11" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 9, 342" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 9, 484" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 90, 74" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 909, 411" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 91, 716" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 912, 323" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 916, 5" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 92, 633" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 937, 215" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 95, 353" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 951, 567" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 96, 205" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 99, 201" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 1*" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 11*" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 5*" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 6*" value="1" type="GuiResourceData"/>
+<property name="RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 131, 37" value="1" type="GuiResourceData"/>
+<property name="RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 160, 71" value="1" type="GuiResourceData"/>
+<property name="RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 242, 68" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ERROR_RATE[31:0]], 10, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ERROR_RATE[31:0]], 12, true" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ERROR_RATE[31:0]], 12, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, csum_0[4:0]], 8, true" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, csum_0[4:0]], 8, true, false, false, false, true, false" value="8" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, csum_0[4:0]], 9, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, csum_0[4:0]], 9, true, false, false, false, true, false" value="3" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, csum_1[4:0]], 8, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, d_out], 14, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, d_out], 15, false" value="7" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, d_out], 15, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, d_out], 9, false" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, diff[4:0]], 5, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, h_out], 4, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, it_matches[15:0]], 13, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, noise_error], 10, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, noise_error], 10, false, false, true, false, false, false" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, noise_error], 9, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, noise_error], 9, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, rxd], 3, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, rxd_noisy], 10, false, false, false, false, true, false" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, rxd_noisy], 11, false, false, true, false, false, false" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, samp_clk], 11, false, true, false, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[15:0]], 13, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, speed_up], 6, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformView_NEXT_TRANSITION, Waveform Viewer_waveformNextTransition" value="16" type="GuiResourceData"/>
+<property name="RDIResource.WaveformView_PREVIOUS_TRANSITION, Waveform Viewer_waveformPreviousTransition" value="20" type="GuiResourceData"/>
+<property name="RDIResourceCommand.RDICommands_SAVE_FILE, Save File" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 100, 367" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 101, 520" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 103, 216" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 103, 312" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 105, 438" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 107, 543" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 108, 574" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 111, 395" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 112, 447" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 114, 513" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 115, 331" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 117, 567" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 118, 380" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 119, 219" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 119, 385" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 119, 422" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 121, 537" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 123, 110" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 123, 210" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 123, 321" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 123, 335" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 124, 215" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 124, 331" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 125, 467" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 126, 558" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 128, 314" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 129, 319" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 129, 608" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 132, 365" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 132, 365, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 132, 471" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 133, 347" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 135, 518" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 139, 466" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 139, 466, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 141, 316" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 142, 212" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 143, 244" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 144, 618" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 144, 639" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 145, 368" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 145, 391" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 146, 364" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 150, 599" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 151, 315, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 152, 289" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 153, 289" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 153, 600" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 154, 423" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 155, 386" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 155, 392" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 162, 269" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 162, 385" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 162, 454" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 163, 463" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 164, 368, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 164, 447" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 166, 312, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 166, 426" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 168, 430" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 169, 422" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 173, 248" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 174, 246" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 175, 419" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 175, 437" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 176, 379" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 176, 431" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 177, 434" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 178, 432" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 179, 384" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 180, 231" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 181, 205" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 181, 213" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 181, 431" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 183, 219" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 183, 591" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 184, 371" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 185, 290" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 185, 435" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 186, 399" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 188, 520" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 191, 297" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 193, 332" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 195, 298" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 195, 311" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 197, 266" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 197, 317" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 197, 401" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 199, 415" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 200, 414" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 201, 399" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 202, 501" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 202, 504" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 203, 352" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 203, 430" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 203, 532" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 204, 355" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 205, 284" value="2" type="GuiResourceData"/>
+<property name="correlator.sv, 205, 284, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 206, 519" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 208, 361" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 208, 361, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 208, 591" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 209, 421" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 209, 463" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 209, 466" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 210, 540" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 212, 334" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 213, 424" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 213, 432" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 214, 320" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 214, 384" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 215, 234" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 215, 413" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 215, 539" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 216, 521" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 217, 415" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 221, 417" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 222, 314" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 222, 590" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 223, 298" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 223, 499" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 225, 522" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 230, 419" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 231, 643" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 232, 363" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 234, 589" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 237, 299" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 237, 635" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 238, 293" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 238, 399" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 238, 557" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 241, 300" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 242, 344, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 243, 345" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 244, 602" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 245, 336" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 245, 540" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 247, 519" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 249, 316" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 250, 432" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 252, 366" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 253, 337" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 258, 609, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 263, 552" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 264, 490" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 266, 242" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 267, 434" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 271, 386" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 271, 537" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 273, 473" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 276, 276" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 294, 399" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 298, 237" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 305, 521" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 307, 434" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 315, 402" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 320, 505" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 327, 379" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 327, 400" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 329, 449" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 330, 537" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 331, 517" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 332, 163" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 333, 379" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 333, 474" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 340, 322" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 340, 570" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 342, 624" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 344, 400" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 344, 590" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 346, 296" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 350, 313" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 351, 347" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 354, 497" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 355, 467" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 359, 157" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 360, 656" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 363, 506" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 364, 505" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 369, 330" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 371, 331" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 371, 333" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 383, 452" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 387, 216" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 407, 518" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 413, 539" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 423, 333" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 448, 542" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 454, 330" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 467, 428" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 468, 522" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 470, 450" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 51, 327" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 51, 351" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 55, 332" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 56, 300" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 57, 435" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 62, 229" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 655, 540" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 68, 641" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 72, 331" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 81, 266" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 83, 279" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 84, 445" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 85, 343" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 86, 477" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 87, 635" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 88, 331" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 89, 347" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 89, 349" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 95, 311" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 108, 374" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 112, 453" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 169, 164" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 190, 373" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 220, 269" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 24, 190" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 24, 521" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 259, 344" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 29, 150" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 29, 533" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 314, 388" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 323, 137" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 327, 147" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 391, 380" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 53, 353" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 53, 414" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 70, 395" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 865, 493" value="1" type="GuiResourceData"/>
+<property name="correlator_test_bench.v, 95, 427" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 0, 451" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 1, 305" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 1, 489, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 1, 636" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 100, 95" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 101, 98" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 102, 246" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 102, 94, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 104, 284" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 106, 295" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 107, 559" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 107, 592" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 114, 254" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 118, 587" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 12, 404" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 12, 422" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 121, 540" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 122, 453" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 124, 179" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 124, 454" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 125, 244" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 127, 249" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 127, 384" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 129, 442" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 129, 579" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 13, 416" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 133, 450" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 133, 539" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 136, 334" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 136, 663" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 137, 569" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 140, 505" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 142, 111" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 143, 513" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 144, 313" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 145, 336" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 148, 522" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 150, 250" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 156, 417" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 157, 625" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 158, 483" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 158, 487" value="2" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 161, 521" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 171, 354" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 175, 337" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 202, 281" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 202, 281, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 203, 113" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 204, 499" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 211, 395" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 217, 407" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 218, 75" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 224, 452" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 228, 314" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 232, 90" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 237, 493" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 237, 500" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 238, 224" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 239, 502" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 249, 128" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 257, 500" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 258, 568" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 277, 485" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 285, 216" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 30, 532" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 30, 559" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 30, 568" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 300, 385" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 303, 182" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 305, 348" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 305, 505" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 313, 201" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 314, 678" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 320, 204" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 325, 186" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 349, 450" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 355, 575" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 357, 508" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 365, 204" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 395, 603" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 4, 418" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 415, 383" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 431, 418" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 44, 578" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 442, 734" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 468, 622" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 47, 506" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 472, 615" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 48, 185" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 501, 642" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 52, 233" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 533, 348" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 533, 348, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 553, 476" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 556, 153" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 56, 232, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 56, 532" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 567, 282" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 57, 606" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 58, 533" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 58, 620" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 587, 606" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 587, 606, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 59, 591" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 60, 586" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 617, 242" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 617, 504" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 627, 502" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 640, 523" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 646, 297" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 648, 380" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 651, 539" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 659, 481" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 66, 529" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 664, 488" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 713, 456" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 716, 198" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 716, 198, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 72, 539" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 728, 457" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 729, 601" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 729, 601, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 733, 621" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 735, 678" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 738, 554" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 74, 544" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 741, 470" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 741, 572" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 748, 518" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 753, 265" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 757, 502" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 757, 502, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 76, 383" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 763, 554" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 763, 554, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 768, 434" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 77, 519" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 776, 297" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 779, 351" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 78, 414" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 783, 245" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 79, 418" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 806, 483" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 806, 621" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 84, 612" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 844, 399" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 845, 521" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 85, 602" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 86, 419" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 87, 602" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 87, 633" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 872, 418" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 873, 505" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 874, 453" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 875, 347" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 88, 251" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 88, 548" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 88, 557" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 883, 452" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 889, 417" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 89, 566" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 893, 418" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 90, 265" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 906, 402" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 913, 369" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 93, 538" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 941, 350" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 97, 250" value="1" type="GuiResourceData"/>
+<property name="correlator_with_sampler_bench.sv, 97, 250, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 108, 240" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 261, 465" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 27, 483" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 27, 497" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 286, 479" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 29, 383" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 397, 197, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 419, 157" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 452, 432" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 452, 489" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 523, 524" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 53, 470" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 55, 508" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 56, 439" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 595, 524" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 597, 518" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 607, 434" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 670, 640" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 674, 261" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 677, 565" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 77, 418" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 94, 371" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 114, 675" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 128, 636" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 130, 639" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 22, 203" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 245, 536" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 25, 112" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 54, 642" value="1" type="GuiResourceData"/>
+<property name="var_samp_bench.sv, 64, 675" value="1" type="GuiResourceData"/>
+<property name="variable_sampler.sv, 114, 520" value="1" type="GuiResourceData"/>
+<property name="variable_sampler.sv, 267, 490" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="12" type="GuiMode"/>
+<property name="GuiMode" value="34" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="6" type="TclMode"/>
+<property name="TclMode" value="30" type="TclMode"/>
 </item>
 </section>
 </application>
