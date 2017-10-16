@@ -1,8 +1,9 @@
 0.4
 2016.2
 C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.sim/sim_1/behav/glbl.v,1464879896,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sim_1/new/correlator_with_sampler_bench.sv,1508019877,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv,1507926141,verilog,,,,,,,,,,,
-C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/correlator.sv,1508019891,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sim_1/new/correlator_with_sampler_bench.sv,1508114103,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv,1508109385,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/correlator.sv,1508108701,verilog,,,,,,,,,,,
 C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/jittergen.v,1507926141,verilog,,,,,,,,,,,
+C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/synchronizer.sv,1508115713,verilog,,,,,,,,,,,
 C:/Users/ahmadw/Desktop/ECE491/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv,1507943041,verilog,,,,,,,,,,,

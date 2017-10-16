@@ -21,7 +21,10 @@
 
 
 module correlator_with_sampler_bench;
-
+    parameter BAUD = 50000;
+    parameter NUM_SAMP = 16;
+    parameter SAMP_WIDTH = $clog2(NUM_SAMP);
+    parameter WAIT_TIME = 100000000/(BAUD*NUM_SAMP);
 
 
     logic clk;
@@ -29,10 +32,10 @@ module correlator_with_sampler_bench;
     logic enb;
     logic rxd;
     logic h_out_z,h_out_o;
-    logic [4:0] diff_z,diff_o,phase_diff;
-    logic speed_up_z,speed_up_o,speed_up;
-    logic slow_down_z,slow_down_o,slow_down;
-    logic [4:0] csum_0,csum_1;
+    logic [SAMP_WIDTH:0]phase_diff;
+    logic speed_up;
+    logic slow_down;
+    logic [SAMP_WIDTH:0] csum_0,csum_1;
     logic write_1,write_0;
     
     parameter ERROR_RATE = 10; // % prob. of error
@@ -44,35 +47,29 @@ module correlator_with_sampler_bench;
     end
     assign rxd_noisy = rxd ^ noise_error;
     
-    
-    always_comb begin
-        speed_up = speed_up_z | speed_up_o;
-        slow_down = slow_down_z | slow_down_o;
-        
-        //write_zero and write_one are both high for one clock cylce
-        if(write_0) phase_diff = diff_z;
-        else if(write_1) phase_diff = diff_o;  
-        else phase_diff = 0; 
-        
-    end
+
 
     logic samp_clk;
     //sampler that varies frequency of sampling based on input
-    variable_sampler #(.BAUD(1000000),.SAMPLE_FREQ(10)) U_SAMPLER(.clk(clk),.reset(reset), .speed_up(speed_up),.slow_down(slow_down),
+    variable_sampler #(.BAUD(BAUD),.SAMPLE_FREQ(NUM_SAMP)) U_SAMPLER(.clk(clk),.reset(reset), .speed_up(speed_up),.slow_down(slow_down),
                                                               .diff_amt(phase_diff),.enb(samp_clk));    
     
     logic d_out;
     jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(rxd),.dout(d_out));   
     
     
+    synchronizer #(.NUM_SAMP(NUM_SAMP)) U_SYNC(.clk(clk),.reset(reset),.bit_seen(write_0 | write_1),
+                                                   .count_enb(samp_clk),.slow_down(slow_down),.speed_up(speed_up),.phase_diff(phase_diff));
+    
+    
 
     
     //correlator to store the input values
     correlator #(.PATTERN(16'h00FF)) U_CORREL_ZERO(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(d_out),.h_out(h_out_z),.write(write_0),
-                                                       .diff(diff_z),.speed_up(speed_up_z),.slow_down(slow_down_z),.csum(csum_0));
+                                                       .csum(csum_0));
 
     correlator #(.PATTERN(16'hFF00)) U_CORREL_ONE(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(d_out),.h_out(h_out_o),.write(write_1),
-                                                       .diff(diff_o),.speed_up(speed_up_o),.slow_down(slow_down_o),.csum(csum_1));
+                                                       .csum(csum_1));
                                                        
 
                                                        
@@ -84,11 +81,11 @@ module correlator_with_sampler_bench;
         integer i;
         for(i=0;i<8;i++)begin
             rxd = 0;
-            repeat(10)@(posedge clk);
+            repeat(WAIT_TIME)@(posedge clk);
         end
         for(i=0;i<8;i++)begin
             rxd = 1;
-            repeat(10)@(posedge clk);
+            repeat(WAIT_TIME)@(posedge clk);
         end
         
     endtask
@@ -96,11 +93,11 @@ module correlator_with_sampler_bench;
         integer i;
         for(i=0;i<8;i++)begin
             rxd = 1;
-            repeat(10)@(posedge clk);
+            repeat(WAIT_TIME)@(posedge clk);
         end
         for(i=0;i<8;i++)begin
             rxd = 0;
-            repeat(10)@(posedge clk);
+            repeat(WAIT_TIME)@(posedge clk);
         end
             
     endtask
@@ -124,7 +121,7 @@ module correlator_with_sampler_bench;
         #1;
         reset = 0;
         enb = 1;
-        repeat(1000)@(posedge clk);
+        //repeat(1000)@(posedge clk);
         for(i =0; i< 256;i ++)begin
             send_0;
             send_1;

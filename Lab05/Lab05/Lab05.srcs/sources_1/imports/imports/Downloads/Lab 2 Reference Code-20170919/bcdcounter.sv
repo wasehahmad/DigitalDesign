@@ -15,13 +15,13 @@
 // 09.06.2016 : ported to SystemVerilog
 //-----------------------------------------------------------------------------
 
-module bcdcounter(
+module bcdcounter #(parameter LAST_VAL = 10, W =$clog2(LAST_VAL)+1 )(
 		  input logic        clk, reset, enb,
-		  output logic [3:0] Q,
+		  output logic [W-1:0] Q,
 		  output logic       carry
 		  );
 
-   assign 	carry = (Q == 9) & enb;
+   assign 	carry = (Q == LAST_VAL-1) & enb;
    
    always_ff @( posedge clk )
      begin

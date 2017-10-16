@@ -26,9 +26,6 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
 	      input logic 	   enb,
 	      input logic 	   d_in,
 	      output logic [W-1:0] csum,
-	      output logic [W-1:0] diff,
-	      output logic     speed_up,
-	      output logic     slow_down,
 	      output logic 	   h_out,  
 	      output logic 	   l_out,
 	      output logic     write
@@ -53,26 +50,6 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
         return ones;
     endfunction
     
-    //function to get the phase difference 
-    function logic [W-1:0] phase_diff(input [LEN-1:0] register);
-        //xxx0000000011111 111
-        //start in the center location i.e. after the 8th bit from LSB
-        int i;
-        int found ;
-        logic [W-1:0] count;
-        count = 0;
-        found = 0;
-        //static int count;
-
-        //try and find what the relative position of the edge is
-        for(i=LEN/2-1;i>=0 && !found;i-- )begin
-//            $display("i = %d",i);
-            if(register[i] != DIGIT)found = 1;//if edge hasnt been found
-            else count++;  
-        end
-//        $display("phase_dif = %d",count);
-        return count; 
-    endfunction
    
     // shift register shifts from right to left so that oldest data is on
     // the left and newest data is on the right
@@ -94,32 +71,7 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, 
         //turn off the pulse after one clock cycle
         if(prev_pulsed)pulsed<=0;
     end
-        //get the diff value for one clock cycles
-        logic [W-1:0] temp_diff;
-        assign temp_diff = pulsed?phase_diff(shreg):0;
-        
-        always_comb begin
-            if(temp_diff>3 && pulsed)begin
-                diff = temp_diff-(LEN-HTHRESH);
-                speed_up = 1 ;
-                slow_down = 0;
-            end
-            else if(temp_diff<3 && pulsed)begin
-                diff = (LEN-HTHRESH)-temp_diff;
-                slow_down = 1 ;
-                speed_up = 0;
-            end
-            else begin
-                slow_down = 0;
-                speed_up = 0;
-                diff = '0;
-            end
-        end
-        
-        
-//        assign speed_up  = (diff > (LEN-HTHRESH)) && pulsed;
-//        assign slow_down = (diff < (LEN-HTHRESH)) && pulsed;
-        
+       
         assign it_matches = shreg ^~ PATTERN;
         assign csum = my_countones(it_matches);
         assign h_out = csum >= HTHRESH;
