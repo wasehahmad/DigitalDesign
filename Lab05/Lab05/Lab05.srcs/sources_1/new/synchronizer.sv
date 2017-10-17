@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP-1,W = ($clog2(NUM_SAMP)+1))(
+module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2(NUM_SAMP)+1))(
     input logic clk,
     input logic reset,
     input logic bit_seen,

@@ -22,9 +22,10 @@
 
 module correlator_with_sampler_bench;
     parameter BAUD = 50000;
+    parameter TXD_BAUD = 49500;
     parameter NUM_SAMP = 16;
     parameter SAMP_WIDTH = $clog2(NUM_SAMP);
-    parameter WAIT_TIME = 100000000/(BAUD*NUM_SAMP);
+    parameter WAIT_TIME = 100_000_000/(TXD_BAUD*NUM_SAMP);
 
 
     logic clk;
@@ -121,7 +122,7 @@ module correlator_with_sampler_bench;
         #1;
         reset = 0;
         enb = 1;
-        //repeat(1000)@(posedge clk);
+        repeat(1000)@(posedge clk);
         for(i =0; i< 256;i ++)begin
             send_0;
             send_1;
