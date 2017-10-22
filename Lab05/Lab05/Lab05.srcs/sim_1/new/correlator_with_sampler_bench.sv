@@ -66,10 +66,10 @@ module correlator_with_sampler_bench;
 
     
     //correlator to store the input values
-    correlator #(.PATTERN(16'h00FF)) U_CORREL_ZERO(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(d_out),.h_out(h_out_z),.write(write_0),
+    correlator #(.PATTERN(16'h00FF)) U_CORREL_ZERO(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(rxd),.h_out(h_out_z),.write(write_0),
                                                        .csum(csum_0));
 
-    correlator #(.PATTERN(16'hFF00)) U_CORREL_ONE(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(d_out),.h_out(h_out_o),.write(write_1),
+    correlator #(.PATTERN(16'hFF00)) U_CORREL_ONE(.clk(clk),.reset(reset),.enb(enb && samp_clk),.d_in(rxd),.h_out(h_out_o),.write(write_1),
                                                        .csum(csum_1));
                                                        
 
@@ -103,6 +103,19 @@ module correlator_with_sampler_bench;
             
     endtask
     
+    task send_low;
+        integer i;
+            for(i=0;i<16;i++)begin
+                rxd = 0;
+                repeat(WAIT_TIME)@(posedge clk);
+            end
+            for(i=0;i<8;i++)begin
+                rxd = 0;
+                repeat(WAIT_TIME)@(posedge clk);
+            end
+    
+    endtask
+    
     
     
     
@@ -122,11 +135,15 @@ module correlator_with_sampler_bench;
         #1;
         reset = 0;
         enb = 1;
+        repeat(100000)@(posedge clk);
         repeat(1000)@(posedge clk);
         for(i =0; i< 256;i ++)begin
             send_0;
             send_1;
         end
+        send_low;
+        send_0;
+        send_1;
         $stop;
 
 

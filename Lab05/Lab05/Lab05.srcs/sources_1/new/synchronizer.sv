@@ -31,7 +31,7 @@ module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2
     output logic no_bit_seen
     );
     
-    //need to adjust for the beginnig of the fram i.e. if all im seeing is noise......... dont increase the counter or compare
+    //need to adjust for the beginnig of the frame i.e. if all im seeing is noise......... dont increase the counter or compare
     
     logic [W-1:0]num_samples;
     logic [W-1:0]n_diff;
@@ -50,6 +50,8 @@ module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2
             n_diff = COUNT_MAX-num_samples;
             n_speed = 1;
         end
+        //check if too much time has passed since the next bit has been seen. value of 21 is chosen as default
+        //for number of samples chosen
         if(num_samples >= MAX_WAIT_FOR_BIT)begin
             n_no_bit_seen = 1;
         end

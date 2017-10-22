@@ -25,7 +25,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
     input logic clk,
     input logic reset,
     input logic [3:0] count_8,
-    input logic [3:0] bit_count,
+    input logic [1:0] bit_count,
     input logic error_condition,
     input logic consec_low,
     input logic start_receiving,
