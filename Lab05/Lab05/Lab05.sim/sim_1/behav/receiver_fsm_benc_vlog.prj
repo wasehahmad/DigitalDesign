@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/variable_sampler.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/receive_fsm.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/correlator.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sim_1/new/receiver_fsm_bench.sv"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

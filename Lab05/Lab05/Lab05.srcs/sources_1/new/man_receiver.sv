@@ -83,7 +83,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
     receive_fsm U_RECEIVE_FSM(.clk(clk),.reset(reset),.count_8(byte_count),.bit_count(abn_bit_count),
                             .error_condition(abn_bit_seen),.consec_low(consec_low & abn_bit_seen),.start_receiving(start_receive),
-                            .error(error),.write(write),.eof(eof),.resetcounters(reset_counters));
+                            .error(error),.write(write),.eof(eof),.reset_counters(reset_counters));
 
 
 
