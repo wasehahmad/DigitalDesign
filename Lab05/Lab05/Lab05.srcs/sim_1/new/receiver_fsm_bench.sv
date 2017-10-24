@@ -42,7 +42,7 @@ module receiver_fsm_benc;
     logic start_receive;
     logic reset_counters;
     logic [3:0] byte_count;
-    logic [3:0] abn_bit_count;
+    logic [1:0] abn_bit_count;
     logic abn_bit_seen;
     logic [$clog2(NUM_SAMPLES*2):0] samp_count;
     logic consec_high,consec_low;
@@ -103,14 +103,10 @@ module receiver_fsm_benc;
             
     endtask
     
-    task send_low;
+    task send_high;
         integer i;
             for(i=0;i<16;i++)begin
-                rxd = 0;
-                repeat(WAIT_TIME)@(posedge clk);
-            end
-            for(i=0;i<8;i++)begin
-                rxd = 0;
+                rxd = 1;
                 repeat(WAIT_TIME)@(posedge clk);
             end
     
@@ -149,9 +145,11 @@ module receiver_fsm_benc;
         for(i =0; i< 256;i ++)begin
             send_bit;
         end
-        send_low;
-        send_0;
-        send_1;
+        repeat(16*WAIT_TIME)@(posedge clk);
+        repeat(16*WAIT_TIME)@(posedge clk);
+        repeat(16*WAIT_TIME)@(posedge clk);                     
+
+        send_high;
         $stop;
 
 
