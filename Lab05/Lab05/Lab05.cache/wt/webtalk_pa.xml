@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Tue Oct 24 09:13:46 2017">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="96409b7f00c749148d812ea42cb976b8" type="ProjectID"/>
+<property name="ProjectIteration" value="1" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="DesignMode" value="RTL" type="DesignMode"/>
+<property name="SynthesisStrategy" value="Vivado Synthesis Defaults" type="SynthesisStrategy"/>
+<property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="AddSources" value="9" type="JavaHandler"/>
+<property name="EditUndo" value="53" type="JavaHandler"/>
+<property name="NewProject" value="3" type="JavaHandler"/>
+<property name="OpenProject" value="1" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="5" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="4" type="JavaHandler"/>
+<property name="SetTopNode" value="10" type="JavaHandler"/>
+<property name="ShowView" value="4" type="JavaHandler"/>
+<property name="SimulationBreak" value="9" type="JavaHandler"/>
+<property name="SimulationClose" value="9" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="105" type="JavaHandler"/>
+<property name="SimulationRun" value="20" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="125" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="11" type="JavaHandler"/>
+<property name="ViewTaskSimulation" value="7" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="4" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="FINISH, Finish" value="2" type="GuiResourceData"/>
+<property name="NEXT, Next " value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, Add or create simulation sources" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, man_txd_rxd_bench" value="2" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, man_txd_rxd_bench_fast" value="1" type="GuiResourceData"/>
+<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, SystemVerilog, 2" value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_BREAK, simulation_live_break" value="5" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="11" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="7" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_0_CRITICAL_WARNING, 1 critical warning" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, man_receiver (man_receiver.sv" value="4" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, nexys4DDR (nexys4DDR.sv" value="3" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, correlator_with_sampler_bench (correlator_with_sampler_bench.sv" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, man_receive_bench (man_receive_bench.sv" value="5" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, man_txd_rxd_bench (man_txd_rxd_bench.sv" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, man_txd_rxd_bench_fast (man_txd_rxd_bench_fast.sv" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, receiver_fsm_benc (receiver_fsm_bench.sv" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, receiver_fsm_bench (receiver_fsm_bench.sv" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, single_pulser (single_pulser.sv" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, var_samp_bench (var_samp_bench.sv" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 25" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 35" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 24" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager, Add Sources], 2, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager], 0, true" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager], 0, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation], 9, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sim_1, [HDL 9-806] Syntax error near end. [C:/Users/ahmadw/Desktop/DigitalDesign/Lab05/Lab05/Lab05.srcs/sim_1/new/man_txd_rxd_bench.sv:108]. ], 2, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sim_1, [HDL 9-806] Syntax error near end. [C:/Users/ahmadw/Desktop/DigitalDesign/Lab05/Lab05/Lab05.srcs/sim_1/new/man_txd_rxd_bench.sv:76]. ], 2, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="4" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, eof_seen ; 0 ; Logic, 13, eof_seen, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, error_condition ; 0 ; Logic, 4, error_condition, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, state[1:0] ; RECEIVING ; Enumeration, 17, state[1:0], 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, U_CORREL_ABN_HIGH ; correlator ; Verilog Module, 5, U_CORREL_ABN_HIGH, 0, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, U_RECEIVE_FSM ; receive_fsm ; Verilog Module, 7, U_RECEIVE_FSM, 0, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, U_RECEIVE_FSM ; receive_fsm ; Verilog Module, 7, U_RECEIVE_FSM, 0, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, receiver_fsm_bench ; receiver_fsm_bench ; Verilog Module, 0, receiver_fsm_bench, 0, true" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SrcChooserPanel_CREATE_FILE, Create File" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="6" type="GuiResourceData"/>
+<property name="RDIResource.BaseWorkspace_FLOAT, Float" value="1" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="8" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="10" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, u" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, ura" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 144, 515" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 145, 511" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 146, 499" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 173, 499" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 203, 488" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 208, 502" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 208, 525" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 227, -4" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 230, 179" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 230, 473" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 238, 518" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 239, 176" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 245, 491" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 254, 378" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 272, 495" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 273, 536" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 276, 485" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 305, 588" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 308, 509" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 309, 561" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 313, 523" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 316, 589" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 331, 539" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 339, 477" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 360, 503" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 386, 592" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 395, 571" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 413, 479" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 415, 484" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 417, 136" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 426, -23" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 435, 509" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 445, 544" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 451, 297" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 452, 530" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 453, 482" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 454, 505" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 456, 490" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 486, 384" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 492, 539" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 493, 90" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 511, 409" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 52, 546" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 548, 50" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 559, 509" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 604, 496" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 692, 209" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 708, 556" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 80, 589" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 859, 494" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 867, 565" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 893, 412" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 949, 568" value="1" type="GuiResourceData"/>
+<property name="RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 267, 62" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, BAUD[31:0]], 17, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, NUM_SAMPLES[31:0]], 22, true, true, false, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, abn_bit_count[1:0]], 7, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, abn_bit_seen], 8, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, consec_high], 10, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, samp_count[5:0]], 9, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, samp_count[5:0]], 9, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 117, 620" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 120, 608" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 139, 620" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 387, 213" value="1" type="GuiResourceData"/>
+<property name="correlator.sv, 543, 213" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 144, 557" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 171, 402" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 202, 381" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 230, 553" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 245, 443" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 27, 448" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 412, 523" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 54, 604" value="1" type="GuiResourceData"/>
+<property name="man_receive_bench.sv, 57, 551" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 201, 403" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 230, 692" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 230, 692, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 256, 230" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 583, 260" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 663, 575" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 698, 377" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 698, 571" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 708, 639" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 727, 382" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 727, 382, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 807, 384" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 849, 535" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 853, 534" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 0, 605" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 1, 600" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 100, 572" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 105, 501" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 110, 430" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 110, 554" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 111, 539" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 111, 568" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 111, 624" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 112, 549" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 112, 595" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 113, 534" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 113, 620" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 114, 413" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 114, 609" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 116, 449" value="2" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 116, 449, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 117, 531" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 117, 688" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 118, 195" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 118, 195, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 118, 312" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 118, 631" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 119, 536" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 120, 556" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 120, 573" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 122, 212" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 122, 212, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 123, 436" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 124, 567" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 125, 521" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 125, 622" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 127, 418" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 128, 451" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 130, 464" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 130, 498" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 130, 604" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 132, 463" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 132, 654" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 133, 634" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 133, 634, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 134, 446" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 135, 625" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 136, 556" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 138, 571" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 139, 470" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 142, 514" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 142, 518" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 143, 499" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 144, 519" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 145, 519" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 146, 568" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 147, 637" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 150, 471" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 150, 495" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 150, 629" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 151, 450" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 152, 449" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 155, 555" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 156, 367" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 158, 466" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 158, 466, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 158, 555" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 159, 638" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 16, 411" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 160, 414" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 160, 447" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 160, 450" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 161, 466" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 161, 467" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 161, 555" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 165, 182" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 165, 376" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 166, 432" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 166, 499" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 168, 496" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 168, 534" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 169, 181" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 169, 430" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 172, 366" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 173, 467" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 174, 516" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 175, 451" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 176, 481" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 176, 535" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 180, 382" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 180, 382, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 181, 447" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 181, 586" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 182, 380" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 188, 588" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 191, 382" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 194, 470" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 195, 469" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 195, 471" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 196, 465" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 196, 611" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 200, 383" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 200, 478" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 200, 505" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 201, 427" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 201, 433" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 203, 365" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 211, 647" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 212, 565" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 212, 565, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 214, 447" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 214, 447, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 216, 177" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 218, 560" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 223, 520" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 224, 620" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 226, 331" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 226, 451" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 226, 514" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 228, 398" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 228, 493" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 229, 489, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 233, 572" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 234, 482" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 235, 453" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 235, 621" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 235, 621, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 237, 586" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 240, 436" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 248, 587" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 25, 400" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 250, 485" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 251, 691" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 252, 447" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 258, 387" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 260, 287" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 27, 465" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 28, 603" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 281, 535" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 286, 573" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 287, 428" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 287, 428, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 29, 130" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 29, 620" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 296, 569" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 3, 450" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 30, 400" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 30, 401" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 30, 448" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 300, 574" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 304, 538" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 305, 342" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 314, 446" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 316, 421" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 317, 402" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 32, 606" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 324, 470" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 327, 313" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 327, 57" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 329, 453" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 330, 154" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 331, 170" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 331, 170, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 332, 176" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 333, 467" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 337, 615" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 337, 615, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 347, 466" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 369, 75" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 37, 420" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 373, 503" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 376, 565" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 393, 568" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 4, 610" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 41, 515" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 42, 501" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 42, 639" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 43, 414" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 44, 569" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 44, 633" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 441, 641" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 445, 401" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 453, 517" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 48, 548" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 49, 587" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 5, 572" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 500, 141" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 500, 141, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 523, 569" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 53, 378" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 53, 437" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 53, 501" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 53, 519" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 538, 567" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 54, 419" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 54, 502" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 54, 534" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 54, 536" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 544, 484" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 545, 316" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 55, 426" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 55, 435" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 55, 533" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 56, 345" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 57, 429" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 575, 607" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 575, 607, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 584, 502" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 59, 412" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 6, 423" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 60, 617" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 605, 549" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 61, 690" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 67, 513" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 413" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 413, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 604" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 630" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 76" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 69, 76, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 7, 569" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 70, 412" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 71, 399" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 71, 523" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 726, 366" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 737, 510" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 74, 665" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 75, 522" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 75, 600" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 754, 507" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 768, 554" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 768, 554, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 77, 463" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 77, 694" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 80, 654" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 81, 520" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 82, 688" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 83, 625" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 83, 643" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 84, 455" value="2" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 84, 455, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 863, 319" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 875, 316" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 89, 613" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 91, 535" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 92, 616" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 94, 426" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 94, 611" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 94, 617" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 95, 628" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 96, 629" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 97, 688" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 98, 466" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench.sv, 99, 318" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench_fast.sv, 187, 228" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench_fast.sv, 201, 282" value="1" type="GuiResourceData"/>
+<property name="man_txd_rxd_bench_fast.sv, 336, 364" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 113, 590" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 113, 591" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 146, 618" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 152, 497" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 161, 539" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 174, 572" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 199, 619" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 208, 566" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 220, 597" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 241, 472" value="1" type="GuiResourceData"/>
+<property name="receive_fsm.sv, 571, 168" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 103, 621" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 133, 626" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 137, 588" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 162, 259" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 164, 411" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 165, 585" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 169, 181" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 181, 556" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 189, 621" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 195, 617" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 237, 534" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 26, 331" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 286, 449" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 303, 639" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 304, 660" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 309, 604" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 314, 552" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 316, 584" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 426, 479" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 454, 643" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 57, 618" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 65, 567" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 71, 604" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 713, 348" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 715, 598" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 797, 332" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 834, 570" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 867, 348" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 92, 113" value="1" type="GuiResourceData"/>
+<property name="receiver_fsm_bench.sv, 93, 607" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="23" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="21" type="TclMode"/>
+</item>
+</section>
+</application>
+</document>

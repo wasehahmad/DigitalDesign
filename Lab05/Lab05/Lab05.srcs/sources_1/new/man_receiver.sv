@@ -60,6 +60,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic abn_bit_seen;
     logic [$clog2(NUM_SAMPLES*2):0] samp_count;
     logic consec_high,consec_low;
+    logic eof_seen;
 
     
     //counter to count number of bits seen for the byte
@@ -78,10 +79,11 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     //correlators that tell if a bit is high or low consecutively
     correlator #(.PATTERN(16'hFFFF)) U_CORREL_ABN_HIGH(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(consec_high));
     correlator #(.PATTERN(16'h0000)) U_CORREL_ABN_LOW(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(consec_low));
+    correlator #(.PATTERN(32'hFFFFFFFF),.LEN(32)) U_CORREL_EOF(.clk(clk),.reset(reset),.enb(samp_clk),.d_in(rxd),.write(eof_seen));
 
     assign abn_bit_seen = (consec_high | consec_low) & samp_gt_16;
     
-    receive_fsm U_RECEIVE_FSM(.clk(clk),.reset(reset),.count_8(byte_count),.bit_count(abn_bit_count),
+    receive_fsm U_RECEIVE_FSM(.clk(clk),.reset(reset),.count_8(byte_count),.bit_count(abn_bit_count),.eof_seen(eof_seen),
                             .error_condition(abn_bit_seen),.consec_low(consec_low & abn_bit_seen),.start_receiving(start_receive),
                             .error(error),.write(write),.eof(eof),.reset_counters(reset_counters));
 

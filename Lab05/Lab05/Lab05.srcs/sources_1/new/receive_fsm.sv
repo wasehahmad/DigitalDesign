@@ -29,6 +29,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
     input logic error_condition,
     input logic consec_low,
     input logic start_receiving,
+    input logic eof_seen,
     output logic error,
     output logic eof,
     output logic write,
@@ -109,6 +110,10 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
                 if(bit_count < 2)begin
                     if(consec_low)begin
                         n_error = 1;
+                        next = IDLE;
+                    end
+                    else if(eof_seen)begin
+                        n_eof = 1;
                         next = IDLE;
                     end
                     else next = ERROR_CHK;

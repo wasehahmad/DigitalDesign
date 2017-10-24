@@ -20,7 +20,7 @@
 
 
 
-module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=13, LTHRESH=3, W=$clog2(LEN)+1,DIGIT = PATTERN[LEN-1])(
+module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=LEN-3, LTHRESH=3, W=$clog2(LEN)+1,DIGIT = PATTERN[LEN-1])(
 	      input logic 	   clk,
 	      input logic 	   reset,
 	      input logic 	   enb,
