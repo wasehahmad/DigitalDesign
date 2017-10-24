@@ -21,6 +21,9 @@
 
 
 module man_receive_bench;
+
+    import check_p ::*;
+    
     parameter BAUD = 50000;
     parameter TXD_BAUD = 49500;
     parameter NUM_SAMP = 16;
