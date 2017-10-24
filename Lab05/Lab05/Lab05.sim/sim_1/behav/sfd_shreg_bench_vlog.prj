@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/sfd_detector_shreg.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sim_1/new/sfd_shreg_bench.sv"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

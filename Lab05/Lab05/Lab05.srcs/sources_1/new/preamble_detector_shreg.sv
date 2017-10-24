@@ -29,46 +29,30 @@ module preamble_detector_shreg(
     );
     
     logic [7:0] shreg, it_matches;
-      
+    
+    assign it_matches =   shreg ^~ 8'b10101010;
+    
     // shift register shifts from right to left so that oldest data is on
     // the left and newest data is on the right
     always_ff  @(posedge clk) begin
         if (reset) begin
             shreg <= '0;
-            it_matches <= '0;
-            preamble_detected <= 0;
         end
-        else if (write_0) begin
+        else if (write_0 || write_1) begin
             //shift the new bit into the shift register
-            shreg <= { shreg[6:0], 1'b0 };
-            
-            //check if shreg has a preamble
-            it_matches <= shreg ^~ 8'b10101010;
-            if (it_matches == 8'b00000000) begin
-                preamble_detected <= 1;
-            end
-            if (it_matches == 8'b11111111) begin
-                preamble_detected <= 1;
-            end
-            else begin
-                preamble_detected <= 0;
-            end
+            shreg <= { shreg[6:0], write_0?1'b0:1'b1 };
         end
-        else if (write_1) begin
-            //shift the new bit into the shift register
-            shreg <= { shreg[6:0], 1'b1 };
-            
-            //check if shreg has a preamble
-            it_matches <= shreg ^~ 8'b10101010;
-            if (it_matches == 8'b00000000) begin
-                preamble_detected <= 1;
-            end
-            if (it_matches == 8'b11111111) begin
-                preamble_detected <= 1;
-            end
-            else begin
-                preamble_detected <= 0;
-            end
+    end  
+    
+    always_comb begin
+        //check if shreg has a preamble
+        if ((it_matches == 8'b00000000) || (it_matches == 8'b11111111)) begin
+            preamble_detected = 1;
         end
-    end    
+        else begin
+            preamble_detected = 0;
+        end
+    end
+
+
 endmodule

@@ -29,49 +29,58 @@ module sfd_detector_shreg(
     output logic sfd_detected,
     output logic corroborating
     );
+    parameter sfd = 8'b11010000;
     
-    logic [7:0] shreg, it_matches;
+    logic [7:0] shreg;
+    logic [3:0] counter;
+    logic half_sfd_seen;
       
     // shift register shifts from right to left so that oldest data is on
     // the left and newest data is on the right
     always_ff  @(posedge clk) begin
         if (reset) begin
             shreg <= '0;
-            it_matches <= '0;
-            sfd_detected <= 0;
+            counter <= '0;
             corroborating <= 0;
+            half_sfd_seen <= 0;
+            sfd_detected <= 0;
         end
-        else if (cardet && write_0) begin
+        else if (write_0 || write_1) begin
             //shift the new bit into the shift register
-            shreg <= { shreg[6:0], 1'b0 };
+            shreg <= { shreg[6:0], write_0?1'b0:1'b1 };
             
-            //check if shreg has a preamble
-            it_matches <= shreg ^~ 8'b10101010;
-            if (it_matches == 8'b00000000) begin
-                sfd_detected <= 1;
-            end
-            if (it_matches == 8'b11111111) begin
-                sfd_detected <= 1;
-            end
-            else begin
-                sfd_detected <= 0;
+            //increment the counter when cardet goes high
+            if (cardet) begin
+                if (sfd[counter] == shreg[0]) begin
+                    counter <= counter + 1;
+                    corroborating <= 1;                        
+                end
+                else if (counter == 4 && shreg[0] == 0 && half_sfd_seen == 0) begin
+                    corroborating <= 1;
+                    half_sfd_seen <= 1;
+                end
+                else if (counter == 1 && shreg[0]==1) begin
+                    counter <= '0;
+                    corroborating <= 0;
+                    half_sfd_seen <= 0;
+                end
+                else begin
+                    corroborating <= 0;
+                    counter <= '0;
+                    half_sfd_seen <= 0;
+                end
             end
         end
-        else if (cardet && write_1) begin
-            //shift the new bit into the shift register
-            shreg <= { shreg[6:0], 1'b1 };
-            
-            //check if shreg has a preamble
-            it_matches <= shreg ^~ 8'b10101010;
-            if (it_matches == 8'b00000000) begin
-                sfd_detected <= 1;
-            end
-            if (it_matches == 8'b11111111) begin
-                sfd_detected <= 1;
-            end
-            else begin
-                sfd_detected <= 0;
-            end
+        
+        //LATCH HERE
+        if (counter == 8) begin
+            sfd_detected <= 1;
+                      
         end
-    end    
+    end  
+    
+    always_comb begin
+
+    end
+
 endmodule
