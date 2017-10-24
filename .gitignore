@@ -6,3 +6,12 @@
 *.wdm
 *.wpc
 *.xml
+*.wdb
+*.sdb
+*.mem
+*.btree
+*.rtti
+*.exe
+*.dbg
+*.info
+*.html
