@@ -49,7 +49,7 @@ module receiver_fsm_benc;
     logic bit_seen;
     logic eof_seen;
     
-    assign start_receive = 1;
+    
     
     
     //counter to count number of bits seen for the byte
@@ -107,11 +107,20 @@ module receiver_fsm_benc;
     
     task send_high;
         integer i;
-            for(i=0;i<16;i++)begin
-                rxd = 1;
-                repeat(WAIT_TIME)@(posedge clk);
-            end
+        for(i=0;i<16;i++)begin
+            rxd = 1;
+            repeat(WAIT_TIME)@(posedge clk);
+        end
     
+    endtask
+    
+    task send_low;
+        integer i;
+        for(i=0;i<16;i++)begin
+            rxd = 0;
+            repeat(WAIT_TIME)@(posedge clk);
+        end
+        
     endtask
     
     task send_bit;
@@ -144,10 +153,54 @@ module receiver_fsm_benc;
         reset = 0;
         repeat(100000)@(posedge clk);
         repeat(1000)@(posedge clk);
+        start_receive = 1;
         for(i =0; i< 256;i ++)begin
             send_bit;
-        end                     
+        end            
+        start_receive = 0;         
         send_high;
+        send_high;
+        
+        rxd = 1;
+        reset = 1;
+        repeat(30)@(posedge clk);
+        #1;
+        reset = 0;
+        repeat(100000)@(posedge clk);
+        repeat(1000)@(posedge clk);
+        start_receive = 1;
+        for(i =0; i< 256;i ++)begin
+            send_bit;
+        end
+        start_receive = 0;
+        send_low;
+        
+        rxd = 1;
+        reset = 1;
+        repeat(30)@(posedge clk);
+        #1;
+        reset = 0;
+        repeat(100000)@(posedge clk);
+        repeat(1000)@(posedge clk);
+        start_receive = 1;
+        for(i =0; i< 250;i ++)begin
+            send_bit;
+        end
+        start_receive = 0;
+        send_low;
+        
+        rxd = 0;
+        reset = 1;
+        repeat(30)@(posedge clk);
+        #1;
+        reset = 0;
+        repeat(100000)@(posedge clk);
+        repeat(1000)@(posedge clk);
+        start_receive = 1;
+        for(i =0; i< 250;i ++)begin
+            send_bit;
+        end            
+        start_receive = 0;         
         send_high;
         $stop;
 

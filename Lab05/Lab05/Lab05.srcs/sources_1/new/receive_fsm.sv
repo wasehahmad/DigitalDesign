@@ -87,7 +87,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
             RECEIVING: begin
                 if(error_condition)begin
                     //if at least one byte has been seen and the stream is not in the middle of a byte
-                    if(one_byte_seen && count_8 == 0 )next = ERROR_CHK;
+                    if(one_byte_seen && count_8 == 0 && !consec_low )next = ERROR_CHK;
                     //else it is an error (EOF too early or low bits)
                     else begin
                         n_error = 1;

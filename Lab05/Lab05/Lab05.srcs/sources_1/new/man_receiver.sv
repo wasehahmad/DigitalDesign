@@ -78,7 +78,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
 
     //correlators that tell if a bit is high or low consecutively
     correlator #(.PATTERN(16'hFFFF)) U_CORREL_ABN_HIGH(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(consec_high));
-    correlator #(.PATTERN(16'h0000)) U_CORREL_ABN_LOW(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(consec_low));
+    correlator #(.PATTERN(16'h0000)) U_CORREL_ABN_LOW(.clk(clk),.reset(reset | error),.enb(sample),.d_in(rxd),.h_out(consec_low));
     correlator #(.PATTERN(32'hFFFFFFFF),.LEN(32)) U_CORREL_EOF(.clk(clk),.reset(reset),.enb(samp_clk),.d_in(rxd),.write(eof_seen));
 
     assign abn_bit_seen = (consec_high | consec_low) & samp_gt_16;
