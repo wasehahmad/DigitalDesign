@@ -67,11 +67,21 @@ module sfd_fsm(
                     next = RECEIVING;
                     cardet = 1;
                 end
-                else next = CHK_SFD;
+                else if (corroborating) begin
+                    next = CHK_SFD;
+                    cardet = 1;
+                end
+                else begin
+                    next = CHK_PREAMBLE;
+                    cardet = 0;
+                end
             end
            
             RECEIVING: begin
-                if (error == 0) next = RECEIVING;
+                if (error) begin 
+                    next = CHK_PREAMBLE;
+                    cardet = 0;
+                end
                 else next = RECEIVING;
             end
            
