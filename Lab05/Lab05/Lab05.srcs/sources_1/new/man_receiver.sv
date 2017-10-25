@@ -36,7 +36,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic bit_seen;
     assign bit_seen = write_one | write_zero;
 
-
+    //==========================================================================Synchronizer and correlators for bit detection
     //sampler that varies frequency of sampling based on input
     variable_sampler #(.BAUD(BAUD),.SAMPLE_FREQ(16)) U_SAMPLER(.clk(clk),.reset(reset), .speed_up(speed_up),.slow_down(slow_down),
                                                                .diff_amt(phase_diff),.enb(sample));
@@ -52,15 +52,15 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     correlator #(.PATTERN(16'hFF00)) U_CORREL_ONE(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(write_one));
     
     
-    //==========================================================================counters with error ccheck blocks
-    logic start_receive;
+    //==========================================================================counters with error ccheck blocks and the FSM for receiving
+    logic start_receive_pulse;
     logic reset_counters;
     logic [3:0] byte_count;
     logic [3:0] abn_bit_count;
     logic abn_bit_seen;
     logic [$clog2(NUM_SAMPLES*2):0] samp_count;
     logic consec_high,consec_low;
-    logic eof_seen;
+    logic eof_seen,eof;
 
     
     //counter to count number of bits seen for the byte
@@ -84,10 +84,33 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     assign abn_bit_seen = (consec_high | consec_low) & samp_gt_16;
     
     receive_fsm U_RECEIVE_FSM(.clk(clk),.reset(reset),.count_8(byte_count),.bit_count(abn_bit_count),.eof_seen(eof_seen),
-                            .error_condition(abn_bit_seen),.consec_low(consec_low & abn_bit_seen),.start_receiving(start_receive),
+                            .error_condition(abn_bit_seen),.consec_low(consec_low & abn_bit_seen),.start_receiving(start_receive_pulse),
                             .error(error),.write(write),.eof(eof),.reset_counters(reset_counters));
-
-
+                            
+                            
+    
+    //==========================================================================Shift registers and FSM for pre-receive stages
+    logic   sfd_detected,corroborating;
+    logic [7:0] data_rxd;
+    logic preamble_detected;
+    logic start_receiving;
+    
+    
+    //shift register for the preamble
+    preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
+    
+    //shift register to check for the sfd
+    sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.cardet(preamble_detected | corroborating | cardet),.sfd_detected(sfd_detected),.corroborating(corroborating));
+    
+    //register to store the received data
+    data_shreg U_DATA_REG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.sfd_detected(sfd_detected),.data_out(data_rxd));
+    
+    //fsm for the pre_receive stage
+    sfd_fsm U_SFD_FSM(.clk(clk),.reset(reset),.preamble_detected(preamble_detected),.corroborating(corroborating),.sfd_detected(sfd_detected),
+                    .eof(eof),.error(error),.cardet(cardet),.start_receiving(start_receiving));
+    
+    //converts start receiving output to a single pulse 
+    single_pulser U_STRT_RECEIVE_PULSE(.clk(clk),.din(start_receiving),.d_pulse(start_receive_pulse));
 
 
 endmodule
