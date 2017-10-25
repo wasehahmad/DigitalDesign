@@ -26,13 +26,14 @@ module sfd_fsm(
     input logic preamble_detected,
     input logic corroborating,
     input logic sfd_detected,
+    input logic eof,
     input logic error,
     output logic cardet,
     output logic start_receiving
     );
     
     typedef enum logic[1:0] {
-        CHK_PREAMBLE=3'd0, CHK_SFD=3'd1, RECEIVING=3'd2
+        CHK_PREAMBLE=2'd0, CHK_SFD=2'd1, RECEIVING=2'd2
     } states_t;
     
     states_t state, next;
@@ -50,6 +51,7 @@ module sfd_fsm(
     //defaults
     cardet = 0;
     next = CHK_PREAMBLE;    
+    start_receiving = 0;
         
         unique case (state)       
             
@@ -78,11 +80,15 @@ module sfd_fsm(
             end
            
             RECEIVING: begin
-                if (error) begin 
+                if (error | eof) begin 
                     next = CHK_PREAMBLE;
                     cardet = 0;
                 end
-                else next = RECEIVING;
+                else begin
+                    next = RECEIVING;
+                    cardet = 1;
+                    start_receiving = 1;
+                end
             end
            
         endcase

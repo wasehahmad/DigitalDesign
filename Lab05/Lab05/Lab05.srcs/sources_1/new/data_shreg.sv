@@ -35,7 +35,7 @@ module data_shreg(
     // shift register shifts from right to left so that oldest data is on
     // the left and newest data is on the right
     always_ff  @(posedge clk) begin
-        if (reset) begin
+        if (reset | !sfd_detected) begin
             shreg <= '0;
         end
         else if (write_0 || write_1) begin
