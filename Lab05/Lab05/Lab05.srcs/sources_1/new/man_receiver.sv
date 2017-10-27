@@ -34,6 +34,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic sample;
     logic [PHASE_WIDTH-1:0] phase_diff;
     logic bit_seen;
+    logic [PHASE_WIDTH-1:0] num_samples;
     assign bit_seen = write_one | write_zero;
 
     //==========================================================================Synchronizer and correlators for bit detection
@@ -42,14 +43,14 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
                                                                .diff_amt(phase_diff),.enb(sample));
      
     //synchronizer                                                           
-    synchronizer #(.NUM_SAMP(NUM_SAMPLES)) U_SYNC(.clk(clk),.reset(reset),.bit_seen(write_zero | write_one),
+    synchronizer #(.NUM_SAMP(NUM_SAMPLES)) U_SYNC(.clk(clk),.reset(reset),.bit_seen(write_zero | write_one),.num_samples(num_samples),
                                                 .count_enb(sample),.slow_down(slow_down),.speed_up(speed_up),.phase_diff(phase_diff));
     
-    //correlator to store the input values
-    correlator #(.PATTERN(16'h00FF)) U_CORREL_ZERO(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(write_zero));
+    //correlator to store the input values//resets to opposite 
+    correlator #(.PATTERN(16'h00FF),.RST_PAT(16'hFFFF)) U_CORREL_ZERO(.clk(clk),.reset(reset | (cardet & write_one)),.enb(sample),.d_in(rxd),.write(write_zero));
 
-    //correlator to store the input values
-    correlator #(.PATTERN(16'hFF00)) U_CORREL_ONE(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(write_one));
+    //correlator to store the input values//resets to opposite
+    correlator #(.PATTERN(16'hFF00),.RST_PAT(16'h0000)) U_CORREL_ONE(.clk(clk),.reset(reset | (cardet & write_zero)),.enb(sample),.d_in(rxd),.write(write_one));
     
     
     //==========================================================================counters with error ccheck blocks and the FSM for receiving

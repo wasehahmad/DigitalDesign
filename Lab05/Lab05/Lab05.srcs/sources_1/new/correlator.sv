@@ -20,7 +20,7 @@
 
 
 
-module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=LEN-3, LTHRESH=3, W=$clog2(LEN)+1,DIGIT = PATTERN[LEN-1])(
+module correlator #(parameter LEN=16,RST_PAT= 16'h0000, PATTERN=16'b0000000011111111, HTHRESH=LEN-3, LTHRESH=3, W=$clog2(LEN)+1,DIGIT = PATTERN[LEN-1])(
 	      input logic 	   clk,
 	      input logic 	   reset,
 	      input logic 	   enb,
@@ -57,7 +57,7 @@ module correlator #(parameter LEN=16, PATTERN=16'b0000000011111111, HTHRESH=LEN-
         if (reset) begin 
             prev_pulsed <= 0;
             pulsed <= 0;
-            shreg <= '0;
+            shreg <= RST_PAT;
         end
         else if (enb)begin
             shreg <= { shreg[LEN-2:0], d_in };

@@ -69,7 +69,7 @@ module sfd_fsm(
                     next = RECEIVING;
                     cardet = 1;
                 end
-                else if (corroborating) begin
+                else if (corroborating | preamble_detected) begin
                     next = CHK_SFD;
                     cardet = 1;
                 end

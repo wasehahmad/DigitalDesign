@@ -47,7 +47,7 @@ module sfd_detector_shreg(
         end
         else if (write_0 || write_1) begin
             //shift the new bit into the shift register
-            shreg <= { shreg[6:0], write_0?1'b0:1'b1 };
+           
             
             //increment the counter when cardet goes high
             if (cardet) begin
@@ -80,7 +80,9 @@ module sfd_detector_shreg(
     end  
     
     always_comb begin
-
+        if (write_0 || write_1) begin
+            shreg = { shreg[6:0], write_0?1'b0:1'b1 };
+        end
     end
 
 endmodule

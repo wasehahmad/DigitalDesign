@@ -28,12 +28,12 @@ module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2
     output logic slow_down,
     output logic speed_up,
     output logic [W-1:0] phase_diff,
-    output logic no_bit_seen
+    output logic no_bit_seen,
+    output logic [W-1:0] num_samples
     );
     
     //need to adjust for the beginnig of the frame i.e. if all im seeing is noise......... dont increase the counter or compare
     
-    logic [W-1:0]num_samples;
     logic [W-1:0]n_diff;
     logic n_slow,n_speed,n_no_bit_seen;
     

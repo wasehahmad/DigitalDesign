@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Oct 24 11:49:07 2017">
+<application name="pa" timeStamp="Wed Oct 25 17:48:22 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="96409b7f00c749148d812ea42cb976b8" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -36,255 +36,134 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformSaveConfiguration" value="5" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="FINISH, Finish" value="1" type="GuiResourceData"/>
-<property name="NEXT, Next " value="2" type="GuiResourceData"/>
-<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_AND_NETLIST_FILES_OR_DIRECTORIES, Add or create design sources" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, Add or create simulation sources" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, data_" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, sfd_shreg_bench" value="1" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_TYPE, SystemVerilog, 2" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="7" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RELAUNCH, simulation_relaunch" value="7" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_0_CRITICAL_WARNING, 2 critical warnings" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Constraints], 12" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files], 1, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files], 1, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, preamble_detector_shreg (preamble_detector_shreg.sv" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, sfd_detector_shreg (sfd_detector_shreg.sv" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files], 18, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Syntax Error Files], 18, true, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, clkenb (clkenb.sv" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, preamble_shreg_bench (preamble_shreg_bench.sv" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, sfd_shreg_bench (sfd_shreg_bench.sv" value="5" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 16" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 15" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager, Add Sources], 2, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sources_1, [HDL 9-806] Syntax error near end. [C:/Users/watsongd/Desktop/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:74]. ], 2, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, us, 2" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, counter[3:0] ; 2 ; Array, 9, counter[3:0], 0, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, counter[3:0] ; 4 ; Array, 8, counter[3:0], 0, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, it_matches[7:0] ; 55 ; Array, 6, it_matches[7:0], 0, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, it_matches[7:0] ; XX ; Array, 8, it_matches[7:0], 0, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[7:0] ; 00 ; Array, 5, shreg[7:0], 0, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, shreg[7:0] ; 00 ; Array, 7, shreg[7:0], 0, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, DUV ; preamble_detector_shreg ; Verilog Module, 1, DUV, 0, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, DUV ; preamble_detector_shreg ; Verilog Module, 1, DUV, 0, false, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, DUV ; sfd_detector_shreg ; Verilog Module, 1, DUV, 0, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, preamble_shreg_bench ; preamble_shreg_bench ; Verilog Module, 0, preamble_shreg_bench, 0, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, Add Files" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_CREATE_FILE, Create File" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="2" type="GuiResourceData"/>
-<property name="PAResourceTtoZ.TaskBanner_CLOSE, (String" value="2" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="2" type="GuiResourceData"/>
-<property name="RDIResource.GraphicalView_ZOOM_FIT, Waveform Viewer_zoom_fit" value="9" type="GuiResourceData"/>
-<property name="RDIResource.GraphicalView_ZOOM_IN, Waveform Viewer_zoom_in" value="1" type="GuiResourceData"/>
-<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="6" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 0, 59" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 62" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 141, 318" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 146, 297" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 146, 340" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 151, 226" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 16, 167" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 161, 200" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 173, 311" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 175, 400" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 249, 189" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 250, 263" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 283, 268" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 294, 243" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 123" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 48" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 62" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 35, 149" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 107" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 139" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 4, 186" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 441, 170" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 487, 260" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 489, 193" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 54, 253" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 57, 145" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 6, 242" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 6, 53" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 63, 255" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 64, 328" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 680, 245" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 79, 210" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 1*" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 2*" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 3*" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, counter[3:0]], 9, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, it_matches[7:0]], 6, true, false, true, false, false, false" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, it_matches[7:0]], 8, true" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, it_matches[7:0]], 8, true, false, true, false, false, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, preamble_detected], 4, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0], [4]], 11, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0]], 5, true" value="2" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0]], 5, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0]], 7" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0]], 7, true" value="1" type="GuiResourceData"/>
-<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, shreg[7:0]], 7, true, false, false, false, true, false" value="2" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 107, 639" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 120, 689" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 167, 129" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 172, 540" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 172, 540, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 182, 501" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 182, 604" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 185, 554" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 202, 730" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 210, 648" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 212, 396" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 259, 392" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 261, 552" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 263, 253" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 276, 163" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 280, 396" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 328, 160" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 329, 499" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 339, 301" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 350, 702" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 380, 552" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 400, 168" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 411, 490" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 43, 452" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 498, 550" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 55, 608" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 60, 713" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 63, 723" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 64, 481" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 66, 483" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 80, 304" value="1" type="GuiResourceData"/>
-<property name="preamble_detector_shreg.sv, 89, 646" value="1" type="GuiResourceData"/>
-<property name="preamble_shreg_bench.sv, 235, 429" value="1" type="GuiResourceData"/>
-<property name="preamble_shreg_bench.sv, 255, 308" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 106, 605" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 106, 630" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 109, 571" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 115, 575" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 130, 530" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 131, 361" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 131, 361, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 134, 214" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 134, 214, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 137, 176" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 137, 176, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 138, 91" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 138, 91, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 139, 377" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 139, 500" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 145, 106" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 145, 106, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 146, 165" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 146, 165, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 146, 419" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 146, 567" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 147, 588" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 152, 383" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 156, 147" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 160, 602" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 162, 342" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 171, 182" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 171, 317" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 172, 41" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 176, 420" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 179, 371" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 184, 199" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 188, 313" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 208, 161" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 208, 161, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 210, 170" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 210, 170, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 213, 163" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 215, 562" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 216, 97" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 224, 68" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 243, 143" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 245, 347" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 248, 269" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 26, 196" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 26, 339" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 262, 432" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 266, 401" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 271, 64" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 273, 457" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 274, 350" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 278, 439" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 280, 382" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 282, 498" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 282, 535" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 284, 404" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 291, 258" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 300, 529" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 301, 485" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 307, 269" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 308, 269, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 319, 17" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 319, 428" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 336, 551" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 342, 403" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 342, 403, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 351, 337" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 351, 337, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 374, 425" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 379, 244" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 384, 244" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 387, 240" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 39, 622" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 392, 345" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 395, 352" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 418, 413" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 442, 571" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 517, 360" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 59, 623" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 62, 226" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 629, 199" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 67, 308" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 69, 606" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 758, 423" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 79, 589" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 80, 377" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 81, 387" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 83, 378" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 83, 389, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 83, 393" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 83, 404" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 87, 373" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 90, 282" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 93, 331" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 98, 569" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 98, 583" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 105, 385" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 116, 200" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 129, 266" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 130, 162" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 131, 211" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 136, 262" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 197, 424" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 220, 279" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 254, 228" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 267, 197" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 267, 197, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 287, 296" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 318, 196" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 318, 196, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 373, 367" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 394, 379" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 534, 367" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 82, 182" value="1" type="GuiResourceData"/>
-<property name="sfd_shreg_bench.sv, 85, 364" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, bcdcounter (bcdcounter.sv" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, clkenb (clkenb.sv" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, data_shreg (data_shreg.sv" value="7" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, man_receiver (man_receiver.sv" value="5" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, preamble_detector_shreg (preamble_detector_shreg.sv" value="3" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, sfd_detector_shreg (sfd_detector_shreg.sv" value="3" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, sfd_fsm (sfd_fsm.sv" value="4" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, single_pulser (single_pulser.sv" value="5" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="6" type="GuiResourceData"/>
+<property name="RDIResource.BaseWorkspace_FLOAT, Float" value="5" type="GuiResourceData"/>
+<property name="data_shreg.sv, 116, 554" value="1" type="GuiResourceData"/>
+<property name="data_shreg.sv, 191, 474" value="1" type="GuiResourceData"/>
+<property name="data_shreg.sv, 96, 586" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 1002, 641" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 1008, 651" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 1013, 606" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 107, 642" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 108, 165" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 112, 401" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 112, 401, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 116, 416" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 122, 464" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 122, 464, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 122, 634" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 123, 606" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 123, 606, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 128, 397" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 134, 129" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 134, 129, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 146, 263" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 151, 399" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 152, 572" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 152, 572, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 153, 164" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 170, 472" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 181, 673" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 189, 622" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 19, 607" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 202, 502" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 211, 504" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 223, 375" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 237, 464" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 237, 464, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 244, 591" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 245, 589" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 252, 621" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 254, 592" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 256, 640" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 257, 621" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 278, 618" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 280, 552" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 33, 579" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 364, 625" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 377, 650" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 39, 622" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 411, 624" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 43, 258" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 43, 626" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 449, 589" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 45, 540" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 46, 655" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 489, 621" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 52, 560" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 540, 624" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 602, 623" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 631, 630" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 642, 636" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 723, 617" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 756, 590" value="2" type="GuiResourceData"/>
+<property name="man_receiver.sv, 774, 625" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 778, 591" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 809, 180" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 811, 180" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 813, 165" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 823, 619" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 849, 656" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 849, 656, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 857, 487" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 867, 589" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 867, 637" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 900, 623" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 986, 278" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 987, 589" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 988, 264" value="1" type="GuiResourceData"/>
+<property name="man_receiver.sv, 999, 256" value="1" type="GuiResourceData"/>
+<property name="sfd_detector_shreg.sv, 46, 380" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 104, 507" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 108, 489" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 117, 563" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 119, 566" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 124, 556" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 143, 536" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 143, 640" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 147, 582" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 151, 379" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 155, 590" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 166, 585" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 172, 566" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 175, 569" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 177, 541" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 183, 536" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 192, 555" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 195, 550" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 195, 568" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 197, 399" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 209, 417" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 216, 462" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 217, 571" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 217, 587" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 219, 552" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 220, 587" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 221, 552" value="2" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 221, 552, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 222, 607" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 226, 623" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 231, 547" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 235, 566" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 240, 551" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 28, 486" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 298, 572" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 43, 467" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 519, 370" value="1" type="GuiResourceData"/>
+<property name="sfd_fsm.sv, 69, 667" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="21" type="GuiMode"/>
+<property name="GuiMode" value="25" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="15" type="TclMode"/>
+<property name="TclMode" value="23" type="TclMode"/>
 </item>
 </section>
 </application>
