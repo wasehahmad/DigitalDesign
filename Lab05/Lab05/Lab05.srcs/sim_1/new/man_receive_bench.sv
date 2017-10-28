@@ -29,15 +29,21 @@ module man_receive_bench;
     parameter NUM_SAMP = 16;
     parameter SAMP_WIDTH = $clog2(NUM_SAMP);
     parameter WAIT_TIME = 100_000_000/(TXD_BAUD*NUM_SAMP);
-    parameter CONST_HIGH = 1600;
+    parameter CONST_HIGH = 160000;
     
     logic clk,reset;
     logic rxd,cardet;
     logic [7:0] data;
     logic write, error;
     
+
     
-    man_receiver DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error));
+    
+//    logic jitter_rxd;
+//    logic samp_clk;
+//    jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(rxd),.dout(jitter_rxd));
+    
+    man_receiver DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error),.samp_clk(samp_clk));
     //===================================================
     task send_0;
         integer i;

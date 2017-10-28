@@ -27,7 +27,8 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     output logic cardet,
     output logic [DATA_WIDTH-1:0] data,
     output logic write,
-    output logic error
+    output logic error,
+    output logic samp_clk
     );
     
     logic speed_up,slow_down;
@@ -36,6 +37,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic bit_seen;
     logic [PHASE_WIDTH-1:0] num_samples;
     assign bit_seen = write_one | write_zero;
+    assign samp_clk = sample;
     
 
     
