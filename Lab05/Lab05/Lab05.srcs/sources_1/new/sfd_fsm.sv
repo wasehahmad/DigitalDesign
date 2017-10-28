@@ -32,6 +32,8 @@ module sfd_fsm(
     output logic start_receiving
     );
     
+    
+    logic n_cardet;
     typedef enum logic[1:0] {
         CHK_PREAMBLE=2'd0, CHK_SFD=2'd1, RECEIVING=2'd2
     } states_t;
@@ -41,15 +43,19 @@ module sfd_fsm(
     always_ff @(posedge clk) begin
         if (reset) begin 
             state <= CHK_PREAMBLE;
+            cardet<=0;
         end
         else begin
             state <= next;
+            cardet <= n_cardet;
         end
     end
     
+
+    
     always_comb begin
     //defaults
-    cardet = 0;
+    n_cardet = 0;
     next = CHK_PREAMBLE;    
     start_receiving = 0;
         
@@ -58,7 +64,7 @@ module sfd_fsm(
             CHK_PREAMBLE: begin
                 if (preamble_detected) begin 
                     next = CHK_SFD;
-                    cardet = 1;
+                    n_cardet = 1;
                 end
                 else next = CHK_PREAMBLE;
             end
@@ -67,26 +73,26 @@ module sfd_fsm(
             CHK_SFD: begin
                 if (sfd_detected) begin 
                     next = RECEIVING;
-                    cardet = 1;
+                    n_cardet = 1;
                 end
                 else if (corroborating | preamble_detected) begin
                     next = CHK_SFD;
-                    cardet = 1;
+                    n_cardet = 1;
                 end
                 else begin
                     next = CHK_PREAMBLE;
-                    cardet = 0;
+                    n_cardet = 0;
                 end
             end
            
             RECEIVING: begin
                 if (error | eof) begin 
                     next = CHK_PREAMBLE;
-                    cardet = 0;
+                    n_cardet = 0;
                 end
                 else begin
                     next = RECEIVING;
-                    cardet = 1;
+                    n_cardet = 1;
                     start_receiving = 1;
                 end
             end

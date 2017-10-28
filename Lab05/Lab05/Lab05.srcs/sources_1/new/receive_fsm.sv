@@ -101,6 +101,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
                         n_write = 1;
                         n_reset_counters = 1;
                     end
+                    else if(count_8 == 0)n_write = write;//latch the value till next bit
                     next = RECEIVING;
                 end
 

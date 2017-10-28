@@ -29,7 +29,7 @@ module man_receive_bench;
     parameter NUM_SAMP = 16;
     parameter SAMP_WIDTH = $clog2(NUM_SAMP);
     parameter WAIT_TIME = 100_000_000/(TXD_BAUD*NUM_SAMP);
-    parameter CONST_HIGH = 160;
+    parameter CONST_HIGH = 1600;
     
     logic clk,reset;
     logic rxd,cardet;
@@ -192,7 +192,7 @@ module man_receive_bench;
 
 	//=============================================
 	task test_reset;
-		$display("Testing Simulation test 1");
+		$display("===================================Testing Simulation test 1===================================");
 		//wait 100 clock cycles
 		reset = 0;
 		repeat(100)@(posedge clk);
@@ -218,7 +218,7 @@ module man_receive_bench;
 	//=============================================
 	task test_16PRE_1SFD_1BYTE;
 
-		$display("Testing Simulation test 2");
+		$display("===================================Testing Simulation test 2===================================");
 		reset = 0;
 		repeat(100)@(posedge clk);
 		//assert reset for one clock cycle
@@ -231,7 +231,7 @@ module man_receive_bench;
 		send_constant_high;
 
 		//send preamble
-		check_ok("Cardet goes is low before 8 bit preamble",cardet,0);
+		check_ok("Cardet is low before 8 bit preamble",cardet,0);
 		send_preamble_8;
 		@(posedge clk);
 		check_ok("Cardet goes high after 8 bit preamble",cardet,1);
@@ -255,7 +255,7 @@ module man_receive_bench;
 	//=============================================
 	task test_16PRE_1SFD_3BYTE;
 
-		$display("Testing Simulation test 3");
+		$display("===================================Testing Simulation test 3===================================");
 		reset = 0;
 		repeat(100)@(posedge clk);
 		//assert reset for one clock cycle
@@ -296,7 +296,7 @@ module man_receive_bench;
 //=================================================================
     task test_16PRE_1SFD_RAND;
     
-        $display("Testing Simulation test 4");
+        $display("===================================Testing Simulation test 4===================================");
         reset = 0;
         repeat(100)@(posedge clk);
         //assert reset for one clock cycle
@@ -331,7 +331,7 @@ module man_receive_bench;
     //=================================================================
     task test_16PRE_1SFD_BAD_BIT;
     
-        $display("Testing Simulation test 5");
+        $display("===================================Testing Simulation test 5===================================");
         reset = 0;
         repeat(100)@(posedge clk);
         //assert reset for one clock cycle
@@ -367,7 +367,7 @@ module man_receive_bench;
     //==================================================================
     task test_16PRE_1SFD_NOT_ENOUGH_DATA;
     
-        $display("Testing Simulation test 6");
+        $display("===================================Testing Simulation test 6===================================");
         reset = 0;
         repeat(100)@(posedge clk);
         //assert reset for one clock cycle

@@ -43,11 +43,12 @@ module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2
         n_diff = 0;
         n_no_bit_seen = 0;
         if(num_samples>COUNT_MAX)begin
-            n_diff = num_samples - COUNT_MAX;
+            n_diff = num_samples - COUNT_MAX;//max ndiff = 5
             n_slow = 1;
         end
         else if(num_samples<COUNT_MAX)begin
             n_diff = COUNT_MAX-num_samples;
+            if(n_diff>5)n_diff = 0;//max ndiff should be 5, if more than that, dont attempt to resynchronize
             n_speed = 1;
         end
         //check if too much time has passed since the next bit has been seen. value of 21 is chosen as default
@@ -72,7 +73,8 @@ module synchronizer #(parameter  NUM_SAMP = 16, COUNT_MAX = NUM_SAMP,W = ($clog2
             if(bit_seen)begin//might need to check more than just at this rate
                 slow_down <= n_slow;
                 speed_up  <= n_speed;
-                phase_diff <= n_diff;
+                if(n_diff < 5)phase_diff <= n_diff;
+                else phase_diff <=0;
             end
         end
     

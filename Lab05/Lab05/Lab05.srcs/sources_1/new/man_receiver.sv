@@ -42,6 +42,8 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
 
     //==========================================================================Synchronizer and correlators for bit detection
+
+    
     //sampler that varies frequency of sampling based on input
     variable_sampler #(.BAUD(BAUD),.SAMPLE_FREQ(16)) U_SAMPLER(.clk(clk),.reset(reset), .speed_up(speed_up),.slow_down(slow_down),
                                                                .diff_amt(phase_diff),.enb(sample));
@@ -100,9 +102,12 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic preamble_detected;
     logic start_receiving;
     
+    logic samp_num_24;
+    assign samp_num_24 = samp_count>23;
+    
     
     //shift register for the preamble
-    preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
+    preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset| (samp_num_24 & !cardet)),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
     
     //shift register to check for the sfd
     sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.cardet(preamble_detected | corroborating | cardet),.sfd_detected(sfd_detected),.corroborating(corroborating));
