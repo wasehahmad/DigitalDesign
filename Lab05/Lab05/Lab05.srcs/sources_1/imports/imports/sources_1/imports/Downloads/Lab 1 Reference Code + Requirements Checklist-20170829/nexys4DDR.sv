@@ -101,4 +101,9 @@ module nexys4DDR (
                     .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(reg_3[3:0]),.d7(reg_3[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
+                    
+    //BUILD FIFO
+    
+    //SYNC TO REALTERM
+    
 endmodule // nexys4DDR
