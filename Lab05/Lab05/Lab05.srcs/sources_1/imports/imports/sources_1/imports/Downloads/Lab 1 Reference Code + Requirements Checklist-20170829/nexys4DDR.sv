@@ -67,37 +67,38 @@ module nexys4DDR (
     logic [7:0] data_2;
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
     logic rdy_pulse;
+    logic [6:0] length;
     
     assign transmitted = txd;  
     assign rdy = LED[0];
+    assign length = (SW[5:0] == '0)?0:SW[5:0]+2'd3;
+    
+    logic debounced_reset;
+    logic [7:0] data;
+    logic cardet;
+    logic write;
+    logic error;
+    
+    //assign JB = 3'd0;
+    
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(length),.send(send),.data(data),.ready(rdy));
     
     debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(debounced_send));
-    debounce U_SEND_CONT(.clk(CLK100MHZ), .button_in(run), .button_out(cont_send));
+    debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
-    rtl_transmitter(.clk_100mhz(CLK100MHZ),.reset(BTNC),.send(send),.data(SW[7:0]),.txd(txd),.rdy());
+    rtl_transmitter(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
     
-    receiver_top U_RECEIVER_RTERM(.clk(CLK100MHZ), .reset(BTNC), .rxd(rxd), .rdy(LED[0]), .data(data), .ferr(LED[1]));
+    man_receiver U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data), .write(write), .error(error));
     
-    single_pulser U_RDY_PULSER (.clk(CLK100MHZ), .din(rdy), .d_pulse(rdy_pulse));
+    single_pulser U_RDY_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
     
-    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(BTNC),.lden(rdy_pulse),.d(data),.q(reg_0));
-    reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(BTNC),.lden(rdy_pulse),.d(reg_0),.q(reg_1));
-    reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(BTNC),.lden(rdy_pulse),.d(reg_1),.q(reg_2));
-    reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(BTNC),.lden(rdy_pulse),.d(reg_2),.q(reg_3));
+    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(data),.q(reg_0));
+    reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
+    reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_1),.q(reg_2));
+    reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_2),.q(reg_3));
     
-    
-    
-    receiver_top U_RECEIVER_TXD(.clk(CLK100MHZ), .reset(BTNC), .rxd(txd), .rdy(rxd_rdy), .data(data_2), .ferr(ferr));
-
-    dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(BTNC),
+    dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(debounced_reset),
                     .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(reg_3[3:0]),.d7(reg_3[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
-
-   
-   
-
-
-
-
 endmodule // nexys4DDR
