@@ -25,7 +25,7 @@ module man_receive_bench;
     import check_p ::*;
     
     parameter BAUD = 50000;
-    parameter TXD_BAUD = 50000;
+    parameter TXD_BAUD = 49500;
     parameter NUM_SAMP = 16;
     parameter SAMP_WIDTH = $clog2(NUM_SAMP);
     parameter WAIT_TIME = 100_000_000/(TXD_BAUD*NUM_SAMP);
@@ -183,7 +183,7 @@ module man_receive_bench;
     // Randomly generate rxd for 10^6 bit periods
     task mil_rand_rxd;
         integer i;
-        for (i = 0; i < 16000000; i++) begin
+        for (i = 0; i < CONST_HIGH; i++) begin
             random_rxd;
             repeat(WAIT_TIME)@(posedge clk);
         end
@@ -278,13 +278,13 @@ module man_receive_bench;
 		check_ok("Cardet is still high after sfd",cardet,1);
 		send_data_byte_11001100;
 		check_ok("Write goes high after one byte",write,1);
-		check_ok("Data is as expected 11001100",data,8'b11001100);
+		check_ok("Data is as expected 00110011",data,8'b00110011);
 		send_data_byte_10101010;
 		check_ok("Write goes high after second byte",write,1);
-		check_ok("Data is as expected 10101010",data,8'b10101010);
+		check_ok("Data is as expected 01010101",data,8'b01010101);
 		send_data_byte_00001111;
 		check_ok("Write goes high after third byte",write,1);
-		check_ok("Data is as expected 00001111",data,8'b00001111);
+		check_ok("Data is as expected 11110000",data,8'b11110000);
 		send_eof;
 		check_ok("Write goes low by EOF",write,0);
 
@@ -318,6 +318,7 @@ module man_receive_bench;
         check_ok("Cardet is still high after sfd",cardet,1);
         send_data_byte_11001100;
         check_ok("Write goes high after one byte",write,1);
+        check_ok("Data is as expected 00110011",data,8'b00110011);
         send_eof;
         check_ok("Write goes low by EOF",write,0);
 
@@ -352,6 +353,7 @@ module man_receive_bench;
         check_ok("Cardet is still high after sfd",cardet,1);
         send_data_bad_bit;
         check_ok("Error goes high when the bad bit is seen",error,1);
+        check_ok("Cardet has gone low after error", cardet,0);
         send_eof;
         check_ok("Write goes low by EOF",write,0);
         check_ok("Cardet goes low by EOF",cardet,0);
@@ -411,10 +413,10 @@ module man_receive_bench;
         
         test_reset;
         test_16PRE_1SFD_1BYTE;
-//        test_16PRE_1SFD_3BYTE;
-//        test_16PRE_1SFD_RAND;
-//        test_16PRE_1SFD_BAD_BIT;
-//        test_16PRE_1SFD_NOT_ENOUGH_DATA;
+        test_16PRE_1SFD_3BYTE;
+        test_16PRE_1SFD_RAND;
+        test_16PRE_1SFD_BAD_BIT;
+        test_16PRE_1SFD_NOT_ENOUGH_DATA;
         
         $stop;
 

@@ -36,6 +36,10 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     logic bit_seen;
     logic [PHASE_WIDTH-1:0] num_samples;
     assign bit_seen = write_one | write_zero;
+    
+
+    
+    
 
     //==========================================================================Synchronizer and correlators for bit detection
     //sampler that varies frequency of sampling based on input
@@ -65,22 +69,22 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
 
     
     //counter to count number of bits seen for the byte
-    bcdcounter #(.LAST_VAL(8),.W(4)) U_BYTE_COUNTER(.clk(clk),.reset(reset | reset_counters),.enb(bit_seen),.Q(byte_count));
+    bcdcounter #(.LAST_VAL(8+1),.W(4)) U_BYTE_COUNTER(.clk(clk),.reset(reset | reset_counters),.enb(bit_seen),.Q(byte_count));
     
     //counter for number of samples
     bcdcounter #(.LAST_VAL(NUM_SAMPLES*2)) U_SAMP_COUNTER(.clk(clk),.reset(reset|bit_seen|abn_bit_seen),.enb(sample),.Q(samp_count));
     
     //num of samples since last bit>16
     logic samp_gt_16;
-    assign samp_gt_16 = samp_count>15;
+    assign samp_gt_16 = samp_count>19;
     
     //counter for number of abnormal bits i.e. consecutive highs or lows
     bcdcounter #(.LAST_VAL(2)) U_ABN_BIT_COUNTER(.clk(clk),.reset(reset | reset_counters),.enb(abn_bit_seen),.Q(abn_bit_count));
 
     //correlators that tell if a bit is high or low consecutively
-    correlator #(.PATTERN(16'hFFFF)) U_CORREL_ABN_HIGH(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.write(consec_high));
-    correlator #(.PATTERN(16'h0000)) U_CORREL_ABN_LOW(.clk(clk),.reset(reset | error),.enb(sample),.d_in(rxd),.h_out(consec_low));
-    correlator #(.PATTERN(32'hFFFFFFFF),.LEN(32)) U_CORREL_EOF(.clk(clk),.reset(reset),.enb(samp_clk),.d_in(rxd),.write(eof_seen));
+    correlator #(.PATTERN(16'hFFFF),.RST_PAT(16'h0000)) U_CORREL_ABN_HIGH(.clk(clk),.reset(reset|bit_seen),.enb(sample),.d_in(rxd),.h_out(consec_high));
+    correlator #(.PATTERN(16'h0000),.RST_PAT(16'hFFFF)) U_CORREL_ABN_LOW(.clk(clk),.reset(reset | error),.enb(sample),.d_in(rxd),.h_out(consec_low));
+    correlator #(.PATTERN(32'hFFFFFFFF),.LEN(32)) U_CORREL_EOF(.clk(clk),.reset(reset|bit_seen),.enb(sample),.d_in(rxd),.write(eof_seen));
 
     assign abn_bit_seen = (consec_high | consec_low) & samp_gt_16;
     
@@ -112,6 +116,14 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
     //converts start receiving output to a single pulse 
     single_pulser U_STRT_RECEIVE_PULSE(.clk(clk),.din(start_receiving),.d_pulse(start_receive_pulse));
+    
+    
+    
+    always_ff @(posedge clk) begin
+        if(reset)data <= 8'hxx;
+        else if(write)data<=data_rxd;
+    
+    end
 
 
 endmodule
