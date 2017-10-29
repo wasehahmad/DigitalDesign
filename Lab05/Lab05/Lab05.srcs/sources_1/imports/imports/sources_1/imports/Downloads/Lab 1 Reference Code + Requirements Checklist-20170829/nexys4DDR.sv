@@ -91,9 +91,11 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
                     .seg(SEGS),.dp(DP),.an(AN));
                     
     //BUILD FIFO
-    logic read,full,empty;
+    logic read,full,empty,read_pulse;
     logic [7:0] data_fifo;
-    sasc_fifo U_FIFO(.clk(CLK100MHZ),.rst(debounced_reset),.din(data_rxd),.we(write_pulse),.re(read),.dout(data_fifo),.full(full),.empty(empty));
+    sasc_fifo U_FIFO(.clk(CLK100MHZ),.rst(debounced_reset),.din(data_rxd),.we(write_pulse),.re(read_pulse),.dout(data_fifo),.full(full),.empty(empty));
+    
+    single_pulser U_READ_PULSER (.clk(CLK100MHZ), .din(read), .d_pulse(read_pulse));
     
     //SYNC TO REALTERM
     asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(!empty),.data(data_fifo),.txd(UART_RXD_OUT),.rdy(read));
