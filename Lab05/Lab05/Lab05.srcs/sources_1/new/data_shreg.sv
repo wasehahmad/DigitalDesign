@@ -40,7 +40,8 @@ module data_shreg(
         end
         else if (write_0 || write_1) begin
             //shift the new bit into the shift register
-            shreg <= { write_0?1'b0:1'b1,shreg[7:1]  };
+            shreg <= { write_0?1'b0:1'b1,shreg[7:1]};
         end
+        else shreg <= shreg;
     end  
 endmodule

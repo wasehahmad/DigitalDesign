@@ -82,6 +82,7 @@ module sfd_detector_shreg(
         if (write_0 || write_1) begin
             shreg = { shreg[6:0], write_0?1'b0:1'b1 };
         end
+        else shreg = shreg;
     end
 
 endmodule

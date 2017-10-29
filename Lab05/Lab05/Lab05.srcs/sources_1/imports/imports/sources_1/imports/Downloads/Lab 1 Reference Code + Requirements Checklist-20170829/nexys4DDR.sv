@@ -53,7 +53,6 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
     logic debounced_send;
     logic send;
     
-    assign UART_RXD_OUT = 1; 
     
   // add SystemVerilog code & module instantiations here
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
@@ -68,7 +67,7 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
     //use mxtest to transmit signals from the manchester transmitter
-    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run | debounced_send),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
     //rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
     
     rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
@@ -92,7 +91,12 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
                     .seg(SEGS),.dp(DP),.an(AN));
                     
     //BUILD FIFO
+    logic read,full,empty;
+    logic [7:0] data_fifo;
+    sasc_fifo U_FIFO(.clk(CLK100MHZ),.rst(debounced_reset),.din(data_rxd),.we(write_pulse),.re(read),.dout(data_fifo),.full(full),.empty(empty));
     
     //SYNC TO REALTERM
+    asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(!empty),.data(data_fifo),.txd(UART_RXD_OUT),.rdy(read));
+    
     
 endmodule // nexys4DDR

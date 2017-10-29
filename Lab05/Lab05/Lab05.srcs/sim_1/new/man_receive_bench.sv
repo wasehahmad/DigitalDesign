@@ -513,13 +513,13 @@ module man_receive_bench;
         reset = 0;
         
         test_reset;
-//        test_preamble;
-//        test_16PRE_1SFD_1BYTE;
-//        test_16PRE_1SFD_3BYTE;
+        test_preamble;
+        test_16PRE_1SFD_1BYTE;
+        test_16PRE_1SFD_3BYTE;
         test_16PRE_1SFD_4BYTE;
-//        //test_16PRE_1SFD_RAND;
-//        test_16PRE_1SFD_BAD_BIT;
-//        test_16PRE_1SFD_NOT_ENOUGH_DATA;
+        //test_16PRE_1SFD_RAND;
+        test_16PRE_1SFD_BAD_BIT;
+        test_16PRE_1SFD_NOT_ENOUGH_DATA;
         
         $stop;
 

@@ -94,7 +94,7 @@ module variable_sampler
 
     always_comb begin
         n_initialized = initialized;
-        
+        actualClkFreq = SAMPLE_RATE;
         if(changed)begin
             actualClkFreq = SAMPLE_RATE+accumulated;
         end

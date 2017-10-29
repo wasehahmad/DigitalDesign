@@ -60,17 +60,19 @@
 //`include "timescale.v"
 
 // 4 entry deep fast fifo
-module fifo(input logic clk,
-                  input logic rst,
-                  input logic clr,
-                  input logic [7:0] din,
-                  input logic we,
-                  input logic re,
-                  output logic [7:0] dout,
-                  output logic full,
-                  output logic empty);
+module sasc_fifo(
+    input logic         clk,
+    input logic         rst, 
+    input logic         clr,  
+    input logic [7:0]   din, 
+    input logic         we, 
+    input logic         re,
+    output logic [7:0]  dout,    
+    output logic        full, 
+    output logic        empty);
 
-
+parameter FIFO_DEPTH = 4;
+parameter POINTER_WIDTH = $clog2(FIFO_DEPTH);
 
 
 ////////////////////////////////////////////////////////////////////
@@ -78,35 +80,33 @@ module fifo(input logic clk,
 // Local Wires
 //
 
-logic [7:0]	mem[0:3];
-logic [1:0]   wp;
-logic [1:0]   rp;
-logic [1:0]   wp_p1;
-logic [1:0]   wp_p2;
-logic [1:0]   rp_p1;
-logic full, empty, gb;
+logic    [7:0]                  mem[0:FIFO_DEPTH-1];
+logic    [POINTER_WIDTH-1:0]    wp;
+logic    [POINTER_WIDTH-1:0]    rp;
+logic    [POINTER_WIDTH-1:0]    wp_p1;
+logic    [POINTER_WIDTH-1:0]    wp_p2;
+logic    [POINTER_WIDTH-1:0]    rp_p1;
+logic       	                full, empty;
+logic		                    gb;
 
 ////////////////////////////////////////////////////////////////////
 //
 // Misc Logic
 //
 
-always @(posedge clk or negedge rst)
-        if(!rst)	wp <= #1 2'h0;
-        else
-        if(clr)		wp <= #1 2'h0;
-        else
-        if(we)		wp <= #1 wp_p1;
+always_ff @(posedge clk)begin
+        if(rst)	        wp <=  2'h0;
+        else if(clr)    wp <=  2'h0;
+        else if(we && !full)		wp <=  wp_p1;
+end
 
 assign wp_p1 = wp + 2'h1;
 assign wp_p2 = wp + 2'h2;
 
-always @(posedge clk or negedge rst)
-        if(!rst)	rp <= #1 2'h0;
-        else
-        if(clr)		rp <= #1 2'h0;
-        else
-        if(re)		rp <= #1 rp_p1;
+always_ff @(posedge clk)
+        if(rst)	            rp <=  2'h0;
+        else if(clr)		rp <=  2'h0;
+        else if(re && !empty)		rp <=  rp_p1;
 
 assign rp_p1 = rp + 2'h1;
 
@@ -114,21 +114,22 @@ assign rp_p1 = rp + 2'h1;
 assign  dout = mem[ rp ];
 
 // Fifo Input 
-always @(posedge clk)
-        if(we)     mem[ wp ] <= #1 din;
+always_ff @(posedge clk)
+        if(we && !full)     mem[ wp ] <=  din;
 
 // Status
 assign empty = (wp == rp) & !gb;
 assign full  = (wp == rp) &  gb;
 
 // Guard Bit ...
-always @(posedge clk)
-	if(!rst)			gb <= #1 1'b0;
+always_ff @(posedge clk)
+	if(rst)			gb <=  1'b0;
 	else
-	if(clr)				gb <= #1 1'b0;
+	if(clr)				gb <=  1'b0;
 	else
-	if((wp_p1 == rp) & we)		gb <= #1 1'b1;
+	if((wp_p1 == rp) & we)		gb <=  1'b1;
 	else
-	if(re)				gb <= #1 1'b0;
+	if(re)				gb <=  1'b0;
 
 endmodule
+
