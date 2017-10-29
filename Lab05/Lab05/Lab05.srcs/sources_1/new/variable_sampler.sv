@@ -27,7 +27,7 @@ module variable_sampler
     SAMPLE_FREQ = 16,  
     SAMPLE_RATE = BAUD*SAMPLE_FREQ,//sample rate default 16*BAUD
     INCR_AMT = BAUD/10, //rate at which single error accumulates
-    ACC_BOUND = BAUD/10,
+    ACC_BOUND = BAUD,
     ACC_LW_BOUND = -1*ACC_BOUND
     )
     (
@@ -94,7 +94,7 @@ module variable_sampler
 
     always_comb begin
         n_initialized = initialized;
-        actualClkFreq = SAMPLE_RATE;
+        actualClkFreq = actualClkFreq;;
         if(changed)begin
             actualClkFreq = SAMPLE_RATE+accumulated;
         end
