@@ -72,9 +72,9 @@ module mxtest_2(
 
    // ROM Contents - change these to the values of your choice
    wire [0:MEM_SIZE-1][7:0] byterom  = {
-					8'h55,  // byterom[0]
-					8'h55,
-					8'h55,
+					8'haa,  // byterom[0]
+					8'haa,
+					8'haa,
 					8'hd0,
 					8'h01,
 					8'h06,

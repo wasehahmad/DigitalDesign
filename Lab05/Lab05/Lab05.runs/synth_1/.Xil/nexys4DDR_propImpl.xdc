@@ -19,10 +19,6 @@ set_property src_info {type:XDC file:1 line:20 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN R13   IOSTANDARD LVCMOS33 } [get_ports { SW[7] }]; #IO_L5N_T0_D07_14 Sch=sw[7]
 set_property src_info {type:XDC file:1 line:28 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN V10   IOSTANDARD LVCMOS33 } [get_ports { run }]; #IO_L21P_T3_DQS_14 Sch=sw[15]
-set_property src_info {type:XDC file:1 line:33 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { LED[0] }]; #IO_L18P_T2_A24_15 Sch=led[0]
-set_property src_info {type:XDC file:1 line:34 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN K15   IOSTANDARD LVCMOS33 } [get_ports { LED[1] }]; #IO_L24P_T3_RS1_15 Sch=led[1]
 set_property src_info {type:XDC file:1 line:60 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN T10   IOSTANDARD LVCMOS33 } [get_ports { SEGS[0] }]; #IO_L24N_T3_A00_D16_14 Sch=ca
 set_property src_info {type:XDC file:1 line:61 export:INPUT save:INPUT read:READ} [current_design]
@@ -65,5 +61,7 @@ set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { cardet }]; #IO_L21N_T3_DQS_A18_15 Sch=ja[2]
 set_property src_info {type:XDC file:1 line:98 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports { error }]; #IO_L21P_T3_DQS_15 Sch=ja[3]
+set_property src_info {type:XDC file:1 line:99 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports { write }]; #IO_L18N_T2_A23_15 Sch=ja[4]
 set_property src_info {type:XDC file:1 line:220 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN D4    IOSTANDARD LVCMOS33 } [get_ports { UART_RXD_OUT }]; #IO_L11N_T1_SRCC_35 Sch=uart_rxd_out

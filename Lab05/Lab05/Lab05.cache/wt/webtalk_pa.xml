@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Oct 29 13:54:45 2017">
+<application name="pa" timeStamp="Sun Oct 29 15:04:01 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="96409b7f00c749148d812ea42cb976b8" type="ProjectID"/>
-<property name="ProjectIteration" value="51" type="ProjectIteration"/>
+<property name="ProjectIteration" value="68" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,67 +17,43 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="16" type="JavaHandler"/>
-<property name="AutoConnectTarget" value="2" type="JavaHandler"/>
-<property name="EditDelete" value="3" type="JavaHandler"/>
+<property name="AddSources" value="17" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="3" type="JavaHandler"/>
+<property name="EditDelete" value="4" type="JavaHandler"/>
 <property name="EditPaste" value="1" type="JavaHandler"/>
 <property name="EditRedo" value="9" type="JavaHandler"/>
 <property name="EditUndo" value="128" type="JavaHandler"/>
 <property name="LaunchOpenTarget" value="1" type="JavaHandler"/>
-<property name="LaunchProgramFpga" value="15" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="23" type="JavaHandler"/>
+<property name="NewHardwareDashboard" value="1" type="JavaHandler"/>
 <property name="NewProject" value="3" type="JavaHandler"/>
-<property name="OpenHardwareManager" value="7" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="12" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="4" type="JavaHandler"/>
-<property name="ProgramDevice" value="1" type="JavaHandler"/>
+<property name="ProgramDevice" value="3" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
 <property name="ReportTimingSummary" value="1" type="JavaHandler"/>
-<property name="RunBitgen" value="16" type="JavaHandler"/>
-<property name="RunImplementation" value="34" type="JavaHandler"/>
-<property name="RunSynthesis" value="32" type="JavaHandler"/>
+<property name="RunBitgen" value="28" type="JavaHandler"/>
+<property name="RunImplementation" value="39" type="JavaHandler"/>
+<property name="RunSynthesis" value="36" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="7" type="JavaHandler"/>
 <property name="SetTopNode" value="17" type="JavaHandler"/>
 <property name="ShowSource" value="7" type="JavaHandler"/>
-<property name="ShowView" value="30" type="JavaHandler"/>
+<property name="ShowView" value="31" type="JavaHandler"/>
 <property name="ShowWorldView" value="1" type="JavaHandler"/>
 <property name="SimulationBreak" value="17" type="JavaHandler"/>
 <property name="SimulationClose" value="16" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="247" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="255" type="JavaHandler"/>
 <property name="SimulationRestart" value="1" type="JavaHandler"/>
-<property name="SimulationRun" value="44" type="JavaHandler"/>
-<property name="SimulationRunAll" value="86" type="JavaHandler"/>
+<property name="SimulationRun" value="46" type="JavaHandler"/>
+<property name="SimulationRunAll" value="95" type="JavaHandler"/>
 <property name="SimulationRunForTime" value="230" type="JavaHandler"/>
 <property name="SimulationStep" value="2" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="24" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="28" type="JavaHandler"/>
 <property name="ViewTaskRTLAnalysis" value="3" type="JavaHandler"/>
-<property name="ViewTaskSimulation" value="9" type="JavaHandler"/>
+<property name="ViewTaskSimulation" value="10" type="JavaHandler"/>
 <property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
 <property name="WaveformSaveConfiguration" value="12" type="JavaHandler"/>
-</item>
-<item name="Gui Resources Info">
-<property name="CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_GOTO_INSTANTIATION, Go To Source" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_OPEN_TARGET_WIZARD, Open New Target..." value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Program and Debug, Hardware Manager, Open Target], 31, false" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Program and Debug, Hardware Manager, Program Device], 32, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.InstanceMenu_FLOORPLANNING, Floorplanning" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistSchMenuAndMouse_EXPAND_COLLAPSE, Expand/Collapse" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistSchMenuAndMouse_VIEW, View" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [nexys4DDR, U_TEST (mxtest_2" value="11" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [nexys4DDR], 0, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.NetlistTreeView_NETLIST_TREE, [nexys4DDR], 0, true, false, false, false, false, true" value="2" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_SCHEMATIC, Schematic" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, Program device" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.ProgramFpgaDialog_PROGRAM, Program" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SchMenuAndMouse_EXPAND_CONE, Expand Cone" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SelectMenu_HIGHLIGHT, Highlight" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SelectMenu_MARK, Mark" value="2" type="GuiResourceData"/>
-<property name="RDIResourceCommand.RDICommands_SHOW_WORLD_VIEW, Show World View" value="1" type="GuiResourceData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="31" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="27" type="TclMode"/>
 </item>
 </section>
 </application>

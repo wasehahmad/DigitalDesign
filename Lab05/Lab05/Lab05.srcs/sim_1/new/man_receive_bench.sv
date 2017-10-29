@@ -228,7 +228,35 @@ module man_receive_bench;
 		check_ok("data is correct on reset",data,8'hxx);
 	endtask
 
-
+    //testpreamble only
+    //=============================================
+    task test_preamble;
+        $display("===================================Testing Simulation test 1.5===================================");
+        reset = 0;
+        repeat(100)@(posedge clk);
+        //assert reset for one clock cycle
+        #1;
+        reset = 1;
+        @(posedge clk) #1;
+        reset = 0;
+        rxd = 1; //data will be random  using random generator
+        //hold data high at 1
+        send_constant_high;
+        
+        //send preamble
+        check_ok("Cardet is low before 8 bit preamble",cardet,0);
+        send_preamble_8;
+        @(posedge clk);
+        check_ok("Cardet goes high after 8 bit preamble",cardet,1);
+        send_preamble_8;
+        check_ok("Cardet is still high after 16 bit preamble",cardet,1);
+        
+        
+        repeat(WAIT_TIME*16*8)@(posedge clk);
+        check_ok("Cardet goes low after if nothing else seen",cardet,0);
+        send_constant_high;
+        
+    endtask
 	//=============================================
 	task test_16PRE_1SFD_1BYTE;
 
@@ -311,6 +339,60 @@ module man_receive_bench;
 
 	endtask
 	
+//=================================================================
+
+    task test_16PRE_1SFD_4BYTE;
+    
+        $display("===================================Testing Simulation test 3.5===================================");
+        reset = 0;
+        repeat(100)@(posedge clk);
+        //assert reset for one clock cycle
+        #1;
+        reset = 1;
+        @(posedge clk) #1;
+        reset = 0;
+        rxd = 1; //data will be random  using random generator
+        //hold data high at 1
+        send_constant_high;
+    
+        //send preamble
+        check_ok("Cardet goes is low before 8 bit preamble",cardet,0);
+        send_preamble_8;
+        @(posedge clk);
+        check_ok("Cardet goes high after 8 bit preamble",cardet,1);
+        send_preamble_8;
+        check_ok("Cardet is still high after 16 bit preamble",cardet,1);
+        send_sfd;
+        check_ok("Cardet is still high after sfd",cardet,1);
+        
+        send_data_byte_11001100;
+        repeat(3)@(posedge clk);
+        check_ok("Write goes high after one byte",write,1);
+        check_ok("Data is as expected 11001100",data,8'b11001100);
+        
+        send_data_byte_10101010;
+        repeat(3)@(posedge clk);
+        check_ok("Write goes high after second byte",write,1);
+        check_ok("Data is as expected 10101010",data,8'b10101010);
+        
+        send_data_byte_00001111;
+        repeat(3)@(posedge clk);
+        check_ok("Write goes high after third byte",write,1);
+        check_ok("Data is as expected 00001111",data,8'b00001111);
+        
+        send_data_byte_10101010;
+        repeat(3)@(posedge clk);
+        check_ok("Write goes high after second byte",write,1);
+        check_ok("Data is as expected 10101010",data,8'b10101010);
+        
+        send_eof;
+        check_ok("Write goes low by EOF",write,0);
+        repeat(2)@(posedge clk);
+        check_ok("Cardet goes low by EOF",cardet,0);
+        send_constant_high;
+    
+    endtask
+
 //=================================================================
     task test_16PRE_1SFD_RAND;
     
@@ -431,11 +513,13 @@ module man_receive_bench;
         reset = 0;
         
         test_reset;
-        test_16PRE_1SFD_1BYTE;
-        test_16PRE_1SFD_3BYTE;
-        //test_16PRE_1SFD_RAND;
-        test_16PRE_1SFD_BAD_BIT;
-        test_16PRE_1SFD_NOT_ENOUGH_DATA;
+//        test_preamble;
+//        test_16PRE_1SFD_1BYTE;
+//        test_16PRE_1SFD_3BYTE;
+        test_16PRE_1SFD_4BYTE;
+//        //test_16PRE_1SFD_RAND;
+//        test_16PRE_1SFD_BAD_BIT;
+//        test_16PRE_1SFD_NOT_ENOUGH_DATA;
         
         $stop;
 

@@ -20,28 +20,28 @@
 // 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
-module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 50000, TXD_BAUD_2 = TXD_BAUD*2) (
+module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAUD*2) (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
 		  input logic [7:0]   SW,
 //		  input logic         run,
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
-//		  input logic 	      run, 
+		  input logic 	      run, 
 //		  input logic 	      BTNL, 
 //		  input logic 	      BTNR,
 //		  input logic 	      BTND,
 		  output logic [6:0]  SEGS,
 		  output logic [7:0]  AN,
 		  output logic 	      DP,
-		  output logic [1:0]  LED,
+//		  output logic [1:0]  LED,
 //		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
 		  output logic        error,
 		  output logic        cardet,
 		  output logic        txd,
-		  input logic         run
+		  output logic        write
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
@@ -57,16 +57,10 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 50000, TXD_BAUD_2 = TXD_BAU
     
   // add SystemVerilog code & module instantiations here
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
-    logic rdy_pulse;
-    
-    assign LED[0] = rdy;
-    assign LED[1] = write;
-    
-    
+   
     logic debounced_reset;
-    logic write;
-    logic data_rxd;
-    logic data;
+    logic [7:0] data_rxd;
+    logic [7:0] data;
     logic txen;
 
     
@@ -77,17 +71,17 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 50000, TXD_BAUD_2 = TXD_BAU
     mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
     //rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
     
-    rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
+    rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
                                .txd(txd),.rdy(rdy),.txen(txen));
     
     
-    //man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
+    man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
     
     
     //pulse the write signal
-    single_pulser U_RDY_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
+    single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
     
-    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(debounced_send),.d(data),.q(reg_0));
+    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(data_rxd),.q(reg_0));
     reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
     reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_1),.q(reg_2));
     reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_2),.q(reg_3));

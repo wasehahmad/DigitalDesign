@@ -100,16 +100,20 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
     //==========================================================================Shift registers and FSM for pre-receive stages
     logic   sfd_detected,corroborating;
+    logic [$clog2(NUM_SAMPLES*2):0] samp_count_pre_receive;
     logic [7:0] data_rxd;
     logic preamble_detected;
     logic start_receiving;
     
-    logic samp_num_24;
-    assign samp_num_24 = samp_count>23;
+    bcdcounter #(.LAST_VAL(NUM_SAMPLES*2)) U_SAMP_COUNTER_PRE(.clk(clk),.reset(reset|bit_seen),.enb(sample),.Q(samp_count_pre_receive));
     
+    logic samp_num_24;
+    assign samp_num_24 = samp_count_pre_receive>23;
+    logic samp_num_31;
+    assign samp_num_31 = samp_count_pre_receive>30;
     
     //shift register for the preamble
-    preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset| (samp_num_24 & !cardet)),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
+    preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset | eof | (samp_num_24 & (!cardet | !start_receiving)) ),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
     
     //shift register to check for the sfd
     sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset | !cardet),.write_0(write_zero),.write_1(write_one),.cardet(preamble_detected | corroborating | cardet),.sfd_detected(sfd_detected),.corroborating(corroborating));
