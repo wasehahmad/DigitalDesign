@@ -27,7 +27,7 @@ module variable_sampler
     SAMPLE_FREQ = 16,  
     SAMPLE_RATE = BAUD*SAMPLE_FREQ,//sample rate default 16*BAUD
     INCR_AMT = BAUD/10, //rate at which single error accumulates
-    ACC_BOUND = BAUD/100,
+    ACC_BOUND = BAUD/10,
     ACC_LW_BOUND = -1*ACC_BOUND
     )
     (
@@ -39,11 +39,10 @@ module variable_sampler
     output logic enb
     );
     
-    
+    logic changed,prevChanged;
      
     int actualClkFreq;
     int accumulated;
-    assign actualClkFreq = SAMPLE_RATE+accumulated;
     
     int DIVAMT;
     assign DIVAMT = (CLKFREQ / actualClkFreq);
@@ -66,17 +65,51 @@ module variable_sampler
     end 
     
     always_ff @(posedge clk)begin
-        if(reset) accumulated <=0;
+        if(reset) begin
+            accumulated <=0;
+            changed<=0;
+            initialized <=0;
+        end
         else begin
-            if((accumulated>ACC_BOUND && !slow_down) || ((accumulated<ACC_LW_BOUND)&&(!speed_up))) accumulated <= accumulated;//dont go past the bounds
-            else begin
+            initialized<=n_initialized;
+            
+            if((accumulated>ACC_BOUND && !slow_down) || ((accumulated<ACC_LW_BOUND)&&(!speed_up)))begin
+                accumulated <= accumulated;//dont go past the bounds
+                changed<=0;
+            end
+            else if((speed_up || slow_down) & !changed )begin
                 if(speed_up)accumulated <=accumulated+diff_amt*INCR_AMT;
                 else if(slow_down)accumulated <=accumulated-diff_amt*INCR_AMT;
-                else accumulated <=accumulated;
+                changed<=1;
+            end
+            else begin
+                accumulated <=accumulated;
+                changed<=0;
             end
         end
     
     end
+    
+    logic initialized,n_initialized;    
+
+    always_comb begin
+        n_initialized = initialized;
+        
+        if(changed)begin
+            actualClkFreq = SAMPLE_RATE+accumulated;
+        end
+        else begin
+            if(initialized)
+                actualClkFreq = actualClkFreq;
+            else begin
+                actualClkFreq = SAMPLE_RATE;
+                n_initialized = 1;
+            end
+        end
+    
+    
+    end
+
     
     
     

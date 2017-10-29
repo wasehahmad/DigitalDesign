@@ -74,9 +74,9 @@ module mxtest_2(
    wire [0:MEM_SIZE-1][7:0] byterom  = {
 					8'h55,  // byterom[0]
 					8'h55,
+					8'h55,
 					8'hd0,
-					8'h04,
-					8'h05,
+					8'h01,
 					8'h06,
 					8'h07, 
 					8'h08, 
@@ -103,7 +103,7 @@ module mxtest_2(
 					8'h29,
 					8'h30,
 					8'h31,
-					8'h32                  
+					8'h32				
 					};
    
    assign data = byterom[byte_addr];

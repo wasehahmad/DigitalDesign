@@ -58,29 +58,30 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 50000, TXD_BAUD_2 = TXD_BAU
   // add SystemVerilog code & module instantiations here
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
     logic rdy_pulse;
-    logic [6:0] length;
     
     assign LED[0] = rdy;
     assign LED[1] = write;
     
-    //the length depends on how many switches are on. If no switches send nothing, if some, send value +3 (PRE and SFD)
-    assign length = (SW[5:0] == '0)?0:SW[5:0]+2'd3;
     
     logic debounced_reset;
     logic write;
     logic data_rxd;
     logic data;
-    
+    logic txen;
 
     
     debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(debounced_send));
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
     //use mxtest to transmit signals from the manchester transmitter
-    mxtest_2        U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(debounced_send | run),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
-    rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
+    //rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
     
-    man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
+    rtl_transmitter U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
+                               .txd(txd),.rdy(rdy),.txen(txen));
+    
+    
+    //man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
     
     
     //pulse the write signal
