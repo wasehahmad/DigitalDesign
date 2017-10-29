@@ -51,7 +51,7 @@ module rtl_transmitter(
     single_pulser U_BAUD_PULSE(.clk(clk_100mhz), .din(clk_baud_out), .d_pulse(baud_pulse_out));
     
     // Counter for the data signal to know which data bit is currently transmitting
-    bcdcounter #(.COUNT_CEILING(9)) U_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_out & sending), .Q(counter_out));
+    bcdcounter_txd #(.COUNT_CEILING(9)) U_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_out & sending), .Q(counter_out));
     
     //==========================================================================
     logic clk_baud_2_out;
@@ -72,10 +72,10 @@ module rtl_transmitter(
     single_pulser U_BAUD_2_PULSE(.clk(clk_100mhz), .din(clk_baud_2_out), .d_pulse(baud_pulse_2_out));
     
     // Counter for the data signal to know which part of the data bit is currently transmitting
-    bcdcounter #(.COUNT_CEILING(2)) U_2_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & one_bit_sending), .Q(bit_counter_out));
+    bcdcounter_txd #(.COUNT_CEILING(2)) U_2_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & one_bit_sending), .Q(bit_counter_out));
     
     //counts time for two bits to send. waiting in IDLE state
-    bcdcounter #(.COUNT_CEILING(WAIT_BITS*2+1)) U_WAIT_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & waiting), .Q(wait_counter_out));
+    bcdcounter_txd #(.COUNT_CEILING(WAIT_BITS*2+1)) U_WAIT_BIT_COUNTER(.clk(clk_100mhz), .reset(reset | reset_counter), .enb(baud_pulse_2_out & waiting), .Q(wait_counter_out));
     
     
     //==========================================================================

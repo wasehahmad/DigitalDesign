@@ -1,5 +1,6 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/bcdcounter_txd.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/variable_sampler.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/synchronizer.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/sfd_fsm.sv"
@@ -8,10 +9,13 @@ sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/receive_fsm.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/preamble_detector_shreg.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/data_shreg.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/correlator.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/single_pulser.sv"
-sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/man_receiver.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/sources_1/new/transmitter_fsm.sv"
 sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/imports/Downloads/Lab 3 Reference Code-20170919/check_p.sv"
-sv xil_defaultlib  "../../../Lab05.srcs/sim_1/new/man_receive_bench.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/new/man_receiver.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv"
+sv xil_defaultlib  "../../../Lab05.srcs/sim_1/imports/TestBenches/man_txd_rxd_bench.sv"
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

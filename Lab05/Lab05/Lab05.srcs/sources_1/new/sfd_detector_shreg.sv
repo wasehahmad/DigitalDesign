@@ -39,7 +39,7 @@ module sfd_detector_shreg(
     // the left and newest data is on the right
     always_ff  @(posedge clk) begin
         if (reset) begin
-            shreg <= '0;
+//            shreg <= '0;
             counter <= '0;
             corroborating <= 0;
             half_sfd_seen <= 0;
@@ -74,8 +74,7 @@ module sfd_detector_shreg(
         
         //LATCH HERE
         if (counter == 8) begin
-            sfd_detected <= 1;
-                      
+            sfd_detected <= 1;                    
         end
     end  
     

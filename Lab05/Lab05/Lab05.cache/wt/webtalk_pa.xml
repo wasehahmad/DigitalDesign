@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Oct 25 17:48:22 2017">
+<application name="pa" timeStamp="Sun Oct 29 01:40:20 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="96409b7f00c749148d812ea42cb976b8" type="ProjectID"/>
-<property name="ProjectIteration" value="1" type="ProjectIteration"/>
+<property name="ProjectIteration" value="31" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,153 +17,37 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="12" type="JavaHandler"/>
-<property name="EditUndo" value="53" type="JavaHandler"/>
+<property name="AddSources" value="16" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="1" type="JavaHandler"/>
+<property name="EditDelete" value="3" type="JavaHandler"/>
+<property name="EditRedo" value="9" type="JavaHandler"/>
+<property name="EditUndo" value="80" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="6" type="JavaHandler"/>
 <property name="NewProject" value="3" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="3" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
-<property name="RunSynthesis" value="5" type="JavaHandler"/>
-<property name="SaveFileProxyHandler" value="5" type="JavaHandler"/>
-<property name="SetTopNode" value="12" type="JavaHandler"/>
-<property name="ShowView" value="4" type="JavaHandler"/>
-<property name="SimulationBreak" value="9" type="JavaHandler"/>
-<property name="SimulationClose" value="9" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="112" type="JavaHandler"/>
-<property name="SimulationRun" value="23" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="132" type="JavaHandler"/>
-<property name="ViewTaskProjectManager" value="11" type="JavaHandler"/>
-<property name="ViewTaskSimulation" value="7" type="JavaHandler"/>
-<property name="WaveformSaveConfiguration" value="5" type="JavaHandler"/>
-</item>
-<item name="Gui Resources Info">
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, bcdcounter (bcdcounter.sv" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, clkenb (clkenb.sv" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, data_shreg (data_shreg.sv" value="7" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, man_receiver (man_receiver.sv" value="5" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, preamble_detector_shreg (preamble_detector_shreg.sv" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, sfd_detector_shreg (sfd_detector_shreg.sv" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, sfd_fsm (sfd_fsm.sv" value="4" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, single_pulser (single_pulser.sv" value="5" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_CODE, Code" value="6" type="GuiResourceData"/>
-<property name="RDIResource.BaseWorkspace_FLOAT, Float" value="5" type="GuiResourceData"/>
-<property name="data_shreg.sv, 116, 554" value="1" type="GuiResourceData"/>
-<property name="data_shreg.sv, 191, 474" value="1" type="GuiResourceData"/>
-<property name="data_shreg.sv, 96, 586" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 1002, 641" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 1008, 651" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 1013, 606" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 107, 642" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 108, 165" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 112, 401" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 112, 401, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 116, 416" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 122, 464" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 122, 464, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 122, 634" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 123, 606" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 123, 606, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 128, 397" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 134, 129" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 134, 129, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 146, 263" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 151, 399" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 152, 572" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 152, 572, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 153, 164" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 170, 472" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 181, 673" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 189, 622" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 19, 607" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 202, 502" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 211, 504" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 223, 375" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 237, 464" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 237, 464, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 244, 591" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 245, 589" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 252, 621" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 254, 592" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 256, 640" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 257, 621" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 278, 618" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 280, 552" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 33, 579" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 364, 625" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 377, 650" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 39, 622" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 411, 624" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 43, 258" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 43, 626" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 449, 589" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 45, 540" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 46, 655" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 489, 621" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 52, 560" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 540, 624" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 602, 623" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 631, 630" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 642, 636" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 723, 617" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 756, 590" value="2" type="GuiResourceData"/>
-<property name="man_receiver.sv, 774, 625" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 778, 591" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 809, 180" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 811, 180" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 813, 165" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 823, 619" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 849, 656" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 849, 656, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 857, 487" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 867, 589" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 867, 637" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 900, 623" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 986, 278" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 987, 589" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 988, 264" value="1" type="GuiResourceData"/>
-<property name="man_receiver.sv, 999, 256" value="1" type="GuiResourceData"/>
-<property name="sfd_detector_shreg.sv, 46, 380" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 104, 507" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 108, 489" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 117, 563" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 119, 566" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 124, 556" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 143, 536" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 143, 640" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 147, 582" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 151, 379" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 155, 590" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 166, 585" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 172, 566" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 175, 569" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 177, 541" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 183, 536" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 192, 555" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 195, 550" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 195, 568" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 197, 399" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 209, 417" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 216, 462" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 217, 571" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 217, 587" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 219, 552" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 220, 587" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 221, 552" value="2" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 221, 552, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 222, 607" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 226, 623" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 231, 547" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 235, 566" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 240, 551" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 28, 486" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 298, 572" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 43, 467" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 519, 370" value="1" type="GuiResourceData"/>
-<property name="sfd_fsm.sv, 69, 667" value="1" type="GuiResourceData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="25" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="23" type="TclMode"/>
+<property name="ReportTimingSummary" value="1" type="JavaHandler"/>
+<property name="RunBitgen" value="9" type="JavaHandler"/>
+<property name="RunImplementation" value="21" type="JavaHandler"/>
+<property name="RunSynthesis" value="22" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="6" type="JavaHandler"/>
+<property name="SetTopNode" value="16" type="JavaHandler"/>
+<property name="ShowView" value="25" type="JavaHandler"/>
+<property name="SimulationBreak" value="17" type="JavaHandler"/>
+<property name="SimulationClose" value="15" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="244" type="JavaHandler"/>
+<property name="SimulationRestart" value="1" type="JavaHandler"/>
+<property name="SimulationRun" value="41" type="JavaHandler"/>
+<property name="SimulationRunAll" value="81" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="230" type="JavaHandler"/>
+<property name="SimulationStep" value="2" type="JavaHandler"/>
+<property name="ViewTaskProjectManager" value="21" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="2" type="JavaHandler"/>
+<property name="ViewTaskSimulation" value="9" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="12" type="JavaHandler"/>
 </item>
 </section>
 </application>

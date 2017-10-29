@@ -26,7 +26,9 @@ module variable_sampler
     BAUD = 50000,  //BAUD rate 
     SAMPLE_FREQ = 16,  
     SAMPLE_RATE = BAUD*SAMPLE_FREQ,//sample rate default 16*BAUD
-    INCR_AMT = BAUD/10 //rate at which single error accumulates
+    INCR_AMT = BAUD/10, //rate at which single error accumulates
+    ACC_BOUND = BAUD/100,
+    ACC_LW_BOUND = -1*ACC_BOUND
     )
     (
     input logic clk,
@@ -66,10 +68,12 @@ module variable_sampler
     always_ff @(posedge clk)begin
         if(reset) accumulated <=0;
         else begin
-            if(speed_up)accumulated <=accumulated+diff_amt*INCR_AMT;
-            else if(slow_down)accumulated <=accumulated-diff_amt*INCR_AMT;
-            else accumulated <=accumulated;
-        
+            if((accumulated>ACC_BOUND && !slow_down) || ((accumulated<ACC_LW_BOUND)&&(!speed_up))) accumulated <= accumulated;//dont go past the bounds
+            else begin
+                if(speed_up)accumulated <=accumulated+diff_amt*INCR_AMT;
+                else if(slow_down)accumulated <=accumulated-diff_amt*INCR_AMT;
+                else accumulated <=accumulated;
+            end
         end
     
     end

@@ -43,9 +43,11 @@ module transmitter_fsm(
     logic [3:0] max_count;
     logic last_ready;
     assign max_count = 8;
+
     
-    typedef enum logic[2:0] {
-        IDLE=3'd0, START=3'd1, DATA_HIGH_FIRST=3'd2, DATA_LOW_FIRST=3'd3, DATA_HIGH_SECOND=3'd4, DATA_LOW_SECOND=3'd5, ENDED = 3'd6 
+    typedef enum logic[3:0] {
+        IDLE=4'd0, START=4'd1, DATA_HIGH_FIRST=4'd2, DATA_LOW_FIRST=4'd3, DATA_HIGH_SECOND=4'd4, DATA_LOW_SECOND=4'd5,
+        ENDED = 4'd6,END_BIT_1 = 4'd7,END_BIT_2 = 4'd8 
     } states_t;
     
     states_t state, next, last, next_last;
@@ -53,6 +55,7 @@ module transmitter_fsm(
     always_ff @(posedge clk) begin
         if (reset) begin 
             state <= IDLE;
+        
             
         end
         else begin
@@ -143,9 +146,9 @@ module transmitter_fsm(
 //                end
                 else begin //read data and see where to go next
                     rdy = last_ready; 
-                    next_last = send ? ((data[0] ==0)?DATA_LOW_FIRST:DATA_HIGH_FIRST) : next_last;
+                    next_last = send ? (END_BIT_1) : next_last;
                     if(bit_count == 0) begin
-                        next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
+                        next = END_BIT_1;
                     end
                     else next = DATA_LOW_SECOND;
                 end
@@ -170,12 +173,23 @@ module transmitter_fsm(
 //                end
                 else begin //read data and see where to go next
                     rdy = last_ready; 
-                    next_last = send ? ((data[0] ==0)?DATA_LOW_FIRST:DATA_HIGH_FIRST) : next_last;
+                    next_last = send ? (END_BIT_1) : next_last;
                     if(bit_count == 0) begin
-                        next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
+                        next = END_BIT_1;
                     end
                     else next = DATA_HIGH_SECOND;
                 end
+            end
+            
+            END_BIT_1:begin
+                rdy = 0;
+                txen = 1;
+                next = END_BIT_2;
+            end
+            END_BIT_2:begin
+                txen = 1;
+                rdy = 0;
+                next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
             end
             
             ENDED:begin

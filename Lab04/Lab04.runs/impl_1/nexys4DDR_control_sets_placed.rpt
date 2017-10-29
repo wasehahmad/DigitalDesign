@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Thu Sep 21 23:21:21 2017
-| Host         : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
+| Date         : Sun Oct 29 01:10:53 2017
+| Host         : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file nexys4DDR_control_sets_placed.rpt
 | Design       : nexys4DDR
 | Device       : xc7a100t
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    15 |
-| Unused register locations in slices containing registers |    64 |
+| Number of unique control sets                            |    16 |
+| Unused register locations in slices containing registers |    62 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            4 |
+| No           | No                    | No                     |               6 |            4 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             124 |           41 |
+| No           | Yes                   | No                     |             124 |           38 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              32 |           11 |
+| Yes          | Yes                   | No                     |              64 |           16 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -50,18 +50,19 @@ Table of Contents
 +----------------------+----------------------------------------------+-------------------------------------------+------------------+----------------+
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_RTERM/U_FSM/ferr_i_1_n_0          | BTNC_IBUF                                 |                1 |              1 |
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_TXD/U_FSM/ferr_i_1__0_n_0         | BTNC_IBUF                                 |                1 |              1 |
-|  CLK100MHZ_IBUF_BUFG |                                              |                                           |                4 |              4 |
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_RTERM/U_FSM/bit_count[3]_i_1_n_0  | BTNC_IBUF                                 |                1 |              4 |
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_TXD/U_FSM/bit_count[3]_i_1__0_n_0 | BTNC_IBUF                                 |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG | nolabel_line75/U_BAUD_PULSE/E[0]             | nolabel_line75/U_BIT_COUNTER/Q[3]_i_1_n_0 |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG | nolabel_line77/U_BAUD_PULSE/E[0]             | nolabel_line77/U_BIT_COUNTER/Q[3]_i_1_n_0 |                1 |              4 |
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_RTERM/U_FSM/count[4]_i_1_n_0      | BTNC_IBUF                                 |                1 |              5 |
 |  CLK100MHZ_IBUF_BUFG | U_RECEIVER_TXD/U_FSM/count[4]_i_1__0_n_0     | BTNC_IBUF                                 |                2 |              5 |
-|  CLK100MHZ_IBUF_BUFG | U_RECEIVER_RTERM/U_FSM/data[7]_i_1_n_0       | BTNC_IBUF                                 |                3 |              8 |
-|  CLK100MHZ_IBUF_BUFG |                                              | U_RECEIVER_RTERM/U_FSM/SR[0]              |                5 |             11 |
+|  CLK100MHZ_IBUF_BUFG |                                              |                                           |                4 |              6 |
+|  CLK100MHZ_IBUF_BUFG | U_RECEIVER_RTERM/U_FSM/data_en               | BTNC_IBUF                                 |                1 |              8 |
+|  CLK100MHZ_IBUF_BUFG |                                              | U_RECEIVER_RTERM/U_FSM/SR[0]              |                4 |             11 |
 |  CLK100MHZ_IBUF_BUFG |                                              | U_RECEIVER_TXD/U_FSM/SR[0]                |                4 |             11 |
-|  CLK100MHZ_IBUF_BUFG |                                              | nolabel_line75/U_FSM/SR[0]                |                4 |             15 |
-|  CLK100MHZ_IBUF_BUFG |                                              | U_SEND_DEBOUNCE/button_state_next1        |                7 |             27 |
-|  CLK100MHZ_IBUF_BUFG |                                              | U_SEND_CONT/count_reg[26]_i_1__0_n_0      |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG |                                              | nolabel_line77/U_FSM/SR[0]                |                4 |             15 |
+|  CLK100MHZ_IBUF_BUFG |                                              | U_SEND_CONT/count_reg[26]_i_1__0_n_0      |                5 |             27 |
+|  CLK100MHZ_IBUF_BUFG |                                              | U_SEND_DEBOUNCE/count_reg[26]_i_1_n_0     |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG | U_RDY_PULSER/E[0]                            | BTNC_IBUF                                 |                7 |             32 |
 |  CLK100MHZ_IBUF_BUFG |                                              | BTNC_IBUF                                 |               14 |             33 |
 +----------------------+----------------------------------------------+-------------------------------------------+------------------+----------------+
 

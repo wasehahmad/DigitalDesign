@@ -3,7 +3,7 @@
 // Project       : ECE 491
 //-----------------------------------------------------------------------------
 // File          : nexys4DDR.sv
-// Author        : John Nestor  <nestorj@nestorj-mbpro-15>
+// Author        : Waseh Ahmad $ Geoff Watson
 // Created       : 22.07.2016
 // Last modified : 22.07.2016
 //-----------------------------------------------------------------------------
@@ -14,16 +14,17 @@
 // This module only declares some basic i/o ports; additional ports
 // can be added - see the board documentation and constraints file
 // more information
+//Credit : John Nestor
 //-----------------------------------------------------------------------------
 // Modification history :
 // 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
-module nexys4DDR (
+module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 50000, TXD_BAUD_2 = TXD_BAUD*2) (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
 		  input logic [7:0]   SW,
-		  input logic         run,
+//		  input logic         run,
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
 //		  input logic 	      run, 
@@ -34,13 +35,13 @@ module nexys4DDR (
 		  output logic [7:0]  AN,
 		  output logic 	      DP,
 		  output logic [1:0]  LED,
-		  input logic         UART_TXD_IN,
+//		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
-		  output logic        transmitted,
-		  output logic        ferr,
-		  output logic        rxd_rdy
-//		  output logic        ferr
+		  output logic        error,
+		  output logic        cardet,
+		  output logic        txd,
+		  input logic         run
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
@@ -50,49 +51,42 @@ module nexys4DDR (
     
 
     logic debounced_send;
-    logic cont_send;
     logic send;
-    assign send = debounced_send | cont_send;
-    logic txd;
-    logic rxd;
     
-    assign rxd = UART_TXD_IN; 
-    assign UART_RXD_OUT = 1;
-   
-
-    
+    assign UART_RXD_OUT = 1; 
     
   // add SystemVerilog code & module instantiations here
-    logic [7:0] data;
-    logic [7:0] data_2;
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
     logic rdy_pulse;
     logic [6:0] length;
     
-    assign transmitted = txd;  
-    assign rdy = LED[0];
+    assign LED[0] = rdy;
+    assign LED[1] = write;
+    
+    //the length depends on how many switches are on. If no switches send nothing, if some, send value +3 (PRE and SFD)
     assign length = (SW[5:0] == '0)?0:SW[5:0]+2'd3;
     
     logic debounced_reset;
-    logic [7:0] data;
-    logic cardet;
     logic write;
-    logic error;
+    logic data_rxd;
+    logic data;
     
-    //assign JB = 3'd0;
-    
-    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run),.length(length),.send(send),.data(data),.ready(rdy));
+
     
     debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(debounced_send));
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
-    rtl_transmitter(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
+    //use mxtest to transmit signals from the manchester transmitter
+    mxtest_2        U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(debounced_send | run),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
+    rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
     
-    man_receiver U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data), .write(write), .error(error));
+    man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
     
+    
+    //pulse the write signal
     single_pulser U_RDY_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
     
-    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(data),.q(reg_0));
+    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(debounced_send),.d(data),.q(reg_0));
     reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
     reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_1),.q(reg_2));
     reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_2),.q(reg_3));

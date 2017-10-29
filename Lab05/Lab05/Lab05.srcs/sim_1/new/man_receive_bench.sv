@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Waseh Ahmad & Geoff Watson
 // 
 // Create Date: 10/23/2017 06:18:17 PM
 // Design Name: 
@@ -24,12 +24,12 @@ module man_receive_bench;
 
     import check_p ::*;
     
-    parameter BAUD = 50000;
-    parameter TXD_BAUD = 49500;
+    parameter BAUD = 50_000;
+    parameter TXD_BAUD = 49_500;
     parameter NUM_SAMP = 16;
     parameter SAMP_WIDTH = $clog2(NUM_SAMP);
     parameter WAIT_TIME = 100_000_000/(TXD_BAUD*NUM_SAMP);
-    parameter CONST_HIGH = 160000;
+    parameter CONST_HIGH = NUM_SAMP*1_000_000;//change this value to lower the amount of wait for random. 16*10^6 default
     
     logic clk,reset;
     logic rxd,cardet;
@@ -43,7 +43,7 @@ module man_receive_bench;
 //    logic samp_clk;
 //    jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(rxd),.dout(jitter_rxd));
     
-    man_receiver DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error),.samp_clk(samp_clk));
+    man_receiver #(.BAUD(BAUD)) DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error),.samp_clk(samp_clk));
     //===================================================
     task send_0;
         integer i;
@@ -169,7 +169,7 @@ module man_receive_bench;
     //====================================
     task send_constant_high;
         integer i;
-        for(i=0;i<CONST_HIGH;i++)begin
+        for(i=0;i<1600;i++)begin
             rxd = 1;
             repeat(WAIT_TIME)@(posedge clk);
         end
@@ -190,6 +190,14 @@ module man_receive_bench;
     task mil_rand_rxd;
         integer i;
         for (i = 0; i < CONST_HIGH; i++) begin
+            random_rxd;
+            repeat(WAIT_TIME)@(posedge clk);
+        end
+    endtask
+    
+    task rand_rxd;
+        integer i;
+        for (i = 0; i < 1600; i++) begin
             random_rxd;
             repeat(WAIT_TIME)@(posedge clk);
         end
@@ -246,11 +254,12 @@ module man_receive_bench;
 		send_sfd;
 		check_ok("Cardet is still high after sfd",cardet,1);
 		send_data_byte_11001100;
+		repeat(2)@(posedge clk);
 		check_ok("Write goes high after one byte",write,1);
 		send_eof;
 		check_ok("Data is as expected 00110011",data,8'b00110011);
 		check_ok("Write goes low by EOF",write,0);
-
+        repeat(2)@(posedge clk);
 		check_ok("Cardet goes low after EOF",cardet,0);
 		send_constant_high;
 
@@ -283,17 +292,20 @@ module man_receive_bench;
 		send_sfd;
 		check_ok("Cardet is still high after sfd",cardet,1);
 		send_data_byte_11001100;
+		repeat(3)@(posedge clk);
 		check_ok("Write goes high after one byte",write,1);
 		check_ok("Data is as expected 00110011",data,8'b00110011);
 		send_data_byte_10101010;
+		repeat(3)@(posedge clk);
 		check_ok("Write goes high after second byte",write,1);
 		check_ok("Data is as expected 01010101",data,8'b01010101);
 		send_data_byte_00001111;
+		repeat(3)@(posedge clk);
 		check_ok("Write goes high after third byte",write,1);
 		check_ok("Data is as expected 11110000",data,8'b11110000);
 		send_eof;
 		check_ok("Write goes low by EOF",write,0);
-
+        repeat(2)@(posedge clk);
 		check_ok("Cardet goes low by EOF",cardet,0);
 		send_constant_high;
 
@@ -323,11 +335,12 @@ module man_receive_bench;
         send_sfd;
         check_ok("Cardet is still high after sfd",cardet,1);
         send_data_byte_11001100;
+        repeat(3)@(posedge clk);
         check_ok("Write goes high after one byte",write,1);
         check_ok("Data is as expected 00110011",data,8'b00110011);
         send_eof;
         check_ok("Write goes low by EOF",write,0);
-
+        @(posedge clk);
         check_ok("Cardet goes low after EOF",cardet,0);
         //send data randomly for 106 bits
         mil_rand_rxd; 
@@ -346,7 +359,7 @@ module man_receive_bench;
         @(posedge clk) #1;
         reset = 0;
         //send data randomly for 106 bits
-        mil_rand_rxd; 
+        rand_rxd; 
         check_ok("No preamble was detected during reception of random bits", cardet,0);
         //send preamble
         check_ok("Cardet goes is low before 8 bit preamble",cardet,0);
@@ -366,7 +379,7 @@ module man_receive_bench;
 
         check_ok("Error is still high after EOF",error,1);
         //send data randomly for 106 bits
-        mil_rand_rxd; 
+        rand_rxd; 
         check_ok("No preamble was detected during reception of random bits", cardet,0);
     endtask
     
@@ -382,7 +395,7 @@ module man_receive_bench;
         @(posedge clk) #1;
         reset = 0;
         //send data randomly for 106 bits
-        mil_rand_rxd; 
+        rand_rxd; 
         check_ok("No preamble was detected during reception of random bits", cardet,0);
         //send preamble
         check_ok("Cardet goes is low before 8 bit preamble",cardet,0);
@@ -399,7 +412,7 @@ module man_receive_bench;
 
         check_ok("Error goes high when the EOF is seen",error,1);
         //send data randomly for 106 bits
-        mil_rand_rxd; 
+        rand_rxd; 
         check_ok("No preamble was detected during reception of random bits", cardet,0);
     endtask
 
