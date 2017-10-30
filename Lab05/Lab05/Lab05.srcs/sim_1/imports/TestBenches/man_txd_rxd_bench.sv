@@ -76,8 +76,10 @@ module man_txd_rxd_bench;
     task send_one_byte;
       data_txd = 8'b11001100;
       repeat(WAIT_TIME*16*8)@(posedge clk);
+      while(!rdy)@(posedge clk);//wait for rdy to go high
+      while(rdy)@(posedge clk);//wait for rdy to be low again 
       check_ok("Data transmitted is data received",data_txd,data_rxd);
-    
+      
     endtask
     
     task send_multi_bytes;
@@ -119,20 +121,23 @@ module man_txd_rxd_bench;
         reset = 1;
         repeat(1000)@(posedge clk); #1;
         reset = 0;
+        $display("===========SENDING 1 BYTE DATA =================");
         send_preamble;
         send_one_byte;
         
         reset = 1;
         repeat(1000)@(posedge clk); #1;
         reset = 0;
+        $display("===========SENDING 256 BYTE DATA =================");
         send_preamble;
         send_multi_bytes;
         
-        reset = 1;
-        repeat(1000)@(posedge clk); #1;
-        reset = 0;
-        send_preamble;
-        send_ten_random_num_bytes;
+//        reset = 1;
+//        repeat(1000)@(posedge clk); #1;
+//        reset = 0;
+//        $display("===========SENDING 10_RANDOM_LENGTH BYTE DATA =================");
+//        send_preamble;
+//        send_ten_random_num_bytes;
         
         
         $stop;

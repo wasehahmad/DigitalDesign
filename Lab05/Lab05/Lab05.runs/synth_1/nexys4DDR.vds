@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sun Oct 29 21:31:16 2017
-# Process ID: 7292
+# Start of session at: Sun Oct 29 23:15:56 2017
+# Process ID: 19732
 # Current directory: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 19060 
+INFO: Helper process launched with PID 15612 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,7 +23,7 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.797 ; gain = 117.871
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.141 ; gain = 117.426
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -94,7 +94,7 @@ INFO: [Synth 8-638] synthesizing module 'variable_sampler' [C:/Users/ahmadw/Desk
 	Parameter INCR_AMT bound to: 5000 - type: integer 
 	Parameter ACC_BOUND bound to: 50000 - type: integer 
 	Parameter ACC_LW_BOUND bound to: -50000 - type: integer 
-WARNING: [Synth 8-87] always_comb on 'actualClkFreq_reg' did not result in combinational logic [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:97]
+WARNING: [Synth 8-3848] Net DIVAMT in module/entity variable_sampler does not have driver. [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:47]
 INFO: [Synth 8-256] done synthesizing module 'variable_sampler' (8#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:23]
 INFO: [Synth 8-638] synthesizing module 'synchronizer' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/synchronizer.sv:23]
 	Parameter NUM_SAMP bound to: 16 - type: integer 
@@ -181,14 +181,12 @@ INFO: [Synth 8-638] synthesizing module 'preamble_detector_shreg' [C:/Users/ahma
 INFO: [Synth 8-256] done synthesizing module 'preamble_detector_shreg' (13#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/preamble_detector_shreg.sv:23]
 INFO: [Synth 8-638] synthesizing module 'sfd_detector_shreg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:23]
 	Parameter sfd bound to: 8'b11010000 
-WARNING: [Synth 8-87] always_comb on 'shreg_reg' did not result in combinational logic [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:83]
 INFO: [Synth 8-256] done synthesizing module 'sfd_detector_shreg' (14#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:23]
 INFO: [Synth 8-638] synthesizing module 'data_shreg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/data_shreg.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'data_shreg' (15#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/data_shreg.sv:23]
 INFO: [Synth 8-638] synthesizing module 'sfd_fsm' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_fsm.sv:23]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_fsm.sv:62]
 INFO: [Synth 8-256] done synthesizing module 'sfd_fsm' (16#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_fsm.sv:23]
-WARNING: [Synth 8-87] always_comb on 'data_reg' did not result in combinational logic [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/man_receiver.sv:134]
 INFO: [Synth 8-256] done synthesizing module 'man_receiver' (17#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/man_receiver.sv:23]
 WARNING: [Synth 8-350] instance 'U_MAN_RECEIVER' of module 'man_receiver' requires 8 connections, but only 7 given [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:77]
 INFO: [Synth 8-638] synthesizing module 'reg_param' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/reg_param.sv:15]
@@ -260,10 +258,17 @@ INFO: [Synth 8-294] found qualifier unique on case statement: implementing as pa
 INFO: [Synth 8-256] done synthesizing module 'asynch_transmitter_fsm' (25#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/asynch_transmitter_fsm.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'asynch_transmitter' (26#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/asynch_transmitter.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (27#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port speed_up
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port slow_down
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port diff_amt[4]
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port diff_amt[3]
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port diff_amt[2]
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port diff_amt[1]
+WARNING: [Synth 8-3331] design variable_sampler has unconnected port diff_amt[0]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 352.660 ; gain = 145.734
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 352.934 ; gain = 146.219
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -274,7 +279,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin U_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:96]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 352.660 ; gain = 145.734
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 352.934 ; gain = 146.219
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -290,22 +295,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 664.742 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 663.188 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'mxtest_2'
@@ -324,9 +329,7 @@ INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address siz
 INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:81]
 INFO: [Synth 8-5544] ROM "n_write" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-3936] Found unconnected internal register 'shreg_reg' and it is trimmed from '8' to '7' bits. [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:83]
 INFO: [Synth 8-5544] ROM "sfd_detected" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
@@ -340,11 +343,8 @@ INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address siz
               WAIT_DELAY |                               11 |                              011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'mxtest_2'
-WARNING: [Synth 8-327] inferring latch for variable 'actualClkFreq_reg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:97]
-WARNING: [Synth 8-327] inferring latch for variable 'shreg_reg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/sfd_detector_shreg.sv:83]
-WARNING: [Synth 8-327] inferring latch for variable 'data_reg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/man_receiver.sv:134]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -357,8 +357,7 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 10    
-	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 7     
 	  15 Input     32 Bit       Adders := 4     
 	  31 Input     32 Bit       Adders := 1     
 	   2 Input     27 Bit       Adders := 2     
@@ -375,30 +374,29 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit         XORs := 3     
 	   2 Input      8 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
 	               27 Bit    Registers := 2     
 	               17 Bit    Registers := 1     
 	               16 Bit    Registers := 4     
 	               14 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 6     
+	                8 Bit    Registers := 7     
 	                6 Bit    Registers := 3     
 	                5 Bit    Registers := 2     
 	                4 Bit    Registers := 8     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 4     
-	                1 Bit    Registers := 45    
+	                1 Bit    Registers := 43    
 +---RAMs : 
 	               32 Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 9     
+	   2 Input     32 Bit        Muxes := 5     
 	   2 Input     27 Bit        Muxes := 2     
-	   2 Input     18 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 1     
 	   2 Input     14 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      8 Bit        Muxes := 6     
 	   8 Input      8 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 6     
@@ -412,7 +410,7 @@ Detailed RTL Component Info :
 	   9 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 46    
+	   2 Input      1 Bit        Muxes := 45    
 	   4 Input      1 Bit        Muxes := 14    
 	   9 Input      1 Bit        Muxes := 7     
 	   7 Input      1 Bit        Muxes := 1     
@@ -509,15 +507,11 @@ Detailed RTL Component Info :
 Module variable_sampler 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 4     
-	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 4     
-	   2 Input     18 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
 Module bcdcounter 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -642,10 +636,12 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
 Module data_shreg 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -742,12 +738,10 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 664.742 ; gain = 457.816
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-DSP Report: Generating DSP accumulated1, operation Mode is: (A:0x1388)*B.
-DSP Report: operator accumulated1 is absorbed into DSP accumulated1.
 INFO: [Synth 8-5544] ROM "U_DISPCTL/U_ANODE_DISPLAY/" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5545] ROM "U_SEND_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "U_RESET_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
@@ -760,9 +754,9 @@ WARNING: [Synth 8-3917] design nexys4DDR has port DP driven by constant 1
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 663.188 ; gain = 456.473
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -790,15 +784,6 @@ Distributed RAM: Preliminary Mapping  Report (see note below)
 +------------+----------------+-----------+----------------------+--------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
-
-DSP: Preliminary Mapping  Report (see note below)
-+-----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name      | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|variable_sampler | (A:0x1388)*B | 5      | 13     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+-----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -823,16 +808,24 @@ INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_re
 INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[13]'
 INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[14]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[14]'
 INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[15]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[15]'
+WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[5]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q_reg[0]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/no_bit_seen_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_LOW/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[7]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[6]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[5]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[4]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[3]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[3]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_LOW/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
@@ -849,14 +842,10 @@ WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shr
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[14]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[15]) is unused and will be removed from module nexys4DDR.
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]' (FDE) to 'U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4] )
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]) is unused and will be removed from module nexys4DDR.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 664.742 ; gain = 457.816
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 663.188 ; gain = 456.473
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -870,10 +859,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 680.504 ; gain = 473.578
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 663.188 ; gain = 456.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 745.082 ; gain = 538.156
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 681.547 ; gain = 474.832
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -885,16 +874,16 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -911,7 +900,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -924,7 +913,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -936,25 +925,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -967,35 +956,33 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |BUFG      |     2|
-|2     |CARRY4    |   330|
-|3     |DSP48E1_1 |     1|
-|4     |LUT1      |   241|
-|5     |LUT2      |   299|
-|6     |LUT3      |   222|
-|7     |LUT4      |   121|
-|8     |LUT5      |   862|
-|9     |LUT6      |   155|
-|10    |MUXF7     |     6|
-|11    |MUXF8     |     1|
-|12    |RAM32M    |     2|
-|13    |FDRE      |   397|
-|14    |FDSE      |    32|
-|15    |LD        |    48|
-|16    |IBUF      |    10|
-|17    |OBUF      |    21|
-+------+----------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    41|
+|3     |LUT1   |   152|
+|4     |LUT2   |   113|
+|5     |LUT3   |    99|
+|6     |LUT4   |    73|
+|7     |LUT5   |    72|
+|8     |LUT6   |   144|
+|9     |MUXF7  |     6|
+|10    |MUXF8  |     1|
+|11    |RAM32M |     2|
+|12    |FDRE   |   355|
+|13    |FDSE   |    32|
+|14    |IBUF   |    10|
+|15    |OBUF   |    21|
++------+-------+------+
 
 Report Instance Areas: 
 +------+-------------------------+-------------------------------+------+
 |      |Instance                 |Module                         |Cells |
 +------+-------------------------+-------------------------------+------+
-|1     |top                      |                               |  2750|
+|1     |top                      |                               |  1122|
 |2     |  U_ASYNCH_TX            |asynch_transmitter             |    72|
-|3     |    U_BAUD_PULSE         |single_pulser_10               |     3|
+|3     |    U_BAUD_PULSE         |single_pulser_9                |     3|
 |4     |    U_BAUD_RATE          |clkenb__parameterized2         |    50|
 |5     |    U_BIT_COUNTER        |bcdcounter_txd__parameterized2 |    14|
 |6     |    U_FSM                |asynch_transmitter_fsm         |     5|
@@ -1007,59 +994,56 @@ Report Instance Areas:
 |12    |    THR_B_COUNTER        |counter                        |    25|
 |13    |    U_CLKENB             |clkenb__parameterized1         |    60|
 |14    |  U_FIFO                 |sasc_fifo                      |    17|
-|15    |  U_MAN_RECEIVER         |man_receiver                   |  2073|
+|15    |  U_MAN_RECEIVER         |man_receiver                   |   445|
 |16    |    U_ABN_BIT_COUNTER    |bcdcounter__parameterized1     |     4|
-|17    |    U_BYTE_COUNTER       |bcdcounter__parameterized0     |    12|
-|18    |    U_CORREL_ABN_HIGH    |correlator__parameterized1     |     5|
+|17    |    U_BYTE_COUNTER       |bcdcounter__parameterized0     |    13|
+|18    |    U_CORREL_ABN_HIGH    |correlator__parameterized1     |     6|
 |19    |    U_CORREL_ABN_LOW     |correlator__parameterized2     |    37|
-|20    |    U_CORREL_EOF         |correlator__parameterized3     |   112|
-|21    |    U_CORREL_ONE         |correlator__parameterized0     |    43|
-|22    |    U_CORREL_ZERO        |correlator                     |    44|
+|20    |    U_CORREL_EOF         |correlator__parameterized3     |   114|
+|21    |    U_CORREL_ONE         |correlator__parameterized0     |    42|
+|22    |    U_CORREL_ZERO        |correlator                     |    42|
 |23    |    U_DATA_REG           |data_shreg                     |     9|
 |24    |    U_PRE_SHREG          |preamble_detector_shreg        |    13|
-|25    |    U_RECEIVE_FSM        |receive_fsm                    |    18|
-|26    |    U_SAMPLER            |variable_sampler               |  1670|
-|27    |    U_SAMP_COUNTER       |bcdcounter                     |    17|
-|28    |    U_SAMP_COUNTER_PRE   |bcdcounter_7                   |    17|
+|25    |    U_RECEIVE_FSM        |receive_fsm                    |    16|
+|26    |    U_SAMPLER            |variable_sampler               |    87|
+|27    |    U_SAMP_COUNTER       |bcdcounter                     |    16|
+|28    |    U_SAMP_COUNTER_PRE   |bcdcounter_7                   |    16|
 |29    |    U_SFD_FSM            |sfd_fsm                        |     6|
-|30    |    U_SFD_SHREG          |sfd_detector_shreg             |    19|
+|30    |    U_SFD_SHREG          |sfd_detector_shreg             |    20|
 |31    |    U_STRT_RECEIVE_PULSE |single_pulser_8                |     4|
-|32    |    U_SYNC               |synchronizer                   |    27|
-|33    |      U_BIT_RECOG_COUNT  |bcdcounter_9                   |    23|
-|34    |  U_READ_PULSER          |single_pulser                  |     2|
-|35    |  U_RESET_DEBOUNCE       |debounce                       |   101|
-|36    |  U_SEND_DEBOUNCE        |debounce_3                     |    98|
-|37    |  U_TEST                 |mxtest_2                       |    98|
-|38    |  U_TRANSMITTER          |rtl_transmitter                |   128|
-|39    |    U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
-|40    |    U_BAUD_2_PULSE       |single_pulser_5                |     3|
-|41    |    U_BAUD_2_RATE        |clkenb__parameterized0         |    31|
-|42    |    U_BAUD_PULSE         |single_pulser_6                |     2|
-|43    |    U_BAUD_RATE          |clkenb                         |    29|
-|44    |    U_BIT_COUNTER        |bcdcounter_txd                 |    12|
-|45    |    U_FSM                |transmitter_fsm                |    30|
-|46    |    U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    10|
-|47    |  U_WRITE_PULSER         |single_pulser_4                |     3|
+|32    |  U_READ_PULSER          |single_pulser                  |     2|
+|33    |  U_RESET_DEBOUNCE       |debounce                       |   100|
+|34    |  U_SEND_DEBOUNCE        |debounce_3                     |    99|
+|35    |  U_TEST                 |mxtest_2                       |    98|
+|36    |  U_TRANSMITTER          |rtl_transmitter                |   129|
+|37    |    U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    10|
+|38    |    U_BAUD_2_PULSE       |single_pulser_5                |     3|
+|39    |    U_BAUD_2_RATE        |clkenb__parameterized0         |    31|
+|40    |    U_BAUD_PULSE         |single_pulser_6                |     2|
+|41    |    U_BAUD_RATE          |clkenb                         |    29|
+|42    |    U_BIT_COUNTER        |bcdcounter_txd                 |    13|
+|43    |    U_FSM                |transmitter_fsm                |    31|
+|44    |    U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    10|
+|45    |  U_WRITE_PULSER         |single_pulser_4                |     3|
 +------+-------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 682.746 ; gain = 476.031
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 749.898 ; gain = 200.473
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 749.898 ; gain = 542.973
+Synthesis finished with 0 errors, 0 critical warnings and 37 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 682.746 ; gain = 135.152
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 682.746 ; gain = 476.031
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 391 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 53 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 50 instances were transformed.
-  LD => LDCE: 48 instances
+  A total of 2 instances were transformed.
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-154 Infos, 68 Warnings, 0 Critical Warnings and 0 Errors encountered.
+151 Infos, 75 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 749.898 ; gain = 516.637
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 749.898 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Oct 29 21:31:50 2017...
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 682.746 ; gain = 449.695
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 682.746 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 29 23:16:22 2017...

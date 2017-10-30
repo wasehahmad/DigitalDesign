@@ -73,16 +73,22 @@ module sfd_detector_shreg(
         end
         
         //LATCH HERE
-        if (counter == 8) begin
+        if (counter == 7) begin
             sfd_detected <= 1;                    
         end
     end  
     
-    always_comb begin
-        if (write_0 || write_1) begin
-            shreg = { shreg[6:0], write_0?1'b0:1'b1 };
+    always_ff @(posedge clk) begin
+        if(reset)begin
+            shreg <= '0;
         end
-        else shreg = shreg;
+        else begin
+            if (write_0 || write_1) begin
+                shreg <= { shreg[6:0], write_0?1'b0:1'b1 };
+            end
+            else shreg <= shreg;
+        end
     end
+
 
 endmodule

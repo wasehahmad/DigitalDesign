@@ -116,7 +116,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset | eof | (samp_num_24 & (!cardet | !start_receiving)) ),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
     
     //shift register to check for the sfd
-    sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset | !cardet),.write_0(write_zero),.write_1(write_one),.cardet(preamble_detected | corroborating | cardet),.sfd_detected(sfd_detected),.corroborating(corroborating));
+    sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset | (!cardet) | ( samp_num_31 )),.write_0(write_zero),.write_1(write_one),.cardet(preamble_detected | corroborating | cardet),.sfd_detected(sfd_detected),.corroborating(corroborating));
     
     //register to store the received data
     data_shreg U_DATA_REG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.sfd_detected(sfd_detected),.data_out(data_rxd));
@@ -130,9 +130,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
     
     
-    always_comb begin
-        if(write)data = data_rxd;   
-    end
+    assign data = data_rxd;
 
 
 endmodule
