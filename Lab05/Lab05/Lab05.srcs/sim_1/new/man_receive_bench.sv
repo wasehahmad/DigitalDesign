@@ -225,7 +225,7 @@ module man_receive_bench;
 		check_ok("write is correct on reset",write,0);
 		check_ok("error is correct on reset",error,0);
 
-		check_ok("data is correct on reset",data,8'hxx);
+		check_ok("data is correct on reset",data,8'h00);
 	endtask
 
     //testpreamble only
@@ -284,8 +284,8 @@ module man_receive_bench;
 		send_data_byte_11001100;
 		repeat(2)@(posedge clk);
 		check_ok("Write goes high after one byte",write,1);
-		send_eof;
 		check_ok("Data is as expected 11001100",data,8'b11001100);
+		send_eof;	
 		check_ok("Write goes low by EOF",write,0);
         repeat(2)@(posedge clk);
 		check_ok("Cardet goes low after EOF",cardet,0);

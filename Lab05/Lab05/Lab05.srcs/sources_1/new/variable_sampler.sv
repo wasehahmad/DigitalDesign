@@ -39,7 +39,7 @@ module variable_sampler
     output logic enb
     );
     
-    logic changed,prevChanged;
+    logic changed;
      
     int actualClkFreq,n_actualClkFreq;
     int accumulated;
@@ -47,6 +47,8 @@ module variable_sampler
     int DIVAMT,n_DIVAMT;
 
     int  q;
+    
+    assign DIVAMT = CLKFREQ/actualClkFreq;
     
     always @(posedge clk) begin
         if (reset)begin
@@ -90,33 +92,10 @@ module variable_sampler
     
     end
     
-
-
-//    always_ff @(posedge clk) begin
-//        if(reset)begin
-//            n_initialized <= initialized;
-//            actualClkFreq <= SAMPLE_RATE;
-//            DIVAMT <= (CLKFREQ / actualClkFreq);
-//        end
-//            else begin
-//            DIVAMT <= n_DIVAMT;
-//            actualClkFreq <= n_actualClkFreq;
-
-            
-//        end
-
-//    end
-    
-//    assign n_DIVAMT = (CLKFREQ / actualClkFreq);   
-    
-//    always_comb begin
-//        n_actualClkFreq = actualClkFreq;
-//        if(changed)n_actualClkFreq <= SAMPLE_RATE+accumulated; 
-//    end 
     
     always_comb begin
         if(reset)begin
-            n_initialized = initialized;
+            n_initialized = 0;
             actualClkFreq = SAMPLE_RATE;
         end
         if(changed)begin
