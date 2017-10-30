@@ -76,7 +76,7 @@ module mxtest_2(
 					8'haa,
 					8'haa,
 					8'hd0,
-					8'h01,
+					8'h40,
 					8'h06,
 					8'h07, 
 					8'h08, 

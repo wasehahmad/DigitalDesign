@@ -130,7 +130,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     
     
     
-    assign data = data_rxd;
+    assign data = (write)?data_rxd:data;
 
 
 endmodule
