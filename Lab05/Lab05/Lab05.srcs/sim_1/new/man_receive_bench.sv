@@ -43,7 +43,7 @@ module man_receive_bench;
 //    logic samp_clk;
 //    jittergen U_JIT_GEN(.clk(clk),.sampclk(samp_clk),.din(rxd),.dout(jitter_rxd));
     
-    man_receiver #(.BAUD(BAUD)) DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error),.samp_clk(samp_clk));
+    man_receiver #(.BIT_RATE(BAUD)) DUV(.clk(clk),.reset(reset),.rxd(rxd),.cardet(cardet),.data(data),.write(write),.error(error),.samp_clk(samp_clk));
     //===================================================
     task send_0;
         integer i;

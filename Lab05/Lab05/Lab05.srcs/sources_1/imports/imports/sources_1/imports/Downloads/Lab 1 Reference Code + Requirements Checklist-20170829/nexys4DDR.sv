@@ -74,7 +74,7 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
                                .txd(txd),.rdy(rdy),.txen(txen));
     
     
-    man_receiver    #(.BAUD(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
+    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
     
     
     //pulse the write signal
