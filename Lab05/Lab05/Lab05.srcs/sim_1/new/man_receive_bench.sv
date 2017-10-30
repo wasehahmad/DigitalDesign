@@ -483,7 +483,6 @@ module man_receive_bench;
         check_ok("Cardet goes is low before 8 bit preamble",cardet,0);
         send_preamble_8;
         @(posedge clk);
-        check_ok("Cardet goes high after 8 bit preamble",cardet,1);
         send_preamble_8;
         check_ok("Cardet is still high after 16 bit preamble",cardet,1);
         send_sfd;

@@ -30,6 +30,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
     input logic consec_low,
     input logic start_receiving,
     input logic eof_seen,
+    input logic preamble_detected,
     output logic error,
     output logic eof,
     output logic write,
@@ -78,10 +79,13 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
             IDLE: begin
                 if(start_receiving)begin 
                     n_error = 0;
-                    next = RECEIVING;
-                    n_reset_counters = 1;
+                    next = RECEIVING;   
                 end
-                else next = IDLE;    
+                else begin
+                 if(preamble_detected)n_error = 0;
+                    next = IDLE;    
+                end
+                n_reset_counters = 1;
             end
             
             RECEIVING: begin
@@ -96,7 +100,7 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
                     
                 end
                 else begin
-                    if(BITS_IN_BYTE == count_8)begin
+                    if(count_8== BITS_IN_BYTE)begin
                         n_one_byte_seen = 1;
                         n_write = 1;
                         n_reset_counters = 1;
