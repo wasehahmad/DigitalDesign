@@ -42,14 +42,15 @@ module variable_sampler
     logic changed;
      
     int actualClkFreq,n_actualClkFreq;
-    int accumulated;
+    int accumulated,incr_amount;
     logic initialized,n_initialized;  
     int DIVAMT,n_DIVAMT;
 
+
     int  q;
     
-    assign DIVAMT = CLKFREQ/actualClkFreq;
-    
+    assign DIVAMT = CLKFREQ+32'd1000;///actualClkFreq;
+
     always @(posedge clk) begin
         if (reset)begin
             q <= 0;
@@ -80,8 +81,8 @@ module variable_sampler
                 changed<=0;
             end
             else if((speed_up || slow_down) & !changed )begin
-                if(speed_up)accumulated <=accumulated+diff_amt*INCR_AMT;
-                else if(slow_down)accumulated <=accumulated-diff_amt*INCR_AMT;
+                if(speed_up)accumulated <=accumulated+multiply(INCR_AMT,diff_amt);
+                else if(slow_down)accumulated <=accumulated-multiply(INCR_AMT,diff_amt);
                 changed<=1;
             end
             else begin
@@ -93,23 +94,43 @@ module variable_sampler
     end
     
     
-    always_comb begin
+    always_ff @(posedge clk) begin
         if(reset)begin
-            n_initialized = 0;
-            actualClkFreq = SAMPLE_RATE;
+            n_initialized <= 0;
+            actualClkFreq <= SAMPLE_RATE;
         end
         if(changed)begin
-            actualClkFreq = SAMPLE_RATE+accumulated;
+            actualClkFreq <= SAMPLE_RATE+accumulated;
         end
         else begin
             if(initialized)
-                actualClkFreq = actualClkFreq;
+                actualClkFreq <= actualClkFreq;
             else begin
-                actualClkFreq = SAMPLE_RATE;
-                n_initialized = 1;
+                actualClkFreq <= SAMPLE_RATE;
+                n_initialized <= 1;
             end
         end
     
     end
+    
+    function integer multiply(input int main,times);
+        integer i;
+        integer result;
+        result= 0;
+        case(times)
+            5'd01:result = main;
+            5'd02:result = main<<1;
+            5'd03:result = main+main<<1;
+            5'd04:result = main<<2;
+            5'd05:result = main+main<<2;
+            default:result = main;
+        endcase
+        return result;
+    
+    endfunction
+    
+    
+    
+    
     
 endmodule

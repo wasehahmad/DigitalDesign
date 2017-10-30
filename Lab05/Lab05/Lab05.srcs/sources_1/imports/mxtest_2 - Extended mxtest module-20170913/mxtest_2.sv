@@ -172,7 +172,7 @@ module mxtest_2(
           WAIT_DELAY:
             begin
                wait_count_enable = 1'b1;
-               if (wait_count_done) next = WAIT_RH;
+               if (wait_count_done && !run) next = WAIT_RH;
                else next = WAIT_DELAY;
             end
         endcase
