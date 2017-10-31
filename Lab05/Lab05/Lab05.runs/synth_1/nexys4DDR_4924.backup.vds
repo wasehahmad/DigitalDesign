@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Mon Oct 30 20:13:25 2017
-# Process ID: 13380
+# Start of session at: Mon Oct 30 17:29:39 2017
+# Process ID: 4924
 # Current directory: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 14796 
+INFO: Helper process launched with PID 10628 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,7 +23,7 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.707 ; gain = 118.195
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.098 ; gain = 116.953
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -94,6 +94,8 @@ INFO: [Synth 8-638] synthesizing module 'variable_sampler' [C:/Users/ahmadw/Desk
 	Parameter INCR_AMT bound to: 5000 - type: integer 
 	Parameter ACC_BOUND bound to: 50000 - type: integer 
 	Parameter ACC_LW_BOUND bound to: -50000 - type: integer 
+	Parameter OP_DIVAMT bound to: 125 - type: integer 
+	Parameter MAX_DIVIS_RATE bound to: 2000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'variable_sampler' (8#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:23]
 INFO: [Synth 8-638] synthesizing module 'synchronizer' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/synchronizer.sv:23]
 	Parameter NUM_SAMP bound to: 16 - type: integer 
@@ -260,7 +262,7 @@ INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (27#1) [C:/Users/ahmadw
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 354.414 ; gain = 147.902
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 601.727 ; gain = 394.582
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -271,7 +273,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin U_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:96]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 354.414 ; gain = 147.902
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 601.727 ; gain = 394.582
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -287,22 +289,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 665.914 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 988.953 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'mxtest_2'
@@ -321,7 +324,9 @@ INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address siz
 INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:85]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:86]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:141]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:141]
 INFO: [Synth 8-5545] ROM "result" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5544] ROM "n_write" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "sfd_detected" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -337,22 +342,65 @@ INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address siz
               WAIT_DELAY |                               11 |                              011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'mxtest_2'
+WARNING: [Synth 8-327] inferring latch for variable 'data' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/man_receiver.sv:133]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |variable_sampler__GB0  |           1|     13332|
+|2     |variable_sampler__GB1  |           1|     11993|
+|3     |variable_sampler__GB2  |           1|     15404|
+|4     |variable_sampler__GB3  |           1|     15150|
+|5     |variable_sampler__GB4  |           1|     13156|
+|6     |variable_sampler__GB5  |           1|     15756|
+|7     |variable_sampler__GB6  |           1|     19695|
+|8     |variable_sampler__GB7  |           1|     12597|
+|9     |variable_sampler__GB8  |           1|     12423|
+|10    |variable_sampler__GB9  |           1|     15756|
+|11    |variable_sampler__GB10 |           1|     15453|
+|12    |variable_sampler__GB11 |           1|     19392|
+|13    |variable_sampler__GB12 |           1|      8181|
+|14    |variable_sampler__GB13 |           1|     13811|
+|15    |variable_sampler__GB14 |           1|     20907|
+|16    |variable_sampler__GB15 |           1|     20907|
+|17    |variable_sampler__GB16 |           1|     20907|
+|18    |variable_sampler__GB17 |           1|     20604|
+|19    |variable_sampler__GB18 |           1|     21034|
+|20    |variable_sampler__GB19 |           1|     19392|
+|21    |variable_sampler__GB20 |           1|     19392|
+|22    |variable_sampler__GB21 |           1|     13029|
+|23    |variable_sampler__GB22 |           1|     13029|
+|24    |variable_sampler__GB23 |           1|     13029|
+|25    |variable_sampler__GB24 |           1|     13032|
+|26    |variable_sampler__GB25 |           1|     17398|
+|27    |variable_sampler__GB26 |           1|     17447|
+|28    |variable_sampler__GB27 |           1|     17271|
+|29    |variable_sampler__GB28 |           1|     17271|
+|30    |variable_sampler__GB29 |           1|     19568|
+|31    |variable_sampler__GB30 |           1|      8946|
+|32    |variable_sampler__GB31 |           1|     16059|
+|33    |variable_sampler__GB32 |           1|     15756|
+|34    |variable_sampler__GB33 |           1|     15932|
+|35    |variable_sampler__GB34 |           1|     15756|
+|36    |variable_sampler__GB35 |           1|     16059|
+|37    |variable_sampler__GB36 |           1|     15756|
+|38    |variable_sampler__GB37 |           1|     15756|
+|39    |variable_sampler__GB38 |           1|     15756|
+|40    |man_receiver__GC0      |           1|      1019|
+|41    |nexys4DDR__GC0         |           1|      3743|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 10    
-	   3 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1999  
+	2000 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 9     
 	  15 Input     32 Bit       Adders := 4     
 	  31 Input     32 Bit       Adders := 1     
 	   2 Input     27 Bit       Adders := 2     
@@ -370,7 +418,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit         XORs := 3     
 	   2 Input      8 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 32    
+	               32 Bit    Registers := 2     
 	               27 Bit    Registers := 2     
 	               17 Bit    Registers := 1     
 	               16 Bit    Registers := 4     
@@ -387,7 +435,7 @@ Detailed RTL Component Info :
 +---RAMs : 
 	               2K Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 8     
+	   2 Input     32 Bit        Muxes := 2006  
 	   2 Input     27 Bit        Muxes := 2     
 	   2 Input     17 Bit        Muxes := 2     
 	   6 Input     17 Bit        Muxes := 1     
@@ -401,16 +449,16 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 2     
 	   2 Input      3 Bit        Muxes := 7     
 	   3 Input      3 Bit        Muxes := 1     
-	  10 Input      2 Bit        Muxes := 1     
-	   3 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 9     
 	   9 Input      2 Bit        Muxes := 1     
 	   5 Input      2 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 47    
+	   2 Input      1 Bit        Muxes := 48    
 	   4 Input      1 Bit        Muxes := 14    
-	   9 Input      1 Bit        Muxes := 7     
 	   7 Input      1 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 7     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -419,102 +467,21 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module debounce 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     27 Bit       Adders := 1     
-+---Registers : 
-	               27 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     27 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
-Module mxtest_2 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 1     
-+---Registers : 
-	                5 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      5 Bit        Muxes := 1     
-	  10 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 4     
-Module clkenb 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 1     
-+---Registers : 
-	               11 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module single_pulser 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 2     
-Module bcdcounter_txd 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	                4 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module clkenb__parameterized0 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     10 Bit       Adders := 1     
-+---Registers : 
-	               10 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module bcdcounter_txd__parameterized0 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	                4 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module bcdcounter_txd__parameterized1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	                4 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module transmitter_fsm 
-Detailed RTL Component Info : 
-+---Registers : 
-	                4 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   9 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 7     
-	   3 Input      3 Bit        Muxes := 1     
-	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 2     
-	   9 Input      1 Bit        Muxes := 7     
-	   2 Input      1 Bit        Muxes := 3     
 Module variable_sampler 
 Detailed RTL Component Info : 
 +---Adders : 
-	   3 Input     32 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 1999  
+	2000 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
 +---Registers : 
-	               32 Bit    Registers := 31    
+	               32 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 2001  
 	   2 Input     17 Bit        Muxes := 1     
 	   6 Input     17 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 3     
-Module bcdcounter 
+	   2 Input      1 Bit        Muxes := 4     
+Module bcdcounter__1 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      6 Bit       Adders := 1     
@@ -566,6 +533,14 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
 	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter__2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
 Module bcdcounter__parameterized1 
@@ -624,6 +599,14 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 3     
 	   4 Input      1 Bit        Muxes := 5     
 	   7 Input      1 Bit        Muxes := 1     
+Module bcdcounter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
 Module preamble_detector_shreg 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -660,6 +643,122 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 2     
+Module single_pulser__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module debounce__1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     27 Bit       Adders := 1     
++---Registers : 
+	               27 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     27 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module debounce 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     27 Bit       Adders := 1     
++---Registers : 
+	               27 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     27 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module mxtest_2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+Module clkenb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module single_pulser__3 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module bcdcounter_txd 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module single_pulser__4 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module bcdcounter_txd__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter_txd__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module transmitter_fsm 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   9 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 7     
+	   3 Input      3 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 3     
+Module single_pulser__5 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module reg_param__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module reg_param__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module reg_param__3 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
 Module reg_param 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -700,6 +799,10 @@ Detailed RTL Component Info :
 	               2K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 3     
+Module single_pulser 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
 Module clkenb__parameterized2 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -710,6 +813,10 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     14 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
+Module single_pulser__2 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
 Module bcdcounter_txd__parameterized2 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -741,7 +848,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 665.914 ; gain = 459.402
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:52 ; elapsed = 00:00:53 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -753,19 +860,59 @@ INFO: [Synth 8-5546] ROM "U_TRANSMITTER/U_BAUD_2_RATE/enb" won't be mapped to RA
 INFO: [Synth 8-5546] ROM "U_DISPCTL/U_CLKENB/enb" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "U_DISPCTL/U_DP_MUX/y" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "U_ASYNCH_TX/U_BAUD_RATE/enb" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3917] design nexys4DDR has port DP driven by constant 1
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 988.953 ; gain = 781.809
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 665.914 ; gain = 459.402
+Finished Parallel Reinference  : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 988.953 ; gain = 781.809
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |variable_sampler__GB0  |           1|     16148|
+|2     |variable_sampler__GB1  |           1|     14489|
+|3     |variable_sampler__GB2  |           1|     14221|
+|4     |variable_sampler__GB3  |           1|     18350|
+|5     |variable_sampler__GB4  |           1|     15940|
+|6     |variable_sampler__GB5  |           1|     19084|
+|7     |variable_sampler__GB6  |           1|     23855|
+|8     |variable_sampler__GB7  |           1|     15107|
+|9     |variable_sampler__GB8  |           1|     15047|
+|10    |variable_sampler__GB9  |           1|     19084|
+|11    |variable_sampler__GB10 |           1|     18717|
+|12    |variable_sampler__GB11 |           1|     23488|
+|13    |variable_sampler__GB12 |           1|      9909|
+|14    |variable_sampler__GB13 |           1|     16691|
+|15    |variable_sampler__GB14 |           1|     25323|
+|16    |variable_sampler__GB15 |           1|     25323|
+|17    |variable_sampler__GB16 |           1|     25323|
+|18    |variable_sampler__GB17 |           1|     24956|
+|19    |variable_sampler__GB18 |           1|     25482|
+|20    |variable_sampler__GB19 |           1|     23488|
+|21    |variable_sampler__GB20 |           1|     23488|
+|22    |variable_sampler__GB21 |           1|     15781|
+|23    |variable_sampler__GB22 |           1|     15781|
+|24    |variable_sampler__GB23 |           1|     15781|
+|25    |variable_sampler__GB24 |           1|     15738|
+|26    |variable_sampler__GB25 |           1|     21078|
+|27    |variable_sampler__GB26 |           1|     21095|
+|28    |variable_sampler__GB27 |           1|     20919|
+|29    |variable_sampler__GB28 |           1|     20919|
+|30    |variable_sampler__GB29 |           1|     23664|
+|31    |variable_sampler__GB30 |           1|     10834|
+|32    |variable_sampler__GB31 |           1|     19451|
+|33    |variable_sampler__GB32 |           1|     19084|
+|34    |variable_sampler__GB33 |           1|     19260|
+|35    |variable_sampler__GB34 |           1|     19084|
+|36    |variable_sampler__GB35 |           1|     19451|
+|37    |variable_sampler__GB36 |           1|     19084|
+|38    |variable_sampler__GB37 |           1|     19084|
+|39    |variable_sampler__GB38 |           1|     19084|
+|40    |man_receiver__GC0      |           1|      1173|
+|41    |nexys4DDR__GC0         |           1|      3724|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -793,362 +940,23 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1] )
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[27]' (FDRE) to 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[31]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[28]' (FDRE) to 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[31]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[29]' (FDRE) to 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[31]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[30]' (FDRE) to 'U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[31]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_TRANSMITTER/U_FSM/last_reg[3] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_TRANSMITTER/U_FSM/last_reg[1] )
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[1]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[2]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[3]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[5]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[6]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[7]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[8]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[9]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[10]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[11]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[12]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[14]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[14]'
-INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[15]' (FDRE) to 'U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[15]'
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq1_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq1_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq2_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq2_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq3_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq3_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq4_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq4_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq5_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq5_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq6_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq6_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq7_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq7_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq8_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq8_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq9_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq9_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq10_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq10_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq11_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq11_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq12_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq12_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq13_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq13_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq14_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq14_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq15_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq15_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq16_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq16_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq17_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq17_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq18_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq18_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq19_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq19_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq20_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq20_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq21_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq21_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq22_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq22_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq23_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq23_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq24_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq24_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq25_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq25_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq26_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq26_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq27_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq27_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq28_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq28_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[30]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[29]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[28]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/DIVAMT_reg[27]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[3]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TRANSMITTER/U_FSM/last_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_LOW/prev_pulsed_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[7]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[6]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[5]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[4]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[3]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[3]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[5]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[6]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[7]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[8]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[9]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[10]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[11]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[12]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[14]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[15]) is unused and will be removed from module nexys4DDR.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0] )
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq1_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq2_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq3_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq4_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq5_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq6_reg[0]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/acfreq7_reg[0]) is unused and will be removed from module nexys4DDR.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3] )
----------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 665.914 ; gain = 459.402
----------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 665.914 ; gain = 459.402
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 665.914 ; gain = 459.402
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 665.914 ; gain = 459.402
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[0]' (FDRE) to 'U_FIFO/rp_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[1]' (FDRE) to 'U_FIFO/rp_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[2]' (FDRE) to 'U_FIFO/rp_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[3]' (FDRE) to 'U_FIFO/rp_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[4]' (FDRE) to 'U_FIFO/rp_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg_rep[5]' (FDRE) to 'U_FIFO/rp_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg[6]' (FDRE) to 'U_FIFO/rp_reg_rep[6]'
-INFO: [Synth 8-3886] merging instance 'U_FIFO/rp_reg[7]' (FDRE) to 'U_FIFO/rp_reg_rep[7]'
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+-------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name                                  | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+-------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|nexys4DDR   | U_MAN_RECEIVER/U_SAMPLER/acfreq28_reg[31] | 28     | 29    | YES          | NO                 | YES               | 0      | 29      | 
-+------------+-------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
-
-Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |BUFG     |     1|
-|2     |CARRY4   |   302|
-|3     |LUT1     |   271|
-|4     |LUT2     |   256|
-|5     |LUT3     |   180|
-|6     |LUT4     |   111|
-|7     |LUT5     |   795|
-|8     |LUT6     |   218|
-|9     |MUXF7    |    10|
-|10    |MUXF8    |     3|
-|11    |RAM64M   |     8|
-|12    |RAM64X1D |     8|
-|13    |SRLC32E  |    29|
-|14    |FDRE     |   541|
-|15    |FDSE     |    71|
-|16    |IBUF     |    10|
-|17    |OBUF     |    21|
-+------+---------+------+
-
-Report Instance Areas: 
-+------+-------------------------+-------------------------------+------+
-|      |Instance                 |Module                         |Cells |
-+------+-------------------------+-------------------------------+------+
-|1     |top                      |                               |  2835|
-|2     |  U_ASYNCH_TX            |asynch_transmitter             |    72|
-|3     |    U_BAUD_PULSE         |single_pulser_10               |     3|
-|4     |    U_BAUD_RATE          |clkenb__parameterized2         |    50|
-|5     |    U_BIT_COUNTER        |bcdcounter_txd__parameterized2 |    14|
-|6     |    U_FSM                |asynch_transmitter_fsm         |     5|
-|7     |  U_D0                   |reg_param                      |     8|
-|8     |  U_D1                   |reg_param_0                    |    12|
-|9     |  U_D2                   |reg_param_1                    |     8|
-|10    |  U_D3                   |reg_param_2                    |    12|
-|11    |  U_DISPCTL              |dispctl                        |    85|
-|12    |    THR_B_COUNTER        |counter                        |    25|
-|13    |    U_CLKENB             |clkenb__parameterized1         |    60|
-|14    |  U_FIFO                 |sasc_fifo                      |    83|
-|15    |  U_MAN_RECEIVER         |man_receiver                   |  2089|
-|16    |    U_ABN_BIT_COUNTER    |bcdcounter__parameterized1     |     4|
-|17    |    U_BYTE_COUNTER       |bcdcounter__parameterized0     |    13|
-|18    |    U_CORREL_ABN_HIGH    |correlator__parameterized1     |     6|
-|19    |    U_CORREL_ABN_LOW     |correlator__parameterized2     |    36|
-|20    |    U_CORREL_EOF         |correlator__parameterized3     |   114|
-|21    |    U_CORREL_ONE         |correlator__parameterized0     |    41|
-|22    |    U_CORREL_ZERO        |correlator                     |    44|
-|23    |    U_DATA_REG           |data_shreg                     |     9|
-|24    |    U_PRE_SHREG          |preamble_detector_shreg        |    13|
-|25    |    U_RECEIVE_FSM        |receive_fsm                    |    16|
-|26    |    U_SAMPLER            |variable_sampler               |  1659|
-|27    |    U_SAMP_COUNTER       |bcdcounter                     |    16|
-|28    |    U_SAMP_COUNTER_PRE   |bcdcounter_7                   |    16|
-|29    |    U_SFD_FSM            |sfd_fsm                        |     6|
-|30    |    U_SFD_SHREG          |sfd_detector_shreg             |    20|
-|31    |    U_STRT_RECEIVE_PULSE |single_pulser_8                |     4|
-|32    |    U_SYNC               |synchronizer                   |    64|
-|33    |      U_BIT_RECOG_COUNT  |bcdcounter_9                   |    22|
-|34    |  U_READ_PULSER          |single_pulser                  |     2|
-|35    |  U_RESET_DEBOUNCE       |debounce                       |   101|
-|36    |  U_SEND_DEBOUNCE        |debounce_3                     |   100|
-|37    |  U_TEST                 |mxtest_2                       |    98|
-|38    |  U_TRANSMITTER          |rtl_transmitter                |   128|
-|39    |    U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
-|40    |    U_BAUD_2_PULSE       |single_pulser_5                |     3|
-|41    |    U_BAUD_2_RATE        |clkenb__parameterized0         |    31|
-|42    |    U_BAUD_PULSE         |single_pulser_6                |     2|
-|43    |    U_BAUD_RATE          |clkenb                         |    29|
-|44    |    U_BIT_COUNTER        |bcdcounter_txd                 |    14|
-|45    |    U_FSM                |transmitter_fsm                |    28|
-|46    |    U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    10|
-|47    |  U_WRITE_PULSER         |single_pulser_4                |     5|
-+------+-------------------------+-------------------------------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 686.074 ; gain = 479.563
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 134 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 686.074 ; gain = 138.223
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 686.074 ; gain = 479.563
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 328 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 16 instances were transformed.
-  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 8 instances
-  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
-
-INFO: [Common 17-83] Releasing license: Synthesis
-170 Infos, 133 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 686.074 ; gain = 453.461
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 686.074 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Oct 30 20:13:57 2017...
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[0]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[1]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[2]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[3]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[4]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[5]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[6]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[6]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[7]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[7]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[8]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[8]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[9]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[9]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[10]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[10]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[11]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[11]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[12]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[12]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[13]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[13]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[14]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[14]'
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_CORREL_ABN_HIGH/shreg_reg[15]' (FDRE) to 'U_MAN_RECEIVERi_39/U_CORREL_EOF/shreg_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_40/\U_TRANSMITTER/U_FSM/last_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (i_40/\U_TRANSMITTER/U_FSM/last_reg[1] )
+INFO: [Synth 8-3886] merging instance 'U_MAN_RECEIVERi_39/U_SYNC/phase_diff_reg[3]' (FDE) to 'U_MAN_RECEIVERi_39/U_SYNC/phase_diff_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_MAN_RECEIVERi_39/\U_SYNC/phase_diff_reg[4] )
