@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Mon Oct 30 20:15:09 2017
+| Date             : Mon Oct 30 22:24:31 2017
 | Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.132 |
-| Dynamic (W)              | 0.035 |
+| Total On-Chip Power (W)  | 0.125 |
+| Dynamic (W)              | 0.028 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -49,19 +49,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.004 |        3 |       --- |             --- |
-| Slice Logic              |     0.014 |     2734 |       --- |             --- |
-|   LUT as Logic           |     0.012 |     1475 |     63400 |            2.33 |
-|   CARRY4                 |     0.002 |      302 |     15850 |            1.91 |
-|   Register               |    <0.001 |      612 |    126800 |            0.48 |
-|   LUT as Shift Register  |    <0.001 |       29 |     19000 |            0.15 |
-|   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
+| Clocks                   |     0.003 |        3 |       --- |             --- |
+| Slice Logic              |     0.010 |     2512 |       --- |             --- |
+|   LUT as Logic           |     0.008 |     1382 |     63400 |            2.18 |
+|   CARRY4                 |     0.002 |      301 |     15850 |            1.90 |
+|   Register               |    <0.001 |      470 |    126800 |            0.37 |
 |   F7/F8 Muxes            |    <0.001 |       13 |     63400 |            0.02 |
-|   Others                 |     0.000 |       53 |       --- |             --- |
-| Signals                  |     0.016 |     2216 |       --- |             --- |
-| I/O                      |     0.002 |       31 |       210 |           14.76 |
+|   Others                 |     0.000 |       54 |       --- |             --- |
+|   LUT as Distributed RAM |     0.000 |       48 |     19000 |            0.25 |
+| Signals                  |     0.011 |     2073 |       --- |             --- |
+| I/O                      |     0.004 |       34 |       210 |           16.19 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.132 |          |           |                 |
+| Total                    |     0.125 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +70,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.048 |       0.033 |      0.015 |
+| Vccint    |       1.000 |     0.039 |       0.024 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
+| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -140,7 +139,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| nexys4DDR                |     0.035 |
+| nexys4DDR                |     0.028 |
 |   U_ASYNCH_TX            |    <0.001 |
 |     U_BAUD_PULSE         |    <0.001 |
 |     U_BAUD_RATE          |    <0.001 |
@@ -170,7 +169,7 @@ Table of Contents
 |     mem_reg_64_127_3_5   |    <0.001 |
 |     mem_reg_64_127_6_6   |    <0.001 |
 |     mem_reg_64_127_7_7   |    <0.001 |
-|   U_MAN_RECEIVER         |     0.030 |
+|   U_MAN_RECEIVER         |     0.021 |
 |     U_ABN_BIT_COUNTER    |    <0.001 |
 |     U_BYTE_COUNTER       |    <0.001 |
 |     U_CORREL_ABN_HIGH    |    <0.001 |
@@ -181,7 +180,7 @@ Table of Contents
 |     U_DATA_REG           |    <0.001 |
 |     U_PRE_SHREG          |    <0.001 |
 |     U_RECEIVE_FSM        |    <0.001 |
-|     U_SAMPLER            |     0.029 |
+|     U_SAMPLER            |     0.019 |
 |     U_SAMP_COUNTER       |    <0.001 |
 |     U_SAMP_COUNTER_PRE   |    <0.001 |
 |     U_SFD_FSM            |    <0.001 |

@@ -20,14 +20,14 @@
 // 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
-module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAUD*2) (
+module nexys4DDR #(parameter BAUD = 100_000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAUD*2) (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
 		  input logic [7:0]   SW,
 //		  input logic         run,
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
-		  input logic 	      run, 
+		  input logic         RXDATA, 
 //		  input logic 	      BTNL, 
 //		  input logic 	      BTNR,
 //		  input logic 	      BTND,
@@ -38,43 +38,49 @@ module nexys4DDR #(parameter BAUD = 50000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAU
 //		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
-		  output logic        error,
-		  output logic        cardet,
-		  output logic        txd,
-		  output logic        write
+		  output logic        TXDATA,
+		  output logic        CFGCLK,
+		  output logic        CFGDAT,
+		  output logic        received_radio,
+          output logic        CARDET,
+          output logic        WRITE,
+          output logic        ERROR
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
-        
-//    assign ferr= LED[1];
-//    assign UART_RXD_OUT = 1;
-    
-
-    logic debounced_send;
-    logic send;
-    
-    
-  // add SystemVerilog code & module instantiations here
     logic [7:0] reg_0,reg_1,reg_2,reg_3;
-   
+       
     logic debounced_reset;
     logic [7:0] data_rxd;
     logic [7:0] data;
-    logic txen;
+    logic txen; 
+    logic debounced_send;
+    logic send;
+    logic error,txd,write,cardet;
+       
+    logic radio_clk;
+    assign TXDATA = txd; 
+    assign CFGCLK =  !debounced_send;
+    assign CFGDAT = 1;
+    assign received_radio = RXDATA;
+    assign CARDET = cardet;
+    assign WRITE = write;
+    assign ERROR = error;
 
     
-    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .pulse(debounced_send));
+    //buttons for reset and sending
+    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_send));
     debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
     
     //use mxtest to transmit signals from the manchester transmitter
-    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(run | debounced_send),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
-    //rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_MAN_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),.txd(txd),.rdy(rdy));
+    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(debounced_send),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
     
+    //manchester transmitter
     rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
                                .txd(txd),.rdy(rdy),.txen(txen));
     
-    
-    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(txd), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
+    //manchester receiver
+    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(RXDATA), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
     
     
     //pulse the write signal
