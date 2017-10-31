@@ -69,5 +69,7 @@ set_property src_info {type:XDC file:1 line:110 export:INPUT save:INPUT read:REA
 set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { ERROR }]; #IO_L13N_T2_MRCC_15 Sch=jb[3]
 set_property src_info {type:XDC file:1 line:111 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { WRITE }]; #IO_L15P_T2_DQS_15 Sch=jb[4]
+set_property src_info {type:XDC file:1 line:112 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN E16   IOSTANDARD LVCMOS33 } [get_ports { SFD }]; #IO_L11N_T1_SRCC_15 Sch=jb[7]
 set_property src_info {type:XDC file:1 line:220 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN D4    IOSTANDARD LVCMOS33 } [get_ports { UART_RXD_OUT }]; #IO_L11N_T1_SRCC_35 Sch=uart_rxd_out

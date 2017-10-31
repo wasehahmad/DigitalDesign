@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Mon Oct 30 22:24:30 2017
+| Date         : Tue Oct 31 10:42:46 2017
 | Host         : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command      : report_drc -file nexys4DDR_drc_routed.rpt -pb nexys4DDR_drc_routed.pb
 | Design       : nexys4DDR
@@ -40,9 +40,9 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
 Refer to the device configuration user guide for more information.
 Related violations: <none>
 
-IOSR-1#1 Warning
-IOB set reset sharing  
-IO RXDATA connects to flops which have these U_RESET_DEBOUNCE/SS[0], U_MAN_RECEIVER/U_CORREL_ZERO/shreg_reg[1]_0, U_MAN_RECEIVER/U_SFD_FSM/SR[0], U_MAN_RECEIVER/U_SFD_FSM/SS[0] set/reset signals.  For optimal IOB flop packing there should be only one set/reset signal coming into the IOB.
+PDRC-153#1 Warning
+Gated clock check  
+Net U_MAN_RECEIVER/U_SAMPLER/n_initialized_reg_i_2_n_1 is a gated clock net sourced by a combinational pin U_MAN_RECEIVER/U_SAMPLER/n_initialized_reg_i_2/O, cell U_MAN_RECEIVER/U_SAMPLER/n_initialized_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

@@ -20,7 +20,7 @@
 // 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
-module nexys4DDR #(parameter BAUD = 100_000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_BAUD*2) (
+module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 49_500, TXD_BAUD_2 = TXD_BAUD*2) (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
 		  input logic [7:0]   SW,
@@ -44,7 +44,8 @@ module nexys4DDR #(parameter BAUD = 100_000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_B
 		  output logic        received_radio,
           output logic        CARDET,
           output logic        WRITE,
-          output logic        ERROR
+          output logic        ERROR,
+          output logic        SFD
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
@@ -60,12 +61,13 @@ module nexys4DDR #(parameter BAUD = 100_000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_B
        
     logic radio_clk;
     assign TXDATA = txd; 
-    assign CFGCLK =  !debounced_send;
+    assign CFGCLK =  !txen;
     assign CFGDAT = 1;
     assign received_radio = RXDATA;
     assign CARDET = cardet;
     assign WRITE = write;
     assign ERROR = error;
+    
 
     
     //buttons for reset and sending
@@ -79,8 +81,16 @@ module nexys4DDR #(parameter BAUD = 100_000,TXD_BAUD = 49500, TXD_BAUD_2 = TXD_B
     rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
                                .txd(txd),.rdy(rdy),.txen(txen));
     
+    logic sync_data;
+    always_ff @(posedge CLK100MHZ) begin
+        if(debounced_reset) sync_data <=0;
+        else sync_data <= RXDATA;
+    end
+    
+    
     //manchester receiver
-    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(RXDATA), .cardet(cardet), .data(data_rxd), .write(write), .error(error));
+    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(sync_data), .cardet(cardet), .data(data_rxd), .write(write), .error(error)
+                                                       ,.SFD(SFD));
     
     
     //pulse the write signal

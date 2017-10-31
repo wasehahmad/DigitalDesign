@@ -95,21 +95,21 @@ module variable_sampler
     end
     
     
-    always_ff @(posedge clk)  begin
+    always_comb  begin
         if(reset)begin
-            n_initialized <= initialized;
-            actualClkFreq <=SAMPLE_RATE;
+            n_initialized = initialized;
+            actualClkFreq =SAMPLE_RATE;
         end
         else begin
             if(changed)begin
-                actualClkFreq <= SAMPLE_RATE+accumulated;
+                actualClkFreq = SAMPLE_RATE+accumulated;
             end
             else begin
                 if(initialized)
-                    actualClkFreq <= actualClkFreq;
+                    actualClkFreq = actualClkFreq;
                 else begin
-                    actualClkFreq <= SAMPLE_RATE;
-                    n_initialized <= 1;
+                    actualClkFreq = SAMPLE_RATE;
+                    n_initialized = 1;
                 end
             end
         end

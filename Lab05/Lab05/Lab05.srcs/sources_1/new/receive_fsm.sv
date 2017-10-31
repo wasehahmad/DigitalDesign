@@ -117,11 +117,11 @@ module receive_fsm #(parameter BITS_IN_BYTE = 8)(
                         n_error = 1;
                         next = IDLE;
                     end
-                    else if(eof_seen)begin
+                    else /*if(eof_seen)*/begin
                         n_eof = 1;
                         next = IDLE;
                     end
-                    else next = ERROR_CHK;
+                    //else next = ERROR_CHK;
                 end
                 else begin
                     n_eof = 1;

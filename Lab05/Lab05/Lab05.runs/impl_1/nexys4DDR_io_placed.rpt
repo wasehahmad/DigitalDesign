@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Mon Oct 30 22:24:00 2017
+| Date         : Tue Oct 31 10:42:16 2017
 | Host         : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command      : report_io -file nexys4DDR_io_placed.rpt
 | Design       : nexys4DDR
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            36 |
+|            37 |
 +---------------+
 
 
@@ -120,7 +120,7 @@ Table of Contents
 | E13        |                | Dedicated  | TDO_0                        | Config      |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | E14        |                |            | GND                          | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | E15        |                | High Range | IO_L11P_T1_SRCC_15           | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
-| E16        |                | High Range | IO_L11N_T1_SRCC_15           | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
+| E16        | SFD            | High Range | IO_L11N_T1_SRCC_15           | OUTPUT      | LVCMOS33    |      15 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | E17        |                | High Range | IO_L16P_T2_A28_15            | User IO     |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |
 | E18        | CFGCLK         | High Range | IO_L21P_T3_DQS_15            | OUTPUT      | LVCMOS33    |      15 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | F1         |                | High Range | IO_L18P_T2_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |
