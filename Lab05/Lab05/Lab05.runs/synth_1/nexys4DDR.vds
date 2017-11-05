@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Tue Oct 31 10:41:15 2017
-# Process ID: 5876
+# Start of session at: Sat Nov 04 17:46:58 2017
+# Process ID: 11020
 # Current directory: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9628 
+INFO: Helper process launched with PID 9268 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,12 +23,12 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.551 ; gain = 117.926
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.277 ; gain = 117.043
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
-	Parameter TXD_BAUD bound to: 49500 - type: integer 
-	Parameter TXD_BAUD_2 bound to: 99000 - type: integer 
+	Parameter TXD_BAUD bound to: 50000 - type: integer 
+	Parameter TXD_BAUD_2 bound to: 100000 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'debounce' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/debounce.sv:19]
 	Parameter DEBOUNCE_TIME_MS bound to: 5 - type: integer 
 	Parameter CLKFREQ bound to: 100000000 - type: integer 
@@ -45,13 +45,13 @@ INFO: [Synth 8-638] synthesizing module 'mxtest_2' [C:/Users/ahmadw/Desktop/Desi
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2.sv:148]
 INFO: [Synth 8-256] done synthesizing module 'mxtest_2' (2#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/mxtest_2 - Extended mxtest module-20170913/mxtest_2.sv:32]
 INFO: [Synth 8-638] synthesizing module 'rtl_transmitter' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
-	Parameter BAUD bound to: 49500 - type: integer 
-	Parameter BAUD2 bound to: 99000 - type: integer 
+	Parameter BAUD bound to: 50000 - type: integer 
+	Parameter BAUD2 bound to: 100000 - type: integer 
 	Parameter WAIT_BITS bound to: 2 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'clkenb' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
-	Parameter DIVFREQ bound to: 49500 - type: integer 
+	Parameter DIVFREQ bound to: 50000 - type: integer 
 	Parameter CLKFREQ bound to: 100000000 - type: integer 
-	Parameter DIVAMT bound to: 2020 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
 	Parameter DIVBITS bound to: 11 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clkenb' (3#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
 INFO: [Synth 8-638] synthesizing module 'single_pulser' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/single_pulser.sv:19]
@@ -61,9 +61,9 @@ INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd' [C:/Users/ahmadw/Deskto
 INFO: [Synth 8-256] done synthesizing module 'bcdcounter_txd' (5#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/bcdcounter_txd.sv:23]
 WARNING: [Synth 8-350] instance 'U_BIT_COUNTER' of module 'bcdcounter_txd' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv:54]
 INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
-	Parameter DIVFREQ bound to: 99000 - type: integer 
+	Parameter DIVFREQ bound to: 100000 - type: integer 
 	Parameter CLKFREQ bound to: 100000000 - type: integer 
-	Parameter DIVAMT bound to: 1010 - type: integer 
+	Parameter DIVAMT bound to: 1000 - type: integer 
 	Parameter DIVBITS bound to: 10 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (5#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
 INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd__parameterized0' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/bcdcounter_txd.sv:23]
@@ -278,7 +278,7 @@ WARNING: [Synth 8-3331] design receive_fsm has unconnected port eof_seen
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 360.242 ; gain = 153.617
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 360.984 ; gain = 153.750
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -289,7 +289,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin U_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:112]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 360.242 ; gain = 153.617
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 360.984 ; gain = 153.750
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -305,22 +305,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 672.430 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 673.121 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'mxtest_2'
@@ -358,7 +358,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 WARNING: [Synth 8-327] inferring latch for variable 'actualClkFreq_reg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:101]
 WARNING: [Synth 8-327] inferring latch for variable 'n_initialized_reg' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Lab05/Lab05/Lab05.srcs/sources_1/new/variable_sampler.sv:100]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -781,7 +781,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 672.430 ; gain = 465.805
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -796,9 +796,9 @@ WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Parallel Reinference  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 673.121 ; gain = 465.887
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -902,9 +902,9 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_MAN_REC
 WARNING: [Synth 8-3332] Sequential element (U_SYNC/phase_diff_reg[4]) is unused and will be removed from module man_receiver.
 WARNING: [Synth 8-3332] Sequential element (U_SYNC/phase_diff_reg[3]) is unused and will be removed from module man_receiver.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 673.121 ; gain = 465.887
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -918,10 +918,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 672.430 ; gain = 465.805
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 673.121 ; gain = 465.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 749.652 ; gain = 543.027
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 749.578 ; gain = 542.344
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -949,16 +949,16 @@ WARNING: [Synth 8-3332] Sequential element (U_FIFO/rp_reg_rep[5]) is unused and 
 WARNING: [Synth 8-3332] Sequential element (U_FIFO/rp_reg[6]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_FIFO/rp_reg[7]) is unused and will be removed from module nexys4DDR.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -975,7 +975,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -988,7 +988,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1000,25 +1000,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1036,12 +1036,12 @@ Report Cell Usage:
 +------+---------+------+
 |1     |BUFG     |     2|
 |2     |CARRY4   |   306|
-|3     |LUT1     |   239|
+|3     |LUT1     |   238|
 |4     |LUT2     |   292|
 |5     |LUT3     |   292|
-|6     |LUT4     |   122|
-|7     |LUT5     |   821|
-|8     |LUT6     |   274|
+|6     |LUT4     |   125|
+|7     |LUT5     |   823|
+|8     |LUT6     |   270|
 |9     |MUXF7    |     6|
 |10    |MUXF8    |     1|
 |11    |RAM64M   |     8|
@@ -1099,20 +1099,20 @@ Report Instance Areas:
 |38    |  U_TRANSMITTER          |rtl_transmitter                |   137|
 |39    |    U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |     9|
 |40    |    U_BAUD_2_PULSE       |single_pulser_5                |     2|
-|41    |    U_BAUD_2_RATE        |clkenb__parameterized0         |    31|
+|41    |    U_BAUD_2_RATE        |clkenb__parameterized0         |    28|
 |42    |    U_BAUD_PULSE         |single_pulser_6                |     2|
-|43    |    U_BAUD_RATE          |clkenb                         |    29|
+|43    |    U_BAUD_RATE          |clkenb                         |    32|
 |44    |    U_BIT_COUNTER        |bcdcounter_txd                 |    19|
 |45    |    U_FSM                |transmitter_fsm                |    36|
 |46    |    U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |     9|
 |47    |  U_WRITE_PULSER         |single_pulser_4                |     4|
 +------+-------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 756.035 ; gain = 549.410
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 549.602
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 66 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 756.035 ; gain = 206.789
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 756.035 ; gain = 549.410
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 756.836 ; gain = 207.996
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 756.836 ; gain = 549.602
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 368 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1129,6 +1129,6 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 160 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 756.035 ; gain = 523.207
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 756.035 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Oct 31 10:41:48 2017...
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 756.836 ; gain = 524.391
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 756.836 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 04 17:47:34 2017...

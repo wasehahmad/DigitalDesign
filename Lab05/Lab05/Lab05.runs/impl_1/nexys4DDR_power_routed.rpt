@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Tue Oct 31 10:42:47 2017
+| Date             : Sat Nov 04 17:48:36 2017
 | Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.122 |
-| Dynamic (W)              | 0.025 |
+| Total On-Chip Power (W)  | 0.123 |
+| Dynamic (W)              | 0.026 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -50,18 +50,18 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.003 |        3 |       --- |             --- |
-| Slice Logic              |     0.010 |     2890 |       --- |             --- |
-|   LUT as Logic           |     0.008 |     1585 |     63400 |            2.50 |
+| Slice Logic              |     0.010 |     2891 |       --- |             --- |
+|   LUT as Logic           |     0.008 |     1588 |     63400 |            2.50 |
 |   CARRY4                 |     0.002 |      306 |     15850 |            1.93 |
 |   Register               |    <0.001 |      589 |    126800 |            0.46 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   F7/F8 Muxes            |    <0.001 |        7 |     63400 |            0.01 |
 |   Others                 |     0.000 |       53 |       --- |             --- |
-| Signals                  |     0.008 |     2451 |       --- |             --- |
+| Signals                  |     0.009 |     2455 |       --- |             --- |
 | I/O                      |     0.003 |       35 |       210 |           16.67 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.122 |          |           |                 |
+| Total                    |     0.123 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -140,7 +140,7 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| nexys4DDR                |     0.025 |
+| nexys4DDR                |     0.026 |
 |   U_ASYNCH_TX            |    <0.001 |
 |     U_BAUD_PULSE         |    <0.001 |
 |     U_BAUD_RATE          |    <0.001 |
@@ -181,7 +181,7 @@ Table of Contents
 |     U_DATA_REG           |    <0.001 |
 |     U_PRE_SHREG          |    <0.001 |
 |     U_RECEIVE_FSM        |    <0.001 |
-|     U_SAMPLER            |     0.017 |
+|     U_SAMPLER            |     0.018 |
 |     U_SAMP_COUNTER       |    <0.001 |
 |     U_SAMP_COUNTER_PRE   |    <0.001 |
 |     U_SFD_FSM            |    <0.001 |
