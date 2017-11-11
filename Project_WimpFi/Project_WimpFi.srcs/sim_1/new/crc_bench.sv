@@ -40,7 +40,7 @@ module crc_bench;
             #1 newByte = 0;
             repeat(10) @(posedge clk);
         end
-            xData = {crc_byte[0],crc_byte[1],crc_byte[2],crc_byte[3],crc_byte[4],crc_byte[5],crc_byte[6],crc_byte[7]};
+            xData = crc_byte;
             @(posedge clk);
             #1 newByte = 1;
             @(posedge clk);
