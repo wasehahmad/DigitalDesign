@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 //-----------------------------------------------------------------------------
 // Title         : Correlator
 // Project       : ECE 491 Senior Design 1

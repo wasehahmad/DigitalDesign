@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 //-----------------------------------------------------------------------------
 // Title         : single_pulser - detects a rising edge and outputs a single pulse
 // Project       : ECE 491 - Senior Design I

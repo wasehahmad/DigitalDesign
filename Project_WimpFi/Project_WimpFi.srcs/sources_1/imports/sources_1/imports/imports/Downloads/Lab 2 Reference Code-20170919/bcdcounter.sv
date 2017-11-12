@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 //-----------------------------------------------------------------------------
 // Title         : bcdcounter
 // Project       : ECE 491 - Senior Design 1

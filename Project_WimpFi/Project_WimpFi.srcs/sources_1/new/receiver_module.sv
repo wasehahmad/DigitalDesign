@@ -25,14 +25,14 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     input logic reset,
     input logic RXD,
     input logic RRD,
-    input logic [7:0] MAC,
+    input logic [7:0] mac_addr,
     output logic cardet,
-    output logic RDATA,
+    output logic [7:0] RDATA,
     output logic RRDY,
     output logic [7:0] RERRCNT,//might need to check the actual max err cnt
     output logic type_2_seen,
     output logic ack_seen,
-    output logic [7:0] type_2_source
+    output logic [7:0] source
     );
     
 
@@ -54,9 +54,10 @@ module receiver_module #(parameter BIT_RATE=50_000)(
    
     logic full,empty;
     logic done_reading;
+    logic reset_receiver;
     //block RAM for RXD
     //blk_mem_gen_0 U_RXD_BRAM(.clka(clk),.addra(write_addr),.dina(data_received),.wea(rxd_write_pulse),.addrb(read_addr),.clkb(clk),.doutb(RDATA),.enb(RRD));
-    sasc_fifo #(.FIFO_DEPTH(256)) U_RXD_FIFO(.clk(clk),.rst(reset | cardet_pulse |done_reading),.din(data_received),.we(rxd_write_pulse),.re(RRD),.dout(RDATA),.full(full),.empty(empty));
+    sasc_fifo #(.FIFO_DEPTH(256)) U_RXD_FIFO(.clk(clk),.rst(reset | cardet_pulse |done_reading | reset_receiver),.din(data_received),.we(rxd_write_pulse),.re(RRD),.dout(RDATA),.full(full),.empty(empty));
     
     
     ///////////////////////////////////////////////////////////////////////////CONTROL UNIT
@@ -64,26 +65,26 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     logic [7:0] dest,pkt_type;
     logic fcs_correct;
     logic store_dest,store_type,store_src;
-    logic reset_receiver,incr_error;
+    logic incr_error;
     logic [7:0]crc_result;
     
     assign fcs_correct = crc_result ==8'd0;
     
     //FSM for the control unit
-    rxd_fsm U_RXD_FSM(.clk(clk),.reset(reset),.byte_seen(rxd_write_pulse),.cardet(cardet),.destination(dest),.MAC_Addr(MAC),.pkt_type(pkt_type),.FCS_verified(fcs_correct),.all_bytes_received(done_reading),
+    rxd_fsm U_RXD_FSM(.clk(clk),.reset(reset),.byte_seen(rxd_write_pulse),.cardet(cardet),.destination(dest),.mac_addr(mac_addr),.pkt_type(pkt_type),.FCS_verified(fcs_correct),.all_bytes_read(done_reading),
                     .reset_receiver(reset_receiver),.RRDY(RRDY),.type_2_seen(type_2_seen),.store_type(store_type),.store_dest(store_dest),.store_src(store_src),.incr_error(incr_error),.ACK_received(ack_seen));
     
     //flip flop to store data for fsm and transmitter
     always_ff @(posedge clk)begin
         if(reset)begin
             RERRCNT <=0;
-            type_2_source <= 8'h00;
+            source <= 8'h00;
             dest <=8'h00;
             pkt_type<=8'h00; 
         end
         else begin
             if(incr_error) RERRCNT<=RERRCNT+1;
-            if(store_src)type_2_source <=data_received;
+            if(store_src)source <=data_received;
             if(store_dest)dest <=data_received;
             if(store_type)pkt_type <=data_received;
         end
@@ -95,14 +96,9 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     store_fsm U_STORAGE_FSM(.clk(clk),.reset(reset | reset_receiver),.write(rxd_write_pulse),.read(RRD),.cardet(cardet),.pkt_type(pkt_type),.done_reading(done_reading));
     
     
-    crc_generator U_FCS_VERIFICATION(.clk(clk),.reset(reset | reset_receiver | RRDY),.xDATA(data_received),.newByte(rxd_write_pulse),.crc_byte(crc_result));
+    crc_generator U_FCS_VERIFICATION(.clk(clk),.reset(reset | reset_receiver | RRDY),.xData(data_received),.newByte(rxd_write_pulse),.crc_byte(crc_result));
     
     
-    
-    
-    
-    
-    
-    
+   
     
 endmodule

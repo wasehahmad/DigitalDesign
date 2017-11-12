@@ -26,7 +26,7 @@ module rxd_fsm(
     input logic byte_seen,
     input logic cardet,
     input logic [7:0] destination,
-    input logic [7:0] MAC_addr,
+    input logic [7:0] mac_addr,
     input logic [7:0] pkt_type,
     input logic FCS_verified,
     input logic all_bytes_read,
@@ -84,14 +84,14 @@ module rxd_fsm(
             
             STORE_DEST:begin
                 if(byte_seen)begin
-                    next = STORE_SRC;
+                    next = DEST_CHK;
                     store_dest = 1;
                 end
-                else next = DEST_CHK;
+                else next = STORE_DEST;
             end
             
             DEST_CHK:begin
-                if(destination == MAC_addr || destination == `BROADCAST_ADDR)next = STORE_SRC;
+                if(destination == mac_addr || destination == `BROADCAST_ADDR)next = STORE_SRC;
                 else next = IGNORE;
             end
             
@@ -116,7 +116,6 @@ module rxd_fsm(
                 else begin
                     if(pkt_type == `TYPE_0)next=READING;
                     else next = CHK_FCS;
-                    n_rrdy = 1; //might need to change this to happen in reading
                 end
             end
             
@@ -124,10 +123,11 @@ module rxd_fsm(
                 if(!FCS_verified)begin
                     incr_error = 1;
                     next = IDLE;
+                    reset_receiver = 1;
                 end
                 else begin
                     case (pkt_type)
-                        `TYPE_2:if(destination ==`BROADCAST_ADDR)type_2_seen=1;
+                        `TYPE_2:if(destination !=`BROADCAST_ADDR)type_2_seen=1;
                         `TYPE_3:ACK_received = 1;
                     endcase
                     next = READING;
@@ -139,7 +139,10 @@ module rxd_fsm(
                     n_rrdy = 0;
                     next = IDLE;
                 end
-                else next = READING;
+                else begin
+                    n_rrdy = 1;
+                    next = READING;
+                end
             end
             
             
