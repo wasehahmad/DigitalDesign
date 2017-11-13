@@ -58,9 +58,12 @@ module blk_mem_gen_0 (
   wea,
   addra,
   dina,
+  douta,
   clkb,
   enb,
+  web,
   addrb,
+  dinb,
   doutb
 );
 
@@ -72,12 +75,18 @@ input wire [0 : 0] wea;
 input wire [7 : 0] addra;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *)
 input wire [7 : 0] dina;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *)
+output wire [7 : 0] douta;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
 input wire clkb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *)
 input wire enb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *)
+input wire [0 : 0] web;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR" *)
 input wire [7 : 0] addrb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DIN" *)
+input wire [7 : 0] dinb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT" *)
 output wire [7 : 0] doutb;
 
@@ -93,7 +102,7 @@ output wire [7 : 0] doutb;
     .C_CTRL_ECC_ALGO("NONE"),
     .C_HAS_AXI_ID(0),
     .C_AXI_ID_WIDTH(4),
-    .C_MEM_TYPE(1),
+    .C_MEM_TYPE(2),
     .C_BYTE_SIZE(9),
     .C_ALGORITHM(1),
     .C_PRIM_TYPE(1),
@@ -130,7 +139,7 @@ output wire [7 : 0] doutb;
     .C_WRITE_DEPTH_B(256),
     .C_READ_DEPTH_B(256),
     .C_ADDRB_WIDTH(8),
-    .C_HAS_MEM_OUTPUT_REGS_A(0),
+    .C_HAS_MEM_OUTPUT_REGS_A(1),
     .C_HAS_MEM_OUTPUT_REGS_B(1),
     .C_HAS_MUX_OUTPUT_REGS_A(0),
     .C_HAS_MUX_OUTPUT_REGS_B(0),
@@ -154,7 +163,7 @@ output wire [7 : 0] doutb;
     .C_DISABLE_WARN_BHV_RANGE(0),
     .C_COUNT_36K_BRAM("0"),
     .C_COUNT_18K_BRAM("1"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     2.68455 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     2.7573 mW")
   ) inst (
     .clka(clka),
     .rsta(1'D0),
@@ -163,14 +172,14 @@ output wire [7 : 0] doutb;
     .wea(wea),
     .addra(addra),
     .dina(dina),
-    .douta(),
+    .douta(douta),
     .clkb(clkb),
     .rstb(1'D0),
     .enb(enb),
     .regceb(1'D0),
-    .web(1'B0),
+    .web(web),
     .addrb(addrb),
-    .dinb(8'B0),
+    .dinb(dinb),
     .doutb(doutb),
     .injectsbiterr(1'D0),
     .injectdbiterr(1'D0),

@@ -95,7 +95,7 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     //check type and adjust max of read counter when the data is to be read.e.g. max for type 0 = write_addr, else write_addr-1 to not read the fcs
     store_fsm U_STORAGE_FSM(.clk(clk),.reset(reset | reset_receiver),.write(rxd_write_pulse),.read(RRD),.cardet(cardet),.pkt_type(pkt_type),.done_reading(done_reading));
     
-    
+    //crc generator
     crc_generator U_FCS_VERIFICATION(.clk(clk),.reset(reset | reset_receiver | RRDY),.xData(data_received),.newByte(rxd_write_pulse),.crc_byte(crc_result));
     
     
