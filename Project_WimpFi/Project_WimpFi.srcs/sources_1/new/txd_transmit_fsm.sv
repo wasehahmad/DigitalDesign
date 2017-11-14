@@ -86,7 +86,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
                 if(man_txd_rdy)begin
                     read_en = 1;
                     next = DATA;
-                    n_data = BRAM_data;
+                    n_data = BRAM_data;////////////////////////////////////check if the man_txd loads new data at the beginning of read or end
                 end
                 else next = SFD;
             end
