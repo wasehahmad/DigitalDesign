@@ -42,10 +42,10 @@ module rxd_fsm(
     
     //global define for broadcast address (works similar to define in C)
     `define BROADCAST_ADDR 8'H2A
-    `define TYPE_0 8'd0
-    `define TYPE_1 8'd1
-    `define TYPE_2 8'd2
-    `define TYPE_3 8'd3
+    `define TYPE_0 "0"
+    `define TYPE_1 "1"
+    `define TYPE_2 "2"
+    `define TYPE_3 "3"
     
     typedef enum logic[3:0]{
         IDLE = 4'd0,STORE_DEST = 4'd1,STORE_SRC = 4'd2,STORE_TYPE = 4'd3,STORE_DATA = 4'd4,CHK_FCS = 4'd5,IGNORE = 4'd6,READING = 4'd7,DEST_CHK=4'd8
