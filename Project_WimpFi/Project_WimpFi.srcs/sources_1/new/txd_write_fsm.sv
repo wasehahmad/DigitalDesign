@@ -25,16 +25,12 @@ module txd_write_fsm (
     input logic reset,
     input logic XWR,
     input logic XSEND,
-    input logic pkt_type,
-    input logic [7:0] data,
-    input logic [7:0] FCS,
     output logic wen,
     output logic [7:0] w_addr,
-    output logic [7:0] w_data,
     output logic done_writing
     );
     
-    logic [7:0] write_count,n_count;;
+    logic [7:0] write_count,n_count;
     logic [7:0] n_data,n_wen,n_addr;
     
     typedef enum logic[3:0]{
@@ -47,11 +43,9 @@ module txd_write_fsm (
             state<=IDLE;
             w_addr<= 0;
             wen<=0;
-            w_data<=data;
             write_count<=0;
         end
         else begin
-            w_data <=n_data;
             wen<=n_wen;
             state <= next;
             w_addr <=n_addr;
@@ -60,7 +54,6 @@ module txd_write_fsm (
     end
     
     always_comb begin
-        n_data = data;
         n_wen = 0;
         n_addr = 0;
         next = IDLE;
@@ -77,9 +70,9 @@ module txd_write_fsm (
                 end
                 //if send, check if type 0 first
                 else if(XSEND)begin
-                        next = IDLE;
-                        done_writing = 1;
-                        n_count=0;
+                    next = IDLE;
+                    done_writing = 1;
+                    n_count=0;
                 end
                 //else stay in idle
                 else next = IDLE;
@@ -88,7 +81,6 @@ module txd_write_fsm (
             WRITE_BYTE:begin
                 n_wen = 1;
                 n_addr = w_addr;
-                n_data = data;
                 n_count = write_count+1;
                 next = IDLE;
             end

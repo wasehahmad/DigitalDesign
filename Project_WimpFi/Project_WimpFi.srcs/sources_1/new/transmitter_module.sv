@@ -43,7 +43,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
     logic [7:0] read_addr_b,write_addr_b;
     logic write_source;
     logic start_transmitting;
-    logic read_en;//sent from transmit_fsm to bram
+    logic read_en,write_en;//sent from transmit_fsm to bram
+    logic done_writing;
     
     logic [6:0] rand_count;//1-64
     //==========================RANDOM_NUM_COUNTER===============================================
@@ -85,7 +86,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
     assign port_b_addr = (txen)?read_addr_b:write_addr_b;
     
     blk_mem_gen_0 U_TXD_BRAM(.clka(clk),.addra(8'h01),.dina(MAC),.wea(write_source),
-                                .addrb(port_b_addr),.clkb(clk),.dinb(XDATA),.doutb(BRAM_DATA),.enb(read_en),.web(XWR));
+                                .addrb(port_b_addr),.clkb(clk),.dinb(XDATA),.doutb(BRAM_DATA),.enb(read_en),.web(write_en));
     
     
     logic [7:0] man_txd_data;
@@ -103,7 +104,10 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
     crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset),.xData(BRAM_DATA),.newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
     
                                    
-                                   
+    //==========================WRITE TO BRAM===========================================                               
+    //fsm to write to BRAM
+    //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
+    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset),.XWR(XWR),.XSEND(XSEND),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     
     //==========================TRANSMIT===========================================
