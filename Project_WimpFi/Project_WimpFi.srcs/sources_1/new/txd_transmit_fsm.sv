@@ -70,6 +70,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
                 if(start_transmission)begin
                     next = PREAMBLE;
                     reset_counter = 1;
+                    n_d_count = 0;
                 end
                 else next = IDLE;
             end 
@@ -89,6 +90,25 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
                     n_data = BRAM_data;////////////////////////////////////check if the man_txd loads new data at the beginning of read or end
                 end
                 else next = SFD;
+            end
+            
+            DATA:begin
+                read_en = 1;
+                if(data_count<=max_data_count)begin
+                    if(man_txd_rdy)begin
+                        n_d_count = data_count+1;
+                    end
+                    next = DATA;
+                end
+                else next = (pkt_type=="0")?IDLE:SEND_FCS;
+            end
+            
+            SEND_FCS:begin
+                if(man_txd_rdy)begin
+                    n_data = FCS;
+                    next = IDLE;
+                end
+                else next = SEND_FCS;
             end
             
         endcase

@@ -38,11 +38,12 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
     );
     
     logic start_man_txd;
-    logic[7:0] BRAM_DATA;
-    logic man_txd_ready;
-    logic [7:0] addr_b;
+    logic[7:0] BRAM_DATA,FCS;
+    logic man_txd_ready,man_txd_rdy_pulse;
+    logic [7:0] read_addr_b,write_addr_b;
     logic write_source;
-    logic transmit_preamble,transmit_data,transmit_fcs;
+    logic start_transmitting;
+    logic read_en;//sent from transmit_fsm to bram
     
     logic [6:0] rand_count;//1-64
     //==========================RANDOM_NUM_COUNTER===============================================
@@ -53,28 +54,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
             else rand_count<=rand_count+1;    
         end
     end
-    
-    
-
-    //block ram with different ports to write.to be able to write to both addr location at once
-    blk_mem_gen_0 U_TXD_BRAM(.clka(clk),.addra(8'h01),.dina(MAC),.wea(write_source),.addrb(addr_b),.clkb(clk),.dinb(XDATA),.doutb(RDATA),.enb(RRD),.web(XWR));
-    
-    
-    logic [7:0] man_txd_data;
-    //manchester transmitter
-    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset),.send(start_man_txd),.data(man_txd_data),
-                                   .txd(txd),.rdy(man_txd_ready),.txen(txen));
-    
-    //===========================CRC_GENERATOR============================================
-    //make sure to only account for the max 255 bytes, destination,source,type and data
-    //keep a counter which will disable further counting
-    //keep a counter for max number of bytes
-    //might have to transmit the crc from the receiver
-    
-                                   
-                                   
     //loads the BRAM with source
-    //===========================LOAD_SOURCEBRAM============================================
+    //===========================LOAD_SOURCE INTO BRAM============================================
     logic [7:0] prevMac;
     always_ff @(posedge clk) begin
        if(reset)begin
@@ -87,8 +68,50 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
        end
     end
     
+    //===========================STORE_PKT_TYPE================================================
+    logic [7:0] pkt_type;
+    always_ff @(posedge clk)begin
+        if(reset) pkt_type = 8'd0;
+        else if(read_addr_b ==8'd2/*The location of the type*/)begin
+            pkt_type = BRAM_DATA;
+        end
+    end
+    
+    
+
+    //block ram with different ports to write.to be able to write to both addr location at once
+    //addr_b comes from the transmit_fsm data_count
+    logic port_b_addr;
+    assign port_b_addr = (txen)?read_addr_b:write_addr_b;
+    
+    blk_mem_gen_0 U_TXD_BRAM(.clka(clk),.addra(8'h01),.dina(MAC),.wea(write_source),
+                                .addrb(port_b_addr),.clkb(clk),.dinb(XDATA),.doutb(BRAM_DATA),.enb(read_en),.web(XWR));
+    
+    
+    logic [7:0] man_txd_data;
+    //manchester transmitter
+    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset),.send(start_man_txd),.data(man_txd_data),
+                                   .txd(txd),.rdy(man_txd_ready),.txen(txen));
+   
+    single_pulser U_MAN_TXD_RDY_PULSE(.clk(clk), .din(man_txd_ready), .d_pulse(man_txd_rdy_pulse));
+    
+    //===========================CRC_GENERATOR============================================
+    //make sure to only account for the max 255 bytes, destination,source,type and data
+    //keep a counter which will disable further counting
+    //keep a counter for max number of bytes
+    //might have to transmit the crc from the receiver
+    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset),.xData(BRAM_DATA),.newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
+    
+                                   
+                                   
+    
+    
     //==========================TRANSMIT===========================================
     //transmit fsm
+    
+    txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
+                    .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
+                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
     
     
     

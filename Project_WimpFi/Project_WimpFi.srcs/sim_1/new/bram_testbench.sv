@@ -50,7 +50,7 @@ module bram_testbench;
     task read_bytes;
         integer i;
         for(i=0;i<10;i++)begin
-            read_addr = i;
+            read_addr = 8'd3;
             @(posedge clk);#1;
             read_en = 1;
             @(posedge clk);#1;
