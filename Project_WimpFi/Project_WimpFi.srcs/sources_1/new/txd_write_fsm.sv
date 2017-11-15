@@ -31,8 +31,35 @@ module txd_write_fsm (
     );
     
     logic [7:0] write_count,n_count;
-    logic [7:0] n_data,n_wen,n_addr;
+    logic [7:0] n_data,n_addr;
+    logic dest_seen;
+    assign wen = XWR;
     
+    
+    always_ff @(posedge clk)begin
+        if(reset)begin
+            w_addr<=0;
+            dest_seen<=0;
+            done_writing<=0;
+        end
+        else begin
+            if(XWR)begin
+                if(dest_seen)w_addr<=w_addr+1;
+                else begin
+                    dest_seen<=1;
+                    w_addr<=w_addr+2;
+                end
+            end
+            else if(XSEND)begin
+                done_writing<=1;
+                dest_seen<=0;
+            end
+            else done_writing <=0;
+        end
+        
+    end
+    
+/*    
     typedef enum logic[3:0]{
         IDLE = 4'd0, WRITE_BYTE = 4'd1
     }states_t;
@@ -42,11 +69,9 @@ module txd_write_fsm (
         if(reset)begin
             state<=IDLE;
             w_addr<= 0;
-            wen<=0;
             write_count<=0;
         end
         else begin
-            wen<=n_wen;
             state <= next;
             w_addr <=n_addr;
             write_count <=n_count;
@@ -54,8 +79,7 @@ module txd_write_fsm (
     end
     
     always_comb begin
-        n_wen = 0;
-        n_addr = 0;
+        n_addr = w_addr;
         next = IDLE;
         n_count = write_count;
         done_writing = 0;
@@ -79,8 +103,6 @@ module txd_write_fsm (
             end
             
             WRITE_BYTE:begin
-                n_wen = 1;
-                n_addr = w_addr;
                 n_count = write_count+1;
                 next = IDLE;
             end
@@ -89,7 +111,7 @@ module txd_write_fsm (
         endcase
     end
     
-    
+ */   
     
     
 endmodule

@@ -24,10 +24,41 @@ module txd_write_fsm_bench;
 
     logic clk;
     logic rst;
-    logic [7:0] write_addr;
-    logic [7:0] w_data,data;
-    logic wen,read_en,XWR,send;
-    logic done;
+    logic [7:0] write_addr_b;
+    logic write_en,XWR,XSEND;
+    logic done_writing;
     
-    txd_write_fsm DUV(.clk(clk),.reset(reset),.XWR(XWR),.XSEND(send),.data(data),.wen(wen),.w_addr(write_addr),.w_data(w_data),.done_writing(done));
+     txd_write_fsm DUV(.clk(clk),.reset(rst),.XWR(XWR),.XSEND(XSEND),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
+       
+    always begin
+         clk = 0;
+         #5 clk = 1;
+         #5;
+     end
+     
+     initial begin
+        rst = 1;
+        XWR = 0;
+        XSEND = 0;
+        repeat(10) @(posedge clk);
+        rst = 0;
+        repeat(10) @(posedge clk);
+        #1;
+        XWR = 1;
+        repeat(20) @(posedge clk);
+        #1;
+        XWR = 0;
+        @(posedge clk);
+        #1 XWR = 1;
+        @(posedge clk);
+        #1 XWR = 0;
+        @(posedge clk);
+        #1 XSEND = 1;
+        repeat(2)@(posedge clk);
+        $stop;
+       
+        
+     end
+
+
 endmodule

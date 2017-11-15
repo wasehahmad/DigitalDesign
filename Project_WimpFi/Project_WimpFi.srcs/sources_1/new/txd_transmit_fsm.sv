@@ -94,7 +94,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
             
             DATA:begin
                 read_en = 1;
-                if(data_count<=max_data_count)begin
+                if(data_count<max_data_count)begin
                     if(man_txd_rdy)begin
                         n_d_count = data_count+1;
                     end

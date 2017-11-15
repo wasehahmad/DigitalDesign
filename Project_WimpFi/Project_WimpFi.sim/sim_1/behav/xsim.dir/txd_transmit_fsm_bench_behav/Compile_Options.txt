@@ -1,0 +1,1 @@
+-wto "fd8f9af48fd149f3b3916043f466d718" --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "txd_transmit_fsm_bench_behav" "xil_defaultlib.txd_transmit_fsm_bench" "xil_defaultlib.glbl" -log "elaborate.log" 
