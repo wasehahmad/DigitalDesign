@@ -28,7 +28,7 @@ module config_mac_tb;
     logic button_up;
     logic button_down;
     logic [7:0] src_mac;
-    logic [6:0] current_seg;
+    logic [7:0] current_seg;
     
     config_mac_fsm U_MAC_FSM(.clk(clk),.reset(reset), .button_left(button_left), .button_right(button_right),
                              .button_up(button_up), .button_down(button_down), .src_mac(src_mac), .current_seg(current_seg));
