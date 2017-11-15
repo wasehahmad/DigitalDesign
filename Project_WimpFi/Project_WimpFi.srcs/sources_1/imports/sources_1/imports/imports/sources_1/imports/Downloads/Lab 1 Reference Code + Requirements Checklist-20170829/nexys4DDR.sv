@@ -28,9 +28,9 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 		  input logic 	      BTNC,
 		  input logic 	      BTNU, 
 		  input logic         RXDATA, 
-//		  input logic 	      BTNL, 
-//		  input logic 	      BTNR,
-//		  input logic 	      BTND,
+		  input logic 	      BTNL, 
+		  input logic 	      BTNR,
+		  input logic 	      BTND,
 		  output logic [6:0]  SEGS,
 		  output logic [7:0]  AN,
 		  output logic 	      DP,
@@ -49,11 +49,21 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 //		  output logic        UART_CTS		  
             );
     logic rdy;    
-    logic [7:0] reg_0,reg_1,reg_2,reg_3;
+    logic [7:0] reg_0,reg_1,reg_2,reg_3, reg_4;
        
     logic debounced_reset;
+    logic debounced_up;
+    logic debounced_down;
+    logic debounced_left;
+    logic debounced_right;
+    logic left_pusle;
+    logic right_pusle;
+    logic up_pusle;
+    logic down_pusle;
     logic [7:0] data_rxd;
     logic [7:0] data;
+    logic [7:0] src_mac;
+    logic [7:0] current_seg;
     logic txen; 
     logic debounced_send;
     logic send;
@@ -67,12 +77,16 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     assign CARDET = cardet;
     assign WRITE = write;
     assign ERROR = error;
+    assign debounced_reset = (debounced_left && debounced_right);
     
 
     
     //buttons for reset and sending
-    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_send));
-    debounce U_RESET_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_reset));
+    debounce U_SEND_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNC), .button_out(debounced_send));
+    debounce U_UP_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNU), .button_out(debounced_up));
+    debounce U_DOWN_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTND), .button_out(debounced_down));
+    debounce U_LEFT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNL), .button_out(debounced_left));
+    debounce U_RIGHT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNR), .button_out(debounced_right));
     
     //use mxtest to transmit signals from the manchester transmitter
     mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(debounced_send),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
@@ -91,7 +105,14 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //manchester receiver
     man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(sync_data), .cardet(cardet), .data(data_rxd), .write(write), .error(error)
                                                        ,.SFD(SFD));
-    
+    //single pulsers for the buttons
+    single_pulser U_LEFT_PULSER (.clk(CLK100MHZ), .din(debounced_left), .d_pulse(left_pulse));
+    single_pulser U_RIGHT_PULSER (.clk(CLK100MHZ), .din(debounced_right), .d_pulse(right_pulse));
+    single_pulser U_UP_PULSER (.clk(CLK100MHZ), .din(debounced_up), .d_pulse(up_pulse));
+    single_pulser U_DOWN_PULSER (.clk(CLK100MHZ), .din(debounced_down), .d_pulse(down_pulse));
+
+    //configuration for Source MAC Address
+    config_mac_fsm U_SRC_MAC_FSM(.clk(CLK100MHZ), .reset(debounced_reset), .button_left(left_pulse), .button_right(right_pulse), .button_up(up_pulse), .button_down(down_pulse), .src_mac(src_mac), .current_seg(current_seg));
     
     //pulse the write signal
     single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
@@ -100,9 +121,10 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
     reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_1),.q(reg_2));
     reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_2),.q(reg_3));
+    //reg_param #(.W(8)) U_SRC_MAC(.clk(CLK100MHZ),.reset(debounced_reset),.lden(up_pulse || down_pulse),.d(src_mac),.q(reg_4));
     
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(debounced_reset),
-                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(reg_3[3:0]),.d7(reg_3[7:4]),
+                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
                     

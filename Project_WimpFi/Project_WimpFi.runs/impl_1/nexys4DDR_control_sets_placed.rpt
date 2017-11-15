@@ -1,0 +1,94 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Tue Nov 14 20:21:54 2017
+| Host         : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file nexys4DDR_control_sets_placed.rpt
+| Design       : nexys4DDR
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    41 |
+| Unused register locations in slices containing registers |   106 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              47 |           33 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             290 |           96 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             349 |          120 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------------+--------------------------------------------------+------------------------------------------------------+------------------+----------------+
+|                     Clock Signal                    |                   Enable Signal                  |                   Set/Reset Signal                   | Slice Load Count | Bel Load Count |
++-----------------------------------------------------+--------------------------------------------------+------------------------------------------------------+------------------+----------------+
+|  U_MAN_RECEIVER/U_SAMPLER/n_initialized_reg_i_2_n_1 |                                                  |                                                      |                1 |              1 |
+|  CLK100MHZ_IBUF_BUFG                                | U_TRANSMITTER/U_FSM/Q_reg[3]_2[0]                | U_TRANSMITTER/U_FSM/Q_reg[3]_1[0]                    |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SFD_SHREG/corroborating0_out    | U_MAN_RECEIVER/U_SFD_SHREG/counter[3]_i_1_n_1        |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_TRANSMITTER/U_FSM/E[0]                         | U_TRANSMITTER/U_FSM/SR[0]                            |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_ASYNCH_TX/U_FSM/E[0]                           | U_ASYNCH_TX/U_FSM/SR[0]                              |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_SRC_MAC_FSM/n_src_mac[2]                       | U_RIGHT_DEBOUNCE/debounced_reset                     |                3 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_SRC_MAC_FSM/n_src_mac[6]                       | U_RIGHT_DEBOUNCE/debounced_reset                     |                3 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_MAN_RECEIVER/U_BYTE_COUNTER/Q[3]_i_1__2_n_1        |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_TRANSMITTER/U_FSM/Q_reg[3][0]                  | U_TRANSMITTER/U_FSM/Q_reg[3]_0[0]                    |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                | U_TEST/byte_addr_enable                          | U_TEST/byte_addr[4]_i_1_n_1                          |                2 |              5 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_SAMP_COUNTER/Q[5]_i_1__0_n_1        |                2 |              6 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q[5]_i_1_n_1 |                2 |              6 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_SAMP_COUNTER_PRE/Q[5]_i_1__1_n_1    |                1 |              6 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_MAN_RECEIVER/U_RECEIVE_FSM/SR[0]                   |                2 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_MAN_RECEIVER/U_STRT_RECEIVE_PULSE/SR[0]            |                1 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                | U_WRITE_PULSER/wp_reg[7]                         | U_RIGHT_DEBOUNCE/debounced_reset                     |                3 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                | U_READ_PULSER/rp_reg[5]                          | U_RIGHT_DEBOUNCE/debounced_reset                     |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_TRANSMITTER/U_FSM/q_reg[9][0]                      |                4 |             11 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_TRANSMITTER/U_FSM/q_reg[10][0]                     |                4 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                | U_FIFO/mem_reg_0_63_0_2_i_1_n_1                  |                                                      |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                | U_FIFO/mem_reg_128_191_0_2_i_1_n_1               |                                                      |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                | U_FIFO/mem_reg_192_255_0_2_i_1_n_1               |                                                      |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                | U_FIFO/mem_reg_64_127_0_2_i_1_n_1                |                                                      |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_ASYNCH_TX/U_FSM/q_reg[0][0]                        |                5 |             15 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/SS[0]                               |                5 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_SFD_FSM/SR[0]                       |                4 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_SFD_FSM/SS[0]                       |                6 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_MAN_RECEIVER/U_CORREL_ZERO/reset04_out             |                5 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                | U_TEST/wait_count_enable                         | U_TEST/byte_addr[4]_i_1_n_1                          |                5 |             20 |
+|  CLK100MHZ_IBUF_BUFG                                | U_WRITE_PULSER/E[0]                              | U_RIGHT_DEBOUNCE/debounced_reset                     |               11 |             24 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_DOWN_DEBOUNCE/count_reg[26]_i_1__1_n_1             |                6 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_LEFT_DEBOUNCE/count_reg[26]_i_1__2_n_1             |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_RIGHT_DEBOUNCE/count_reg[26]_i_1__3_n_1            |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_SEND_DEBOUNCE/button_state_next1                   |                8 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_UP_DEBOUNCE/count_reg[26]_i_1__0_n_1               |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/accumulated[31]_i_1_n_1 | U_RIGHT_DEBOUNCE/debounced_reset                     |                9 |             29 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_MAN_RECEIVER/U_SAMPLER/q[0]_i_1__1_n_1             |                8 |             32 |
+|  n_0_1222_BUFG                                      |                                                  | U_RIGHT_DEBOUNCE/debounced_reset                     |               16 |             35 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  |                                                      |               32 |             46 |
+|  CLK100MHZ_IBUF_BUFG                                |                                                  | U_RIGHT_DEBOUNCE/debounced_reset                     |               24 |             50 |
+|  CLK100MHZ_IBUF_BUFG                                | U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/debounced_reset                     |               46 |            128 |
++-----------------------------------------------------+--------------------------------------------------+------------------------------------------------------+------------------+----------------+
+
+
