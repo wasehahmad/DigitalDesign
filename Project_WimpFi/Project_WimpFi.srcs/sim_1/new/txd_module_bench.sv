@@ -81,6 +81,7 @@ module txd_module_bench;
     //------------------------------------------------------
     
     task send_multiple_bytes;
+        integer i;
          XDATA = "*";//dest
         @(posedge clk) #1; 
         XWR = 1;
@@ -92,7 +93,7 @@ module txd_module_bench;
         XWR = 1;
         @(posedge clk) #1;
         XWR = 0;
-        integer i;
+        
         for(i = 0; i < 10; i++) begin
             XDATA = data >> (i*8);
             @(posedge clk) #1; 
