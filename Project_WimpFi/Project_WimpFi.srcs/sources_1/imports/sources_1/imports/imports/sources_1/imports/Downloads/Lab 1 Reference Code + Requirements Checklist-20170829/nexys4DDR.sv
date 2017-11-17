@@ -88,23 +88,32 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     debounce U_LEFT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNL), .button_out(debounced_left));
     debounce U_RIGHT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNR), .button_out(debounced_right));
     
-    //use mxtest to transmit signals from the manchester transmitter
-    mxtest_2 U_TEST(.clk(CLK100MHZ),.reset(debounced_reset),.run(debounced_send),.length(SW[5:0]),.send(send),.data(data),.ready(rdy));
-    
-    //manchester transmitter
+    //=================================================TRANSMITTER SETUP=================================================
+    //transmitter module
     rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
                                .txd(txd),.rdy(rdy),.txen(txen));
+                        
+           
+              
     
+    //=================================================RECEIVER SETUP=================================================
     logic sync_data;
     always_ff @(posedge CLK100MHZ) begin
         if(debounced_reset) sync_data <=0;
         else sync_data <= RXDATA;
     end
     
+    //receiver module
+                                                     
+    //pulse the write signal
+    single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
+
+    //SYNC TO REALTERM
+    asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(!empty),.data(data_fifo),.txd(UART_RXD_OUT),.rdy(read)); 
     
-    //manchester receiver
-    man_receiver    #(.BIT_RATE(BAUD))  U_MAN_RECEIVER(.clk(CLK100MHZ), .reset(debounced_reset), .rxd(sync_data), .cardet(cardet), .data(data_rxd), .write(write), .error(error)
-                                                       ,.SFD(SFD));
+    
+    //=================================================DISPLAY SETUP=================================================
+                                                    
     //single pulsers for the buttons
     single_pulser U_LEFT_PULSER (.clk(CLK100MHZ), .din(debounced_left), .d_pulse(left_pulse));
     single_pulser U_RIGHT_PULSER (.clk(CLK100MHZ), .din(debounced_right), .d_pulse(right_pulse));
@@ -114,8 +123,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //configuration for Source MAC Address
     config_mac_fsm U_SRC_MAC_FSM(.clk(CLK100MHZ), .reset(debounced_reset), .button_left(left_pulse), .button_right(right_pulse), .button_up(up_pulse), .button_down(down_pulse), .src_mac(src_mac), .current_seg(current_seg));
     
-    //pulse the write signal
-    single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
+
     
     reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(data_rxd),.q(reg_0));
     reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
@@ -127,16 +135,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
                     .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
-                    
-    //BUILD FIFO
-    logic read,full,empty,read_pulse;
-    logic [7:0] data_fifo;
-    sasc_fifo #(.FIFO_DEPTH(256)) U_FIFO(.clk(CLK100MHZ),.rst(debounced_reset),.din(data_rxd),.we(write_pulse),.re(read_pulse),.dout(data_fifo),.full(full),.empty(empty));
-    
-    single_pulser U_READ_PULSER (.clk(CLK100MHZ), .din(read), .d_pulse(read_pulse));
-    
-    //SYNC TO REALTERM
-    asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(!empty),.data(data_fifo),.txd(UART_RXD_OUT),.rdy(read));
+
     
     
 endmodule // nexys4DDR

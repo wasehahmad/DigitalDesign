@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 8,ACK_TIMEOUT=256,SIFS=40)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 8,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -34,7 +34,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     output logic XRDY,
     output logic [7:0] ERRCNT,
     output logic txen,
-    output logic txd
+    output logic txd,
+    output logic WATCHDOG_ERROR
     );
     
     logic start_man_txd;
@@ -79,7 +80,15 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     end
     
     //========================WATCH_DOG_TIMER=====================================================
-    
+    logic [9:0] continuous_frames_sent;
+    always_ff @(posedge clk)begin
+        if(reset | txen)continuous_frames_sent<=0;
+        else if(man_txd_rdy_pulse)continuous_frames_sent<=continuous_frames_sent+1;
+    end
+    always_ff @(posedge clk)begin
+        if(reset)WATCHDOG_ERROR<=0;
+        else if(continuous_frames_sent==MAX_FRAMES)WATCHDOG_ERROR<=1;
+    end
     
     
     //=======================MAIN_TXD_FSM +COUNTERS===========================================================
@@ -94,7 +103,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
         else if(incr_error)ERRCNT<=ERRCNT+1;
     end
     
-    txd_fsm U_TXD_FSM(.clk(clk),.reset(reset),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
+    txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
                     .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
                     .XRDY(XRDY),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmission));
                     
@@ -128,7 +137,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     logic [7:0] man_txd_data;
     //manchester transmitter
-    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset),.send(start_man_txd),.data(man_txd_data),
+    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),.send(start_man_txd),.data(man_txd_data),
                                    .txd(txd),.rdy(man_txd_ready),.txen(txen));
    
     single_pulser U_MAN_TXD_RDY_PULSE(.clk(clk), .din(man_txd_ready), .d_pulse(man_txd_rdy_pulse));
@@ -138,19 +147,19 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //keep a counter which will disable further counting
     //keep a counter for max number of bytes
     //might have to transmit the crc from the receiver
-    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset),.xData(BRAM_DATA),.newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
+    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset | WATCHDOG_ERROR),.xData(BRAM_DATA),.newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
     
                                    
     //==========================WRITE TO BRAM===========================================                               
     //fsm to write to BRAM
     //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
-    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset),.XWR(XWR),.XSEND(XSEND),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
+    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XWR(XWR),.XSEND(XSEND),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     
     //==========================TRANSMIT===========================================
     //transmit fsm
     
-    txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
+    txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
                     .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
                     .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
     
