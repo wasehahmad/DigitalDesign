@@ -43,27 +43,9 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv">
+      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv"/>
-          <Attr Name="ImportTime" Val="1509305837"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/new/counter.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/new/counter.sv"/>
-          <Attr Name="ImportTime" Val="1509305837"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv"/>
           <Attr Name="ImportTime" Val="1509305837"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -106,6 +88,70 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/receiver_fsm.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab04/Lab04.srcs/sources_1/new/receiver_fsm.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/txd_write_fsm.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/txd_transmit_fsm.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/txd_fsm.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/crc_generator.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/new/counter.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/new/counter.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/lab01_7_segment/seven_seg.sv">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/lab01_7_segment/seven_seg.sv"/>
@@ -119,6 +165,31 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/new/asynch_transmitter_fsm.sv"/>
           <Attr Name="ImportTime" Val="1509306037"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/receiver_top.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab04/Lab04.srcs/sources_1/new/receiver_top.sv"/>
+          <Attr Name="ImportTime" Val="1509305837"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/transmitter_module.sv">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -160,15 +231,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/sources_1/new/rtl_transmitter.sv"/>
-          <Attr Name="ImportTime" Val="1509305837"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/config_mac_fsm.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -180,16 +242,6 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv"/>
           <Attr Name="ImportTime" Val="1509828416"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab05/Lab05/Lab05.srcs/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv"/>
-          <Attr Name="ImportTime" Val="1509305837"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -333,14 +385,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/crc_generator.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/rxd_fsm.sv">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
@@ -350,38 +394,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/store_fsm.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/transmitter_module.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/txd_fsm.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/txd_write_fsm.sv">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/txd_transmit_fsm.sv">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -478,7 +490,6 @@
     <FileSet Name="blk_mem_gen_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/blk_mem_gen_0">
       <File Path="$PSRCDIR/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

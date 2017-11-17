@@ -20,7 +20,7 @@
 // 22.07.2016 : created
 //-----------------------------------------------------------------------------
 
-module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_BAUD*2) (
+module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_BAUD*2,UART_BAUD = 9600) (
 		  // un-comment the ports that you will use
           input logic         CLK100MHZ,
 		  input logic [7:0]   SW,
@@ -35,7 +35,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 		  output logic [7:0]  AN,
 		  output logic 	      DP,
 //		  output logic [1:0]  LED,
-//		  input logic         UART_TXD_IN,
+		  input logic         UART_TXD_IN,
 //		  input logic         UART_RTS,		  
 		  output logic        UART_RXD_OUT,
 		  output logic        TXDATA,
@@ -48,27 +48,23 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
           output logic        SFD
 //		  output logic        UART_CTS		  
             );
-    logic rdy;    
     logic [7:0] reg_0,reg_1,reg_2,reg_3, reg_4;
        
-    logic debounced_reset;
-    logic debounced_up;
-    logic debounced_down;
-    logic debounced_left;
-    logic debounced_right;
-    logic left_pusle;
-    logic right_pusle;
-    logic up_pusle;
-    logic down_pusle;
-    logic [7:0] data_rxd;
-    logic [7:0] data;
+    logic debounced_reset,debounced_up,debounced_down,debounced_left,debounced_right;
+    logic left_pusle,right_pusle,up_pusle,down_pusle;
+    logic [7:0] XDATA;
     logic [7:0] src_mac;
     logic [7:0] current_seg;
     logic txen; 
-    logic debounced_send;
-    logic send;
+    logic debounced_send,send;
     logic error,txd,write,cardet;
+    logic XWR,XSEND,XRDY;
+    logic type_2_seen,ACK_SEEN;
+    logic [7:0] type_2_source;
+    logic WATCHDOG_ERROR;
+    logic [7:0] XERRCNT,RERRCNT;
        
+    //========================RADIO_LOGIC========================================   
     logic radio_clk;
     assign TXDATA = txd; 
     assign CFGCLK =  !txen;
@@ -78,7 +74,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     assign WRITE = write;
     assign ERROR = error;
     assign debounced_reset = (debounced_left && debounced_right);
-    
+    //=========================================================================== 
 
     
     //buttons for reset and sending
@@ -89,11 +85,15 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     debounce U_RIGHT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNR), .button_out(debounced_right));
     
     //=================================================TRANSMITTER SETUP=================================================
-    //transmitter module
-    rtl_transmitter #(.BAUD(TXD_BAUD),.BAUD2(TXD_BAUD_2)) U_TRANSMITTER(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(send),.data(data),
-                               .txd(txd),.rdy(rdy),.txen(txen));
-                        
-           
+    //asynch receiver
+    logic uart_rxd_rdy;
+    receiver_top #(.BAUD(UART_BAUD)) U_UART_RXD(.clk(CLK100MHZ),.reset(debounced_reset),.rxd(UART_TXD_IN),.rdy(uart_rxd_rdy),.ferr(),.data(XDATA));
+
+    assign XSEND = (XDATA ==8'h04 )&& uart_rxd_rdy;//8'h04 is EOT or cntrl-D
+    //transmitter module                    
+    transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(XDATA),.XWR(XWR),.XSEND(XSEND),
+                                                        .cardet(cardet),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
+                                                        .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
               
     
     //=================================================RECEIVER SETUP=================================================
