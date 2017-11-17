@@ -94,6 +94,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //=======================MAIN_TXD_FSM +COUNTERS===========================================================
     logic DIFS_DONE,CONT_WIND_DONE,ACK_TIME_DONE,SIFS_DONE;
     logic done_transmitting,incr_error,reset_counters;
+    logic restart_addr;
     
     logic bit_done,txd_fsm_rdy;
     logic [10:0] bit_count;
@@ -106,7 +107,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     assign done_transmitting = read_addr_b == write_addr_b;
     assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
-                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
+                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),.reset_addr(restart_addr),
                     .XRDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting));
                     
     
@@ -168,9 +169,9 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //==========================WRITE TO BRAM===========================================                               
     //fsm to write to BRAM
     //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
-    logic restart_addr;
+
     
-    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XWR(XWR),.XSEND(XSEND),.done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
+    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XRDY(XRDY),.XWR(XWR),.XSEND(XSEND),.done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     
     //==========================TRANSMIT===========================================
@@ -178,7 +179,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
                     .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
-                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en),.restart_addr(restart_addr));
+                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
     
     
     

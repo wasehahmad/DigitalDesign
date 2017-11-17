@@ -33,7 +33,8 @@ module txd_fsm #(parameter W = 10)(
     output logic XRDY,
     output logic incr_error,
     output logic reset_counters,
-    output logic transmit
+    output logic transmit,
+    output logic reset_addr
     );
     
     logic network_was_busy,n_network_was_busy;
@@ -69,6 +70,7 @@ module txd_fsm #(parameter W = 10)(
         XRDY = 0;
         n_network_was_busy = network_was_busy;
         n_reset_counters = 0;
+        reset_addr = 0;
         
         unique case(state)
             IDLE:begin
@@ -107,6 +109,7 @@ module txd_fsm #(parameter W = 10)(
                 if(done_transmitting)begin
                     next = IDLE;
                     n_transmit=0;
+                    reset_addr = 1;/////////////////////////////Will need to only reset write signal after teh ACK is received
                 end
                 else begin 
                     n_transmit = 1;

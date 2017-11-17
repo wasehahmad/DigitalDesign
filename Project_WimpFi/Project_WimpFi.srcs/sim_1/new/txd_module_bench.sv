@@ -54,6 +54,7 @@ module txd_module_bench;
     //------------------------------------------------------
     
     task send_one_byte;
+        while(!XRDY)@(posedge clk);
         XDATA = "*";//dest
         @(posedge clk) #1; 
         XWR = 1;
@@ -159,7 +160,7 @@ module txd_module_bench;
         reset = 0;
         reset_case;
         send_one_byte;
-
+        send_one_byte;
         $stop;
     end
 endmodule

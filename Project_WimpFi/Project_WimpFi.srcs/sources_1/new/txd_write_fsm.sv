@@ -24,6 +24,7 @@ module txd_write_fsm (
     input logic clk,
     input logic reset,
     input logic XWR,
+    input logic XRDY,
     input logic XSEND,
     input logic done_transmitting,
     output logic wen,
@@ -44,14 +45,14 @@ module txd_write_fsm (
             done_writing<=0;
         end
         else begin
-            if(XWR)begin
+            if(XWR &XRDY )begin
                 if(dest_seen)w_addr<=w_addr+1;
                 else begin
                     dest_seen<=1;
                     w_addr<=w_addr+2;
                 end
             end
-            else if(XSEND)begin
+            else if(XSEND & XRDY)begin
                 done_writing<=1;
                 dest_seen<=0;
             end
