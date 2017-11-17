@@ -35,9 +35,9 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
     );
     
     logic [7:0] n_d_count,n_data;
-    logic done_preamble,reset_counter;
+    logic done_preamble,reset_counter,n_read_en;
     
-    bcdcounter #(.LAST_VAL(PREAMBLE_SIZE+1)) U_PRE_COUNTER(.clk(clk),.reset(reset | reset_counter),.enb(man_txd_rdy),.carry(done_preamble));
+    bcdcounter #(.LAST_VAL(PREAMBLE_SIZE)) U_PRE_COUNTER(.clk(clk),.reset(reset | reset_counter),.enb(man_txd_rdy),.carry(done_preamble));
     
     typedef enum logic [3:0]{
         IDLE = 4'd0, PREAMBLE= 4'd1,SFD = 4'd2,DATA = 4'd3,SEND_FCS = 4'd4
@@ -50,18 +50,20 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
             state<=IDLE;
             data_count<=0;
             man_txd_data<=8'hAA;
+            read_en<=0;
         end
         else begin
             state<=next;
             data_count<=n_d_count;
             man_txd_data<=n_data;
+            read_en<=n_read_en;
         end
     end
     
     always_comb begin
         next = IDLE;
         n_d_count = data_count;
-        read_en = 0;
+        n_read_en = 0;
         reset_counter = 0;
         n_data = man_txd_data;
         
@@ -85,18 +87,22 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
             
             SFD:begin
                 if(man_txd_rdy)begin
-                    read_en = 1;
+                    //n_read_en = 1;
                     next = DATA;
-                    n_data = BRAM_data;////////////////////////////////////check if the man_txd loads new data at the beginning of read or end
+                    //n_data = BRAM_data;////////////////////////////////////check if the man_txd loads new data at the beginning of read or end
                 end
                 else next = SFD;
             end
             
             DATA:begin
-                read_en = 1;
+                if(data_count>=max_data_count-1 && pkt_type=="0")n_read_en=0;
+                else n_read_en = 1;
+                n_data= BRAM_data;
                 if(data_count<max_data_count)begin
+                    n_data= BRAM_data;
                     if(man_txd_rdy)begin
                         n_d_count = data_count+1;
+                        
                     end
                     next = DATA;
                 end
@@ -104,8 +110,10 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
             end
             
             SEND_FCS:begin
+                n_data = FCS;
+                n_read_en = 1;
                 if(man_txd_rdy)begin
-                    n_data = FCS;
+                    
                     next = IDLE;
                 end
                 else next = SEND_FCS;

@@ -30,7 +30,7 @@ module txd_transmit_fsm_bench;
     logic [7:0] FCS;
     logic [7:0] pkt_type;
     logic [7:0] BRAM_DATA;
-    logic read_addr_b;
+    logic [7:0]read_addr_b;
     logic [7:0] man_txd_data;
     logic read_en;
 

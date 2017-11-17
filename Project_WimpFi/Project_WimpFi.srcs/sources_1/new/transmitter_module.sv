@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 8,ACK_TIMEOUT=256,SIFS=40)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -46,7 +46,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
     logic read_en,write_en;//sent from transmit_fsm to bram
     logic done_writing;
     
-    logic [6:0] rand_count;//1-64
+    logic [6:0] rand_count,curr_rand_count;//1-64
     //==========================RANDOM_NUM_COUNTER===============================================
     always_ff @(posedge clk)begin
         if(reset)rand_count <= 1;
@@ -78,7 +78,44 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2)(
         end
     end
     
+    //========================WATCH_DOG_TIMER=====================================================
     
+    
+    
+    //=======================MAIN_TXD_FSM +COUNTERS===========================================================
+    logic DIFS_DONE,CONT_WIND_DONE,ACK_TIME_DONE,SIFS_DONE;
+    logic done_transmitting,incr_error,reset_counters;
+    assign done_transmitting = read_addr_b == write_addr_b;
+    logic bit_done;
+    logic [10:0] bit_count;
+    
+    always_ff @(posedge clk)begin
+        if(reset)ERRCNT<=0;
+        else if(incr_error)ERRCNT<=ERRCNT+1;
+    end
+    
+    txd_fsm U_TXD_FSM(.clk(clk),.reset(reset),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
+                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
+                    .XRDY(XRDY),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmission));
+                    
+    
+    clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_PERIOD_CLK(.clk(clk),.reset(reset),.enb(bit_done));
+    
+    always_ff @(posedge clk)begin
+        if(reset | reset_counters)begin
+            bit_count <=0;
+            curr_rand_count<=rand_count; 
+        end
+        else if(bit_done)bit_count<=bit_count+1;
+    end
+    
+    //assign count done conditions
+    assign DIFS_DONE = bit_count==DIFS;
+    assign CONT_WIND_DONE = bit_count == curr_rand_count<<3;//Slot time ==8 or 2^3
+    assign SIFS_DONE = bit_count == SIFS;
+    assign ACK_TIME_DONE = bit_count==ACK_TIMEOUT;
+    
+    //==========================================================================================================
 
     //block ram with different ports to write.to be able to write to both addr location at once
     //addr_b comes from the transmit_fsm data_count
