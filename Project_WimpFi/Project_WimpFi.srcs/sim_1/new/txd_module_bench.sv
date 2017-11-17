@@ -21,24 +21,27 @@
 
 
 module txd_module_bench;
+
+    import check_p::*;
+
     logic clk;
     logic reset;
     logic [7:0] XDATA;
     logic XWR;
     logic XSEND;
     logic cardet;
-    logic type_2_seen;
-    logic ACK_SEEN;
-    logic [7:0] type_2_source;
+//    logic type_2_seen;
+//    logic ACK_SEEN;
+//    logic [7:0] type_2_source;
     logic [7:0] MAC;
     logic XRDY;
-    logic [7:0] ERRCNT;
+    logic [7:0] XERRCNT;
     logic txen;
     logic txd;
     
     transmitter_module U_TXD_MOD(.clk(clk), .reset(reset), .XDATA(XDATA), .XWR(XWR), .XSEND(XSEND), 
-                                 .cardet(cardet), .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN), 
-                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(ERRCNT), .txen(txen), .txd(txd));
+                                 .cardet(cardet),/* .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source)*/ 
+                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd));
     
     logic [111:0] data = "THISISSOMEDATA";
                   
@@ -75,7 +78,10 @@ module txd_module_bench;
         XSEND = 0;
         //wait a clock cycle
         @(posedge clk) #1;
-        check_ok("After send is asserted, txen goes high", txen, 1);
+        //check_ok("After send is asserted, txen goes high", txen, 1); txen doesnt go high immediately after
+        while(txen==0)begin
+            repeat(100000) @(posedge clk);
+        end
     endtask
     
     //------------------------------------------------------
@@ -129,7 +135,7 @@ module txd_module_bench;
         reset = 0;
         //check outputs right after
         check_ok("On reset, XRDY is high", XRDY, 1);
-        check_ok("On reset, XSND is low", XSND, 0);
+        check_ok("On reset, XSEND is low", XSEND, 0);
         check_ok("On reset, XWR is low", XWR, 0);
         check_ok("On reset, XERRCNT is set to 0", XERRCNT, 0);
     endtask
@@ -138,13 +144,20 @@ module txd_module_bench;
     task correct_transmission_one_byte;
         $display("===================================Testing Simulation test 2===================================");
         send_one_byte;
-        check_ok();
+        //check_ok();
     endtask
     
     initial begin
         reset = 1;
+        cardet = 0;
+        MAC = "@";
+        XDATA = 8'h00;
+        XWR = 0;
+        XSEND = 0;
+        
         repeat(10) @(posedge clk);
         reset = 0;
+        reset_case;
         send_one_byte;
 
         $stop;

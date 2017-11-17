@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 8,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =1,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -38,8 +38,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     output logic WATCHDOG_ERROR
     );
     
-    logic start_man_txd;
-    logic[7:0] BRAM_DATA,FCS;
+    logic[7:0] BRAM_DATA,FCS,BRAM_DATA_IN;
     logic man_txd_ready,man_txd_rdy_pulse;
     logic [7:0] read_addr_b,write_addr_b;
     logic write_source;
@@ -62,6 +61,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     always_ff @(posedge clk) begin
        if(reset)begin
            prevMac <= MAC;
+           write_source<=1;
        end
        else begin
            if(MAC!=prevMac)write_source<=1;
@@ -94,8 +94,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //=======================MAIN_TXD_FSM +COUNTERS===========================================================
     logic DIFS_DONE,CONT_WIND_DONE,ACK_TIME_DONE,SIFS_DONE;
     logic done_transmitting,incr_error,reset_counters;
-    assign done_transmitting = read_addr_b == write_addr_b;
-    logic bit_done;
+    
+    logic bit_done,txd_fsm_rdy;
     logic [10:0] bit_count;
     
     always_ff @(posedge clk)begin
@@ -103,12 +103,14 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
         else if(incr_error)ERRCNT<=ERRCNT+1;
     end
     
+    assign done_transmitting = read_addr_b == write_addr_b;
+    assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
                     .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
-                    .XRDY(XRDY),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmission));
+                    .XRDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting));
                     
     
-    clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_PERIOD_CLK(.clk(clk),.reset(reset),.enb(bit_done));
+    clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_PERIOD_CLK(.clk(clk),.reset(reset | reset_counters),.enb(bit_done));
     
     always_ff @(posedge clk)begin
         if(reset | reset_counters)begin
@@ -124,20 +126,33 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     assign SIFS_DONE = bit_count == SIFS;
     assign ACK_TIME_DONE = bit_count==ACK_TIMEOUT;
     
-    //==========================================================================================================
+    //=====================BLOCK_RAM and manchester transmitter===================================================================
 
     //block ram with different ports to write.to be able to write to both addr location at once
     //addr_b comes from the transmit_fsm data_count
-    logic port_b_addr;
-    assign port_b_addr = (txen)?read_addr_b:write_addr_b;
+    logic [7:0] bram_addr;
     
-    blk_mem_gen_0 U_TXD_BRAM(.clka(clk),.addra(8'h01),.dina(MAC),.wea(write_source),
-                                .addrb(port_b_addr),.clkb(clk),.dinb(XDATA),.doutb(BRAM_DATA),.enb(read_en),.web(write_en));
+    //mux for writing source and writing data
+    always_comb begin
+        if(write_source && XRDY && !write_en)begin
+            bram_addr=8'h01;
+            BRAM_DATA_IN = MAC;
+        end
+        else begin
+            bram_addr = (txen)?read_addr_b:write_addr_b;
+            BRAM_DATA_IN = XDATA;
+        end
+    end
+
     
+    blk_mem_gen_0 U_TXD_BRAM(.clka(clk),.addra(bram_addr),.dina(BRAM_DATA_IN),.douta(BRAM_DATA),.wea(write_source|write_en));
+    
+    logic start_pulse;
+    single_pulser U_MAN_TXD_START_PULSE(.clk(clk), .din(start_transmitting), .d_pulse(start_pulse));
     
     logic [7:0] man_txd_data;
     //manchester transmitter
-    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),.send(start_man_txd),.data(man_txd_data),
+    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),.send(start_transmitting & !done_transmitting  ),.data(man_txd_data),
                                    .txd(txd),.rdy(man_txd_ready),.txen(txen));
    
     single_pulser U_MAN_TXD_RDY_PULSE(.clk(clk), .din(man_txd_ready), .d_pulse(man_txd_rdy_pulse));
@@ -153,7 +168,9 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //==========================WRITE TO BRAM===========================================                               
     //fsm to write to BRAM
     //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
-    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XWR(XWR),.XSEND(XSEND),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
+    logic restart_addr;
+    
+    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XWR(XWR),.XSEND(XSEND),.done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     
     //==========================TRANSMIT===========================================
@@ -161,7 +178,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
                     .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
-                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
+                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en),.restart_addr(restart_addr));
     
     
     

@@ -44,6 +44,7 @@ module transmitter_fsm(
     logic last_ready;
     assign max_count = 8;
 
+    logic prev_txd;
     
     typedef enum logic[3:0] {
         IDLE=4'd0, START=4'd1, DATA_HIGH_FIRST=4'd2, DATA_LOW_FIRST=4'd3, DATA_HIGH_SECOND=4'd4, DATA_LOW_SECOND=4'd5,
@@ -55,14 +56,14 @@ module transmitter_fsm(
     always_ff @(posedge clk) begin
         if (reset) begin 
             state <= IDLE;
-        
+            prev_txd<=1;
             
         end
         else begin
             state <= next;
             last <= next_last;
             last_ready <= rdy;
-            
+            prev_txd<=txd;
         end
     end
     
@@ -182,18 +183,20 @@ module transmitter_fsm(
             end
             
             END_BIT_1:begin
+                txd=prev_txd;
                 rdy = 0;
                 txen = 1;
                 next = END_BIT_2;
             end
             END_BIT_2:begin
+                txd = prev_txd;
                 txen = 1;
                 rdy = 0;
                 next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
             end
             
             ENDED:begin
-            
+                
                 txen =1 ;
                 waiting = 1;
                 one_bit_sending = 1;

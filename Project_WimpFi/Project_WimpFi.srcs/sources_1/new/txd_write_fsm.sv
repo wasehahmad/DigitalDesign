@@ -25,6 +25,7 @@ module txd_write_fsm (
     input logic reset,
     input logic XWR,
     input logic XSEND,
+    input logic done_transmitting,
     output logic wen,
     output logic [7:0] w_addr,
     output logic done_writing
@@ -37,7 +38,7 @@ module txd_write_fsm (
     
     
     always_ff @(posedge clk)begin
-        if(reset)begin
+        if(reset | (done_transmitting))begin
             w_addr<=0;
             dest_seen<=0;
             done_writing<=0;

@@ -31,7 +31,8 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
     input logic [7:0] BRAM_data,
     output logic [7:0] data_count,
     output logic [7:0] man_txd_data,
-    output logic read_en
+    output logic read_en,
+    output logic restart_addr
     );
     
     logic [7:0] n_d_count,n_data;
@@ -66,6 +67,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
         n_read_en = 0;
         reset_counter = 0;
         n_data = man_txd_data;
+        restart_addr = 0;
         
         unique case (state)
             IDLE:begin
@@ -106,14 +108,20 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
                     end
                     next = DATA;
                 end
-                else next = (pkt_type=="0")?IDLE:SEND_FCS;
+                else begin
+                    if(pkt_type=="0")begin
+                        restart_addr=1;
+                        next = IDLE;
+                    end
+                    else next = SEND_FCS;
+                end
             end
             
             SEND_FCS:begin
                 n_data = FCS;
                 n_read_en = 1;
                 if(man_txd_rdy)begin
-                    
+                    restart_addr = 1;
                     next = IDLE;
                 end
                 else next = SEND_FCS;

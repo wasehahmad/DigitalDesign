@@ -88,6 +88,9 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //asynch receiver
     logic uart_rxd_rdy;
     receiver_top #(.BAUD(UART_BAUD)) U_UART_RXD(.clk(CLK100MHZ),.reset(debounced_reset),.rxd(UART_TXD_IN),.rdy(uart_rxd_rdy),.ferr(),.data(XDATA));
+    
+    //single pulser to pulse the ready signal from the UART receiver
+    single_pulser U_XWR_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_rxd_rdy),.d_pulse(XWR));
 
     assign XSEND = (XDATA ==8'h04 )&& uart_rxd_rdy;//8'h04 is EOT or cntrl-D
     //transmitter module                    

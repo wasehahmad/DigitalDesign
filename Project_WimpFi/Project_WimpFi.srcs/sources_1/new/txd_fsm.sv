@@ -64,7 +64,7 @@ module txd_fsm #(parameter W = 10)(
     
     always_comb begin
         n_transmit = 0;
-        reset_counters = 0;
+        n_reset_counters = 0;
         incr_error = 0;
         XRDY = 0;
         n_network_was_busy = network_was_busy;
@@ -104,9 +104,14 @@ module txd_fsm #(parameter W = 10)(
             end
             
             TRANSMIT:begin
-                n_transmit = 1;
-                if(done_transmitting) next = IDLE;
-                else next = TRANSMIT;
+                if(done_transmitting)begin
+                    next = IDLE;
+                    n_transmit=0;
+                end
+                else begin 
+                    n_transmit = 1;
+                    next = TRANSMIT;
+                end
             end
             
             
