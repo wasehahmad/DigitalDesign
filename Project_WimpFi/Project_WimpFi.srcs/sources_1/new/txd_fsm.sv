@@ -109,7 +109,7 @@ module txd_fsm #(parameter W = 10)(
                 if(done_transmitting)begin
                     next = IDLE;
                     n_transmit=0;
-                    reset_addr = 1;/////////////////////////////Will need to only reset write signal after teh ACK is received
+                    reset_addr = 1;/////////////////////////////Will need to only reset write signal after the ACK is received
                 end
                 else begin 
                     n_transmit = 1;

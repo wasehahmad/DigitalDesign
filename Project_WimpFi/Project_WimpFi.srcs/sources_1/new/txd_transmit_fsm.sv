@@ -31,7 +31,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
     input logic [7:0] BRAM_data,
     output logic [7:0] data_count,
     output logic [7:0] man_txd_data,
-    output logic read_en,
+    output logic read_en
     );
     
     logic [7:0] n_d_count,n_data;
