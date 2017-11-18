@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module txd_write_fsm (
+module txd_write_fsm #(parameter MAX_BYTES=255,ADDR_WIDTH=9) (
     input logic clk,
     input logic reset,
     input logic XWR,
@@ -28,14 +28,14 @@ module txd_write_fsm (
     input logic XSEND,
     input logic done_transmitting,
     output logic wen,
-    output logic [7:0] w_addr,
+    output logic [ADDR_WIDTH-1:0] w_addr,
     output logic done_writing
     );
     
-    logic [7:0] write_count,n_count;
-    logic [7:0] n_data,n_addr;
     logic dest_seen;
-    assign wen = XWR;
+    logic max_written;
+    
+    assign wen = XWR && w_addr<=MAX_BYTES;//have to and it with that as it will try to keep writing to the 256-255 position in the bram
     
     
     always_ff @(posedge clk)begin
@@ -43,14 +43,16 @@ module txd_write_fsm (
             w_addr<=0;
             dest_seen<=0;
             done_writing<=0;
+            max_written = 0;
         end
         else begin
-            if(XWR &XRDY )begin
+            if(XWR & XRDY && !max_written)begin
                 if(dest_seen)w_addr<=w_addr+1;
-                else begin
+                else begin//if desitnation hasnt been recorded yet
                     dest_seen<=1;
                     w_addr<=w_addr+2;
                 end
+                if(w_addr==MAX_BYTES)max_written<=1;
             end
             else if(XSEND & XRDY)begin
                 done_writing<=1;

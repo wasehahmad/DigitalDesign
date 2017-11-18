@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =1,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =1,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -40,7 +40,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     logic[7:0] BRAM_DATA,FCS,BRAM_DATA_IN;
     logic man_txd_ready,man_txd_rdy_pulse;
-    logic [7:0] read_addr_b,write_addr_b;
+    logic [ADDR_WIDTH-1:0] read_addr_b,write_addr_b;
     logic write_source;
     logic start_transmitting;
     logic read_en,write_en;//sent from transmit_fsm to bram
@@ -74,7 +74,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic [7:0] pkt_type;
     always_ff @(posedge clk)begin
         if(reset) pkt_type = 8'd0;
-        else if(read_addr_b ==8'd2/*The location of the type*/)begin
+        else if(read_addr_b ==9'd2/*The location of the type*/)begin
             pkt_type = BRAM_DATA;
         end
     end
@@ -131,12 +131,12 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
 
     //block ram with different ports to write.to be able to write to both addr location at once
     //addr_b comes from the transmit_fsm data_count
-    logic [7:0] bram_addr;
+    logic [ADDR_WIDTH-1:0] bram_addr;
     
     //mux for writing source and writing data
     always_comb begin
         if(write_source && XRDY && !write_en)begin
-            bram_addr=8'h01;
+            bram_addr=9'h01;
             BRAM_DATA_IN = MAC;
         end
         else begin
@@ -171,13 +171,14 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
 
     
-    txd_write_fsm U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XRDY(XRDY),.XWR(XWR),.XSEND(XSEND),.done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
+    txd_write_fsm #(.ADDR_WIDTH(ADDR_WIDTH)) U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XRDY(XRDY),.XWR(XWR),.XSEND(XSEND),
+                                                            .done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     
     //==========================TRANSMIT===========================================
     //transmit fsm
     
-    txd_transmit_fsm U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
+    txd_transmit_fsm #(.ADDR_WIDTH(ADDR_WIDTH)) U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
                     .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
                     .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
     

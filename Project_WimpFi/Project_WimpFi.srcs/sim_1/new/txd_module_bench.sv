@@ -43,7 +43,7 @@ module txd_module_bench;
                                  .cardet(cardet),/* .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source)*/ 
                                  .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd));
     
-    logic [111:0] data = "THISISSOMEDATA";
+    logic [111:0] data = "ATADEMOSSISIHT";
                   
     always begin
         clk = 0;
@@ -89,7 +89,7 @@ module txd_module_bench;
     
     task send_multiple_bytes;
         integer i;
-         XDATA = "*";//dest
+        XDATA = "*";//dest
         @(posedge clk) #1; 
         XWR = 1;
         @(posedge clk) #1;
@@ -101,7 +101,7 @@ module txd_module_bench;
         @(posedge clk) #1;
         XWR = 0;
         
-        for(i = 0; i < 10; i++) begin
+        for(i = 0; i < 14; i++) begin
             XDATA = data >> (i*8);
             @(posedge clk) #1; 
             XWR = 1;
@@ -118,7 +118,57 @@ module txd_module_bench;
     endtask
     
     //------------------------------------------------------
-
+    task wait_for_cardet;
+        while(!XRDY)@(posedge clk);
+        cardet = 1;
+        repeat(100) @(posedge clk);
+        send_multiple_bytes;
+        repeat(100000) @(posedge clk);
+        cardet = 0;
+        //cause a network busy in the middle of DIFS
+        repeat(10) @(posedge clk);
+        cardet = 1;
+        repeat(10) @(posedge clk);
+        cardet = 0;
+        while(txen==0)begin
+            repeat(100000) @(posedge clk);
+        end
+        
+    endtask
+        
+     //------------------------------------------------------
+    task test_watchdog;
+        integer i;
+        while(!XRDY)@(posedge clk);
+        XDATA = "!";//dest
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        @(posedge clk) #1;
+        XDATA = "0";//type
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        
+        for(i = 0; i < 600; i++) begin
+            XDATA = 600-i;
+            @(posedge clk) #1; 
+            XWR = 1;
+            @(posedge clk) #1;
+            XWR = 0;
+            @(posedge clk) #1;
+        end
+        XSEND = 1;
+        @(posedge clk) #1;
+        XSEND = 0;
+        //wait a clock cycle
+        @(posedge clk) #1;
+        while(txen==0)@(posedge clk);
+        while(txen==1)@(posedge clk);
+    endtask
+    
     
     
     //=================================== TYPE 0 ===================================//
@@ -161,6 +211,8 @@ module txd_module_bench;
         reset_case;
         send_one_byte;
         send_one_byte;
+        wait_for_cardet;
+        test_watchdog;
         $stop;
     end
 endmodule

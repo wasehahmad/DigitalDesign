@@ -20,21 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
+module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2,ADDR_WIDTH=9)(
     input logic clk,
     input logic reset,
     input logic start_transmission,
     input logic man_txd_rdy,//get this signal single pulsed
-    input logic [7:0] max_data_count,
+    input logic [ADDR_WIDTH-1:0] max_data_count,
     input logic [7:0] FCS,
     input logic [7:0] pkt_type,
     input logic [7:0] BRAM_data,
-    output logic [7:0] data_count,
+    output logic [ADDR_WIDTH-1:0] data_count,
     output logic [7:0] man_txd_data,
     output logic read_en
     );
     
-    logic [7:0] n_d_count,n_data;
+    logic [ADDR_WIDTH-1:0] n_d_count,n_data;
     logic done_preamble,reset_counter,n_read_en;
     
     bcdcounter #(.LAST_VAL(PREAMBLE_SIZE)) U_PRE_COUNTER(.clk(clk),.reset(reset | reset_counter),.enb(man_txd_rdy),.carry(done_preamble));
@@ -69,6 +69,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
         
         unique case (state)
             IDLE:begin
+                n_data = 8'hAA;
                 if(start_transmission)begin
                     next = PREAMBLE;
                     reset_counter = 1;
@@ -95,7 +96,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2)(
             end
             
             DATA:begin
-                if(data_count>=max_data_count-1 && pkt_type=="0")n_read_en=0;
+                if(data_count>=max_data_count-1 && pkt_type=="0")n_read_en=0;//if next state is about to be IDLE
                 else n_read_en = 1;
                 n_data= BRAM_data;
                 if(data_count<max_data_count)begin
