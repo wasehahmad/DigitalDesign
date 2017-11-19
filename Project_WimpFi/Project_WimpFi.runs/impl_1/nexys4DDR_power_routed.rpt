@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sat Nov 18 21:40:16 2017
+| Date             : Sat Nov 18 22:57:09 2017
 | Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 0.139 |
-| Dynamic (W)              | 0.042 |
+| Dynamic (W)              | 0.041 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.005 |        3 |       --- |             --- |
-| Slice Logic              |     0.013 |     3587 |       --- |             --- |
-|   LUT as Logic           |     0.011 |     1887 |     63400 |            2.98 |
-|   CARRY4                 |     0.002 |      323 |     15850 |            2.04 |
-|   Register               |    <0.001 |      858 |    126800 |            0.68 |
-|   F7/F8 Muxes            |    <0.001 |        6 |     63400 |           <0.01 |
+| Slice Logic              |     0.012 |     3590 |       --- |             --- |
+|   LUT as Logic           |     0.010 |     1890 |     63400 |            2.98 |
+|   CARRY4                 |     0.002 |      320 |     15850 |            2.02 |
+|   Register               |    <0.001 |      848 |    126800 |            0.67 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
+|   F7/F8 Muxes            |    <0.001 |        6 |     63400 |           <0.01 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |       95 |       --- |             --- |
-| Signals                  |     0.012 |     2920 |       --- |             --- |
+|   Others                 |     0.000 |       93 |       --- |             --- |
+| Signals                  |     0.012 |     2944 |       --- |             --- |
 | Block RAM                |     0.003 |      0.5 |       135 |            0.37 |
 | I/O                      |     0.009 |       33 |       210 |           15.71 |
 | Static Power             |     0.097 |          |           |                 |
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.048 |       0.033 |      0.015 |
+| Vccint    |       1.000 |     0.048 |       0.032 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
+| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +141,7 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| nexys4DDR                                      |     0.042 |
+| nexys4DDR                                      |     0.041 |
 |   U_ASYNCH_TX                                  |    <0.001 |
 |     U_BAUD_PULSE                               |    <0.001 |
 |     U_BAUD_RATE                                |    <0.001 |
@@ -161,7 +161,6 @@ Table of Contents
 |   U_RIGHT_PULSER                               |    <0.001 |
 |   U_RRD_SINGLE_PULSE                           |    <0.001 |
 |   U_RXD_MOD                                    |     0.024 |
-|     U_CARDET_PULSE                             |    <0.001 |
 |     U_FCS_VERIFICATION                         |    <0.001 |
 |       U_COUNT_BYTE                             |    <0.001 |
 |     U_MAN_RECEIVER                             |     0.023 |

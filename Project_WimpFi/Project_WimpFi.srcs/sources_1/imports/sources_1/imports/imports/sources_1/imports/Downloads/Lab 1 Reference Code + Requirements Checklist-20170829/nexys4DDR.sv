@@ -97,18 +97,13 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     single_pulser U_XWR_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_rxd_rdy),.d_pulse(XWR));
 
     assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
-    
-    logic [7:0] BRAM_DATA;
-    logic write_source;
+
     //transmitter module                    
     transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(XDATA),.XWR(XWR),.XSEND(XSEND),
                                                         .cardet(cardet),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
-                                                        .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR),.data_bram(BRAM_DATA),.wen_sourc(write_source));       
+                                                        .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
               
-    assign TXD = txd;
-    assign TRANSMITTER_READY = XRDY;
-    assign WRITE_SOURCE = write_source;
-    assign TXEN = txen;
+    
     //=================================================RECEIVER SETUP=================================================
     logic sync_data;
     //synchronize the data by using a flip flop
@@ -129,6 +124,11 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 
     //SYNC TO REALTERM
     asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(RRDY),.data(RDATA),.txd(UART_RXD_OUT),.rdy(uart_txd_rdy)); 
+    
+    assign TXD = sync_data;
+    assign TRANSMITTER_READY = RRDY;
+    assign WRITE_SOURCE = RRD;
+    assign TXEN = cardet;
     
     
     //=================================================DISPLAY SETUP=================================================

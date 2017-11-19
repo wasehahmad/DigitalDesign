@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sat Nov 18 21:38:29 2017
-# Process ID: 15776
+# Start of session at: Sat Nov 18 22:55:24 2017
+# Process ID: 16304
 # Current directory: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15244 
+INFO: Helper process launched with PID 13940 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,7 +23,7 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.262 ; gain = 117.879
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.117 ; gain = 117.660
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -74,8 +74,8 @@ INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/ahmad
 	Parameter DIVAMT bound to: 2000 - type: integer 
 	Parameter DIVBITS bound to: 11 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (6#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-15776-ECE400-9SR2JH2/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (7#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-15776-ECE400-9SR2JH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-16304-ECE400-9SR2JH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (7#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-16304-ECE400-9SR2JH2/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-689] width (9) of port connection 'addra' does not match port width (8) of module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:159]
 INFO: [Synth 8-638] synthesizing module 'rtl_transmitter' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -134,6 +134,7 @@ WARNING: [Synth 8-350] instance 'U_PRE_COUNTER' of module 'bcdcounter' requires 
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:70]
 INFO: [Synth 8-256] done synthesizing module 'txd_transmit_fsm' (14#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'transmitter_module' (15#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:23]
+WARNING: [Synth 8-350] instance 'U_TXD_MOD' of module 'transmitter_module' requires 17 connections, but only 15 given [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:102]
 INFO: [Synth 8-638] synthesizing module 'receiver_module' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:23]
 	Parameter BIT_RATE bound to: 50000 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'man_receiver' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:23]
@@ -268,16 +269,16 @@ INFO: [Synth 8-638] synthesizing module 'sasc_fifo' [C:/Users/ahmadw/Desktop/Des
 	Parameter FIFO_DEPTH bound to: 256 - type: integer 
 	Parameter POINTER_WIDTH bound to: 8 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'sasc_fifo' (26#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:63]
-WARNING: [Synth 8-350] instance 'U_RXD_FIFO' of module 'sasc_fifo' requires 9 connections, but only 8 given [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:60]
+WARNING: [Synth 8-350] instance 'U_RXD_FIFO' of module 'sasc_fifo' requires 9 connections, but only 8 given [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:66]
 INFO: [Synth 8-638] synthesizing module 'rxd_fsm' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:23]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:79]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:129]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:130]
 INFO: [Synth 8-256] done synthesizing module 'rxd_fsm' (27#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:23]
 INFO: [Synth 8-638] synthesizing module 'store_fsm' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:23]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:59]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:61]
 INFO: [Synth 8-256] done synthesizing module 'store_fsm' (28#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'receiver_module' (29#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:23]
-WARNING: [Synth 8-689] width (1) of port connection 'source' does not match port width (8) of module 'receiver_module' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:126]
+WARNING: [Synth 8-689] width (1) of port connection 'source' does not match port width (8) of module 'receiver_module' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:121]
 INFO: [Synth 8-638] synthesizing module 'asynch_transmitter' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter.sv:23]
 	Parameter BAUD bound to: 9600 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized3' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
@@ -350,6 +351,15 @@ WARNING: [Synth 8-3848] Net ACK_SEEN in module/entity nexys4DDR does not have dr
 WARNING: [Synth 8-3848] Net type_2_source in module/entity nexys4DDR does not have driver. [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:67]
 INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (39#1) [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
+WARNING: [Synth 8-3331] design store_fsm has unconnected port write
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[7]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[6]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[5]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[4]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[3]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[2]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[1]
+WARNING: [Synth 8-3331] design store_fsm has unconnected port pkt_type[0]
 WARNING: [Synth 8-3331] design store_fsm has unconnected port read
 WARNING: [Synth 8-3331] design data_shreg has unconnected port sfd_detected
 WARNING: [Synth 8-3331] design sfd_correl has unconnected port corroborating
@@ -377,7 +387,7 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 366.027 ; gain = 159.645
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 365.918 ; gain = 159.461
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -386,9 +396,9 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin U_RXD_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:60]
+WARNING: [Synth 8-3295] tying undriven pin U_RXD_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:66]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 366.027 ; gain = 159.645
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 365.918 ; gain = 159.461
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_gen_0' instantiated as 'U_TXD_MOD/U_TXD_BRAM' [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:159]
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
@@ -396,8 +406,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-15776-ECE400-9SR2JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
-Finished Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-15776-ECE400-9SR2JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-16304-ECE400-9SR2JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Finished Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-16304-ECE400-9SR2JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
 Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 Finished Parsing XDC File [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ahmadw/Desktop/Design/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys4DDR_propImpl.xdc].
@@ -407,23 +417,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 677.008 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 676.754 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_TXD_MOD/U_TXD_BRAM' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
@@ -525,7 +535,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'config_mac_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -538,7 +548,7 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 12    
+	   2 Input     32 Bit       Adders := 11    
 	   3 Input     32 Bit       Adders := 1     
 	  15 Input     32 Bit       Adders := 4     
 	  31 Input     32 Bit       Adders := 1     
@@ -549,7 +559,7 @@ Detailed RTL Component Info :
 	   2 Input     11 Bit       Adders := 3     
 	   2 Input     10 Bit       Adders := 3     
 	   2 Input      9 Bit       Adders := 2     
-	   2 Input      8 Bit       Adders := 9     
+	   2 Input      8 Bit       Adders := 8     
 	   2 Input      7 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 3     
 	   2 Input      5 Bit       Adders := 3     
@@ -571,7 +581,7 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 3     
 	               10 Bit    Registers := 3     
 	                9 Bit    Registers := 4     
-	                8 Bit    Registers := 24    
+	                8 Bit    Registers := 22    
 	                7 Bit    Registers := 2     
 	                6 Bit    Registers := 3     
 	                5 Bit    Registers := 2     
@@ -591,9 +601,8 @@ Detailed RTL Component Info :
 	   2 Input      9 Bit        Muxes := 3     
 	   5 Input      9 Bit        Muxes := 1     
 	  18 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 20    
+	   2 Input      8 Bit        Muxes := 19    
 	   5 Input      8 Bit        Muxes := 5     
-	   4 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
 	  16 Input      7 Bit        Muxes := 1     
 	   7 Input      5 Bit        Muxes := 1     
@@ -612,13 +621,13 @@ Detailed RTL Component Info :
 	   3 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 2     
 	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 86    
+	   2 Input      1 Bit        Muxes := 85    
 	   7 Input      1 Bit        Muxes := 7     
 	   8 Input      1 Bit        Muxes := 1     
 	   5 Input      1 Bit        Muxes := 10    
-	   9 Input      1 Bit        Muxes := 13    
+	   9 Input      1 Bit        Muxes := 15    
 	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 12    
+	   4 Input      1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -1026,22 +1035,16 @@ Detailed RTL Component Info :
 +---Muxes : 
 	  18 Input      9 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 4     
-	   9 Input      1 Bit        Muxes := 6     
+	   9 Input      1 Bit        Muxes := 8     
 Module store_fsm 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-	   4 Input      8 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
 Module receiver_module 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1130,7 +1133,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 677.008 ; gain = 470.625
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -1175,9 +1178,9 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[0]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Parallel Reinference  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 676.754 ; gain = 470.297
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1206,16 +1209,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_UART_RXD/\U_FSM/start_state_reg[1] )
 INFO: [Synth 8-3886] merging instance 'U_UART_RXD/U_FSM/start_state_reg[2]' (FDS) to 'U_UART_RXD/U_FSM/start_state_reg[0]'
 INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[0]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[1]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[2]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[3] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[1] )
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[3]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[4]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[5]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[6]' (FDRE) to 'U_RXD_MOD/U_STORAGE_FSM/data_read_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_STORAGE_FSM/data_read_reg[7] )
 INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[0]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
 INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[1]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
 INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[2]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
@@ -1285,16 +1280,10 @@ WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[2]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[1]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_SFD/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq1_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq2_reg) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/state_reg[3]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/state_reg[2]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[7]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[6]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[5]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[4]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[3]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[2]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[1]) is unused and will be removed from module receiver_module.
-WARNING: [Synth 8-3332] Sequential element (U_STORAGE_FSM/data_read_reg[0]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (RERRCNT_reg[7]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (RERRCNT_reg[6]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (RERRCNT_reg[5]) is unused and will be removed from module receiver_module.
@@ -1330,15 +1319,21 @@ WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[25]) i
 WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[24]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[23]) is unused and will be removed from module nexys4DDR.
 WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[22]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[21]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[20]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[19]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[18]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[17]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[16]) is unused and will be removed from module nexys4DDR.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0] )
 INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]' (FDE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3] )
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 676.754 ; gain = 470.297
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1352,10 +1347,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 677.008 ; gain = 470.625
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 676.754 ; gain = 470.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 770.648 ; gain = 564.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1375,16 +1370,16 @@ INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]' (FDRE
 INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[6]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[6]'
 INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[7]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[7]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 776.414 ; gain = 569.957
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -1401,7 +1396,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1414,7 +1409,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1426,25 +1421,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1463,17 +1458,17 @@ Report Cell Usage:
 +------+--------------+------+
 |1     |blk_mem_gen_0 |     1|
 |2     |BUFG          |     2|
-|3     |CARRY4        |   323|
-|4     |LUT1          |   280|
-|5     |LUT2          |   383|
-|6     |LUT3          |   325|
-|7     |LUT4          |   208|
-|8     |LUT5          |   894|
-|9     |LUT6          |   353|
+|3     |CARRY4        |   320|
+|4     |LUT1          |   279|
+|5     |LUT2          |   378|
+|6     |LUT3          |   335|
+|7     |LUT4          |   217|
+|8     |LUT5          |   882|
+|9     |LUT6          |   370|
 |10    |MUXF7         |     6|
 |11    |RAM64M        |     8|
 |12    |RAM64X1D      |     8|
-|13    |FDRE          |   769|
+|13    |FDRE          |   759|
 |14    |FDSE          |    53|
 |15    |LD            |     1|
 |16    |LDC           |    30|
@@ -1487,9 +1482,9 @@ Report Instance Areas:
 +------+---------------------------+-------------------------------+------+
 |      |Instance                   |Module                         |Cells |
 +------+---------------------------+-------------------------------+------+
-|1     |top                        |                               |  3692|
+|1     |top                        |                               |  3697|
 |2     |  U_ASYNCH_TX              |asynch_transmitter             |    70|
-|3     |    U_BAUD_PULSE           |single_pulser_19               |     2|
+|3     |    U_BAUD_PULSE           |single_pulser_18               |     2|
 |4     |    U_BAUD_RATE            |clkenb__parameterized3         |    50|
 |5     |    U_BIT_COUNTER          |bcdcounter_txd__parameterized2 |    12|
 |6     |    U_FSM                  |asynch_transmitter_fsm         |     6|
@@ -1503,71 +1498,70 @@ Report Instance Areas:
 |14    |  U_DOWN_PULSER            |single_pulser                  |     2|
 |15    |  U_LEFT_DEBOUNCE          |debounce_2                     |    97|
 |16    |  U_LEFT_PULSER            |single_pulser_3                |     4|
-|17    |  U_RIGHT_DEBOUNCE         |debounce_4                     |   103|
+|17    |  U_RIGHT_DEBOUNCE         |debounce_4                     |   102|
 |18    |  U_RIGHT_PULSER           |single_pulser_5                |     3|
 |19    |  U_RRD_SINGLE_PULSE       |single_pulser_6                |     5|
-|20    |  U_RXD_MOD                |receiver_module                |  2437|
-|21    |    U_CARDET_PULSE         |single_pulser_14               |     4|
-|22    |    U_FCS_VERIFICATION     |crc_generator_15               |    35|
-|23    |      U_COUNT_BYTE         |bcdcounter_18                  |    12|
-|24    |    U_MAN_RECEIVER         |man_receiver                   |  2217|
-|25    |      U_ABN_BIT_COUNTER    |bcdcounter__parameterized4     |     4|
-|26    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    13|
-|27    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    38|
-|28    |      U_CORREL_ABN_LOW     |correlator__parameterized2     |    41|
-|29    |      U_CORREL_ONE         |correlator__parameterized0     |    43|
-|30    |      U_CORREL_SFD         |sfd_correl                     |   352|
-|31    |      U_CORREL_ZERO        |correlator                     |    42|
-|32    |      U_DATA_REG           |data_shreg                     |     9|
-|33    |      U_PRE_SHREG          |preamble_detector_shreg        |    13|
-|34    |      U_RECEIVE_FSM        |receive_fsm                    |    19|
-|35    |      U_SAMPLER            |variable_sampler               |  1506|
-|36    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    16|
-|37    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    18|
-|38    |      U_SFD_FSM            |sfd_fsm                        |     6|
-|39    |      U_SFD_SHREG          |sfd_detector_shreg             |    21|
-|40    |      U_STRT_RECEIVE_PULSE |single_pulser_17               |     3|
-|41    |      U_SYNC               |synchronizer                   |    65|
-|42    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
-|43    |    U_RXD_FIFO             |sasc_fifo                      |    79|
-|44    |    U_RXD_FSM              |rxd_fsm                        |    29|
-|45    |    U_STORAGE_FSM          |store_fsm                      |    41|
-|46    |    U_WRITE_PULSE          |single_pulser_16               |    16|
-|47    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    45|
-|48    |  U_TXD_MOD                |transmitter_module             |   485|
-|49    |    U_BIT_PERIOD_CLK       |clkenb__parameterized0         |    32|
-|50    |    U_BRAM_WRITING         |txd_write_fsm                  |    59|
-|51    |    U_FCS_FORMATION        |crc_generator                  |    30|
-|52    |      U_COUNT_BYTE         |bcdcounter                     |    10|
-|53    |    U_MAN_TXD              |rtl_transmitter                |   149|
-|54    |      U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
-|55    |      U_BAUD_2_PULSE       |single_pulser_12               |     3|
-|56    |      U_BAUD_2_RATE        |clkenb__parameterized2         |    28|
-|57    |      U_BAUD_PULSE         |single_pulser_13               |     2|
-|58    |      U_BAUD_RATE          |clkenb__parameterized1         |    32|
-|59    |      U_BIT_COUNTER        |bcdcounter_txd                 |    12|
-|60    |      U_FSM                |transmitter_fsm                |    51|
-|61    |      U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    10|
-|62    |    U_MAN_TXD_RDY_PULSE    |single_pulser_11               |    13|
-|63    |    U_TRANSMIT_FSM         |txd_transmit_fsm               |    78|
-|64    |      U_PRE_COUNTER        |bcdcounter__parameterized0     |     9|
-|65    |    U_TXD_FSM              |txd_fsm                        |    25|
-|66    |  U_UART_RXD               |receiver_top                   |    88|
-|67    |    U_BAUD_CLK             |clkenb                         |    27|
-|68    |    U_FSM                  |receiver_fsm                   |    61|
-|69    |  U_UP_DEBOUNCE            |debounce_7                     |    97|
-|70    |  U_UP_PULSER              |single_pulser_8                |     2|
-|71    |  U_WRITE_PULSER           |single_pulser_9                |     3|
-|72    |  U_XWR_SINGLE_PULSE       |single_pulser_10               |     3|
+|20    |  U_RXD_MOD                |receiver_module                |  2446|
+|21    |    U_FCS_VERIFICATION     |crc_generator_14               |    35|
+|22    |      U_COUNT_BYTE         |bcdcounter_17                  |    12|
+|23    |    U_MAN_RECEIVER         |man_receiver                   |  2261|
+|24    |      U_ABN_BIT_COUNTER    |bcdcounter__parameterized4     |     4|
+|25    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    11|
+|26    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    40|
+|27    |      U_CORREL_ABN_LOW     |correlator__parameterized2     |    45|
+|28    |      U_CORREL_ONE         |correlator__parameterized0     |    50|
+|29    |      U_CORREL_SFD         |sfd_correl                     |   384|
+|30    |      U_CORREL_ZERO        |correlator                     |    46|
+|31    |      U_DATA_REG           |data_shreg                     |     9|
+|32    |      U_PRE_SHREG          |preamble_detector_shreg        |    13|
+|33    |      U_RECEIVE_FSM        |receive_fsm                    |    16|
+|34    |      U_SAMPLER            |variable_sampler               |  1506|
+|35    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    15|
+|36    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    18|
+|37    |      U_SFD_FSM            |sfd_fsm                        |     6|
+|38    |      U_SFD_SHREG          |sfd_detector_shreg             |    21|
+|39    |      U_STRT_RECEIVE_PULSE |single_pulser_16               |     4|
+|40    |      U_SYNC               |synchronizer                   |    65|
+|41    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
+|42    |    U_RXD_FIFO             |sasc_fifo                      |    81|
+|43    |    U_RXD_FSM              |rxd_fsm                        |    32|
+|44    |    U_STORAGE_FSM          |store_fsm                      |     5|
+|45    |    U_WRITE_PULSE          |single_pulser_15               |    16|
+|46    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    45|
+|47    |  U_TXD_MOD                |transmitter_module             |   482|
+|48    |    U_BIT_PERIOD_CLK       |clkenb__parameterized0         |    32|
+|49    |    U_BRAM_WRITING         |txd_write_fsm                  |    58|
+|50    |    U_FCS_FORMATION        |crc_generator                  |    30|
+|51    |      U_COUNT_BYTE         |bcdcounter                     |    10|
+|52    |    U_MAN_TXD              |rtl_transmitter                |   146|
+|53    |      U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
+|54    |      U_BAUD_2_PULSE       |single_pulser_12               |     3|
+|55    |      U_BAUD_2_RATE        |clkenb__parameterized2         |    28|
+|56    |      U_BAUD_PULSE         |single_pulser_13               |     2|
+|57    |      U_BAUD_RATE          |clkenb__parameterized1         |    32|
+|58    |      U_BIT_COUNTER        |bcdcounter_txd                 |    12|
+|59    |      U_FSM                |transmitter_fsm                |    48|
+|60    |      U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    10|
+|61    |    U_MAN_TXD_RDY_PULSE    |single_pulser_11               |    13|
+|62    |    U_TRANSMIT_FSM         |txd_transmit_fsm               |    78|
+|63    |      U_PRE_COUNTER        |bcdcounter__parameterized0     |     9|
+|64    |    U_TXD_FSM              |txd_fsm                        |    26|
+|65    |  U_UART_RXD               |receiver_top                   |    88|
+|66    |    U_BAUD_CLK             |clkenb                         |    27|
+|67    |    U_FSM                  |receiver_fsm                   |    61|
+|68    |  U_UP_DEBOUNCE            |debounce_7                     |    97|
+|69    |  U_UP_PULSER              |single_pulser_8                |     2|
+|70    |  U_WRITE_PULSER           |single_pulser_9                |     3|
+|71    |  U_XWR_SINGLE_PULSE       |single_pulser_10               |     3|
 +------+---------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 531.160
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 157 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 737.543 ; gain = 182.637
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 737.543 ; gain = 531.160
+Synthesis finished with 0 errors, 0 critical warnings and 151 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 776.414 ; gain = 221.633
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 776.414 ; gain = 569.957
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 383 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 380 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1580,8 +1574,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-261 Infos, 195 Warnings, 0 Critical Warnings and 0 Errors encountered.
+253 Infos, 205 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 737.543 ; gain = 497.711
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 737.543 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Nov 18 21:39:07 2017...
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 776.414 ; gain = 536.582
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 776.414 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 18 22:56:03 2017...

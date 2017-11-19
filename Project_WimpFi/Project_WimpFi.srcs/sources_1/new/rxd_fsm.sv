@@ -78,6 +78,7 @@ module rxd_fsm(
         
         unique case (state) 
             IDLE:begin
+                n_rrdy = 0;
                 if(cardet)next=STORE_DEST;
                 else next = IDLE;
             end
@@ -143,6 +144,14 @@ module rxd_fsm(
                     n_rrdy = 1;
                     next = READING;
                 end
+            end
+            
+            IGNORE:begin
+                reset_receiver=1;
+                n_rrdy=0;
+                if(cardet)next = IGNORE;
+                else next = IDLE;
+                
             end
             
             

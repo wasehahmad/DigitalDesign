@@ -27,6 +27,7 @@ module store_fsm(
     input logic cardet,
     input logic [7:0] pkt_type,
     input logic read,
+    input logic fifo_empty,
     output logic done_reading
     );
     
@@ -47,6 +48,7 @@ module store_fsm(
         else begin
             data_written <=n_data_written; 
             state<=next;
+            data_read<=n_data_read;
         end
     end
     
@@ -77,12 +79,12 @@ module store_fsm(
             end
             
             READING:begin
-                if(data_read==data_written-1 && pkt_type != 8'd0)begin
+                if(fifo_empty/*data_read==data_written-1 && pkt_type != "0"*/)begin
                     done_reading = 1;
                     next = IDLE;
                 end
                 else next = READING;
-                if(read)n_data_read = data_read+1;
+                //if(read)n_data_read = data_read+1;
             end
             
         endcase
