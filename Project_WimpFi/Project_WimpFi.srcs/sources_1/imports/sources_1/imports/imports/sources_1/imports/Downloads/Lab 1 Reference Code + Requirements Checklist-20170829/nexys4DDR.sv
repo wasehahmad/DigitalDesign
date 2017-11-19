@@ -45,20 +45,24 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
           output logic        CARDET,
           output logic        WRITE,
           output logic        ERROR,
-          output logic        SFD
+          output logic        TXEN,
+          output logic        TXD,
+          output logic        TRANSMITTER_READY,
+          output logic        WRITE_SOURCE
 //		  output logic        UART_CTS		  
             );
     logic [7:0] reg_0,reg_1,reg_2,reg_3, reg_4;
        
     logic debounced_reset,debounced_up,debounced_down,debounced_left,debounced_right;
     logic left_pusle,right_pusle,up_pusle,down_pusle;
-    logic [7:0] XDATA;
+    logic rrd_pulse;
+    logic [7:0] XDATA,RDATA;
     logic [7:0] src_mac;
     logic [7:0] current_seg;
     logic txen; 
     logic debounced_send,send;
     logic error,txd,write,cardet;
-    logic XWR,XSEND,XRDY;
+    logic XWR,XSEND,XRDY,RRD,RRDY;
     logic type_2_seen,ACK_SEEN;
     logic [7:0] type_2_source;
     logic WATCHDOG_ERROR;
@@ -92,27 +96,39 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //single pulser to pulse the ready signal from the UART receiver
     single_pulser U_XWR_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_rxd_rdy),.d_pulse(XWR));
 
-    assign XSEND = (XDATA ==8'h04 )&& uart_rxd_rdy;//8'h04 is EOT or cntrl-D
+    assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
+    
+    logic [7:0] BRAM_DATA;
+    logic write_source;
     //transmitter module                    
     transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(XDATA),.XWR(XWR),.XSEND(XSEND),
                                                         .cardet(cardet),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
-                                                        .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
+                                                        .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR),.data_bram(BRAM_DATA),.wen_sourc(write_source));       
               
-    
+    assign TXD = txd;
+    assign TRANSMITTER_READY = XRDY;
+    assign WRITE_SOURCE = write_source;
+    assign TXEN = txen;
     //=================================================RECEIVER SETUP=================================================
     logic sync_data;
+    //synchronize the data by using a flip flop
     always_ff @(posedge CLK100MHZ) begin
         if(debounced_reset) sync_data <=0;
         else sync_data <= RXDATA;
     end
     
+    logic uart_txd_rdy;
+    //single pulser to pulse the ready signal from the UART receiver
+    single_pulser U_RRD_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_txd_rdy),.d_pulse(RRD));
+    
     //receiver module
-                                                     
+    receiver_module #(.BIT_RATE(BAUD)) U_RXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.RXD(sync_data),.RRD(RRD),.mac_addr(src_mac),.cardet(cardet),.RDATA(RDATA),.RRDY(RRDY),
+                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ack_seen),.source(source));                                                 
     //pulse the write signal
-    single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(write), .d_pulse(write_pulse));
+    single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(RRD), .d_pulse(rrd_pulse));
 
     //SYNC TO REALTERM
-    asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(!empty),.data(data_fifo),.txd(UART_RXD_OUT),.rdy(read)); 
+    asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(RRDY),.data(RDATA),.txd(UART_RXD_OUT),.rdy(uart_txd_rdy)); 
     
     
     //=================================================DISPLAY SETUP=================================================
@@ -128,10 +144,10 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
 
     
-    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(data_rxd),.q(reg_0));
-    reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_0),.q(reg_1));
-    reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_1),.q(reg_2));
-    reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(write_pulse),.d(reg_2),.q(reg_3));
+    reg_param #(.W(8)) U_D0(.clk(CLK100MHZ),.reset(debounced_reset),.lden(rrd_pulse),.d(RDATA),.q(reg_0));
+    reg_param #(.W(8)) U_D1(.clk(CLK100MHZ),.reset(debounced_reset),.lden(rrd_pulse),.d(reg_0),.q(reg_1));
+    reg_param #(.W(8)) U_D2(.clk(CLK100MHZ),.reset(debounced_reset),.lden(rrd_pulse),.d(reg_1),.q(reg_2));
+    reg_param #(.W(8)) U_D3(.clk(CLK100MHZ),.reset(debounced_reset),.lden(rrd_pulse),.d(reg_2),.q(reg_3));
     //reg_param #(.W(8)) U_SRC_MAC(.clk(CLK100MHZ),.reset(debounced_reset),.lden(up_pulse || down_pulse),.d(src_mac),.q(reg_4));
     
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(debounced_reset),

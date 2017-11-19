@@ -30,7 +30,7 @@ module txd_fsm #(parameter W = 10)(
     input logic done_transmitting,
     input logic CONT_WIND_DONE,//might need to parameterize the widths
     input logic ACK_TIME_DONE,
-    output logic XRDY,
+    output logic txd_fsm_RDY,
     output logic incr_error,
     output logic reset_counters,
     output logic transmit,
@@ -39,7 +39,7 @@ module txd_fsm #(parameter W = 10)(
     
     logic network_was_busy,n_network_was_busy;
     logic n_reset_counters,n_transmit;
-   
+    logic n_RDY;
     
     typedef enum logic[3:0]{
         IDLE = 4'd0, CARDET_WAIT=4'd1,DIFS=4'd2,CONT_WIND=4'd3,NET_IDLE_CHK =4'd4,TRANSMIT = 4'd5,ACK_WAIT =4'd6
@@ -53,8 +53,10 @@ module txd_fsm #(parameter W = 10)(
             network_was_busy <=0;
             reset_counters<=0;
             transmit<=0;
+            txd_fsm_RDY<=0;
         end
         else begin
+            txd_fsm_RDY<=n_RDY;
             transmit<=n_transmit;
             state<=next;
             network_was_busy<=n_network_was_busy;
@@ -67,14 +69,14 @@ module txd_fsm #(parameter W = 10)(
         n_transmit = 0;
         n_reset_counters = 0;
         incr_error = 0;
-        XRDY = 0;
         n_network_was_busy = network_was_busy;
         n_reset_counters = 0;
         reset_addr = 0;
+        n_RDY=0;
         
         unique case(state)
             IDLE:begin
-                XRDY = 1;
+                n_RDY = 1;
                 n_network_was_busy = 0;
                 n_reset_counters = 1;
                 if(done_writing)next = cardet?CARDET_WAIT:NET_IDLE_CHK;

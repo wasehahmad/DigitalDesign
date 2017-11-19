@@ -42,6 +42,8 @@ module txd_module_bench;
     transmitter_module U_TXD_MOD(.clk(clk), .reset(reset), .XDATA(XDATA), .XWR(XWR), .XSEND(XSEND), 
                                  .cardet(cardet),/* .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source)*/ 
                                  .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd));
+                                 
+     assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
     
     logic [111:0] data = "ATADEMOSSISIHT";
                   
@@ -74,15 +76,15 @@ module txd_module_bench;
         XWR = 0;
         @(posedge clk) #1;
         //send the packet
-        XSEND = 1;
+        XDATA =8'h04;
+        XWR = 1;
         @(posedge clk) #1;
-        XSEND = 0;
+        XWR = 0;
         //wait a clock cycle
         @(posedge clk) #1;
         //check_ok("After send is asserted, txen goes high", txen, 1); txen doesnt go high immediately after
-        while(txen==0)begin
-            repeat(100000) @(posedge clk);
-        end
+        while(txen==0)@(posedge clk);
+        while(txen==1)@(posedge clk);
     endtask
     
     //------------------------------------------------------
@@ -109,9 +111,10 @@ module txd_module_bench;
             XWR = 0;
             @(posedge clk) #1;
         end
-        XSEND = 1;
+        XDATA =8'h04;
+        XWR = 1;
         @(posedge clk) #1;
-        XSEND = 0;
+        XWR = 0;
         //wait a clock cycle
         @(posedge clk) #1;
         check_ok("After send is asserted, txen goes high", txen, 1);
@@ -130,9 +133,8 @@ module txd_module_bench;
         cardet = 1;
         repeat(10) @(posedge clk);
         cardet = 0;
-        while(txen==0)begin
-            repeat(100000) @(posedge clk);
-        end
+        while(txen==0)@(posedge clk);
+        while(txen==1)@(posedge clk);
         
     endtask
         
@@ -160,9 +162,10 @@ module txd_module_bench;
             XWR = 0;
             @(posedge clk) #1;
         end
-        XSEND = 1;
+        XDATA =8'h04;
+        XWR = 1;
         @(posedge clk) #1;
-        XSEND = 0;
+        XWR = 0;
         //wait a clock cycle
         @(posedge clk) #1;
         while(txen==0)@(posedge clk);
@@ -204,15 +207,18 @@ module txd_module_bench;
         MAC = "@";
         XDATA = 8'h00;
         XWR = 0;
-        XSEND = 0;
         
         repeat(10) @(posedge clk);
         reset = 0;
         reset_case;
         send_one_byte;
+        repeat(100000)@(posedge clk);
+        $stop;
         send_one_byte;
         wait_for_cardet;
         test_watchdog;
+        MAC="#";
+        send_one_byte;
         $stop;
     end
 endmodule

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =1,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =2,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -35,8 +35,14 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     output logic [7:0] ERRCNT,
     output logic txen,
     output logic txd,
-    output logic WATCHDOG_ERROR
+    output logic WATCHDOG_ERROR,
+    output logic [7:0] data_bram,
+    output logic wen_sourc
     );
+   
+    
+    `define SEND 8'h04
+    
     
     logic[7:0] BRAM_DATA,FCS,BRAM_DATA_IN;
     logic man_txd_ready,man_txd_rdy_pulse;
@@ -45,6 +51,10 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic start_transmitting;
     logic read_en,write_en;//sent from transmit_fsm to bram
     logic done_writing;
+    
+     assign data_bram = BRAM_DATA_IN;
+     assign wen_sourc = done_writing;
+     
     
     logic [6:0] rand_count,curr_rand_count;//1-64
     //==========================RANDOM_NUM_COUNTER===============================================
@@ -108,7 +118,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
                     .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),.reset_addr(restart_addr),
-                    .XRDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting));
+                    .txd_fsm_RDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting));
                     
     
     clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_PERIOD_CLK(.clk(clk),.reset(reset | reset_counters),.enb(bit_done));
@@ -135,7 +145,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     //mux for writing source and writing data
     always_comb begin
-        if(write_source && XRDY && !write_en)begin
+        if(XRDY && !write_en)begin
             bram_addr=9'h01;
             BRAM_DATA_IN = MAC;
         end
@@ -169,9 +179,10 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //==========================WRITE TO BRAM===========================================                               
     //fsm to write to BRAM
     //make sure to check the write_en and write_addr_b signals for timing to ensure correct data is being loaded
-
+    logic write_actual_data;
+    assign write_actual_data = XWR && (XDATA != `SEND);
     
-    txd_write_fsm #(.ADDR_WIDTH(ADDR_WIDTH)) U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XRDY(XRDY),.XWR(XWR),.XSEND(XSEND),
+    txd_write_fsm #(.ADDR_WIDTH(ADDR_WIDTH)) U_BRAM_WRITING(.clk(clk),.reset(reset | WATCHDOG_ERROR),.XRDY(XRDY),.XWR(write_actual_data),.XSEND(XSEND),
                                                             .done_transmitting(restart_addr),.wen(write_en),.w_addr(write_addr_b),.done_writing(done_writing));
     
     

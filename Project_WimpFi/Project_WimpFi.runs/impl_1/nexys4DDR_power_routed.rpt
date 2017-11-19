@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Tue Nov 14 20:22:27 2017
-| Host             : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
+| Date             : Sat Nov 18 21:40:16 2017
+| Host             : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
 | Device           : xc7a100tcsg324-1
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.125 |
-| Dynamic (W)              | 0.028 |
+| Total On-Chip Power (W)  | 0.139 |
+| Dynamic (W)              | 0.042 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -49,19 +49,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.004 |        3 |       --- |             --- |
-| Slice Logic              |     0.011 |     3164 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     1679 |     63400 |            2.65 |
-|   CARRY4                 |     0.002 |      327 |     15850 |            2.06 |
-|   Register               |    <0.001 |      686 |    126800 |            0.54 |
+| Clocks                   |     0.005 |        3 |       --- |             --- |
+| Slice Logic              |     0.013 |     3587 |       --- |             --- |
+|   LUT as Logic           |     0.011 |     1887 |     63400 |            2.98 |
+|   CARRY4                 |     0.002 |      323 |     15850 |            2.04 |
+|   Register               |    <0.001 |      858 |    126800 |            0.68 |
+|   F7/F8 Muxes            |    <0.001 |        6 |     63400 |           <0.01 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes            |    <0.001 |        7 |     63400 |            0.01 |
-|   Others                 |     0.000 |       68 |       --- |             --- |
-| Signals                  |     0.009 |     2698 |       --- |             --- |
-| I/O                      |     0.005 |       38 |       210 |           18.10 |
+|   Others                 |     0.000 |       95 |       --- |             --- |
+| Signals                  |     0.012 |     2920 |       --- |             --- |
+| Block RAM                |     0.003 |      0.5 |       135 |            0.37 |
+| I/O                      |     0.009 |       33 |       210 |           15.71 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.125 |          |           |                 |
+| Total                    |     0.139 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.039 |       0.024 |      0.015 |
+| Vccint    |       1.000 |     0.048 |       0.033 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -137,79 +138,104 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------------+-----------+
-| Name                     | Power (W) |
-+--------------------------+-----------+
-| nexys4DDR                |     0.028 |
-|   U_ASYNCH_TX            |    <0.001 |
-|     U_BAUD_PULSE         |    <0.001 |
-|     U_BAUD_RATE          |    <0.001 |
-|     U_BIT_COUNTER        |    <0.001 |
-|     U_FSM                |    <0.001 |
-|   U_D0                   |    <0.001 |
-|   U_D1                   |    <0.001 |
-|   U_D2                   |    <0.001 |
-|   U_DISPCTL              |    <0.001 |
-|     THR_B_COUNTER        |    <0.001 |
-|     U_CLKENB             |    <0.001 |
-|   U_DOWN_DEBOUNCE        |    <0.001 |
-|   U_DOWN_PULSER          |    <0.001 |
-|   U_FIFO                 |    <0.001 |
-|     mem_reg_0_63_0_2     |    <0.001 |
-|     mem_reg_0_63_3_5     |    <0.001 |
-|     mem_reg_0_63_6_6     |    <0.001 |
-|     mem_reg_0_63_7_7     |    <0.001 |
-|     mem_reg_128_191_0_2  |    <0.001 |
-|     mem_reg_128_191_3_5  |    <0.001 |
-|     mem_reg_128_191_6_6  |    <0.001 |
-|     mem_reg_128_191_7_7  |    <0.001 |
-|     mem_reg_192_255_0_2  |    <0.001 |
-|     mem_reg_192_255_3_5  |    <0.001 |
-|     mem_reg_192_255_6_6  |    <0.001 |
-|     mem_reg_192_255_7_7  |    <0.001 |
-|     mem_reg_64_127_0_2   |    <0.001 |
-|     mem_reg_64_127_3_5   |    <0.001 |
-|     mem_reg_64_127_6_6   |    <0.001 |
-|     mem_reg_64_127_7_7   |    <0.001 |
-|   U_LEFT_DEBOUNCE        |    <0.001 |
-|   U_LEFT_PULSER          |    <0.001 |
-|   U_MAN_RECEIVER         |     0.019 |
-|     U_ABN_BIT_COUNTER    |    <0.001 |
-|     U_BYTE_COUNTER       |    <0.001 |
-|     U_CORREL_ABN_HIGH    |    <0.001 |
-|     U_CORREL_ABN_LOW     |    <0.001 |
-|     U_CORREL_ONE         |    <0.001 |
-|     U_CORREL_SFD         |    <0.001 |
-|     U_CORREL_ZERO        |    <0.001 |
-|     U_DATA_REG           |    <0.001 |
-|     U_PRE_SHREG          |    <0.001 |
-|     U_RECEIVE_FSM        |    <0.001 |
-|     U_SAMPLER            |     0.017 |
-|     U_SAMP_COUNTER       |    <0.001 |
-|     U_SAMP_COUNTER_PRE   |    <0.001 |
-|     U_SFD_FSM            |    <0.001 |
-|     U_SFD_SHREG          |    <0.001 |
-|     U_STRT_RECEIVE_PULSE |    <0.001 |
-|     U_SYNC               |    <0.001 |
-|       U_BIT_RECOG_COUNT  |    <0.001 |
-|   U_READ_PULSER          |    <0.001 |
-|   U_RIGHT_DEBOUNCE       |    <0.001 |
-|   U_RIGHT_PULSER         |    <0.001 |
-|   U_SEND_DEBOUNCE        |    <0.001 |
-|   U_SRC_MAC_FSM          |    <0.001 |
-|   U_TEST                 |    <0.001 |
-|   U_TRANSMITTER          |    <0.001 |
-|     U_2_BIT_COUNTER      |    <0.001 |
-|     U_BAUD_2_PULSE       |    <0.001 |
-|     U_BAUD_2_RATE        |    <0.001 |
-|     U_BAUD_PULSE         |    <0.001 |
-|     U_BAUD_RATE          |    <0.001 |
-|     U_BIT_COUNTER        |    <0.001 |
-|     U_FSM                |    <0.001 |
-|     U_WAIT_BIT_COUNTER   |    <0.001 |
-|   U_UP_DEBOUNCE          |    <0.001 |
-|   U_UP_PULSER            |    <0.001 |
-|   U_WRITE_PULSER         |    <0.001 |
-+--------------------------+-----------+
++------------------------------------------------+-----------+
+| Name                                           | Power (W) |
++------------------------------------------------+-----------+
+| nexys4DDR                                      |     0.042 |
+|   U_ASYNCH_TX                                  |    <0.001 |
+|     U_BAUD_PULSE                               |    <0.001 |
+|     U_BAUD_RATE                                |    <0.001 |
+|     U_BIT_COUNTER                              |    <0.001 |
+|     U_FSM                                      |    <0.001 |
+|   U_D0                                         |    <0.001 |
+|   U_D1                                         |    <0.001 |
+|   U_D2                                         |    <0.001 |
+|   U_DISPCTL                                    |    <0.001 |
+|     THR_B_COUNTER                              |    <0.001 |
+|     U_CLKENB                                   |    <0.001 |
+|   U_DOWN_DEBOUNCE                              |    <0.001 |
+|   U_DOWN_PULSER                                |    <0.001 |
+|   U_LEFT_DEBOUNCE                              |    <0.001 |
+|   U_LEFT_PULSER                                |    <0.001 |
+|   U_RIGHT_DEBOUNCE                             |    <0.001 |
+|   U_RIGHT_PULSER                               |    <0.001 |
+|   U_RRD_SINGLE_PULSE                           |    <0.001 |
+|   U_RXD_MOD                                    |     0.024 |
+|     U_CARDET_PULSE                             |    <0.001 |
+|     U_FCS_VERIFICATION                         |    <0.001 |
+|       U_COUNT_BYTE                             |    <0.001 |
+|     U_MAN_RECEIVER                             |     0.023 |
+|       U_ABN_BIT_COUNTER                        |    <0.001 |
+|       U_BYTE_COUNTER                           |    <0.001 |
+|       U_CORREL_ABN_HIGH                        |    <0.001 |
+|       U_CORREL_ABN_LOW                         |    <0.001 |
+|       U_CORREL_ONE                             |    <0.001 |
+|       U_CORREL_SFD                             |     0.003 |
+|       U_CORREL_ZERO                            |    <0.001 |
+|       U_DATA_REG                               |    <0.001 |
+|       U_PRE_SHREG                              |    <0.001 |
+|       U_RECEIVE_FSM                            |    <0.001 |
+|       U_SAMPLER                                |     0.019 |
+|       U_SAMP_COUNTER                           |    <0.001 |
+|       U_SAMP_COUNTER_PRE                       |    <0.001 |
+|       U_SFD_FSM                                |    <0.001 |
+|       U_SFD_SHREG                              |    <0.001 |
+|       U_STRT_RECEIVE_PULSE                     |    <0.001 |
+|       U_SYNC                                   |    <0.001 |
+|         U_BIT_RECOG_COUNT                      |    <0.001 |
+|     U_RXD_FIFO                                 |    <0.001 |
+|       mem_reg_0_63_0_2                         |    <0.001 |
+|       mem_reg_0_63_3_5                         |    <0.001 |
+|       mem_reg_0_63_6_6                         |    <0.001 |
+|       mem_reg_0_63_7_7                         |    <0.001 |
+|       mem_reg_128_191_0_2                      |    <0.001 |
+|       mem_reg_128_191_3_5                      |    <0.001 |
+|       mem_reg_128_191_6_6                      |    <0.001 |
+|       mem_reg_128_191_7_7                      |    <0.001 |
+|       mem_reg_192_255_0_2                      |    <0.001 |
+|       mem_reg_192_255_3_5                      |    <0.001 |
+|       mem_reg_192_255_6_6                      |    <0.001 |
+|       mem_reg_192_255_7_7                      |    <0.001 |
+|       mem_reg_64_127_0_2                       |    <0.001 |
+|       mem_reg_64_127_3_5                       |    <0.001 |
+|       mem_reg_64_127_6_6                       |    <0.001 |
+|       mem_reg_64_127_7_7                       |    <0.001 |
+|     U_RXD_FSM                                  |    <0.001 |
+|     U_STORAGE_FSM                              |    <0.001 |
+|     U_WRITE_PULSE                              |    <0.001 |
+|   U_SRC_MAC_FSM                                |    <0.001 |
+|   U_TXD_MOD                                    |     0.005 |
+|     U_BIT_PERIOD_CLK                           |    <0.001 |
+|     U_BRAM_WRITING                             |    <0.001 |
+|     U_FCS_FORMATION                            |    <0.001 |
+|       U_COUNT_BYTE                             |    <0.001 |
+|     U_MAN_TXD                                  |    <0.001 |
+|       U_2_BIT_COUNTER                          |    <0.001 |
+|       U_BAUD_2_PULSE                           |    <0.001 |
+|       U_BAUD_2_RATE                            |    <0.001 |
+|       U_BAUD_PULSE                             |    <0.001 |
+|       U_BAUD_RATE                              |    <0.001 |
+|       U_BIT_COUNTER                            |    <0.001 |
+|       U_FSM                                    |    <0.001 |
+|       U_WAIT_BIT_COUNTER                       |    <0.001 |
+|     U_MAN_TXD_RDY_PULSE                        |    <0.001 |
+|     U_TRANSMIT_FSM                             |    <0.001 |
+|       U_PRE_COUNTER                            |    <0.001 |
+|     U_TXD_BRAM                                 |     0.003 |
+|       U0                                       |     0.003 |
+|         inst_blk_mem_gen                       |     0.003 |
+|           gnbram.gnativebmg.native_blk_mem_gen |     0.003 |
+|             valid.cstr                         |     0.003 |
+|               ramloop[0].ram.r                 |     0.003 |
+|                 prim_noinit.ram                |     0.003 |
+|     U_TXD_FSM                                  |    <0.001 |
+|   U_UART_RXD                                   |    <0.001 |
+|     U_BAUD_CLK                                 |    <0.001 |
+|     U_FSM                                      |    <0.001 |
+|   U_UP_DEBOUNCE                                |    <0.001 |
+|   U_UP_PULSER                                  |    <0.001 |
+|   U_WRITE_PULSER                               |    <0.001 |
+|   U_XWR_SINGLE_PULSE                           |    <0.001 |
++------------------------------------------------+-----------+
 
 
