@@ -55,7 +55,7 @@ module txd_module_bench;
     
     //------------------------------------------------------
     
-    task send_one_byte;
+    task send_one_byte_0;
         while(!XRDY)@(posedge clk);
         XDATA = "*";//dest
         @(posedge clk) #1; 
@@ -64,6 +64,40 @@ module txd_module_bench;
         XWR = 0;
         @(posedge clk) #1;
         XDATA = "0";//type
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        @(posedge clk) #1;
+        XDATA = "T";//data
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        @(posedge clk) #1;
+        //send the packet
+        XDATA =8'h04;
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        //wait a clock cycle
+        @(posedge clk) #1;
+        //check_ok("After send is asserted, txen goes high", txen, 1); txen doesnt go high immediately after
+        while(txen==0)@(posedge clk);
+        while(txen==1)@(posedge clk);
+    endtask
+    
+    //------------------------------------------------------
+        
+    task send_one_byte_1;
+        while(!XRDY)@(posedge clk);
+        XDATA = "*";//dest
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        @(posedge clk) #1;
+        XDATA = "1";//type
         @(posedge clk) #1; 
         XWR = 1;
         @(posedge clk) #1;
@@ -197,7 +231,7 @@ module txd_module_bench;
     //When xrdy is high and xwr is asserted, a byte of data is sent to xdata
     task correct_transmission_one_byte;
         $display("===================================Testing Simulation test 2===================================");
-        send_one_byte;
+        send_one_byte_0;
         //check_ok();
     endtask
     
@@ -211,14 +245,16 @@ module txd_module_bench;
         repeat(10) @(posedge clk);
         reset = 0;
         reset_case;
-        send_one_byte;
-        repeat(100000)@(posedge clk);
-        $stop;
-        send_one_byte;
-        wait_for_cardet;
-        test_watchdog;
-        MAC="#";
-        send_one_byte;
+        send_one_byte_0;
+        repeat(1000)@(posedge clk);
+ //       $stop;
+//        send_one_byte_0;
+//        wait_for_cardet;
+//        test_watchdog;
+//        MAC="#";
+        send_one_byte_1;
+        repeat(1000)@(posedge clk);
+        send_one_byte_1;
         $stop;
     end
 endmodule

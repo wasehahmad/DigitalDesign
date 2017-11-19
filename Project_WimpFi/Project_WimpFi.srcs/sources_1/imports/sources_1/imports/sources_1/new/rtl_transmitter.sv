@@ -81,7 +81,7 @@ module rtl_transmitter(
     //==========================================================================
     transmitter_fsm #(.WAIT_BITS(WAIT_BITS)) U_FSM(.clk(clk_100mhz), .reset(reset), .send(send), .data(data), 
                           .count(counter_out), .bit_count(bit_counter_out), .wait_counter(wait_counter_out),
-                          .rdy(rdy), .txd(txd), .txen(txen), .reset_counter(reset_counter),
+                          .last_ready(rdy), .txd(txd), .txen(txen), .reset_counter(reset_counter),
                           .sending(sending), .one_bit_sending(one_bit_sending), .waiting(waiting));
     
     //use bcd counter to keep track of which bit was sent last

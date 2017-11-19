@@ -125,10 +125,10 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //SYNC TO REALTERM
     asynch_transmitter U_ASYNCH_TX(.clk_100mhz(CLK100MHZ),.reset(debounced_reset),.send(RRDY),.data(RDATA),.txd(UART_RXD_OUT),.rdy(uart_txd_rdy)); 
     
-    assign TXD = sync_data;
-    assign TRANSMITTER_READY = RRDY;
-    assign WRITE_SOURCE = RRD;
-    assign TXEN = cardet;
+    assign TXD = txd;
+    assign TRANSMITTER_READY = XRDY;
+    assign WRITE_SOURCE = XWR;
+    assign TXEN = txen;
     
     
     //=================================================DISPLAY SETUP=================================================

@@ -124,6 +124,7 @@ module rxd_fsm(
                 if(!FCS_verified)begin
                     incr_error = 1;
                     next = IDLE;
+                    n_rrdy=0;
                     reset_receiver = 1;
                 end
                 else begin

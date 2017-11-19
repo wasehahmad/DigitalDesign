@@ -31,11 +31,13 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2,ADDR_WIDTH=9)(
     input logic [7:0] BRAM_data,
     output logic [ADDR_WIDTH-1:0] data_count,
     output logic [7:0] man_txd_data,
-    output logic read_en
+    output logic read_en,
+    output logic fcs_sent
     );
     
     logic [ADDR_WIDTH-1:0] n_d_count,n_data;
     logic done_preamble,reset_counter,n_read_en;
+    logic n_fcs_sent;
     
     bcdcounter #(.LAST_VAL(PREAMBLE_SIZE)) U_PRE_COUNTER(.clk(clk),.reset(reset | reset_counter),.enb(man_txd_rdy),.carry(done_preamble));
     
@@ -51,8 +53,10 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2,ADDR_WIDTH=9)(
             data_count<=0;
             man_txd_data<=8'hAA;
             read_en<=0;
+            fcs_sent<=0;
         end
         else begin
+            fcs_sent<=n_fcs_sent;
             state<=next;
             data_count<=n_d_count;
             man_txd_data<=n_data;
@@ -61,6 +65,7 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2,ADDR_WIDTH=9)(
     end
     
     always_comb begin
+        n_fcs_sent = 0;
         next = IDLE;
         n_d_count = data_count;
         n_read_en = 0;
@@ -117,8 +122,11 @@ module txd_transmit_fsm #(parameter PREAMBLE_SIZE = 2,ADDR_WIDTH=9)(
             end
             
             SEND_FCS:begin
+                
                 n_data = FCS;
                 n_read_en = 1;
+                n_d_count = 0;
+                n_fcs_sent = 1;
                 if(man_txd_rdy)begin
                     n_d_count = 0;
                     next = IDLE;

@@ -32,7 +32,7 @@ module transmitter_fsm(
     output logic one_bit_sending,
     output logic waiting,
     output logic reset_counter,
-    output logic rdy,
+    output logic last_ready,
     output logic txen,
     output logic txd
     );
@@ -41,9 +41,9 @@ module transmitter_fsm(
     parameter WAIT_BITS = 2;
     
     logic [3:0] max_count;
-    logic last_ready;
+    //logic last_ready;
     assign max_count = 8;
-
+    logic rdy;
     logic prev_txd;
     
     typedef enum logic[3:0] {

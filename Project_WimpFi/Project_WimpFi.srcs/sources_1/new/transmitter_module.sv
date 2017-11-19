@@ -51,6 +51,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic start_transmitting;
     logic read_en,write_en;//sent from transmit_fsm to bram
     logic done_writing;
+    logic fcs_sent;
     
      assign data_bram = BRAM_DATA_IN;
      assign wen_sourc = done_writing;
@@ -114,7 +115,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
         else if(incr_error)ERRCNT<=ERRCNT+1;
     end
     
-    assign done_transmitting = read_addr_b == write_addr_b;
+    assign done_transmitting = (read_addr_b == write_addr_b) ;//only looks into transmitting from bram
+    
     assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
                     .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),.reset_addr(restart_addr),
@@ -163,7 +165,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     logic [7:0] man_txd_data;
     //manchester transmitter
-    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),.send(start_transmitting & !done_transmitting  ),.data(man_txd_data),
+    rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),
+                                    .send((start_transmitting & !done_transmitting )|| fcs_sent ),.data(man_txd_data),
                                    .txd(txd),.rdy(man_txd_ready),.txen(txen));
    
     single_pulser U_MAN_TXD_RDY_PULSE(.clk(clk), .din(man_txd_ready), .d_pulse(man_txd_rdy_pulse));
@@ -173,7 +176,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //keep a counter which will disable further counting
     //keep a counter for max number of bytes
     //might have to transmit the crc from the receiver
-    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset | WATCHDOG_ERROR),.xData(BRAM_DATA),.newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
+    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset | WATCHDOG_ERROR | XRDY ),.xData(BRAM_DATA),.done_writing(fcs_sent),
+                                .newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
     
                                    
     //==========================WRITE TO BRAM===========================================                               
@@ -191,7 +195,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     txd_transmit_fsm #(.ADDR_WIDTH(ADDR_WIDTH)) U_TRANSMIT_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.start_transmission(start_transmitting),.man_txd_rdy(man_txd_rdy_pulse),
                     .max_data_count(write_addr_b/*the write address will be the last location*/),.FCS(FCS),.pkt_type(pkt_type),.BRAM_data(BRAM_DATA),
-                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en));
+                    .data_count(read_addr_b),.man_txd_data(man_txd_data),.read_en(read_en),.fcs_sent(fcs_sent));
     
     
     

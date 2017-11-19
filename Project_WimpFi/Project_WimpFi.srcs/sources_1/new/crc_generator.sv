@@ -25,6 +25,7 @@ module crc_generator(
     input reset,
     input [7:0] xData,
     input newByte,
+    input done_writing,
     output [7:0] crc_byte
     );
     
@@ -37,7 +38,7 @@ module crc_generator(
     always_ff @(posedge clk)begin
         if(reset) startCount<=0;
         else begin
-            if(newByte)startCount <=1;
+            if(newByte && !done_writing)startCount <=1;
             else if(byteRegistered) startCount <=0;
         end
     end
@@ -55,7 +56,7 @@ module crc_generator(
     always_ff @(posedge clk)begin
         if(reset)shreg = 8'h00;
         else begin
-            if(newByte) begin 
+            if(newByte && !done_writing) begin 
                 shreg<=xData;
             end
             else shreg<= shreg>>1;
