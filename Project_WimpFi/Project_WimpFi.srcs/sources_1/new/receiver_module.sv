@@ -32,6 +32,7 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     output logic [7:0] RERRCNT,//might need to check the actual max err cnt
     output logic type_2_seen,
     output logic ack_seen,
+    output logic SFD,
     output logic [7:0] source
     );
     
@@ -43,7 +44,7 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     logic [7:0] read_addr,write_addr;
     
     //manchester receiver
-    man_receiver #(.BIT_RATE(BIT_RATE))  U_MAN_RECEIVER(.clk(clk), .reset(reset), .rxd(RXD), .cardet(cardet), .data(data_received), .write(data_byte_seen), .error(error));
+    man_receiver #(.BIT_RATE(BIT_RATE))  U_MAN_RECEIVER(.clk(clk), .reset(reset), .rxd(RXD), .cardet(cardet), .data(data_received), .write(data_byte_seen), .error(error),.SFD(SFD));
     
     logic rxd_write_pulse;
     single_pulser U_WRITE_PULSE(.clk(clk),.din(data_byte_seen),.d_pulse(rxd_write_pulse));
@@ -55,17 +56,17 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     logic full,empty;
     logic done_reading;
     logic reset_receiver;
-//    logic fifo_read;
-//    always_ff @(posedge clk)begin
-//        if(reset)fifo_read<=0;
-//        else fifo_read<=RRD;
-        
-//    end
-    //block RAM for RXD
-    //blk_mem_gen_0 U_RXD_BRAM(.clka(clk),.addra(write_addr),.dina(data_received),.wea(rxd_write_pulse),.addrb(read_addr),.clkb(clk),.doutb(RDATA),.enb(RRD));
-    sasc_fifo #(.FIFO_DEPTH(256)) U_RXD_FIFO(.clk(clk),.rst(reset |done_reading | reset_receiver),.din(data_received),.we(rxd_write_pulse && !RRDY),
-                                            .re(RRD),.dout(RDATA),.full(full),.empty(empty));
+    logic write_fifo;
     
+    assign write_fifo = rxd_write_pulse && !RRDY;
+
+    
+    
+    assign no_data = empty;
+    //blk_mem_gen_0 U_RXD_BRAM(.clka(clk),.addra(write_addr),.dina(data_received),.wea(rxd_write_pulse),.addrb(read_addr),.clkb(clk),.doutb(RDATA),.enb(RRD));
+    sasc_fifo #(.FIFO_DEPTH(256)) U_RXD_FIFO(.clk(clk),.rst(reset |done_reading | reset_receiver),.din(data_received),.we(write_fifo),
+                                            .re(RRD),.dout(RDATA),.full(full),.empty(empty));
+
     
     ///////////////////////////////////////////////////////////////////////////CONTROL UNIT
 
@@ -79,7 +80,7 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     
     //FSM for the control unit
     rxd_fsm U_RXD_FSM(.clk(clk),.reset(reset),.byte_seen(rxd_write_pulse),.cardet(cardet),.destination(dest),.mac_addr(mac_addr),.pkt_type(pkt_type),.FCS_verified(fcs_correct),
-                    .all_bytes_read(empty),.reset_receiver(reset_receiver),.RRDY(RRDY),.type_2_seen(type_2_seen),.store_type(store_type),.store_dest(store_dest),
+                    .all_bytes_read(done_reading /*empty*/),.reset_receiver(reset_receiver),.RRDY(RRDY),.type_2_seen(type_2_seen),.store_type(store_type),.store_dest(store_dest),
                     .store_src(store_src),.incr_error(incr_error),.ACK_received(ack_seen));
     
     //flip flop to store data for fsm and transmitter
@@ -101,10 +102,11 @@ module receiver_module #(parameter BIT_RATE=50_000)(
     
     //for the bram counter, only write dest,source,type,and data
     //check type and adjust max of read counter when the data is to be read.e.g. max for type 0 = write_addr, else write_addr-1 to not read the fcs
-    store_fsm U_STORAGE_FSM(.clk(clk),.reset(reset | reset_receiver),.write(rxd_write_pulse),.read(RRD),.cardet(cardet),.pkt_type(pkt_type),.fifo_empty(empty),.done_reading(done_reading));
+    store_fsm U_STORAGE_FSM(.clk(clk),.reset(reset | reset_receiver ),.RRDY(RRDY),.write(rxd_write_pulse),.read(RRD),.cardet(cardet),.pkt_type(pkt_type),
+                            .fifo_empty(empty),.done_reading(done_reading));
     
     //crc generator
-    crc_generator U_FCS_VERIFICATION(.clk(clk),.reset(reset | reset_receiver | RRDY),.xData(data_received),.newByte(rxd_write_pulse),.crc_byte(crc_result));
+    crc_generator U_FCS_VERIFICATION(.clk(clk),.reset(reset | reset_receiver | RRDY),.xData(data_received),.done_writing(0),.newByte(rxd_write_pulse),.crc_byte(crc_result));
     
    
     

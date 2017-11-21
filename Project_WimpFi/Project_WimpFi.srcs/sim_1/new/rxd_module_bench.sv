@@ -210,6 +210,17 @@ module rxd_module_bench;
         send_1;
         send_1; 
     endtask
+    
+    task send_data_byte_01111110;
+        send_0;
+        send_1;
+        send_1;
+        send_1;
+        send_1;
+        send_1;
+        send_1;
+        send_0; 
+    endtask
 
 
 //====================================
@@ -262,6 +273,47 @@ module rxd_module_bench;
         repeat(2)@(posedge clk);
     
     endtask
+    //=================================================================
+    
+    task test_16PRE_1SFD_TYPE_1;
+    
+        $display("===================================Testing Simulation test 3.5===================================");
+    //        reset = 0;
+        repeat(100)@(posedge clk);
+        //assert reset for one clock cycle
+        #1;
+    //        reset = 1;
+        @(posedge clk) #1;
+        reset = 0;
+        rxd = 1; //data will be random  using random generator
+    
+        //send preamble
+        send_preamble_8;
+        @(posedge clk);
+        send_preamble_8;
+        send_sfd;
+        
+        send_data_byte_01000000;//destination @
+        repeat(3)@(posedge clk);
+        send_data_byte_11001100;//source
+        repeat(3)@(posedge clk);
+        
+        send_type_1;//type
+        repeat(3)@(posedge clk);
+        
+        send_data_byte_00001111;//data
+        repeat(3)@(posedge clk);
+        
+        send_data_byte_10101010;//data
+        repeat(3)@(posedge clk);
+        
+        send_data_byte_01111110;//FCS
+        repeat(3)@(posedge clk);
+        
+        send_eof;
+        repeat(2)@(posedge clk);
+    
+    endtask
     
     //=========================================================
     task read_all;
@@ -287,7 +339,11 @@ module rxd_module_bench;
         
         test_16PRE_1SFD_TYPE_0;
         test_16PRE_1SFD_TYPE_0;
+        //read_all;
+        repeat(100) @(posedge clk);
+        test_16PRE_1SFD_TYPE_1;
         read_all;
+        test_16PRE_1SFD_TYPE_1;
         
         //test correct reception of one
         //test sending two packets without reading, second packet should not be put into fifo

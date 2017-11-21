@@ -121,6 +121,7 @@ always_ff @(posedge clk)
 assign empty = (wp == rp) & !gb;
 assign full  = (wp == rp) &  gb;
 
+
 // Guard Bit ...
 always_ff @(posedge clk)
 	if(rst)			gb <=  1'b0;

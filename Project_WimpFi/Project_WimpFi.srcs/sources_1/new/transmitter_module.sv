@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =2,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -37,7 +37,9 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     output logic txd,
     output logic WATCHDOG_ERROR,
     output logic [7:0] data_bram,
-    output logic wen_sourc
+    output logic wen_sourc,
+    output logic [7:0]MAN_DATA,
+    output logic MAN_RDY
     );
    
     
@@ -52,6 +54,10 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic read_en,write_en;//sent from transmit_fsm to bram
     logic done_writing;
     logic fcs_sent;
+    logic [7:0] man_txd_data;
+    
+    assign MAN_DATA = man_txd_data;
+    assign MAN_RDY = man_txd_ready;
     
      assign data_bram = BRAM_DATA_IN;
      assign wen_sourc = done_writing;
@@ -163,7 +169,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic start_pulse;
     single_pulser U_MAN_TXD_START_PULSE(.clk(clk), .din(start_transmitting), .d_pulse(start_pulse));
     
-    logic [7:0] man_txd_data;
+
     //manchester transmitter
     rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),
                                     .send((start_transmitting & !done_transmitting )|| fcs_sent ),.data(man_txd_data),

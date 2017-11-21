@@ -27,6 +27,7 @@ module store_fsm(
     input logic cardet,
     input logic [7:0] pkt_type,
     input logic read,
+    input logic RRDY,
     input logic fifo_empty,
     output logic done_reading
     );
@@ -34,7 +35,7 @@ module store_fsm(
     logic [7:0] data_written,n_data_written,data_read,n_data_read;
     
     typedef enum logic [3:0]{
-        IDLE=4'd1,WRITING = 4'd2,READING=4'd3
+        IDLE=4'd1,WRITING = 4'd2,READING=4'd3,DONE=4'd4
     }states_t;
     
     states_t state,next;
@@ -79,12 +80,17 @@ module store_fsm(
             end
             
             READING:begin
-                if(fifo_empty/*data_read==data_written-1 && pkt_type != "0"*/)begin
+                if(fifo_empty || (data_written==8'd1 && pkt_type != "0"))begin
                     done_reading = 1;
-                    next = IDLE;
+                    next = DONE;
                 end
                 else next = READING;
+                if(read)n_data_written = data_written-1;
                 //if(read)n_data_read = data_read+1;
+            end
+            DONE:begin//needs to be reset
+                done_reading=1;
+                next = RRDY?DONE:IDLE;
             end
             
         endcase

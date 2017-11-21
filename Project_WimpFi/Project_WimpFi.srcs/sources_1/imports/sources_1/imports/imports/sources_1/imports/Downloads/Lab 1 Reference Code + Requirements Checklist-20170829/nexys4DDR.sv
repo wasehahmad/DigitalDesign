@@ -67,6 +67,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     logic [7:0] type_2_source;
     logic WATCHDOG_ERROR;
     logic [7:0] XERRCNT,RERRCNT;
+    logic sfd;
        
     //========================RADIO_LOGIC========================================   
     logic radio_clk;
@@ -74,7 +75,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     assign CFGCLK =  !txen;
     assign CFGDAT = 1;
     assign received_radio = RXDATA;
-    assign CARDET = cardet;
+    assign CARDET = sfd;
     assign WRITE = write;
     assign ERROR = error;
     assign debounced_reset = (debounced_left && debounced_right);
@@ -100,7 +101,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 
     //transmitter module                    
     transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(XDATA),.XWR(XWR),.XSEND(XSEND),
-                                                        .cardet(cardet),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
+                                                        .cardet(/*cardet*/sfd),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
                                                         .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
               
     
@@ -118,7 +119,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     //receiver module
     receiver_module #(.BIT_RATE(BAUD)) U_RXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.RXD(sync_data),.RRD(RRD),.mac_addr(src_mac),.cardet(cardet),.RDATA(RDATA),.RRDY(RRDY),
-                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ack_seen),.source(source));                                                 
+                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ack_seen),.source(source),.SFD(sfd));                                                 
     //pulse the write signal
     single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(RRD), .d_pulse(rrd_pulse));
 
@@ -127,7 +128,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     assign TXD = txd;
     assign TRANSMITTER_READY = XRDY;
-    assign WRITE_SOURCE = XWR;
+    assign WRITE_SOURCE = XSEND;
     assign TXEN = txen;
     
     
@@ -151,7 +152,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //reg_param #(.W(8)) U_SRC_MAC(.clk(CLK100MHZ),.reset(debounced_reset),.lden(up_pulse || down_pulse),.d(src_mac),.q(reg_4));
     
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(debounced_reset),
-                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(reg_2[3:0]),.d5(reg_2[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
+                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(RERRCNT[3:0]),.d5(RERRCNT[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
 
