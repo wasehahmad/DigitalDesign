@@ -38,15 +38,16 @@ module txd_module_bench;
     logic [7:0] XERRCNT;
     logic txen;
     logic txd;
-    logic [7:0] data;
+    logic [7:0] MAN_DATA;
+    logic MAN_RDY;
     
     transmitter_module U_TXD_MOD(.clk(clk), .reset(reset), .XDATA(XDATA), .XWR(XWR), .XSEND(XSEND), 
                                  .cardet(cardet),/* .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source)*/ 
-                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd)/*, .data(data)*/);
+                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd)/*, .MAN_DATA(MAN_DATA), .MAN_RDY(MAN_RDY)*/);
                                  
      assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
      
-     //SHREG 256 * 8 (2048) size.  compare data as it comes out. Needs enable signal
+     //SHREG 256 * 8 (2048) size.  compare data as it comes out. Needs enable signal (single pulsed MAN_RDY)
     
     logic [111:0] data = "ATADEMOSSISIHT";
                   
