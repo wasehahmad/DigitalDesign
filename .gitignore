@@ -20,3 +20,7 @@
 *.reloc
 *.rlx
 *.pb
+*.svtype
+*.type
+*.vdb
+*.xpr
