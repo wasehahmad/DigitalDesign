@@ -31,7 +31,7 @@ module txd_module_bench;
     logic XSEND;
     logic cardet;
 //    logic type_2_seen;
-//    logic ACK_SEEN;
+    logic ACK_SEEN;
 //    logic [7:0] type_2_source;
     logic [7:0] MAC;
     logic XRDY;
@@ -42,8 +42,8 @@ module txd_module_bench;
     logic MAN_RDY;
     
     transmitter_module U_TXD_MOD(.clk(clk), .reset(reset), .XDATA(XDATA), .XWR(XWR), .XSEND(XSEND), 
-                                 .cardet(cardet),/* .type_2_seen(type_2_seen), .ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source)*/ 
-                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd)/*, .MAN_DATA(MAN_DATA), .MAN_RDY(MAN_RDY)*/);
+                                 .cardet(cardet),.ACK_SEEN(ACK_SEEN),/* .type_2_seen(type_2_seen), .type_2_source(type_2_source)*/ 
+                                 .MAC(MAC), .XRDY(XRDY), .ERRCNT(XERRCNT), .txen(txen), .txd(txd), .MAN_DATA(MAN_DATA), .MAN_RDY(MAN_RDY));
                                  
      assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
      
@@ -150,6 +150,38 @@ module txd_module_bench;
             @(posedge clk) #1;
         end
         XDATA =8'h04;
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        //wait a clock cycle
+        @(posedge clk) #1;
+    endtask
+    
+//------------------------------------------------------
+    
+    task send_multiple_bytes_type_2;
+        integer i;
+        while(!XRDY)@(posedge clk);
+        XDATA = "*";//dest
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;
+        @(posedge clk) #1;
+        XDATA = "2";//type
+        @(posedge clk) #1; 
+        XWR = 1;
+        @(posedge clk) #1;
+        XWR = 0;  
+        for(i = 0; i < 14; i++) begin
+            XDATA = data >> (i*8);
+            @(posedge clk) #1; 
+            XWR = 1;
+            @(posedge clk) #1;
+            XWR = 0;
+            @(posedge clk) #1;
+        end
+        XDATA =8'h04;//send
         XWR = 1;
         @(posedge clk) #1;
         XWR = 0;
@@ -291,13 +323,14 @@ module txd_module_bench;
         MAC = "@";
         XDATA = 8'h00;
         XWR = 0;
+        ACK_SEEN = 0;
         
         repeat(10) @(posedge clk);
         reset = 0;
-        reset_case;
-        correct_transmission_one_byte;
-        correct_transmission_multiple_bytes;
-        correct_transmission_mutliple_bytes_with_backoff;
+//        reset_case;
+//        correct_transmission_one_byte;
+//        correct_transmission_multiple_bytes;
+//        correct_transmission_mutliple_bytes_with_backoff;
         repeat(1000)@(posedge clk);
 //        $stop;
 //        send_one_byte_0;
@@ -307,6 +340,11 @@ module txd_module_bench;
 //        send_one_byte_1;
 //        repeat(1000)@(posedge clk);
 //        send_one_byte_1;
+
+        send_multiple_bytes_type_2;
+        while(XRDY)@(posedge clk);
+        ACK_SEEN = 1;
+        while(!XRDY)@(posedge clk);
         $stop;
     end
 endmodule

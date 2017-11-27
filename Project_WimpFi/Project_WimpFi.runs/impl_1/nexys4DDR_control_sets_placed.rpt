@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Nov 21 10:16:44 2017
+| Date         : Sun Nov 26 21:29:33 2017
 | Host         : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file nexys4DDR_control_sets_placed.rpt
 | Design       : nexys4DDR
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    61 |
-| Unused register locations in slices containing registers |   151 |
+| Number of unique control sets                            |    64 |
+| Unused register locations in slices containing registers |   159 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              70 |           36 |
+| No           | No                    | No                     |              69 |           40 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             327 |          114 |
-| Yes          | No                    | No                     |               7 |            2 |
+| No           | Yes                   | No                     |             332 |          116 |
+| Yes          | No                    | No                     |               7 |            3 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             453 |          143 |
+| Yes          | Yes                   | No                     |             465 |          154 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -49,66 +49,69 @@ Table of Contents
 |                          Clock Signal                         |                        Enable Signal                       |                        Set/Reset Signal                        | Slice Load Count | Bel Load Count |
 +---------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+
 |  U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/n_initialized_reg_i_2_n_1 |                                                            |                                                                |                1 |              1 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/E[0]                             | U_TXD_MOD/U_MAN_TXD/U_BAUD_PULSE/SR[0]                         |                3 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_SHREG/corroborating0_out    | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_SHREG/counter[3]_i_1_n_1        |                2 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/bit_count[3]_i_1_n_1                      | U_RIGHT_DEBOUNCE/debounced_reset                               |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_FCS_FORMATION/startCount                       | U_TXD_MOD/U_FCS_FORMATION/U_COUNT_BYTE/Q[3]_i_1__2_n_1         |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/Q_reg[0]_0[0]                    | U_TXD_MOD/U_MAN_TXD/U_2_BIT_COUNTER/Q[3]_i_1__0_n_1            |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/Q_reg[3][0]                      | U_TXD_MOD/U_MAN_TXD/U_WAIT_BIT_COUNTER/Q[3]_i_1_n_1            |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_ASYNCH_TX/U_FSM/E[0]                                     | U_ASYNCH_TX/U_FSM/SR[0]                                        |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/shreg0              | U_RXD_MOD/U_MAN_RECEIVER/U_RECEIVE_FSM/SR[0]                   |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_SHREG/corroborating0_out    | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_SHREG/counter[3]_i_1_n_1        |                1 |              4 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_SRC_MAC_FSM/n_src_mac[2]                                 | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TXD_FSM/n_attempts                             | U_TXD_MOD/U_TRANSMIT_FSM/SR[0]                                 |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/Q_reg[3]_1[0]                    | U_TXD_MOD/U_MAN_TXD/U_WAIT_BIT_COUNTER/Q[3]_i_1__2_n_1         |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/Q_reg[3]_0[0]                    | U_TXD_MOD/U_MAN_TXD/U_2_BIT_COUNTER/Q[3]_i_1__1_n_1            |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/E[0]                             | U_TXD_MOD/U_MAN_TXD/U_FSM/Q_reg[3][0]                          |                2 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_FCS_FORMATION/startCount                       | U_TXD_MOD/U_TXD_FSM/Q_reg[0][0]                                |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_ASYNCH_TX/U_FSM/E[0]                                     | U_ASYNCH_TX/U_FSM/SR[0]                                        |                1 |              4 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/bit_count[3]_i_1_n_1                      | U_RIGHT_DEBOUNCE/debounced_reset                               |                1 |              4 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_SRC_MAC_FSM/n_src_mac[6]                                 | U_RIGHT_DEBOUNCE/debounced_reset                               |                3 |              4 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_FCS_VERIFICATION/startCount                    | U_RXD_MOD/U_FCS_VERIFICATION/U_COUNT_BYTE/Q[3]_i_1__8_n_1      |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_RXD_MOD/U_MAN_RECEIVER/U_BYTE_COUNTER/Q[3]_i_1__3_n_1        |                1 |              4 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/count[4]_i_2_n_1                          | U_RIGHT_DEBOUNCE/debounced_reset                               |                1 |              5 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/count[4]_i_2_n_1                          | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              5 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SAMP_COUNTER/Q[5]_i_1__0_n_1        |                2 |              6 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/U_BIT_RECOG_COUNT/Q[5]_i_1_n_1 |                2 |              6 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SAMP_COUNTER_PRE/Q[5]_i_1__1_n_1    |                2 |              6 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SAMP_COUNTER/Q[5]_i_1__0_n_1        |                2 |              6 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_RXD_MOD/U_MAN_RECEIVER/U_RECEIVE_FSM/SR[0]                   |                2 |              7 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/E[0]                | U_RXD_MOD/U_MAN_RECEIVER/U_STRT_RECEIVE_PULSE/SR[0]            |                2 |              7 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RIGHT_DEBOUNCE/SR[0]                                     |                                                                |                2 |              7 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_FCS_FORMATION/startCount                       | U_TXD_MOD/U_MAN_TXD/U_FSM/x_reg[8][0]                          |                1 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FSM/E[0]                                   | U_RXD_MOD/U_FCS_VERIFICATION/reset0                            |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RRD_SINGLE_PULSE/rp0                                     | U_RXD_MOD/U_STORAGE_FSM/rst0                                   |                3 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RXD_MOD/U_STORAGE_FSM/rst0                                   |                4 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/shreg0              | U_RXD_MOD/U_MAN_RECEIVER/U_SAMP_COUNTER_PRE/SR[0]              |                1 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/shreg0              | U_RXD_MOD/U_MAN_RECEIVER/U_STRT_RECEIVE_PULSE/SR[0]            |                2 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RIGHT_DEBOUNCE/SR[0]                                     |                                                                |                3 |              7 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FSM/E[0]                                   | U_RXD_MOD/U_RXD_FSM/SR[0]                                      |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_WRITE_PULSER/E[0]                                        | U_RIGHT_DEBOUNCE/debounced_reset                               |                4 |              8 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_WRITE_PULSE/E[0]                               | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/data_en                                   | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_FCS_VERIFICATION/startCount                    | U_RXD_MOD/U_FCS_VERIFICATION/reset0                            |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_STORAGE_FSM/__0_n_1                            | U_RXD_MOD/U_FCS_VERIFICATION/reset1                            |                3 |              8 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_WRITE_PULSE/dest_reg[0][0]                     | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_FCS_VERIFICATION/RERRCNT_reg[7]                | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/shreg_reg[7][0]                  | U_TXD_MOD/U_MAN_TXD/U_FSM/x_reg[8][0]                          |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/U_PRE_COUNTER/E[0]                | U_RIGHT_DEBOUNCE/reset02_out                                   |                2 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/E[0]                              | U_RIGHT_DEBOUNCE/debounced_reset                               |                1 |              8 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/w_addr0                          | U_TXD_MOD/U_TXD_FSM/w_addr_reg[0]                              |                3 |              9 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/n_d_count                         | U_RIGHT_DEBOUNCE/reset02_out                                   |                4 |              9 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD_RDY_PULSE/man_txd_rdy_pulse            | U_TXD_MOD/U_MAN_TXD/U_FSM/continuous_frames_sent_reg[9][0]     |                2 |             10 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_UART_RXD/U_FSM/SR[0]                                         |                5 |             11 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_TXD_MOD/U_MAN_TXD/U_FSM/q_reg[9][0]                          |                4 |             11 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_STORAGE_FSM/__0_n_1                            | U_RXD_MOD/U_RXD_FSM/reset1                                     |                3 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_UART_RXD/U_FSM/data_en                                   | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RRD_SINGLE_PULSE/rp0                                     | U_RXD_MOD/U_STORAGE_FSM/wp_reg[7]                              |                3 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_FCS_FORMATION/startCount                       | U_TXD_MOD/U_TXD_FSM/x_reg[8][0]                                |                1 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_FCS_VERIFICATION/startCount                    | U_RXD_MOD/U_RXD_FSM/SR[0]                                      |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TXD_FSM/E[0]                                   | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TXD_FSM/shreg_reg[7][0]                        | U_TXD_MOD/U_TXD_FSM/x_reg[8][0]                                |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/U_PRE_COUNTER/E[0]                | U_TXD_MOD/U_TRANSMIT_FSM/SR[0]                                 |                3 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/E[0]                              | U_RIGHT_DEBOUNCE/debounced_reset                               |                2 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/pkt_type_reg[0][0]                | U_RIGHT_DEBOUNCE/debounced_reset                               |                1 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FSM/RERRCNT_reg[7]                         | U_RIGHT_DEBOUNCE/debounced_reset                               |                3 |              8 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_TRANSMIT_FSM/n_d_count                         | U_TXD_MOD/U_TRANSMIT_FSM/SR[0]                                 |                5 |              9 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD/U_FSM/w_addr_reg[8]                    | U_TXD_MOD/U_TXD_FSM/w_addr_reg[0][0]                           |                3 |              9 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RXD_MOD/U_STORAGE_FSM/wp_reg[7]                              |                4 |              9 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_MAN_TXD_RDY_PULSE/man_txd_rdy_pulse            | U_TXD_MOD/U_MAN_TXD/U_FSM/continuous_frames_sent_reg[0][0]     |                3 |             10 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_TXD_MOD/U_MAN_TXD/U_FSM/enb_reg_0[0]                         |                3 |             11 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_TXD_MOD/U_BIT_PERIOD_CLK/E[0]                            | U_RIGHT_DEBOUNCE/SR[0]                                         |                3 |             11 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/SR[0]                                         |                4 |             12 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_192_255_0_2_i_1_n_1           |                                                                |                3 |             12 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_64_127_0_2_i_1_n_1            |                                                                |                3 |             12 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_128_191_0_2_i_1_n_1           |                                                                |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_UART_RXD/U_FSM/SR[0]                                         |                4 |             11 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_0_63_0_2_i_1_n_1              |                                                                |                3 |             12 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_TXD_MOD/U_MAN_TXD/U_FSM/SR[0]                                |                4 |             12 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_ASYNCH_TX/U_FSM/q_reg[0][0]                                  |                4 |             15 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/SS[0]                                         |                5 |             16 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ZERO/reset04_out             |                4 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_128_191_0_2_i_1_n_1           |                                                                |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_192_255_0_2_i_1_n_1           |                                                                |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/SR[0]                                         |                4 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_RXD_FIFO/mem_reg_64_127_0_2_i_1_n_1            |                                                                |                3 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_TXD_MOD/U_MAN_TXD/U_FSM/enb_reg[0]                           |                4 |             12 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_ASYNCH_TX/U_FSM/q_reg[0][0]                                  |                3 |             15 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/SS[0]                                         |                6 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ONE/reset04_out              |                5 |             16 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_FSM/SR[0]                       |                5 |             16 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_FSM/SS[0]                       |                5 |             16 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_WRITE_PULSER/E[0]                                        | U_RIGHT_DEBOUNCE/debounced_reset                               |                4 |             16 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/reset02_out                                   |               10 |             17 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_UP_DEBOUNCE/count_reg[26]_i_1_n_1                            |                6 |             27 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/count_reg[26]_i_1__2_n_1                      |                6 |             27 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_LEFT_DEBOUNCE/count_reg[26]_i_1__1_n_1                       |                7 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RXD_MOD/U_MAN_RECEIVER/U_SFD_FSM/SS[0]                       |                6 |             16 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_TXD_MOD/U_TRANSMIT_FSM/SR[0]                                 |               13 |             20 |
 |  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_DOWN_DEBOUNCE/count_reg[26]_i_1__0_n_1                       |                6 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_LEFT_DEBOUNCE/count_reg[26]_i_1__1_n_1                       |                6 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/count_reg[26]_i_1__2_n_1                      |                6 |             27 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_UP_DEBOUNCE/count_reg[26]_i_1_n_1                            |                6 |             27 |
 |  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/accumulated[31]_i_1_n_1 | U_RIGHT_DEBOUNCE/debounced_reset                               |                9 |             29 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/q[0]_i_1__4_n_1             |                8 |             32 |
-|  n_0_1483_BUFG                                                |                                                            | U_RIGHT_DEBOUNCE/debounced_reset                               |               17 |             35 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/debounced_reset                               |               29 |             66 |
-|  CLK100MHZ_IBUF_BUFG                                          |                                                            |                                                                |               35 |             69 |
-|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/debounced_reset                               |               47 |            128 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/q_reg[0]                                      |                8 |             32 |
+|  n_0_1493_BUFG                                                |                                                            | U_RIGHT_DEBOUNCE/debounced_reset                               |               18 |             36 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            | U_RIGHT_DEBOUNCE/debounced_reset                               |               31 |             66 |
+|  CLK100MHZ_IBUF_BUFG                                          |                                                            |                                                                |               39 |             68 |
+|  CLK100MHZ_IBUF_BUFG                                          | U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/Q_reg[5]                | U_RIGHT_DEBOUNCE/debounced_reset                               |               45 |            128 |
 +---------------------------------------------------------------+------------------------------------------------------------+----------------------------------------------------------------+------------------+----------------+
 
 

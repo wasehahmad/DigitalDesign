@@ -55,6 +55,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic done_writing;
     logic fcs_sent;
     logic [7:0] man_txd_data;
+    logic new_attempt;
     
     assign MAN_DATA = man_txd_data;
     assign MAN_RDY = man_txd_ready;
@@ -87,12 +88,18 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
        end
     end
     
-    //===========================STORE_PKT_TYPE================================================
-    logic [7:0] pkt_type;
+    //===========================STORE_PKT_TYPE AND DEST================================================
+    logic [7:0] pkt_type,dest;
     always_ff @(posedge clk)begin
-        if(reset) pkt_type = 8'd0;
+        if(reset)begin
+            pkt_type = 8'd0;
+            dest = 8'd0;
+        end
         else if(read_addr_b ==9'd2/*The location of the type*/)begin
             pkt_type = BRAM_DATA;
+        end
+        else if(read_addr_b ==9'd1)begin
+            dest = BRAM_DATA;
         end
     end
     
@@ -125,8 +132,9 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
-                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),.reset_addr(restart_addr),
-                    .txd_fsm_RDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting));
+                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
+                    .reset_addr(restart_addr),.pkt_type(pkt_type),.ACK_received(ACK_SEEN),.destination(dest),
+                    .txd_fsm_RDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting),.new_attempt(new_attempt));
                     
     
     clkenb #(.DIVFREQ(BIT_RATE)) U_BIT_PERIOD_CLK(.clk(clk),.reset(reset | reset_counters),.enb(bit_done));
@@ -182,7 +190,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //keep a counter which will disable further counting
     //keep a counter for max number of bytes
     //might have to transmit the crc from the receiver
-    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset | WATCHDOG_ERROR | XRDY ),.xData(BRAM_DATA),.done_writing(fcs_sent),
+    crc_generator U_FCS_FORMATION(.clk(clk),.reset(reset | WATCHDOG_ERROR | XRDY | new_attempt ),.xData(BRAM_DATA),.done_writing(fcs_sent),
                                 .newByte(read_en && man_txd_rdy_pulse),.crc_byte(FCS));
     
                                    

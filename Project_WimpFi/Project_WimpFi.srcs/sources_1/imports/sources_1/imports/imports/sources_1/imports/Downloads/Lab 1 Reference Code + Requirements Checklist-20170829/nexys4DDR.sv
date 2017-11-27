@@ -44,7 +44,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
 		  output logic        received_radio,
           output logic        CARDET,
           output logic        WRITE,
-          output logic        ERROR,
+          output logic        ACK,
           output logic        TXEN,
           output logic        TXD,
           output logic        TRANSMITTER_READY,
@@ -77,7 +77,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     assign received_radio = RXDATA;
     assign CARDET = sfd;
     assign WRITE = write;
-    assign ERROR = error;
+    assign ACK = ACK_SEEN;
     assign debounced_reset = (debounced_left && debounced_right);
     //=========================================================================== 
 
@@ -119,7 +119,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     //receiver module
     receiver_module #(.BIT_RATE(BAUD)) U_RXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.RXD(sync_data),.RRD(RRD),.mac_addr(src_mac),.cardet(cardet),.RDATA(RDATA),.RRDY(RRDY),
-                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ack_seen),.source(source),.SFD(sfd));                                                 
+                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ACK_SEEN),.source(source),.SFD(sfd));                                                 
     //pulse the write signal
     single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(RRD), .d_pulse(rrd_pulse));
 
@@ -152,7 +152,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //reg_param #(.W(8)) U_SRC_MAC(.clk(CLK100MHZ),.reset(debounced_reset),.lden(up_pulse || down_pulse),.d(src_mac),.q(reg_4));
     
     dispctl U_DISPCTL(.clk(CLK100MHZ),.reset(debounced_reset),
-                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(reg_1[3:0]),.d3(reg_1[7:4]),.d4(RERRCNT[3:0]),.d5(RERRCNT[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
+                    .d0(reg_0[3:0]),.d1(reg_0[7:4]),.d2(XERRCNT[3:0]),.d3(XERRCNT[7:4]),.d4(RERRCNT[3:0]),.d5(RERRCNT[7:4]),.d6(src_mac[3:0]),.d7(src_mac[7:4]),
                     .dp0(1),.dp1(1),.dp2(1),.dp3(1),.dp4(1),.dp5(1),.dp6(1),.dp7(1),
                     .seg(SEGS),.dp(DP),.an(AN));
 

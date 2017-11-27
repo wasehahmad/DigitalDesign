@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module txd_fsm #(parameter W = 10)(
+module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+1)(
     input logic clk,
     input logic reset,
     input logic network_busy,
@@ -30,16 +30,21 @@ module txd_fsm #(parameter W = 10)(
     input logic done_transmitting,
     input logic CONT_WIND_DONE,//might need to parameterize the widths
     input logic ACK_TIME_DONE,
+    input logic ACK_received,
+    input logic [7:0]pkt_type,
+    input logic [7:0]destination,
     output logic txd_fsm_RDY,
     output logic incr_error,
     output logic reset_counters,
     output logic transmit,
-    output logic reset_addr
+    output logic reset_addr,
+    output logic new_attempt
     );
     
     logic network_was_busy,n_network_was_busy;
     logic n_reset_counters,n_transmit;
     logic n_RDY;
+    logic [ATT_W-1:0] attempts,n_attempts;
     
     typedef enum logic[3:0]{
         IDLE = 4'd0, CARDET_WAIT=4'd1,DIFS=4'd2,CONT_WIND=4'd3,NET_IDLE_CHK =4'd4,TRANSMIT = 4'd5,ACK_WAIT =4'd6
@@ -54,8 +59,10 @@ module txd_fsm #(parameter W = 10)(
             reset_counters<=0;
             transmit<=0;
             txd_fsm_RDY<=0;
+            attempts<=0;
         end
         else begin
+            attempts <=n_attempts;
             txd_fsm_RDY<=n_RDY;
             transmit<=n_transmit;
             state<=next;
@@ -66,6 +73,7 @@ module txd_fsm #(parameter W = 10)(
     
     
     always_comb begin
+        n_attempts = attempts;
         n_transmit = 0;
         n_reset_counters = 0;
         incr_error = 0;
@@ -73,12 +81,14 @@ module txd_fsm #(parameter W = 10)(
         n_reset_counters = 0;
         reset_addr = 0;
         n_RDY=0;
+        new_attempt = 0;
         
         unique case(state)
             IDLE:begin
                 n_RDY = 1;
                 n_network_was_busy = 0;
                 n_reset_counters = 1;
+                n_attempts = 0;
                 if(done_writing)next = cardet?CARDET_WAIT:NET_IDLE_CHK;
                 else next  = IDLE;
             end
@@ -91,7 +101,7 @@ module txd_fsm #(parameter W = 10)(
             
             NET_IDLE_CHK:begin 
                 if(network_busy)begin//if txen is high on the network or something similar
-                    n_network_was_busy = 1;
+                    n_network_was_busy = 1;//need to reset when transmitting
                     n_reset_counters=1;
                     next =NET_IDLE_CHK;
                 end
@@ -109,14 +119,43 @@ module txd_fsm #(parameter W = 10)(
             
             TRANSMIT:begin
                 if(done_transmitting)begin
-                    next = IDLE;
+                    
                     n_transmit=0;
-                    reset_addr = 1;/////////////////////////////Will need to only reset write signal after the ACK is received
+                    n_attempts = attempts+1;
+                    if(pkt_type == "2" && destination != "*")begin//dont try to wait for ack if broadcast data
+                        next = ACK_WAIT;
+                        n_reset_counters = 1;
+                    end
+                    else begin
+                        reset_addr = 1;/////////////////////////////Will need to only reset write signal after the ACK is received
+                        next = IDLE;
+                    end
                 end
                 else begin 
+                    n_network_was_busy = 0;
                     n_transmit = 1;
                     next = TRANSMIT;
                 end
+            end
+            
+            ACK_WAIT:begin
+                if(!ACK_received && ACK_TIME_DONE)begin
+                    if(attempts==MAX_ATTEMPTS)begin
+                        next = IDLE;
+                        reset_addr = 1;
+                        incr_error = 1;
+                    end
+                    else begin
+                    next = CARDET_WAIT;//it will reset counters there
+                    new_attempt = 1;
+                end
+                end
+                else if(ACK_received)begin
+                    next = IDLE;
+                    reset_addr = 1;
+                end  
+                else next = ACK_WAIT;   
+            
             end
             
             

@@ -72,7 +72,7 @@ set_property -dict { PACKAGE_PIN D14   IOSTANDARD LVCMOS33 } [get_ports { receiv
 set_property src_info {type:XDC file:1 line:109 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN F16   IOSTANDARD LVCMOS33 } [get_ports { CARDET }]; #IO_L14N_T2_SRCC_15 Sch=jb[2]
 set_property src_info {type:XDC file:1 line:110 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { ERROR }]; #IO_L13N_T2_MRCC_15 Sch=jb[3]
+set_property -dict { PACKAGE_PIN G16   IOSTANDARD LVCMOS33 } [get_ports { ACK }]; #IO_L13N_T2_MRCC_15 Sch=jb[3]
 set_property src_info {type:XDC file:1 line:111 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN H14   IOSTANDARD LVCMOS33 } [get_ports { WRITE }]; #IO_L15P_T2_DQS_15 Sch=jb[4]
 set_property src_info {type:XDC file:1 line:112 export:INPUT save:INPUT read:READ} [current_design]
