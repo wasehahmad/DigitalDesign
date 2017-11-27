@@ -92,14 +92,16 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic [7:0] pkt_type,dest;
     always_ff @(posedge clk)begin
         if(reset)begin
-            pkt_type = 8'd0;
-            dest = 8'd0;
+            pkt_type <= 8'd0;
+            dest <= 8'd0;
         end
-        else if(read_addr_b ==9'd2/*The location of the type*/)begin
-            pkt_type = BRAM_DATA;
-        end
-        else if(read_addr_b ==9'd1)begin
-            dest = BRAM_DATA;
+        else begin
+//            if(read_addr_b ==9'd2/*The location of the type*/)begin
+//                pkt_type <= BRAM_DATA;
+//            end
+            dest <= (read_addr_b == 9'd0)?BRAM_DATA:dest;
+            pkt_type <= (read_addr_b == 9'd2)?BRAM_DATA:pkt_type;
+
         end
     end
     

@@ -343,7 +343,7 @@ module txd_module_bench;
 
         send_multiple_bytes_type_2;
         while(XRDY)@(posedge clk);
-        ACK_SEEN = 1;
+        //ACK_SEEN = 1;
         while(!XRDY)@(posedge clk);
         $stop;
     end
