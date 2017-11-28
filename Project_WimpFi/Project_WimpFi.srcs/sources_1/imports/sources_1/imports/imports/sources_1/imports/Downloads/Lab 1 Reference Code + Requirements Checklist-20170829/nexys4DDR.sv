@@ -56,18 +56,19 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     logic debounced_reset,debounced_up,debounced_down,debounced_left,debounced_right;
     logic left_pusle,right_pusle,up_pusle,down_pusle;
     logic rrd_pulse;
-    logic [7:0] XDATA,RDATA;
+    logic [7:0] XDATA,RDATA,XDATA_PSEUDO,TXD_DATA;
     logic [7:0] src_mac;
     logic [7:0] current_seg;
     logic txen; 
     logic debounced_send,send;
     logic error,txd,write,cardet;
-    logic XWR,XSEND,XRDY,RRD,RRDY;
+    logic XWR,XSEND,XRDY,RRD,RRDY,XWR_PSEUDO,TXD_WR;
     logic type_2_seen,ACK_SEEN;
     logic [7:0] type_2_source;
     logic WATCHDOG_ERROR;
     logic [7:0] XERRCNT,RERRCNT;
     logic sfd;
+    logic writing_type_3;
        
     //========================RADIO_LOGIC========================================   
     logic radio_clk;
@@ -88,6 +89,12 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     debounce U_DOWN_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTND), .button_out(debounced_down));
     debounce U_LEFT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNL), .button_out(debounced_left));
     debounce U_RIGHT_DEBOUNCE(.clk(CLK100MHZ), .button_in(BTNR), .button_out(debounced_right));
+    //=================================================ACK INTERFACE SETUP=================================================
+    
+    ack_interface U_ACK_INTERFACE(.clk(CLK100MHZ),.reset(debounced_reset),.send_to(type_2_source),.type_2_received(type_2_seen),.cardet(sfd),.data_out(XDATA_PSEUDO),
+                                .write_type_3(XWR_PSEUDO),.writing_type_3(writing_type_3));
+    
+    
     
     //=================================================TRANSMITTER SETUP=================================================
     //asynch receiver
@@ -97,10 +104,13 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     //single pulser to pulse the ready signal from the UART receiver
     single_pulser U_XWR_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_rxd_rdy),.d_pulse(XWR));
 
-    assign XSEND = (XDATA ==8'h04 )&& XWR;//8'h04 is EOT or cntrl-D
-
+    //signals from either the UART or type 3 received
+    assign XSEND = (XDATA ==8'h04 || (writing_type_3 && XDATA_PSEUDO == 8'h04)) && (XWR || (XWR_PSEUDO && writing_type_3));//8'h04 is EOT or cntrl-D
+    assign TXD_WR = writing_type_3?XWR_PSEUDO:XWR;//if writing type 3, use the clone otherwise use the 
+    assign TXD_DATA = writing_type_3?XDATA_PSEUDO:XDATA;//if writing type 3, use the clone otherwise use the 
+    
     //transmitter module                    
-    transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(XDATA),.XWR(XWR),.XSEND(XSEND),
+    transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(TXD_DATA),.XWR(TXD_WR),.XSEND(XSEND),
                                                         .cardet(/*cardet*/sfd),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
                                                         .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
               
@@ -119,7 +129,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     //receiver module
     receiver_module #(.BIT_RATE(BAUD)) U_RXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.RXD(sync_data),.RRD(RRD),.mac_addr(src_mac),.cardet(cardet),.RDATA(RDATA),.RRDY(RRDY),
-                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ACK_SEEN),.source(source),.SFD(sfd));                                                 
+                            .RERRCNT(RERRCNT),.type_2_seen(type_2_seen),.ack_seen(ACK_SEEN),.source(type_2_source),.SFD(sfd));                                                 
     //pulse the write signal
     single_pulser U_WRITE_PULSER (.clk(CLK100MHZ), .din(RRD), .d_pulse(rrd_pulse));
 

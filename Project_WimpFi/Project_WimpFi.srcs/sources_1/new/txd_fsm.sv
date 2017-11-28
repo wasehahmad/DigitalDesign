@@ -31,6 +31,7 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
     input logic CONT_WIND_DONE,//might need to parameterize the widths
     input logic ACK_TIME_DONE,
     input logic ACK_received,
+    input logic SIFS_COUNT_DONE,
     input logic [7:0]pkt_type,
     input logic [7:0]destination,
     output logic txd_fsm_RDY,
@@ -47,7 +48,7 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
     logic [ATT_W-1:0] attempts,n_attempts;
     
     typedef enum logic[3:0]{
-        IDLE = 4'd0, CARDET_WAIT=4'd1,DIFS=4'd2,CONT_WIND=4'd3,NET_IDLE_CHK =4'd4,TRANSMIT = 4'd5,ACK_WAIT =4'd6
+        IDLE = 4'd0, CARDET_WAIT=4'd1,DIFS=4'd2,CONT_WIND=4'd3,NET_IDLE_CHK =4'd4,TRANSMIT = 4'd5,ACK_WAIT =4'd6,TYPE_3=4'd7
     }states_t;
     
     states_t state,next;
@@ -89,8 +90,19 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
                 n_network_was_busy = 0;
                 n_reset_counters = 1;
                 n_attempts = 0;
-                if(done_writing)next = cardet?CARDET_WAIT:NET_IDLE_CHK;
+                if(done_writing)begin
+                    if(pkt_type == "3") next = TYPE_3;
+                    else next = cardet?CARDET_WAIT:NET_IDLE_CHK;
+                end
                 else next  = IDLE;
+            end
+            
+            TYPE_3:begin
+                if(SIFS_COUNT_DONE)begin
+                    n_reset_counters = 1;
+                    next = TRANSMIT;
+                end
+                else next = TYPE_3;
             end
             
             CARDET_WAIT:begin//wait until cardet is done

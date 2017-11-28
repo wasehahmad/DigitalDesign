@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 1,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
+module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =80,SLOT_TIME = 8,ACK_TIMEOUT=256,SIFS=40,MAX_FRAMES = 510,ADDR_WIDTH =9)(
     input logic clk,
     input logic reset,
     input logic [7:0] XDATA,
@@ -56,6 +56,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic fcs_sent;
     logic [7:0] man_txd_data;
     logic new_attempt;
+    logic [ADDR_WIDTH-1:0] bram_addr;
     
     assign MAN_DATA = man_txd_data;
     assign MAN_RDY = man_txd_ready;
@@ -96,11 +97,8 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
             dest <= 8'd0;
         end
         else begin
-//            if(read_addr_b ==9'd2/*The location of the type*/)begin
-//                pkt_type <= BRAM_DATA;
-//            end
             dest <= (read_addr_b == 9'd0)?BRAM_DATA:dest;
-            pkt_type <= (read_addr_b == 9'd2)?BRAM_DATA:pkt_type;
+            pkt_type <= (bram_addr == 9'd2)?BRAM_DATA:pkt_type;
 
         end
     end
@@ -134,7 +132,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     assign XRDY = txd_fsm_rdy && txen==0;
     txd_fsm U_TXD_FSM(.clk(clk),.reset(reset | WATCHDOG_ERROR),.network_busy(cardet/*might change this*/),.cardet(cardet),.done_writing(done_writing),.done_transmitting(done_transmitting),
-                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),
+                    .DIFS_DONE(DIFS_DONE),.CONT_WIND_DONE(CONT_WIND_DONE),.ACK_TIME_DONE(ACK_TIME_DONE),.SIFS_COUNT_DONE(SIFS_DONE),
                     .reset_addr(restart_addr),.pkt_type(pkt_type),.ACK_received(ACK_SEEN),.destination(dest),
                     .txd_fsm_RDY(txd_fsm_rdy),.incr_error(incr_error),.reset_counters(reset_counters),.transmit(start_transmitting),.new_attempt(new_attempt));
                     
@@ -159,7 +157,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
 
     //block ram with different ports to write.to be able to write to both addr location at once
     //addr_b comes from the transmit_fsm data_count
-    logic [ADDR_WIDTH-1:0] bram_addr;
+
     
     //mux for writing source and writing data
     always_comb begin
