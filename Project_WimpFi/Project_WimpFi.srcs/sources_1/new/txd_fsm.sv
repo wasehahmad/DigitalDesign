@@ -107,17 +107,18 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
             
             CARDET_WAIT:begin//wait until cardet is done
                 n_reset_counters = 1;
-                if(cardet)next = CARDET_WAIT;
-                else next = NET_IDLE_CHK;
+//                if(cardet)next = CARDET_WAIT;
+//                else next = NET_IDLE_CHK;
+                next = NET_IDLE_CHK;
             end
             
             NET_IDLE_CHK:begin 
                 if(network_busy)begin//if txen is high on the network or something similar
                     n_network_was_busy = 1;//need to reset when transmitting
-                    n_reset_counters=1;
-                    next =NET_IDLE_CHK;
+                    //n_reset_counters=1;
+                    //next =NET_IDLE_CHK;
                 end
-                else if(DIFS_DONE)begin
+      /* else*/ if(DIFS_DONE)begin
                     n_reset_counters = 1;
                     next = network_was_busy?CONT_WIND:TRANSMIT;
                 end
@@ -125,7 +126,10 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
             end
             
             CONT_WIND:begin
-                if(CONT_WIND_DONE)next = network_busy?NET_IDLE_CHK:TRANSMIT;
+                if(CONT_WIND_DONE)begin
+                    n_reset_counters = 1;
+                    next = network_busy?NET_IDLE_CHK:TRANSMIT;
+                end
                 else next = CONT_WIND;
             end
             

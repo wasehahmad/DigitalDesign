@@ -39,13 +39,14 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     output logic [7:0] data_bram,
     output logic wen_sourc,
     output logic [7:0]MAN_DATA,
-    output logic MAN_RDY
+    output logic MAN_RDY,
+    output logic NEW_ATTEMPT
     );
    
     
     `define SEND 8'h04
     
-    
+    logic DIFS_DONE,CONT_WIND_DONE,ACK_TIME_DONE,SIFS_DONE;
     logic[7:0] BRAM_DATA,FCS,BRAM_DATA_IN;
     logic man_txd_ready,man_txd_rdy_pulse;
     logic [ADDR_WIDTH-1:0] read_addr_b,write_addr_b;
@@ -60,12 +61,13 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     assign MAN_DATA = man_txd_data;
     assign MAN_RDY = man_txd_ready;
+    assign NEW_ATTEMPT = CONT_WIND_DONE;
     
      assign data_bram = BRAM_DATA_IN;
      assign wen_sourc = done_writing;
      
     
-    logic [6:0] rand_count,curr_rand_count;//1-64
+    logic [9:0] rand_count,curr_rand_count;//1-64
     //==========================RANDOM_NUM_COUNTER===============================================
     always_ff @(posedge clk)begin
         if(reset)rand_count <= 1;
@@ -98,7 +100,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
         end
         else begin
             dest <= (read_addr_b == 9'd0)?BRAM_DATA:dest;
-            pkt_type <= (bram_addr == 9'd2)?BRAM_DATA:pkt_type;
+            pkt_type <= (write_addr_b == 9'd2)?XDATA:pkt_type;
 
         end
     end
@@ -116,7 +118,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     
     //=======================MAIN_TXD_FSM +COUNTERS===========================================================
-    logic DIFS_DONE,CONT_WIND_DONE,ACK_TIME_DONE,SIFS_DONE;
+
     logic done_transmitting,incr_error,reset_counters;
     logic restart_addr;
     

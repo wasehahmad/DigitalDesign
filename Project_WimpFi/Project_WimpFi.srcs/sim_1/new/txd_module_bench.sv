@@ -189,6 +189,9 @@ module txd_module_bench;
         @(posedge clk) #1;
     endtask
     
+    
+//-----------------------------------------------
+    
     //------------------------------------------------------
     task wait_for_cardet;
         cardet = 1;
@@ -340,7 +343,7 @@ module txd_module_bench;
 //        send_one_byte_1;
 //        repeat(1000)@(posedge clk);
 //        send_one_byte_1;
-
+        cardet = 1;
         send_multiple_bytes_type_2;
         while(XRDY)@(posedge clk);
         //ACK_SEEN = 1;
