@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date         : Tue Nov 28 10:33:08 2017
-| Host         : ECE400-9SR2JH2 running 64-bit major release  (build 9200)
+| Date         : Sat Dec 02 17:13:33 2017
+| Host         : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
 | Command      : report_drc -file nexys4DDR_drc_routed.rpt -pb nexys4DDR_drc_routed.pb
 | Design       : nexys4DDR
 | Device       : xc7a100tcsg324-1

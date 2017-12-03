@@ -45,6 +45,7 @@ module transmitter_fsm(
     assign max_count = 8;
     logic rdy;
     logic prev_txd;
+    logic n_txen;
     
     typedef enum logic[3:0] {
         IDLE=4'd0, START=4'd1, DATA_HIGH_FIRST=4'd2, DATA_LOW_FIRST=4'd3, DATA_HIGH_SECOND=4'd4, DATA_LOW_SECOND=4'd5,
@@ -57,6 +58,7 @@ module transmitter_fsm(
         if (reset) begin 
             state <= IDLE;
             prev_txd<=1;
+            txen <= 0;
             
         end
         else begin
@@ -64,6 +66,7 @@ module transmitter_fsm(
             last <= next_last;
             last_ready <= rdy;
             prev_txd<=txd;
+            txen<=n_txen;
         end
     end
     
@@ -72,7 +75,7 @@ module transmitter_fsm(
         one_bit_sending = 1'b0;
         rdy = 1'b1; 
         txd = 1'b1;
-        txen = 1'b0;
+        n_txen = 1'b0;
         next = IDLE;
         reset_counter = 0;
         next_last = ENDED;
@@ -95,7 +98,7 @@ module transmitter_fsm(
                 one_bit_sending = 1;
                 sending = 1;
                 txd = 0;
-                txen = 1;
+                n_txen = 1;
                 
                 next = bit_count == 1 ? DATA_LOW_SECOND : DATA_LOW_FIRST;
                 
@@ -114,7 +117,7 @@ module transmitter_fsm(
                 one_bit_sending = 1;
                 sending = 1;
                 txd = 1;
-                txen = 1;
+                n_txen = 1;
                 
                 next = bit_count == 1 ? DATA_HIGH_SECOND : DATA_HIGH_FIRST;
                 
@@ -131,7 +134,7 @@ module transmitter_fsm(
                 sending = 1;
                 one_bit_sending = 1;
                 txd = 1;
-                txen = 1;
+                n_txen = 1;
                 
                 if(count == max_count)begin
                     rdy=1;
@@ -159,7 +162,7 @@ module transmitter_fsm(
                 sending = 1;
                 one_bit_sending = 1;
                 txd = 0;
-                txen = 1;
+                n_txen = 1;
                 
                 if(count == max_count)begin
                     rdy=1;                    
@@ -185,19 +188,19 @@ module transmitter_fsm(
             END_BIT_1:begin
                 txd=prev_txd;
                 rdy = 0;
-                txen = 1;
+                n_txen = 1;
                 next = END_BIT_2;
             end
             END_BIT_2:begin
                 txd = prev_txd;
-                txen = 1;
+                n_txen = 1;
                 rdy = 0;
                 next = data[count]==0?DATA_LOW_FIRST:DATA_HIGH_FIRST;
             end
             
             ENDED:begin
                 
-                txen =1 ;
+                n_txen =1 ;
                 waiting = 1;
                 one_bit_sending = 1;
                 rdy = 1;

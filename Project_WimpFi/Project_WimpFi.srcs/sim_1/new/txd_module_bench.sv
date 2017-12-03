@@ -344,6 +344,7 @@ module txd_module_bench;
 //        repeat(1000)@(posedge clk);
 //        send_one_byte_1;
         cardet = 1;
+        repeat(1000)@(posedge clk);
         send_multiple_bytes_type_2;
         while(XRDY)@(posedge clk);
         //ACK_SEEN = 1;

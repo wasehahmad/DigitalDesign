@@ -48,7 +48,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
           output logic        TXEN,
           output logic        TXD,
           output logic        TRANSMITTER_READY,
-          output logic        TX_ATTEMPT
+          output logic        DEBUG
 //		  output logic        UART_CTS		  
             );
     logic [7:0] reg_0,reg_1,reg_2,reg_3, reg_4;
@@ -99,20 +99,21 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     //=================================================TRANSMITTER SETUP=================================================
     //asynch receiver
-    logic uart_rxd_rdy;
-    receiver_top #(.BAUD(UART_BAUD)) U_UART_RXD(.clk(CLK100MHZ),.reset(debounced_reset),.rxd(UART_TXD_IN),.rdy(uart_rxd_rdy),.ferr(),.data(XDATA));
+    logic uart_rxd_rdy,uart_rxd_rdy_pulse;
+    logic ferr;
+    receiver_top #(.BAUD(UART_BAUD)) U_UART_RXD(.clk(CLK100MHZ),.reset(debounced_reset),.rxd(UART_TXD_IN),.rdy(uart_rxd_rdy),.ferr(ferr),.data(XDATA));
     
     //single pulser to pulse the ready signal from the UART receiver
     single_pulser U_XWR_SINGLE_PULSE(.clk(CLK100MHZ),.din(uart_rxd_rdy),.d_pulse(XWR));
-
+    
     //signals from either the UART or type 3 received
-    assign XSEND = (XDATA ==8'h04 || (writing_type_3 && XDATA_PSEUDO == 8'h04)) && (XWR || (XWR_PSEUDO && writing_type_3));//8'h04 is EOT or cntrl-D
+    assign XSEND = (XDATA ==8'h04 || (writing_type_3 && (XDATA_PSEUDO== 8'h04))) && (XWR || (XWR_PSEUDO && writing_type_3));//8'h04 is EOT or cntrl-D
     assign TXD_WR = writing_type_3?XWR_PSEUDO:XWR;//if writing type 3, use the clone otherwise use the 
     assign TXD_DATA = writing_type_3?XDATA_PSEUDO:XDATA;//if writing type 3, use the clone otherwise use the 
     
     //transmitter module                    
     transmitter_module #(.BIT_RATE(BAUD)) U_TXD_MOD(.clk(CLK100MHZ),.reset(debounced_reset),.XDATA(TXD_DATA),.XWR(TXD_WR),.XSEND(XSEND),.NEW_ATTEMPT(NEW_ATTEMPT),
-                                                        .cardet(/*cardet*/sfd || SW[0] || cardet),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
+                                                        .cardet(/*cardet*/sfd || SW[0]),.type_2_seen(type_2_seen),.ACK_SEEN(ACK_SEEN),.type_2_source(type_2_source),
                                                         .MAC(src_mac),.XRDY(XRDY),.ERRCNT(XERRCNT),.txen(txen),.txd(txd),.WATCHDOG_ERROR(WATCHDOG_ERROR));       
               
     
@@ -139,7 +140,7 @@ module nexys4DDR #(parameter BAUD = 50_000,TXD_BAUD = 50_000, TXD_BAUD_2 = TXD_B
     
     assign TXD = txd;
     assign TRANSMITTER_READY = XRDY;
-    assign TX_ATTEMPT = NEW_ATTEMPT;
+    assign DEBUG = NEW_ATTEMPT;
     assign TXEN = txen;
     
     

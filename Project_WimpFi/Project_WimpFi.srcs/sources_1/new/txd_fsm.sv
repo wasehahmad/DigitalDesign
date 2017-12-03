@@ -39,7 +39,8 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
     output logic reset_counters,
     output logic transmit,
     output logic reset_addr,
-    output logic new_attempt
+    output logic new_attempt,
+    output logic transmit_state
     );
     
     logic network_was_busy,n_network_was_busy;
@@ -52,6 +53,8 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
     }states_t;
     
     states_t state,next;
+    
+    assign transmit_state = state==TRANSMIT;
     
     always_ff @(posedge clk)begin
         if(reset)begin
@@ -115,7 +118,7 @@ module txd_fsm #(parameter W = 10,MAX_ATTEMPTS = 5,ATT_W = $clog2(MAX_ATTEMPTS)+
             NET_IDLE_CHK:begin 
                 if(network_busy)begin//if txen is high on the network or something similar
                     n_network_was_busy = 1;//need to reset when transmitting
-                    //n_reset_counters=1;
+                    n_reset_counters=1;
                     //next =NET_IDLE_CHK;
                 end
       /* else*/ if(DIFS_DONE)begin

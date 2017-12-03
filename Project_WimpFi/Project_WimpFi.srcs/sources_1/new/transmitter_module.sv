@@ -58,10 +58,11 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     logic [7:0] man_txd_data;
     logic new_attempt;
     logic [ADDR_WIDTH-1:0] bram_addr;
+    logic done_transmitting,incr_error,reset_counters;
     
     assign MAN_DATA = man_txd_data;
     assign MAN_RDY = man_txd_ready;
-    assign NEW_ATTEMPT = CONT_WIND_DONE;
+    assign NEW_ATTEMPT = DIFS_DONE;
     
      assign data_bram = BRAM_DATA_IN;
      assign wen_sourc = done_writing;
@@ -119,7 +120,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     //=======================MAIN_TXD_FSM +COUNTERS===========================================================
 
-    logic done_transmitting,incr_error,reset_counters;
+
     logic restart_addr;
     
     logic bit_done,txd_fsm_rdy;
@@ -151,7 +152,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     
     //assign count done conditions
     assign DIFS_DONE = bit_count==DIFS;
-    assign CONT_WIND_DONE = bit_count == curr_rand_count<<3;//Slot time ==8 or 2^3
+    assign CONT_WIND_DONE = bit_count == (curr_rand_count<<3);//Slot time ==8 or 2^3
     assign SIFS_DONE = bit_count == SIFS;
     assign ACK_TIME_DONE = bit_count==ACK_TIMEOUT;
     
@@ -182,7 +183,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
 
     //manchester transmitter
     rtl_transmitter #(.BAUD(BIT_RATE),.BAUD2(BIT_RATE*2)) U_MAN_TXD(.clk_100mhz(clk),.reset(reset | WATCHDOG_ERROR),
-                                    .send((start_transmitting & !done_transmitting )|| fcs_sent ),.data(man_txd_data),
+                                    .send((start_transmitting && !done_transmitting )|| fcs_sent ),.data(man_txd_data),
                                    .txd(txd),.rdy(man_txd_ready),.txen(txen));
    
     single_pulser U_MAN_TXD_RDY_PULSE(.clk(clk), .din(man_txd_ready), .d_pulse(man_txd_rdy_pulse));
