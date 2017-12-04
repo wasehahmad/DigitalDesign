@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sat Dec 02 17:11:27 2017
-# Process ID: 4972
+# Start of session at: Mon Dec 04 09:57:44 2017
+# Process ID: 11504
 # Current directory: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18132 
+INFO: Helper process launched with PID 6660 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,7 +23,7 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.355 ; gain = 117.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.758 ; gain = 117.543
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -80,8 +80,8 @@ INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/ahmad
 	Parameter DIVAMT bound to: 2000 - type: integer 
 	Parameter DIVBITS bound to: 11 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (7#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4972-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4972-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-11504-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-11504-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-689] width (9) of port connection 'addra' does not match port width (8) of module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
 INFO: [Synth 8-638] synthesizing module 'rtl_transmitter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -250,21 +250,10 @@ INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized5' (20#1)
 WARNING: [Synth 8-350] instance 'U_SAMP_COUNTER_PRE' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:109]
 INFO: [Synth 8-638] synthesizing module 'preamble_detector_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/preamble_detector_shreg.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'preamble_detector_shreg' (21#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/preamble_detector_shreg.sv:23]
-INFO: [Synth 8-638] synthesizing module 'sfd_correl' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
-	Parameter LEN bound to: 128 - type: integer 
-	Parameter RST_PAT bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter PATTERN bound to: 128'b00000000111111111111111100000000000000001111111111111111000000000000000011111111111111110000000000000000111111111111111100000000 
-	Parameter HTHRESH bound to: 104 - type: integer 
-	Parameter LTHRESH bound to: 24 - type: integer 
-	Parameter W bound to: 8 - type: integer 
-	Parameter DIGIT bound to: 1'b0 
-WARNING: [Synth 8-3848] Net corroborating in module/entity sfd_correl does not have driver. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:32]
-INFO: [Synth 8-256] done synthesizing module 'sfd_correl' (22#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
-WARNING: [Synth 8-350] instance 'U_CORREL_PRE' of module 'sfd_correl' requires 10 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:119]
 INFO: [Synth 8-638] synthesizing module 'sfd_detector_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_detector_shreg.sv:23]
 	Parameter sfd bound to: 8'b11010000 
-INFO: [Synth 8-256] done synthesizing module 'sfd_detector_shreg' (23#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_detector_shreg.sv:23]
-INFO: [Synth 8-638] synthesizing module 'sfd_correl__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'sfd_detector_shreg' (22#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_detector_shreg.sv:23]
+INFO: [Synth 8-638] synthesizing module 'sfd_correl' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
 	Parameter LEN bound to: 128 - type: integer 
 	Parameter RST_PAT bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter PATTERN bound to: 128'b00000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000001111111100000000 
@@ -272,9 +261,9 @@ INFO: [Synth 8-638] synthesizing module 'sfd_correl__parameterized0' [C:/Users/a
 	Parameter LTHRESH bound to: 24 - type: integer 
 	Parameter W bound to: 8 - type: integer 
 	Parameter DIGIT bound to: 1'b0 
-WARNING: [Synth 8-3848] Net corroborating in module/entity sfd_correl__parameterized0 does not have driver. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:32]
-INFO: [Synth 8-256] done synthesizing module 'sfd_correl__parameterized0' (23#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
-WARNING: [Synth 8-350] instance 'U_CORREL_SFD' of module 'sfd_correl' requires 10 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:125]
+WARNING: [Synth 8-3848] Net corroborating in module/entity sfd_correl does not have driver. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:32]
+INFO: [Synth 8-256] done synthesizing module 'sfd_correl' (23#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
+WARNING: [Synth 8-350] instance 'U_CORREL_SFD' of module 'sfd_correl' requires 10 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:123]
 INFO: [Synth 8-638] synthesizing module 'data_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/data_shreg.sv:23]
 INFO: [Synth 8-256] done synthesizing module 'data_shreg' (24#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/data_shreg.sv:23]
 INFO: [Synth 8-638] synthesizing module 'sfd_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_fsm.sv:23]
@@ -365,8 +354,6 @@ WARNING: [Synth 8-3848] Net write in module/entity nexys4DDR does not have drive
 INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (40#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
 WARNING: [Synth 8-3331] design data_shreg has unconnected port sfd_detected
-WARNING: [Synth 8-3331] design sfd_correl__parameterized0 has unconnected port corroborating
-WARNING: [Synth 8-3331] design sfd_correl__parameterized0 has unconnected port cardet
 WARNING: [Synth 8-3331] design sfd_correl has unconnected port corroborating
 WARNING: [Synth 8-3331] design sfd_correl has unconnected port cardet
 WARNING: [Synth 8-3331] design receive_fsm has unconnected port eof_seen
@@ -388,7 +375,7 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 374.223 ; gain = 166.867
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 367.629 ; gain = 160.414
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -399,7 +386,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin U_RXD_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:67]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 374.223 ; gain = 166.867
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 367.629 ; gain = 160.414
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_gen_0' instantiated as 'U_TXD_MOD/U_TXD_BRAM' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
@@ -407,8 +394,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4972-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
-Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4972-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-11504-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-11504-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
 Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys4DDR_propImpl.xdc].
@@ -418,23 +405,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 685.883 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 678.465 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_TXD_MOD/U_TXD_BRAM' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
@@ -559,7 +546,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'config_mac_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -572,11 +559,11 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 12    
+	   2 Input     32 Bit       Adders := 11    
 	   3 Input     32 Bit       Adders := 1     
 	  15 Input     32 Bit       Adders := 4     
 	  31 Input     32 Bit       Adders := 1     
-	 127 Input     32 Bit       Adders := 2     
+	 127 Input     32 Bit       Adders := 1     
 	   2 Input     27 Bit       Adders := 5     
 	   2 Input     17 Bit       Adders := 1     
 	   2 Input     14 Bit       Adders := 1     
@@ -590,12 +577,12 @@ Detailed RTL Component Info :
 	   2 Input      3 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 2     
 +---XORs : 
-	   2 Input    128 Bit         XORs := 2     
+	   2 Input    128 Bit         XORs := 1     
 	   2 Input     16 Bit         XORs := 3     
 	   2 Input      8 Bit         XORs := 1     
 	   2 Input      1 Bit         XORs := 6     
 +---Registers : 
-	              128 Bit    Registers := 2     
+	              128 Bit    Registers := 1     
 	               32 Bit    Registers := 2     
 	               27 Bit    Registers := 5     
 	               17 Bit    Registers := 1     
@@ -610,11 +597,11 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 12    
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 5     
-	                1 Bit    Registers := 93    
+	                1 Bit    Registers := 91    
 +---RAMs : 
 	               2K Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 11    
+	   2 Input     32 Bit        Muxes := 10    
 	   2 Input     27 Bit        Muxes := 5     
 	   2 Input     17 Bit        Muxes := 2     
 	   6 Input     17 Bit        Muxes := 1     
@@ -639,12 +626,12 @@ Detailed RTL Component Info :
 	   3 Input      3 Bit        Muxes := 1     
 	  12 Input      3 Bit        Muxes := 1     
 	  10 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 13    
+	   2 Input      2 Bit        Muxes := 12    
 	   3 Input      2 Bit        Muxes := 1     
 	   6 Input      2 Bit        Muxes := 2     
 	   5 Input      2 Bit        Muxes := 1     
 	   9 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 91    
+	   2 Input      1 Bit        Muxes := 89    
 	   7 Input      1 Bit        Muxes := 16    
 	   8 Input      1 Bit        Muxes := 1     
 	   9 Input      1 Bit        Muxes := 17    
@@ -1009,20 +996,6 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-Module sfd_correl 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	 127 Input     32 Bit       Adders := 1     
-+---XORs : 
-	   2 Input    128 Bit         XORs := 1     
-+---Registers : 
-	              128 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
 Module sfd_detector_shreg 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1034,7 +1007,7 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
-Module sfd_correl__parameterized0 
+Module sfd_correl 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
@@ -1181,7 +1154,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 686.871 ; gain = 479.516
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -1207,7 +1180,6 @@ INFO: [Synth 8-5545] ROM "U_DOWN_DEBOUNCE/button_state_next" won't be mapped to 
 INFO: [Synth 8-5545] ROM "U_LEFT_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "U_RIGHT_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
-WARNING: [Synth 8-3331] design receive_fsm has unconnected port eof_seen
 WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_seen
 WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[7]
 WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[6]
@@ -1226,9 +1198,9 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Parallel Reinference  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 678.477 ; gain = 471.262
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1240,11 +1212,11 @@ Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Distributed RAM: Preliminary Mapping  Report (see note below)
-+------------+------------------------------+-----------+----------------------+----------------------------+
-|Module Name | RTL Object                   | Inference | Size (Depth x Width) | Primitives                 | 
-+------------+------------------------------+-----------+----------------------+----------------------------+
-|nexys4DDR   | U_RXD_MOD/U_RXD_FIFO/mem_reg | Implied   | 256 x 8              | RAM64X1D x 8  RAM64M x 8   | 
-+------------+------------------------------+-----------+----------------------+----------------------------+
++----------------+--------------------+-----------+----------------------+----------------------------+
+|Module Name     | RTL Object         | Inference | Size (Depth x Width) | Primitives                 | 
++----------------+--------------------+-----------+----------------------+----------------------------+
+|receiver_module | U_RXD_FIFO/mem_reg | Implied   | 256 x 8              | RAM64X1D x 8  RAM64M x 8   | 
++----------------+--------------------+-----------+----------------------+----------------------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
@@ -1253,221 +1225,128 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_RXD_MOD/U_MAN_RECEIVER /U_SAMPLER/\accumulated_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_UART_RXD/U_FSM/start_state_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_UART_RXD/\U_FSM/start_state_reg[1] )
 INFO: [Synth 8-3886] merging instance 'U_UART_RXD/U_FSM/start_state_reg[2]' (FDS) to 'U_UART_RXD/U_FSM/start_state_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[0]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[0]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[1]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_TXD_MOD/U_MAN_TXD/U_FSM/last_reg[3] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\U_TXD_MOD/U_MAN_TXD/U_FSM/last_reg[1] )
-INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[0]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[1]'
-INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[1]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[2]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[3]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[1] )
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[0]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[1]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[2]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[3]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
 INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[4]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_SRC_MAC_FSM/current_seg_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_SRC_MAC_FSM/\current_seg_reg[5] )
 INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[1]' (LDC) to 'U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_RXD_MOD/U_MAN_RECEIVER /U_SAMPLER/\actualClkFreq_reg[2] )
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[2]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[2]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[3]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[3]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[4]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[4]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[5]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[5]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[6]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[6]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[7]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[7]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[8]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[8]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[9]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[9]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[10]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[10]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[11]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[11]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[12]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[12]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[13]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[13]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[14]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[14]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[15]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[15]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[16]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[16]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[17]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[17]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[18]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[18]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[19]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[19]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[20]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[20]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[21]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[21]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[22]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[22]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[23]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[23]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[24]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[24]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[25]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[25]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[26]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[26]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[27]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[27]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[28]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[28]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[29]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[29]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[30]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[30]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[31]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[31]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[32]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[32]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[33]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[33]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[34]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[34]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[35]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[35]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[36]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[36]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[37]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[37]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[38]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[38]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[39]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[39]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[40]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[40]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[41]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[41]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[42]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[42]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[43]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[43]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[44]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[44]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[45]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[45]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[46]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[46]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[47]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[47]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[48]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[48]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[49]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[49]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[50]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[50]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[51]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[51]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[52]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[52]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[53]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[53]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[54]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[54]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[55]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[55]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[56]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[56]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[57]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[57]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[58]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[58]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[59]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[59]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[60]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[60]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[61]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[61]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[62]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[62]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[63]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[63]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[64]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[64]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[65]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[65]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[66]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[66]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[67]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[67]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[68]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[68]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[69]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[69]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[70]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[70]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[71]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[71]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[72]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[72]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[73]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[73]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[74]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[74]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[75]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[75]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[76]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[76]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[77]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[77]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[78]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[78]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[79]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[79]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[80]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[80]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[81]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[81]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[82]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[82]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[83]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[83]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[84]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[84]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[85]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[85]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[86]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[86]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[87]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[87]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[88]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[88]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[89]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[89]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[90]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[90]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[91]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[91]'
-INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_SFD/shreg_reg[92]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_PRE/shreg_reg[92]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (U_UART_RXD/U_FSM/start_state_reg[2]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_UART_RXD/U_FSM/start_state_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_UART_RXD/U_FSM/ferr_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TXD_MOD/U_MAN_TXD_START_PULSE/dq1_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TXD_MOD/U_MAN_TXD_START_PULSE/dq2_reg) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TXD_MOD/U_MAN_TXD/U_FSM/last_reg[3]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (U_TXD_MOD/U_MAN_TXD/U_FSM/last_reg[1]) is unused and will be removed from module nexys4DDR.
-WARNING: [Synth 8-3332] Sequential element (actualClkFreq_reg[2]) is unused and will be removed from module variable_sampler.
-WARNING: [Synth 8-3332] Sequential element (actualClkFreq_reg[1]) is unused and will be removed from module variable_sampler.
-WARNING: [Synth 8-3332] Sequential element (accumulated_reg[2]) is unused and will be removed from module variable_sampler.
-WARNING: [Synth 8-3332] Sequential element (accumulated_reg[1]) is unused and will be removed from module variable_sampler.
-WARNING: [Synth 8-3332] Sequential element (prev_pulsed_reg) is unused and will be removed from module correlator__parameterized1.
-WARNING: [Synth 8-3332] Sequential element (pulsed_reg) is unused and will be removed from module correlator__parameterized1.
-WARNING: [Synth 8-3332] Sequential element (prev_pulsed_reg) is unused and will be removed from module correlator__parameterized2.
-WARNING: [Synth 8-3332] Sequential element (pulsed_reg) is unused and will be removed from module correlator__parameterized2.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[31]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[30]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[29]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[28]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[27]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[26]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[25]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[24]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[23]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[22]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[21]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[20]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[19]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[18]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[17]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[16]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[15]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[14]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[13]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[12]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[11]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[10]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[9]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[8]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[7]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[6]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[5]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[4]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[3]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[2]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[1]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[0]) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (prev_pulsed_reg) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (pulsed_reg) is unused and will be removed from module correlator__parameterized3.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[7]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[6]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[5]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[4]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[3]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[2]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (shreg_reg[1]) is unused and will be removed from module sfd_detector_shreg.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[0]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[1]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[2]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[3]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[4]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[5]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[6]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[7]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[8]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[9]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[10]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[11]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[12]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[13]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[14]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[15]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[16]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[17]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[18]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[19]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[20]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[21]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[22]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[23]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[24]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[25]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[26]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[27]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[28]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[29]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[30]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[31]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[32]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[33]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[34]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[35]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[36]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[37]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[38]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[39]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_PRE/shreg_reg[40]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[41]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[42]) is unused and will be removed from module man_receiver.
-WARNING: [Synth 8-3332] Sequential element (U_CORREL_SFD/shreg_reg[43]) is unused and will be removed from module man_receiver.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_RXD_MOD/U_MAN_RECEIVER /U_SAMPLER/\accumulated_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_RXD_MOD/U_MAN_RECEIVER /U_SAMPLER/\actualClkFreq_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U_RXD_MOD/U_MAN_RECEIVER /U_SYNC/\phase_diff_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2] )
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[1]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[2]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[3]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[5]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[6]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[6]'
+WARNING: [Synth 8-3332] Sequential element (U_FSM/start_state_reg[2]) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_FSM/start_state_reg[1]) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_FSM/ferr_reg) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD_START_PULSE/dq1_reg) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD_START_PULSE/dq2_reg) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD/U_FSM/last_reg[3]) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD/U_FSM/last_reg[1]) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_LOW/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[31]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[30]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[29]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[28]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[27]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[26]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[25]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[24]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[23]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[22]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[21]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[20]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[19]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[18]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[17]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[16]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[15]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[14]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[12]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[11]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[10]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[9]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[8]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[7]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[7]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[6]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[5]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[3]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_SFD/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq1_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq2_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[3]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[5]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[6]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[5]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[4]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[3]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[2]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[1]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[0]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/button_state_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[26]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[25]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[24]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[23]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[22]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[21]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[20]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[19]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[18]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[17]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[16]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[15]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[14]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[13]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[12]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[11]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[10]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[9]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[8]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[7]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[6]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[5]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[0]) is unused and will be removed from module nexys4DDR.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0]) is unused and will be removed from module receiver_module.
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]' (FDE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]) is unused and will be removed from module receiver_module.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 686.871 ; gain = 479.516
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 678.477 ; gain = 471.262
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1481,10 +1360,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 697.961 ; gain = 490.605
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 678.477 ; gain = 471.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 778.129 ; gain = 570.773
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 781.977 ; gain = 574.762
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1495,17 +1374,32 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[0]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[1]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[2]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[3]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[4]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[6]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[6]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[7]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[7]'
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[0]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]) is unused and will be removed from module nexys4DDR.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 583.262
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -1522,7 +1416,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1535,7 +1429,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1547,25 +1441,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1584,13 +1478,13 @@ Report Cell Usage:
 +------+--------------+------+
 |1     |blk_mem_gen_0 |     1|
 |2     |BUFG          |     2|
-|3     |CARRY4        |   332|
-|4     |LUT1          |   309|
-|5     |LUT2          |   402|
-|6     |LUT3          |   336|
-|7     |LUT4          |   225|
-|8     |LUT5          |   940|
-|9     |LUT6          |   441|
+|3     |CARRY4        |   328|
+|4     |LUT1          |   307|
+|5     |LUT2          |   399|
+|6     |LUT3          |   325|
+|7     |LUT4          |   224|
+|8     |LUT5          |   926|
+|9     |LUT6          |   381|
 |10    |MUXF7         |     4|
 |11    |RAM64M        |     8|
 |12    |RAM64X1D      |     8|
@@ -1608,86 +1502,85 @@ Report Instance Areas:
 +------+---------------------------+-------------------------------+------+
 |      |Instance                   |Module                         |Cells |
 +------+---------------------------+-------------------------------+------+
-|1     |top                        |                               |  3967|
+|1     |top                        |                               |  3872|
 |2     |  U_ACK_INTERFACE          |ack_interface                  |   100|
-|3     |  U_ASYNCH_TX              |asynch_transmitter             |    72|
-|4     |    U_BAUD_PULSE           |single_pulser_16               |     3|
+|3     |  U_ASYNCH_TX              |asynch_transmitter             |    70|
+|4     |    U_BAUD_PULSE           |single_pulser_16               |     2|
 |5     |    U_BAUD_RATE            |clkenb__parameterized3         |    50|
-|6     |    U_BIT_COUNTER          |bcdcounter_txd__parameterized2 |    14|
-|7     |    U_FSM                  |asynch_transmitter_fsm         |     5|
+|6     |    U_BIT_COUNTER          |bcdcounter_txd__parameterized2 |    12|
+|7     |    U_FSM                  |asynch_transmitter_fsm         |     6|
 |8     |  U_D0                     |reg_param                      |     8|
-|9     |  U_DISPCTL                |dispctl                        |    84|
-|10    |    THR_B_COUNTER          |counter                        |    24|
+|9     |  U_DISPCTL                |dispctl                        |    85|
+|10    |    THR_B_COUNTER          |counter                        |    25|
 |11    |    U_CLKENB               |clkenb__parameterized4         |    60|
 |12    |  U_DOWN_DEBOUNCE          |debounce                       |    97|
 |13    |  U_DOWN_PULSER            |single_pulser                  |     2|
-|14    |  U_LEFT_DEBOUNCE          |debounce_0                     |   101|
+|14    |  U_LEFT_DEBOUNCE          |debounce_0                     |    97|
 |15    |  U_LEFT_PULSER            |single_pulser_1                |     4|
-|16    |  U_RIGHT_DEBOUNCE         |debounce_2                     |    97|
+|16    |  U_RIGHT_DEBOUNCE         |debounce_2                     |   102|
 |17    |  U_RIGHT_PULSER           |single_pulser_3                |     3|
-|18    |  U_RRD_SINGLE_PULSE       |single_pulser_4                |     4|
-|19    |  U_RXD_MOD                |receiver_module                |  2570|
+|18    |  U_RRD_SINGLE_PULSE       |single_pulser_4                |     5|
+|19    |  U_RXD_MOD                |receiver_module                |  2468|
 |20    |    U_FCS_VERIFICATION     |crc_generator_12               |    34|
 |21    |      U_COUNT_BYTE         |bcdcounter_15                  |    10|
-|22    |    U_MAN_RECEIVER         |man_receiver                   |  2318|
+|22    |    U_MAN_RECEIVER         |man_receiver                   |  2217|
 |23    |      U_ABN_BIT_COUNTER    |bcdcounter__parameterized4     |     4|
-|24    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    15|
-|25    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    32|
-|26    |      U_CORREL_ABN_LOW     |correlator__parameterized2     |    43|
+|24    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    14|
+|25    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    38|
+|26    |      U_CORREL_ABN_LOW     |correlator__parameterized2     |    42|
 |27    |      U_CORREL_ONE         |correlator__parameterized0     |    42|
-|28    |      U_CORREL_PRE         |sfd_correl                     |   271|
-|29    |      U_CORREL_SFD         |sfd_correl__parameterized0     |   190|
-|30    |      U_CORREL_ZERO        |correlator                     |    40|
-|31    |      U_DATA_REG           |data_shreg                     |     9|
-|32    |      U_PRE_SHREG          |preamble_detector_shreg        |    12|
-|33    |      U_RECEIVE_FSM        |receive_fsm                    |    17|
-|34    |      U_SAMPLER            |variable_sampler               |  1512|
-|35    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    15|
-|36    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    18|
-|37    |      U_SFD_FSM            |sfd_fsm                        |     8|
-|38    |      U_SFD_SHREG          |sfd_detector_shreg             |    20|
-|39    |      U_STRT_RECEIVE_PULSE |single_pulser_14               |     4|
-|40    |      U_SYNC               |synchronizer                   |    66|
-|41    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
-|42    |    U_RXD_FIFO             |sasc_fifo                      |    82|
-|43    |    U_RXD_FSM              |rxd_fsm                        |    42|
-|44    |    U_STORAGE_FSM          |store_fsm                      |    36|
-|45    |    U_WRITE_PULSE          |single_pulser_13               |    14|
-|46    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    46|
-|47    |  U_TXD_MOD                |transmitter_module             |   557|
-|48    |    U_BIT_PERIOD_CLK       |clkenb__parameterized0         |    32|
-|49    |    U_BRAM_WRITING         |txd_write_fsm                  |    69|
-|50    |    U_FCS_FORMATION        |crc_generator                  |    31|
-|51    |      U_COUNT_BYTE         |bcdcounter                     |    11|
-|52    |    U_MAN_TXD              |rtl_transmitter                |   135|
-|53    |      U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    12|
-|54    |      U_BAUD_2_PULSE       |single_pulser_10               |     3|
-|55    |      U_BAUD_2_RATE        |clkenb__parameterized2         |    28|
-|56    |      U_BAUD_PULSE         |single_pulser_11               |     2|
-|57    |      U_BAUD_RATE          |clkenb__parameterized1         |    32|
-|58    |      U_BIT_COUNTER        |bcdcounter_txd                 |    12|
-|59    |      U_FSM                |transmitter_fsm                |    35|
-|60    |      U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    11|
-|61    |    U_MAN_TXD_RDY_PULSE    |single_pulser_9                |    12|
-|62    |    U_TRANSMIT_FSM         |txd_transmit_fsm               |    81|
-|63    |      U_PRE_COUNTER        |bcdcounter__parameterized0     |     9|
-|64    |    U_TXD_FSM              |txd_fsm                        |    62|
-|65    |  U_UART_RXD               |receiver_top                   |    78|
-|66    |    U_BAUD_CLK             |clkenb                         |    27|
-|67    |    U_FSM                  |receiver_fsm                   |    51|
-|68    |  U_UP_DEBOUNCE            |debounce_5                     |    97|
-|69    |  U_UP_PULSER              |single_pulser_6                |     2|
-|70    |  U_WRITE_PULSER           |single_pulser_7                |     3|
-|71    |  U_XWR_SINGLE_PULSE       |single_pulser_8                |     3|
+|28    |      U_CORREL_SFD         |sfd_correl                     |   350|
+|29    |      U_CORREL_ZERO        |correlator                     |    44|
+|30    |      U_DATA_REG           |data_shreg                     |     9|
+|31    |      U_PRE_SHREG          |preamble_detector_shreg        |    13|
+|32    |      U_RECEIVE_FSM        |receive_fsm                    |    21|
+|33    |      U_SAMPLER            |variable_sampler               |  1506|
+|34    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    15|
+|35    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    16|
+|36    |      U_SFD_FSM            |sfd_fsm                        |     8|
+|37    |      U_SFD_SHREG          |sfd_detector_shreg             |    20|
+|38    |      U_STRT_RECEIVE_PULSE |single_pulser_14               |     3|
+|39    |      U_SYNC               |synchronizer                   |    64|
+|40    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
+|41    |    U_RXD_FIFO             |sasc_fifo                      |    85|
+|42    |    U_RXD_FSM              |rxd_fsm                        |    38|
+|43    |    U_STORAGE_FSM          |store_fsm                      |    37|
+|44    |    U_WRITE_PULSE          |single_pulser_13               |    16|
+|45    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    54|
+|46    |  U_TXD_MOD                |transmitter_module             |   556|
+|47    |    U_BIT_PERIOD_CLK       |clkenb__parameterized0         |    32|
+|48    |    U_BRAM_WRITING         |txd_write_fsm                  |    71|
+|49    |    U_FCS_FORMATION        |crc_generator                  |    31|
+|50    |      U_COUNT_BYTE         |bcdcounter                     |    11|
+|51    |    U_MAN_TXD              |rtl_transmitter                |   138|
+|52    |      U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
+|53    |      U_BAUD_2_PULSE       |single_pulser_10               |     4|
+|54    |      U_BAUD_2_RATE        |clkenb__parameterized2         |    28|
+|55    |      U_BAUD_PULSE         |single_pulser_11               |     3|
+|56    |      U_BAUD_RATE          |clkenb__parameterized1         |    32|
+|57    |      U_BIT_COUNTER        |bcdcounter_txd                 |    13|
+|58    |      U_FSM                |transmitter_fsm                |    35|
+|59    |      U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    12|
+|60    |    U_MAN_TXD_RDY_PULSE    |single_pulser_9                |     5|
+|61    |    U_TRANSMIT_FSM         |txd_transmit_fsm               |    90|
+|62    |      U_PRE_COUNTER        |bcdcounter__parameterized0     |    10|
+|63    |    U_TXD_FSM              |txd_fsm                        |    57|
+|64    |  U_UART_RXD               |receiver_top                   |    78|
+|65    |    U_BAUD_CLK             |clkenb                         |    27|
+|66    |    U_FSM                  |receiver_fsm                   |    51|
+|67    |  U_UP_DEBOUNCE            |debounce_5                     |    97|
+|68    |  U_UP_PULSER              |single_pulser_6                |     2|
+|69    |  U_WRITE_PULSER           |single_pulser_7                |     3|
+|70    |  U_XWR_SINGLE_PULSE       |single_pulser_8                |     2|
 +------+---------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 254 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 778.266 ; gain = 221.449
-Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:53 . Memory (MB): peak = 778.266 ; gain = 570.910
+Synthesis finished with 0 errors, 0 critical warnings and 123 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 790.477 ; gain = 236.246
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.477 ; gain = 583.262
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 392 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 388 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -1700,8 +1593,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-349 Infos, 191 Warnings, 0 Critical Warnings and 0 Errors encountered.
+269 Infos, 186 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 778.266 ; gain = 538.344
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 778.266 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 02 17:12:23 2017...
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 790.477 ; gain = 550.707
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 790.477 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 04 09:58:22 2017...

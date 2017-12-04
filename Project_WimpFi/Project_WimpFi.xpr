@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="14" Path="C:/Users/watsongd/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.xpr">
+<Project Version="7" Minor="14" Path="C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="fd8f9af48fd149f3b3916043f466d718"/>

@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Sat Dec 02 17:13:34 2017
+| Date             : Mon Dec 04 09:59:27 2017
 | Host             : ECE400-9SQXHH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file nexys4DDR_power_routed.rpt -pb nexys4DDR_power_summary_routed.pb -rpx nexys4DDR_power_routed.rpx
 | Design           : nexys4DDR
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.131 |
-| Dynamic (W)              | 0.034 |
+| Total On-Chip Power (W)  | 0.139 |
+| Dynamic (W)              | 0.042 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -49,20 +49,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.006 |        3 |       --- |             --- |
-| Slice Logic              |     0.011 |     3837 |       --- |             --- |
-|   LUT as Logic           |     0.009 |     2043 |     63400 |            3.22 |
-|   CARRY4                 |     0.002 |      332 |     15850 |            2.09 |
+| Clocks                   |     0.005 |        3 |       --- |             --- |
+| Slice Logic              |     0.013 |     3745 |       --- |             --- |
+|   LUT as Logic           |     0.011 |     1956 |     63400 |            3.09 |
+|   CARRY4                 |     0.002 |      328 |     15850 |            2.07 |
 |   Register               |    <0.001 |      916 |    126800 |            0.72 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
-|   F7/F8 Muxes            |    <0.001 |        4 |     63400 |           <0.01 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |       95 |       --- |             --- |
-| Signals                  |     0.009 |     3142 |       --- |             --- |
+|   F7/F8 Muxes            |    <0.001 |        4 |     63400 |           <0.01 |
+|   Others                 |     0.000 |       96 |       --- |             --- |
+| Signals                  |     0.012 |     3054 |       --- |             --- |
 | Block RAM                |     0.003 |      0.5 |       135 |            0.37 |
-| I/O                      |     0.005 |       35 |       210 |           16.67 |
+| I/O                      |     0.009 |       35 |       210 |           16.67 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.131 |          |           |                 |
+| Total                    |     0.139 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.044 |       0.029 |      0.015 |
+| Vccint    |       1.000 |     0.047 |       0.032 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |
+| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -141,7 +141,7 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| nexys4DDR                                      |     0.034 |
+| nexys4DDR                                      |     0.042 |
 |   U_ACK_INTERFACE                              |    <0.001 |
 |   U_ASYNCH_TX                                  |    <0.001 |
 |     U_BAUD_PULSE                               |    <0.001 |
@@ -159,22 +159,21 @@ Table of Contents
 |   U_RIGHT_DEBOUNCE                             |    <0.001 |
 |   U_RIGHT_PULSER                               |    <0.001 |
 |   U_RRD_SINGLE_PULSE                           |    <0.001 |
-|   U_RXD_MOD                                    |     0.021 |
+|   U_RXD_MOD                                    |     0.024 |
 |     U_FCS_VERIFICATION                         |    <0.001 |
 |       U_COUNT_BYTE                             |    <0.001 |
-|     U_MAN_RECEIVER                             |     0.019 |
+|     U_MAN_RECEIVER                             |     0.023 |
 |       U_ABN_BIT_COUNTER                        |    <0.001 |
 |       U_BYTE_COUNTER                           |    <0.001 |
 |       U_CORREL_ABN_HIGH                        |    <0.001 |
 |       U_CORREL_ABN_LOW                         |    <0.001 |
 |       U_CORREL_ONE                             |    <0.001 |
-|       U_CORREL_PRE                             |    <0.001 |
-|       U_CORREL_SFD                             |    <0.001 |
+|       U_CORREL_SFD                             |     0.002 |
 |       U_CORREL_ZERO                            |    <0.001 |
 |       U_DATA_REG                               |    <0.001 |
 |       U_PRE_SHREG                              |    <0.001 |
 |       U_RECEIVE_FSM                            |    <0.001 |
-|       U_SAMPLER                                |     0.017 |
+|       U_SAMPLER                                |     0.019 |
 |       U_SAMP_COUNTER                           |    <0.001 |
 |       U_SAMP_COUNTER_PRE                       |    <0.001 |
 |       U_SFD_FSM                                |    <0.001 |

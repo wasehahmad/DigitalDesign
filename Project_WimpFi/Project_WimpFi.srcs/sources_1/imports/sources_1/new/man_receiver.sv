@@ -100,7 +100,7 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
                             
     
     //==========================================================================Shift registers and FSM for pre-receive stages
-    logic   sfd_detected,corroborating,preamble_bits_detected;
+    logic   sfd_detected,corroborating;
     logic [$clog2(NUM_SAMPLES*2):0] samp_count_pre_receive;
     logic [7:0] data_rxd;
 
@@ -116,18 +116,16 @@ module man_receiver #(parameter DATA_WIDTH = 8,NUM_SAMPLES = 16, PHASE_WIDTH = $
     //shift register for the preamble
     preamble_detector_shreg U_PRE_SHREG(.clk(clk),.reset(reset | eof | (samp_num_24 & (!cardet | !start_receiving)) ),.write_0(write_zero),.write_1(write_one),.preamble_detected(preamble_detected));
 
-    sfd_correl #(.PATTERN(128'h00FFFF0000FFFF0000FFFF0000FFFF00),.RST_PAT(128'd0),.LEN(128),.HTHRESH(104),.LTHRESH(24)) U_CORREL_PRE(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.h_out(preamble_bits_detected));
-
     //shift register to check for the sfd
     logic sfd_bits_detected;
-    sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset | (!cardet) | ( samp_num_31 )),.write_0(write_zero),.write_1(write_one),.cardet((preamble_detected && preamble_bits_detected)  | corroborating | cardet),.corroborating(corroborating),.sfd_detected(sfd_bits_detected));
+    sfd_detector_shreg U_SFD_SHREG(.clk(clk),.reset(reset | (!cardet) | ( samp_num_31 )),.write_0(write_zero),.write_1(write_one),.cardet((preamble_detected)  | corroborating | cardet),.corroborating(corroborating),.sfd_detected(sfd_bits_detected));
    //correlators that tell if a bit is high or low consecutively
     sfd_correl #(.PATTERN(128'h00FF00FF00FF00FFFF0000FFFF00FF00),.RST_PAT(128'd0),.LEN(128),.HTHRESH(104),.LTHRESH(24)) U_CORREL_SFD(.clk(clk),.reset(reset),.enb(sample),.d_in(rxd),.h_out(sfd_detected));
     //register to store the received data
     data_shreg U_DATA_REG(.clk(clk),.reset(reset),.write_0(write_zero),.write_1(write_one),.sfd_detected(sfd_detected),.data_out(data_rxd),.start_receive(start_receive_pulse));
     
     //fsm for the pre_receive stage
-    sfd_fsm U_SFD_FSM(.clk(clk),.reset(reset),.preamble_detected(preamble_detected && preamble_bits_detected),.corroborating(corroborating),.sfd_detected(sfd_detected && sfd_bits_detected ),
+    sfd_fsm U_SFD_FSM(.clk(clk),.reset(reset),.preamble_detected(preamble_detected),.corroborating(corroborating),.sfd_detected(sfd_detected && sfd_bits_detected ),
                     .eof(eof),.error(error),.cardet(cardet),.start_receiving(start_receiving));
     
     //converts start receiving output to a single pulse 
