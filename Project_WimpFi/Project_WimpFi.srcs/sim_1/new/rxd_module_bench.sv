@@ -200,6 +200,29 @@ module rxd_module_bench;
         send_0; 
     endtask
     
+    
+    task send_source;
+        send_0;
+        send_0;
+        send_0;
+        send_0;
+        send_0;
+        send_0;
+        send_0;
+        send_0; 
+    endtask
+    
+    task send_broadcast;
+        send_0;
+        send_1;
+        send_0;
+        send_1;
+        send_0;
+        send_1;
+        send_0;
+        send_0; 
+    endtask
+    
     task send_data_byte_11101111;
         send_1;
         send_1;
@@ -254,16 +277,13 @@ module rxd_module_bench;
         
         send_data_byte_11001100/*01000000*/;//destination @
         repeat(3)@(posedge clk);
-        send_data_byte_11001100;//source
+        send_source;//source
         repeat(3)@(posedge clk);
         
         send_type_0;//type
         repeat(3)@(posedge clk);
         
         send_data_byte_00001111;//data
-        repeat(3)@(posedge clk);
-        
-        send_data_byte_10101010;//data
         repeat(3)@(posedge clk);
         
         //send_data_byte_11101111;//FCS
@@ -274,6 +294,25 @@ module rxd_module_bench;
     
     endtask
     //=================================================================
+    //type 0
+    //receive broadcast
+    //receive specific MAC
+    //doenst receive other MAC
+    
+    //type 1
+    //all type 0s
+    //fcs 2 bytes
+    //fcs 10 bytes
+    //wrong fcs --> increment errcount & not receive (RRDY low)
+    
+    //type 2
+    //all type 1
+    //broadcast no ack
+    //non brodcast ack
+    
+    //type 3
+    //ack received goes high
+    //wrong fcs, dont send ack rec
     
     task test_16PRE_1SFD_TYPE_1;
     
@@ -315,6 +354,50 @@ module rxd_module_bench;
     
     endtask
     
+    //==========================TYPE 0===============================
+    
+        task receive_broadcast;
+    
+        $display("===================================Testing Simulation test 1===================================");
+    
+        //send preamble
+        send_preamble_8;
+        @(posedge clk);
+        send_preamble_8;
+        send_sfd;
+        
+        send_broadcast;//destination *
+        repeat(3)@(posedge clk);
+        
+        send_source;//source
+        repeat(3)@(posedge clk);
+        
+        send_type_0;//type
+        repeat(3)@(posedge clk);
+        
+        send_data_byte_00001111;//data
+        repeat(3)@(posedge clk);
+        
+        send_eof;
+        repeat(2)@(posedge clk);
+        
+        while(RRDY) begin
+            check_ok("RDATA is the broadcast address", RDATA, 8'h2A);
+            rrd = 1;
+            @(posedge clk);
+            check_ok("RDATA is the source address", RDATA, 8'h00);
+            @(posedge clk);
+            check_ok("RDATA is the type", RDATA, "0");
+            @(posedge clk);
+            check_ok("RDATA is the data", RDATA, 8'h0f);
+            @(posedge clk) #1;
+        end;
+        rrd = 0;
+                
+                
+                
+    endtask
+    
     //=========================================================
     task read_all;
         while(RRDY)begin
@@ -334,16 +417,18 @@ module rxd_module_bench;
     initial begin
         rrd = 0;
         reset = 1;
+        rxd = 1;
         repeat(100)@(posedge clk);
         reset = 0;
-        
-        test_16PRE_1SFD_TYPE_0;
-        test_16PRE_1SFD_TYPE_0;
+        repeat(100)@(posedge clk);
+//        test_16PRE_1SFD_TYPE_0;
+//        test_16PRE_1SFD_TYPE_0;
         //read_all;
+        receive_broadcast;
         repeat(100) @(posedge clk);
-        test_16PRE_1SFD_TYPE_1;
-        read_all;
-        test_16PRE_1SFD_TYPE_1;
+//        test_16PRE_1SFD_TYPE_1;
+//        read_all;
+//        test_16PRE_1SFD_TYPE_1;
         
         //test correct reception of one
         //test sending two packets without reading, second packet should not be put into fifo

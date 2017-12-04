@@ -86,8 +86,20 @@ module txd_module_bench;
         XWR = 0;
         //wait a clock cycle
         @(posedge clk) #1;
-//        while(txen==0)@(posedge clk);
-//        while(txen==1)@(posedge clk);
+        while(txen==0)@(posedge clk) #1; 
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (preamble)", MAN_DATA, 8'haa);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (SFD)", MAN_DATA, 8'hd0);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (dest)", MAN_DATA, 8'h2a);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (src)", MAN_DATA, 8'h00);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (type)", MAN_DATA, 8'h30);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, 8'h54);
+        while(txen==1)@(posedge clk);
     endtask
     
     //------------------------------------------------------
@@ -155,6 +167,46 @@ module txd_module_bench;
         XWR = 0;
         //wait a clock cycle
         @(posedge clk) #1;
+        while(txen==0)@(posedge clk) #1;
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (preamble)", MAN_DATA, 8'haa);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (SFD)", MAN_DATA, 8'hd0);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (dest)", MAN_DATA, 8'h2a);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (src)", MAN_DATA, 8'h00);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (type)", MAN_DATA, 8'h30);
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "T");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "H");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "I");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "I");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "O");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "M");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "E");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "D");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "A");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "T");
+        @(negedge MAN_RDY)
+        check_ok("XDATA is put into the buffer (data)", MAN_DATA, "A");
+        while(txen==1)@(posedge clk);
     endtask
     
 //------------------------------------------------------
@@ -192,22 +244,61 @@ module txd_module_bench;
     
 //-----------------------------------------------
     
-    //------------------------------------------------------
     task wait_for_cardet;
-        cardet = 1;
-        repeat(100) @(posedge clk);
-        send_multiple_bytes;
-        repeat(10) @(posedge clk);
-        cardet = 0;
-        //cause a network busy in the middle of DIFS
-        repeat(10) @(posedge clk);
-        cardet = 1;
-        repeat(10) @(posedge clk);
-        cardet = 0;
-//        while(txen==0)@(posedge clk);
-//        while(txen==1)@(posedge clk);
-        
-    endtask
+    cardet = 1;
+    repeat(100) @(posedge clk);
+    send_multiple_bytes;
+    repeat(10) @(posedge clk);
+    cardet = 0;
+    //cause a network busy in the middle of DIFS
+    check_ok("XRDY is low even though network is busy", XRDY, 0);
+    check_ok("txen is low because network is busy", txen, 0);
+    repeat(10) @(posedge clk);
+    cardet = 1;
+    repeat(10) @(posedge clk);
+    cardet = 0;
+    while(txen==0)@(posedge clk) #1;
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (preamble)", MAN_DATA, 8'haa);
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (SFD)", MAN_DATA, 8'hd0);
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (dest)", MAN_DATA, 8'h2a);
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (src)", MAN_DATA, 8'h00);
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (type)", MAN_DATA, 8'h30);
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "T");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "H");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "I");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "I");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "S");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "O");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "M");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "E");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "D");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "A");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "T");
+    @(negedge MAN_RDY)
+    check_ok("XDATA is put into the buffer (data)", MAN_DATA, "A");
+    while(txen==1)@(posedge clk);
+    
+endtask
         
      //------------------------------------------------------
     task test_watchdog;
@@ -243,7 +334,15 @@ module txd_module_bench;
         while(txen==1)@(posedge clk);
     endtask
     
+    //type 1
+    //all type 0 tests --> look if FCS is there
     
+    //type 2
+    //all type 1s + waiting to see an ack (requires 5 times waiting ACK_WAIT)
+    
+    //type 3
+    //add ack_interface, tell interface what to do
+    //type 2 seen
     
     //=================================== TYPE 0 ===================================//
     
@@ -278,10 +377,10 @@ module txd_module_bench;
         reset = 0;
         send_one_byte_0;
         //after transmission
-        while(XRDY)@(posedge clk);
-        check_ok("XRDY goes low after transmission XSND is asserted", XRDY, 0);
-        while(!txen)@(posedge clk);
-        check_ok("TXEN goes high after sending a packet with one byte of data", txen, 1);
+        //while(XRDY)@(posedge clk);
+        check_ok("XRDY goes high after transmission", XRDY, 1);
+        //while(!txen)@(posedge clk);
+        check_ok("TXEN goes low after sending a packet with one byte of data", txen, 0);
     endtask
     
     task correct_transmission_multiple_bytes;
@@ -296,10 +395,10 @@ module txd_module_bench;
         reset = 0;
         send_multiple_bytes;
         //after transmission
-        while(XRDY)@(posedge clk);
-        check_ok("XRDY goes low after transmission XSND is asserted", XRDY, 0);
-        while(!txen)@(posedge clk);
-        check_ok("TXEN goes high after sending a packet with multiple bytes of data", txen, 1);
+        //while(XRDY)@(posedge clk);
+        check_ok("XRDY goes high after transmission", XRDY, 1);
+        //while(!txen)@(posedge clk);
+        check_ok("TXEN goes low after sending a packet with multiple bytes of data", txen, 0);
     endtask    
     
     task correct_transmission_mutliple_bytes_with_backoff;
@@ -314,10 +413,8 @@ module txd_module_bench;
         reset = 0;
         wait_for_cardet;
         //after transmission
-        while(XRDY)@(posedge clk);
-        check_ok("XRDY goes low after transmission XSND is asserted", XRDY, 0);
-        while(!txen)@(posedge clk);
-        check_ok("TXEN goes high after sending a packet with multiple of data and a busy network", txen, 1);
+        check_ok("XRDY goes high after transmission", XRDY, 1);
+        check_ok("TXEN goes low after transmitting a packet with multiple bytes of data with backoff", txen, 0);
     endtask
         
     initial begin
@@ -330,9 +427,9 @@ module txd_module_bench;
         
         repeat(10) @(posedge clk);
         reset = 0;
-//        reset_case;
-//        correct_transmission_one_byte;
-//        correct_transmission_multiple_bytes;
+        reset_case;
+        correct_transmission_one_byte;
+        correct_transmission_multiple_bytes;
 //        correct_transmission_mutliple_bytes_with_backoff;
         repeat(1000)@(posedge clk);
 //        $stop;
@@ -343,12 +440,12 @@ module txd_module_bench;
 //        send_one_byte_1;
 //        repeat(1000)@(posedge clk);
 //        send_one_byte_1;
-        cardet = 1;
-        repeat(1000)@(posedge clk);
-        send_multiple_bytes_type_2;
-        while(XRDY)@(posedge clk);
-        //ACK_SEEN = 1;
-        while(!XRDY)@(posedge clk);
+//        cardet = 1;
+//        repeat(1000)@(posedge clk);
+//        send_multiple_bytes_type_2;
+//        while(XRDY)@(posedge clk);
+//        //ACK_SEEN = 1;
+//        while(!XRDY)@(posedge clk);
         $stop;
     end
 endmodule
