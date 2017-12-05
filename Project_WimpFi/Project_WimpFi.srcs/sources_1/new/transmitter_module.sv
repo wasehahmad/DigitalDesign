@@ -109,7 +109,7 @@ module transmitter_module #(parameter BIT_RATE = 50_000,PREAMBLE_SIZE = 2,DIFS =
     //========================WATCH_DOG_TIMER=====================================================
     logic [9:0] continuous_frames_sent;
     always_ff @(posedge clk)begin
-        if(reset | txen)continuous_frames_sent<=0;
+        if(reset | !txen)continuous_frames_sent<=0;
         else if(man_txd_rdy_pulse)continuous_frames_sent<=continuous_frames_sent+1;
     end
     always_ff @(posedge clk)begin
