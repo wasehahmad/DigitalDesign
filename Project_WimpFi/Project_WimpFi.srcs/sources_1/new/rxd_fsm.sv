@@ -132,7 +132,8 @@ module rxd_fsm(
                         `TYPE_2:if(destination !=`BROADCAST_ADDR)type_2_seen=1;
                         `TYPE_3:ACK_received = 1;
                     endcase
-                    next = READING;
+                    if(pkt_type==`TYPE_3)next =IGNORE;
+                    else next = READING;
                 end
             end
             

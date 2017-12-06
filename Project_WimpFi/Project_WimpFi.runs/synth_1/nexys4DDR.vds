@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Tue Dec 05 08:34:23 2017
-# Process ID: 4940
+# Start of session at: Wed Dec 06 10:37:20 2017
+# Process ID: 10168
 # Current directory: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1
 # Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
 # Log file: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/nexys4DDR.vds
@@ -15,7 +15,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10780 
+INFO: Helper process launched with PID 9424 
 WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
 WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
@@ -23,7 +23,7 @@ WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desk
 INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:71]
 INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:72]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 324.691 ; gain = 117.344
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 324.109 ; gain = 117.668
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -80,8 +80,8 @@ INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/ahmad
 	Parameter DIVAMT bound to: 2000 - type: integer 
 	Parameter DIVBITS bound to: 11 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (7#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4940-ECE400-9SR8JH2/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4940-ECE400-9SR8JH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-10168-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-10168-ECE400-9SQXHH2/realtime/blk_mem_gen_0_stub.v:6]
 WARNING: [Synth 8-689] width (9) of port connection 'addra' does not match port width (8) of module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
 INFO: [Synth 8-638] synthesizing module 'rtl_transmitter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
 	Parameter BAUD bound to: 50000 - type: integer 
@@ -375,7 +375,7 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 367.547 ; gain = 160.199
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 366.945 ; gain = 160.504
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -386,7 +386,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin U_RXD_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:67]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 367.547 ; gain = 160.199
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 366.945 ; gain = 160.504
 ---------------------------------------------------------------------------------
 WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_gen_0' instantiated as 'U_TXD_MOD/U_TXD_BRAM' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
@@ -394,8 +394,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4940-ECE400-9SR8JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
-Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-4940-ECE400-9SR8JH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-10168-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-10168-ECE400-9SQXHH2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
 Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys4DDR_propImpl.xdc].
@@ -405,23 +405,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 678.297 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 677.828 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_TXD_MOD/U_TXD_BRAM' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
@@ -473,6 +473,7 @@ INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address siz
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:62]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'store_fsm'
@@ -546,7 +547,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'config_mac_fsm'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -609,7 +610,7 @@ Detailed RTL Component Info :
 	   2 Input     11 Bit        Muxes := 2     
 	   2 Input      9 Bit        Muxes := 3     
 	   5 Input      9 Bit        Muxes := 1     
-	  20 Input      9 Bit        Muxes := 1     
+	  21 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 20    
 	   5 Input      8 Bit        Muxes := 5     
 	   4 Input      8 Bit        Muxes := 1     
@@ -1053,7 +1054,7 @@ Detailed RTL Component Info :
 +---Registers : 
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	  20 Input      9 Bit        Muxes := 1     
+	  21 Input      9 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 4     
 	   9 Input      1 Bit        Muxes := 9     
 Module store_fsm 
@@ -1154,7 +1155,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 678.309 ; gain = 470.961
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -1198,9 +1199,9 @@ WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
 WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Parallel Reinference  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 677.840 ; gain = 471.398
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1344,9 +1345,9 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]) is unused and will be removed from module receiver_module.
 WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]) is unused and will be removed from module receiver_module.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 677.840 ; gain = 471.398
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -1360,10 +1361,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 678.309 ; gain = 470.961
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 677.840 ; gain = 471.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 782.531 ; gain = 575.184
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 782.262 ; gain = 575.820
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1390,16 +1391,16 @@ WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[4]) 
 WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]) is unused and will be removed from module nexys4DDR.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
-Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -1416,7 +1417,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1429,7 +1430,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1441,25 +1442,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1480,11 +1481,11 @@ Report Cell Usage:
 |2     |BUFG          |     2|
 |3     |CARRY4        |   328|
 |4     |LUT1          |   307|
-|5     |LUT2          |   399|
+|5     |LUT2          |   402|
 |6     |LUT3          |   325|
-|7     |LUT4          |   224|
+|7     |LUT4          |   221|
 |8     |LUT5          |   926|
-|9     |LUT6          |   381|
+|9     |LUT6          |   385|
 |10    |MUXF7         |     4|
 |11    |RAM64M        |     8|
 |12    |RAM64X1D      |     8|
@@ -1502,7 +1503,7 @@ Report Instance Areas:
 +------+---------------------------+-------------------------------+------+
 |      |Instance                   |Module                         |Cells |
 +------+---------------------------+-------------------------------+------+
-|1     |top                        |                               |  3872|
+|1     |top                        |                               |  3876|
 |2     |  U_ACK_INTERFACE          |ack_interface                  |   100|
 |3     |  U_ASYNCH_TX              |asynch_transmitter             |    70|
 |4     |    U_BAUD_PULSE           |single_pulser_16               |     2|
@@ -1520,10 +1521,10 @@ Report Instance Areas:
 |16    |  U_RIGHT_DEBOUNCE         |debounce_2                     |   102|
 |17    |  U_RIGHT_PULSER           |single_pulser_3                |     3|
 |18    |  U_RRD_SINGLE_PULSE       |single_pulser_4                |     5|
-|19    |  U_RXD_MOD                |receiver_module                |  2468|
+|19    |  U_RXD_MOD                |receiver_module                |  2472|
 |20    |    U_FCS_VERIFICATION     |crc_generator_12               |    34|
 |21    |      U_COUNT_BYTE         |bcdcounter_15                  |    10|
-|22    |    U_MAN_RECEIVER         |man_receiver                   |  2217|
+|22    |    U_MAN_RECEIVER         |man_receiver                   |  2218|
 |23    |      U_ABN_BIT_COUNTER    |bcdcounter__parameterized4     |     4|
 |24    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    14|
 |25    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    38|
@@ -1537,13 +1538,13 @@ Report Instance Areas:
 |33    |      U_SAMPLER            |variable_sampler               |  1506|
 |34    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    15|
 |35    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    16|
-|36    |      U_SFD_FSM            |sfd_fsm                        |     8|
+|36    |      U_SFD_FSM            |sfd_fsm                        |     9|
 |37    |      U_SFD_SHREG          |sfd_detector_shreg             |    20|
 |38    |      U_STRT_RECEIVE_PULSE |single_pulser_14               |     3|
 |39    |      U_SYNC               |synchronizer                   |    64|
 |40    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
-|41    |    U_RXD_FIFO             |sasc_fifo                      |    85|
-|42    |    U_RXD_FSM              |rxd_fsm                        |    38|
+|41    |    U_RXD_FIFO             |sasc_fifo                      |    84|
+|42    |    U_RXD_FSM              |rxd_fsm                        |    42|
 |43    |    U_STORAGE_FSM          |store_fsm                      |    37|
 |44    |    U_WRITE_PULSE          |single_pulser_13               |    16|
 |45    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    54|
@@ -1574,11 +1575,11 @@ Report Instance Areas:
 |70    |  U_XWR_SINGLE_PULSE       |single_pulser_8                |     2|
 +------+---------------------------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 790.469 ; gain = 583.121
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 584.633
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 123 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 790.469 ; gain = 235.828
-Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 790.469 ; gain = 583.121
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:28 . Memory (MB): peak = 791.074 ; gain = 236.348
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 791.074 ; gain = 584.633
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 388 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1593,8 +1594,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-269 Infos, 186 Warnings, 0 Critical Warnings and 0 Errors encountered.
+270 Infos, 186 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 790.469 ; gain = 550.664
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 790.469 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Dec 05 08:35:02 2017...
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 791.074 ; gain = 551.313
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 791.074 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 06 10:37:59 2017...
