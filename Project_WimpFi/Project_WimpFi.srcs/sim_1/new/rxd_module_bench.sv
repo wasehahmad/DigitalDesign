@@ -378,11 +378,35 @@ module rxd_module_bench;
         send_0;
         send_0;
     endtask
+    
+    task send_ack_fcs;
+    
+        send_1;
+        send_0;
+        send_1;
+        send_1;
+        
+        send_0;
+        send_1;
+        send_1;
+        send_0;
+        
+
+    endtask
 
 //====================================
     task send_eof;
         integer i;
         for(i=0;i<32;i++)begin
+            rxd = 1;
+            repeat(WAIT_TIME)@(posedge clk);
+        end
+    endtask
+    
+//====================================
+    task send_1_eof;
+        integer i;
+        for(i=0;i<16;i++)begin
             rxd = 1;
             repeat(WAIT_TIME)@(posedge clk);
         end
@@ -938,14 +962,14 @@ module rxd_module_bench;
             send_type_3;//type
             repeat(3)@(posedge clk);
             
-            send_fcs_for_2_5s_2;//fcs
+            send_ack_fcs;//fcs
             repeat(3)@(posedge clk);
             
             send_eof;
             repeat(2)@(posedge clk);
             
             @(posedge clk);
-            check_ok("ack seen goes high because of type 3 packet", ack_seen, 1);
+            check_ok("ack seen goes high because of type 3 packet", ack_seen, 0);
         endtask
         
         //=========================================================
