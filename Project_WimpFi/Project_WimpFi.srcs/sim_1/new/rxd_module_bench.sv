@@ -354,6 +354,30 @@ module rxd_module_bench;
         send_1;
         send_1;
     endtask
+    
+    task send_fcs_for_4_5s_2;
+        send_0;
+        send_0;
+        send_1;
+        send_0;
+        
+        send_1;
+        send_1;
+        send_0;
+        send_1;
+    endtask
+    
+    task send_fcs_for_2_5s_2;
+        send_0;
+        send_0;
+        send_1;
+        send_0;
+        
+        send_1;
+        send_0;
+        send_0;
+        send_0;
+    endtask
 
 //====================================
     task send_eof;
@@ -706,7 +730,7 @@ module rxd_module_bench;
         send_preamble_8;
         send_sfd;
         
-        send_diff_MAC;//destination @
+        send_our_MAC;//destination @
         repeat(3)@(posedge clk);
         
         send_source;//source
@@ -718,7 +742,7 @@ module rxd_module_bench;
         send_data_4_5s;//data
         repeat(3)@(posedge clk);
         
-        send_fcs_for_2_5s;//data
+        send_type_0;//fcs
         repeat(3)@(posedge clk);
         
         send_eof;
@@ -731,7 +755,7 @@ module rxd_module_bench;
     
     //=========================================================
     
-    task receive_broadcast_with_fcs;
+    task receive_broadcast_with_fcs_2;
             $display("===================================Testing Simulation test 2.1===================================");
      
             //send preamble
@@ -752,7 +776,7 @@ module rxd_module_bench;
             send_data_2_5s;//data
             repeat(3)@(posedge clk);
             
-            send_fcs_for_2_5s; //fcs
+            send_fcs_for_2_5s_2; //fcs
             repeat(3)@(posedge clk);
             
             send_eof;
@@ -764,19 +788,21 @@ module rxd_module_bench;
                 @(posedge clk);
                 check_ok("RDATA is the source address", RDATA, 8'h00);
                 @(posedge clk);
-                check_ok("RDATA is the type", RDATA, "1");
+                check_ok("RDATA is the type", RDATA, "2");
                 @(posedge clk);
                 check_ok("RDATA is the data", RDATA, 8'h05);
                 @(posedge clk);
                 check_ok("RDATA is the data", RDATA, 8'h05);
                 @(posedge clk);
-                check_ok("RDATA is the checksum", RDATA, 8'hf0);
+                check_ok("RDATA is the checksum", RDATA, 8'h14);
+                @(posedge clk);
+                check_ok("Type 2 seen does not go high for broadcast", type_2_seen, 0);
                 @(posedge clk) #1;
             end;
             rrd = 0;       
         endtask
         
-        task receive_on_our_address_with_fcs;
+        task receive_on_our_address_with_fcs_2;
             $display("===================================Testing Simulation test 2.2===================================");
      
             //send preamble
@@ -797,7 +823,7 @@ module rxd_module_bench;
             send_data_4_5s;//data
             repeat(3)@(posedge clk);
             
-            send_fcs_for_4_5s; //fcs
+            send_fcs_for_4_5s_2; //fcs
             repeat(3)@(posedge clk);
             
             send_eof;
@@ -809,7 +835,7 @@ module rxd_module_bench;
                 @(posedge clk);
                 check_ok("RDATA is the source address", RDATA, 8'h00);
                 @(posedge clk);
-                check_ok("RDATA is the type", RDATA, "1");
+                check_ok("RDATA is the type", RDATA, "2");
                 @(posedge clk);
                 check_ok("RDATA is the data", RDATA, 8'h05);
                 @(posedge clk);
@@ -819,14 +845,18 @@ module rxd_module_bench;
                 @(posedge clk);
                 check_ok("RDATA is the data", RDATA, 8'h05);
                 @(posedge clk);
-                check_ok("RDATA is the checksum", RDATA, 8'hfa);
+                check_ok("RDATA is the checksum", RDATA, 8'hb4);
+                @(posedge clk);
+                check_ok("Type 2 seen does go high for our address", type_2_seen, 1);
+                @(posedge clk);
+                check_ok("Source from type 2 packet seen to send ack to is confirmed", source, 8'h00);
                 @(posedge clk) #1;
             end;
             rrd = 0;       
         endtask
         
             
-        task no_receive_diff_MAC_with_fcs;
+        task no_receive_diff_MAC_with_fcs_2;
             $display("===================================Testing Simulation test 2.3===================================");
      
             //send preamble
@@ -847,7 +877,7 @@ module rxd_module_bench;
             send_data_4_5s;//data
             repeat(3)@(posedge clk);
             
-            send_fcs_for_4_5s;//data
+            send_fcs_for_4_5s_2;//data
             repeat(3)@(posedge clk);
             
             send_eof;
@@ -857,7 +887,7 @@ module rxd_module_bench;
             check_ok("RRDY doesn't go high, because data was sent to different MAC address", RRDY, 0);        
         endtask
             
-        task no_receive_incorrect_fcs;
+        task no_receive_incorrect_fcs_2;
             $display("===================================Testing Simulation test 2.4===================================");
      
             //send preamble
@@ -866,7 +896,7 @@ module rxd_module_bench;
             send_preamble_8;
             send_sfd;
             
-            send_diff_MAC;//destination @
+            send_our_MAC;//destination @
             repeat(3)@(posedge clk);
             
             send_source;//source
@@ -878,7 +908,7 @@ module rxd_module_bench;
             send_data_4_5s;//data
             repeat(3)@(posedge clk);
             
-            send_fcs_for_2_5s;//data
+            send_fcs_for_2_5s_2;//data
             repeat(3)@(posedge clk);
             
             send_eof;
@@ -887,6 +917,7 @@ module rxd_module_bench;
             @(posedge clk);
             check_ok("RRDY doesn't go high because incorrect FCS", RRDY, 0);      
             check_ok("RERRCNT increments due to incorrect FCS", RERRCNT, 1);
+            check_ok("Type 2 seen does not go high when a bad FCS is received", type_2_seen, 0);
         endtask
         
         //=========================================================
@@ -943,6 +974,26 @@ module rxd_module_bench;
         reset = 0;
         repeat(100)@(posedge clk);
         no_receive_incorrect_fcs;       // type 1 test 4
+        reset = 1;
+        repeat(100)@(posedge clk);
+        reset = 0;
+        repeat(100)@(posedge clk);
+        receive_broadcast_with_fcs_2;     // type 2 test 1
+        reset = 1;
+        repeat(100)@(posedge clk);
+        reset = 0;
+        repeat(100)@(posedge clk);
+        receive_on_our_address_with_fcs_2;// type 2 test 2
+        reset = 1;
+        repeat(100)@(posedge clk);
+        reset = 0;
+        repeat(100)@(posedge clk);
+        no_receive_diff_MAC_with_fcs_2;   // type 2 test 3
+        reset = 1;
+        repeat(100)@(posedge clk);
+        reset = 0;
+        repeat(100)@(posedge clk);
+        no_receive_incorrect_fcs_2;       // type 2 test 4
         reset = 1;
         repeat(100)@(posedge clk);
         reset = 0;
