@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/impl_1'
+HD_PWD='C:/Users/watsongd/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
