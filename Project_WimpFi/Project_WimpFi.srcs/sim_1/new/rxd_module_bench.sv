@@ -920,6 +920,34 @@ module rxd_module_bench;
             check_ok("Type 2 seen does not go high when a bad FCS is received", type_2_seen, 0);
         endtask
         
+        task receive_ack;
+            $display("===================================Testing Simulation test 3.1===================================");
+     
+            //send preamble
+            send_preamble_8;
+            @(posedge clk);
+            send_preamble_8;
+            send_sfd;
+            
+            send_our_MAC;//destination @
+            repeat(3)@(posedge clk);
+            
+            send_source;//source
+            repeat(3)@(posedge clk);
+            
+            send_type_3;//type
+            repeat(3)@(posedge clk);
+            
+            send_fcs_for_2_5s_2;//fcs
+            repeat(3)@(posedge clk);
+            
+            send_eof;
+            repeat(2)@(posedge clk);
+            
+            @(posedge clk);
+            check_ok("ack seen goes high because of type 3 packet", ack_seen, 1);
+        endtask
+        
         //=========================================================
     task read_all;
         while(RRDY)begin
@@ -994,6 +1022,11 @@ module rxd_module_bench;
         reset = 0;
         repeat(100)@(posedge clk);
         no_receive_incorrect_fcs_2;       // type 2 test 4
+        reset = 1;
+        repeat(100)@(posedge clk);
+        reset = 0;
+        repeat(100)@(posedge clk);
+        receive_ack;                      // type 3 test 1
         reset = 1;
         repeat(100)@(posedge clk);
         reset = 0;
