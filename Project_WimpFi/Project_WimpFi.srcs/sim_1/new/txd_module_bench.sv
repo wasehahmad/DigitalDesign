@@ -375,7 +375,7 @@ task send_multiple_bytes_specific_address;
     
     //When reset is asserted, amke sure the transmitter is in the correct state
     task reset_case;
-        $display("===================================Testing Simulation test 1===================================");
+        $display("===============Testing Simulation test 1==============");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -393,7 +393,7 @@ task send_multiple_bytes_specific_address;
     endtask
     
     task correct_transmission_one_byte;
-        $display("===================================Testing Simulation test 2===================================");
+        $display("===================Testing Simulation test 2================");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -409,7 +409,7 @@ task send_multiple_bytes_specific_address;
     endtask
     
     task correct_transmission_multiple_bytes;
-        $display("===================================Testing Simulation test 3===================================");
+        $display("==============Testing Simulation test 3===============");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -425,7 +425,7 @@ task send_multiple_bytes_specific_address;
     endtask    
     
     task correct_transmission_mutliple_bytes_with_backoff;
-        $display("===================================Testing Simulation test 4===================================");
+        $display("=================Testing Simulation test 4==============");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -442,7 +442,7 @@ task send_multiple_bytes_specific_address;
     
     ///////////////////////////___TYPE_1___///////////////////////////////////////////////////////////////////////
     task correct_transmission_multiple_bytes_different_address;
-        $display("===================================Testing Simulation test 5===================================");
+        $display("===============Testing Simulation test 5=============");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -459,7 +459,7 @@ task send_multiple_bytes_specific_address;
     
     //========================================================================================
     task correct_type_3;
-        $display("===================================Testing Simulation test 6===================================");
+        $display("===========Testing Simulation test 6=================");
         //wait 100 clock cycles
         reset = 0;
         repeat(100)@(posedge clk);
@@ -512,31 +512,31 @@ task send_multiple_bytes_specific_address;
         reset = 0;
         reset_case;
         //Type_0
-        $display("===================================TYPE_0===================================");
+        $display("===============TYPE_0===============");
         type_data = "0";
-//        correct_transmission_one_byte;
-//        correct_transmission_multiple_bytes;
-//        correct_transmission_mutliple_bytes_with_backoff;
+        correct_transmission_one_byte;
+        correct_transmission_multiple_bytes;
+        correct_transmission_mutliple_bytes_with_backoff;
         //Type_1
         type_data = "1";
         repeat(1000)@(posedge clk);
         //change MAC for rest of simulation
         MAC = "n";
-        $display("===================================TYPE_1===================================");
-//        correct_transmission_multiple_bytes;
-//        correct_transmission_multiple_bytes_different_address;
-//        correct_transmission_mutliple_bytes_with_backoff;
+        $display("===============TYPE_1===============");
+        correct_transmission_multiple_bytes;
+        correct_transmission_multiple_bytes_different_address;
+        correct_transmission_mutliple_bytes_with_backoff;
         
         type_data = "2";
         repeat(1000)@(posedge clk);
-        $display("===================================TYPE_2===================================");
-//        correct_transmission_multiple_bytes;
-//        correct_transmission_multiple_bytes_different_address;
-//        correct_transmission_mutliple_bytes_with_backoff;
+        $display("===============TYPE_2===============");
+        correct_transmission_multiple_bytes;
+        correct_transmission_multiple_bytes_different_address;
+        correct_transmission_mutliple_bytes_with_backoff;
 
        type_data = "3";
        repeat(1000)@(posedge clk);
-       $display("===================================TYPE_3===================================");
+       $display("===============TYPE_3===============");
        correct_type_3;
 
         //test_watchdog;   ---------Already tested this     

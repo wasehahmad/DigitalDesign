@@ -1,0 +1,1599 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Sun Dec 10 17:28:03 2017
+# Process ID: 5428
+# Current directory: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1
+# Command line: vivado.exe -log nexys4DDR.vds -mode batch -messageDb vivado.pb -notrace -source nexys4DDR.tcl
+# Log file: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/nexys4DDR.vds
+# Journal file: C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source nexys4DDR.tcl -notrace
+Command: synth_design -top nexys4DDR -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8052 
+WARNING: [Synth 8-2611] redeclaration of ansi port full is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
+WARNING: [Synth 8-2611] redeclaration of ansi port empty is not allowed [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
+WARNING: [Synth 8-976] full has already been declared [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
+WARNING: [Synth 8-2654] second declaration of full ignored [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:89]
+INFO: [Synth 8-994] full is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:71]
+INFO: [Synth 8-994] empty is declared here [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:72]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 323.879 ; gain = 116.461
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'nexys4DDR' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
+	Parameter BAUD bound to: 50000 - type: integer 
+	Parameter TXD_BAUD bound to: 50000 - type: integer 
+	Parameter TXD_BAUD_2 bound to: 100000 - type: integer 
+	Parameter UART_BAUD bound to: 9600 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'debounce' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/debounce.sv:19]
+	Parameter DEBOUNCE_TIME_MS bound to: 5 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter WAIT_COUNT bound to: 500000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'debounce' (1#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/debounce.sv:19]
+WARNING: [Synth 8-350] instance 'U_SEND_DEBOUNCE' of module 'debounce' requires 4 connections, but only 3 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:88]
+WARNING: [Synth 8-350] instance 'U_UP_DEBOUNCE' of module 'debounce' requires 4 connections, but only 3 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:89]
+WARNING: [Synth 8-350] instance 'U_DOWN_DEBOUNCE' of module 'debounce' requires 4 connections, but only 3 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:90]
+WARNING: [Synth 8-350] instance 'U_LEFT_DEBOUNCE' of module 'debounce' requires 4 connections, but only 3 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:91]
+WARNING: [Synth 8-350] instance 'U_RIGHT_DEBOUNCE' of module 'debounce' requires 4 connections, but only 3 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:92]
+INFO: [Synth 8-638] synthesizing module 'ack_interface' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/ack_interface.sv:23]
+	Parameter NUM_BITS bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'ack_interface' (2#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/ack_interface.sv:23]
+INFO: [Synth 8-638] synthesizing module 'receiver_top' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/new/receiver_top.sv:23]
+	Parameter BAUD bound to: 9600 - type: integer 
+	Parameter BAUD16 bound to: 153600 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clkenb' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 153600 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 651 - type: integer 
+	Parameter DIVBITS bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb' (3#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'receiver_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/new/receiver_fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/new/receiver_fsm.sv:85]
+INFO: [Synth 8-256] done synthesizing module 'receiver_fsm' (4#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/new/receiver_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'receiver_top' (5#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/new/receiver_top.sv:23]
+INFO: [Synth 8-638] synthesizing module 'single_pulser' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/single_pulser.sv:21]
+INFO: [Synth 8-256] done synthesizing module 'single_pulser' (6#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/single_pulser.sv:21]
+INFO: [Synth 8-638] synthesizing module 'transmitter_module' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:23]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+	Parameter PREAMBLE_SIZE bound to: 2 - type: integer 
+	Parameter DIFS bound to: 80 - type: integer 
+	Parameter SLOT_TIME bound to: 8 - type: integer 
+	Parameter ACK_TIMEOUT bound to: 256 - type: integer 
+	Parameter SIFS bound to: 40 - type: integer 
+	Parameter MAX_FRAMES bound to: 510 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'txd_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_fsm.sv:23]
+	Parameter W bound to: 10 - type: integer 
+	Parameter MAX_ATTEMPTS bound to: 5 - type: integer 
+	Parameter ATT_W bound to: 4 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_fsm.sv:90]
+INFO: [Synth 8-256] done synthesizing module 'txd_fsm' (7#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_fsm.sv:23]
+WARNING: [Synth 8-350] instance 'U_TXD_FSM' of module 'txd_fsm' requires 20 connections, but only 19 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:137]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 50000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
+	Parameter DIVBITS bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized0' (7#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-5428-ECE402-F6M8KB2/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-5428-ECE402-F6M8KB2/realtime/blk_mem_gen_0_stub.v:6]
+WARNING: [Synth 8-689] width (9) of port connection 'addra' does not match port width (8) of module 'blk_mem_gen_0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
+INFO: [Synth 8-638] synthesizing module 'rtl_transmitter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
+	Parameter BAUD bound to: 50000 - type: integer 
+	Parameter BAUD2 bound to: 100000 - type: integer 
+	Parameter WAIT_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized1' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 50000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 2000 - type: integer 
+	Parameter DIVBITS bound to: 11 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized1' (8#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+	Parameter COUNT_CEILING bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter_txd' (9#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+WARNING: [Synth 8-350] instance 'U_BIT_COUNTER' of module 'bcdcounter_txd' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:54]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized2' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 100000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 1000 - type: integer 
+	Parameter DIVBITS bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized2' (9#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+	Parameter COUNT_CEILING bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter_txd__parameterized0' (9#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+WARNING: [Synth 8-350] instance 'U_2_BIT_COUNTER' of module 'bcdcounter_txd' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:75]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd__parameterized1' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+	Parameter COUNT_CEILING bound to: 5 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter_txd__parameterized1' (9#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+WARNING: [Synth 8-350] instance 'U_WAIT_BIT_COUNTER' of module 'bcdcounter_txd' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:78]
+INFO: [Synth 8-638] synthesizing module 'transmitter_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/transmitter_fsm.sv:23]
+	Parameter D bound to: 8 - type: integer 
+	Parameter N bound to: 4 - type: integer 
+	Parameter WAIT_BITS bound to: 2 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/transmitter_fsm.sv:84]
+INFO: [Synth 8-256] done synthesizing module 'transmitter_fsm' (10#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/transmitter_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'rtl_transmitter' (11#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/sources_1/new/rtl_transmitter.sv:23]
+INFO: [Synth 8-638] synthesizing module 'crc_generator' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/crc_generator.sv:23]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 8 - type: integer 
+	Parameter W bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter' (12#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-350] instance 'U_COUNT_BYTE' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/crc_generator.sv:48]
+INFO: [Synth 8-256] done synthesizing module 'crc_generator' (13#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/crc_generator.sv:23]
+INFO: [Synth 8-638] synthesizing module 'txd_write_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_write_fsm.sv:23]
+	Parameter MAX_BYTES bound to: 255 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'txd_write_fsm' (14#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_write_fsm.sv:23]
+INFO: [Synth 8-638] synthesizing module 'txd_transmit_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:23]
+	Parameter PREAMBLE_SIZE bound to: 2 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 2 - type: integer 
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized0' (14#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-350] instance 'U_PRE_COUNTER' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:42]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:75]
+INFO: [Synth 8-256] done synthesizing module 'txd_transmit_fsm' (15#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/txd_transmit_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'transmitter_module' (16#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:23]
+WARNING: [Synth 8-350] instance 'U_TXD_MOD' of module 'transmitter_module' requires 20 connections, but only 16 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:115]
+INFO: [Synth 8-638] synthesizing module 'receiver_module' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:23]
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'man_receiver' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:23]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter NUM_SAMPLES bound to: 16 - type: integer 
+	Parameter PHASE_WIDTH bound to: 5 - type: integer 
+	Parameter BIT_RATE bound to: 50000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'variable_sampler' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/variable_sampler.sv:23]
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter BAUD bound to: 50000 - type: integer 
+	Parameter SAMPLE_FREQ bound to: 16 - type: integer 
+	Parameter SAMPLE_RATE bound to: 800000 - type: integer 
+	Parameter INCR_AMT bound to: 5000 - type: integer 
+	Parameter ACC_BOUND bound to: 50000 - type: integer 
+	Parameter ACC_LW_BOUND bound to: -50000 - type: integer 
+WARNING: [Synth 8-87] always_comb on 'n_initialized_reg' did not result in combinational logic [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/variable_sampler.sv:100]
+WARNING: [Synth 8-87] always_comb on 'actualClkFreq_reg' did not result in combinational logic [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/variable_sampler.sv:101]
+INFO: [Synth 8-256] done synthesizing module 'variable_sampler' (17#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/variable_sampler.sv:23]
+INFO: [Synth 8-638] synthesizing module 'synchronizer' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/synchronizer.sv:23]
+	Parameter NUM_SAMP bound to: 16 - type: integer 
+	Parameter COUNT_MAX bound to: 16 - type: integer 
+	Parameter W bound to: 5 - type: integer 
+	Parameter MAX_WAIT_FOR_BIT bound to: 21 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized1' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 32 - type: integer 
+	Parameter W bound to: 6 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized1' (17#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-689] width (5) of port connection 'Q' does not match port width (6) of module 'bcdcounter__parameterized1' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/synchronizer.sv:62]
+WARNING: [Synth 8-350] instance 'U_BIT_RECOG_COUNT' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/synchronizer.sv:62]
+INFO: [Synth 8-256] done synthesizing module 'synchronizer' (18#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/synchronizer.sv:23]
+WARNING: [Synth 8-350] instance 'U_SYNC' of module 'synchronizer' requires 9 connections, but only 8 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:55]
+INFO: [Synth 8-638] synthesizing module 'correlator' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+	Parameter LEN bound to: 16 - type: integer 
+	Parameter RST_PAT bound to: 16'b1111111111111111 
+	Parameter PATTERN bound to: 16'b0000000011111111 
+	Parameter HTHRESH bound to: 13 - type: integer 
+	Parameter LTHRESH bound to: 3 - type: integer 
+	Parameter W bound to: 5 - type: integer 
+	Parameter DIGIT bound to: 1'b0 
+INFO: [Synth 8-256] done synthesizing module 'correlator' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+WARNING: [Synth 8-350] instance 'U_CORREL_ZERO' of module 'correlator' requires 8 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:59]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+	Parameter LEN bound to: 16 - type: integer 
+	Parameter RST_PAT bound to: 16'b0000000000000000 
+	Parameter PATTERN bound to: 16'b1111111100000000 
+	Parameter HTHRESH bound to: 13 - type: integer 
+	Parameter LTHRESH bound to: 3 - type: integer 
+	Parameter W bound to: 5 - type: integer 
+	Parameter DIGIT bound to: 1'b1 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized0' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+WARNING: [Synth 8-350] instance 'U_CORREL_ONE' of module 'correlator' requires 8 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:62]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized2' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 9 - type: integer 
+	Parameter W bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized2' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-350] instance 'U_BYTE_COUNTER' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:77]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized3' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 32 - type: integer 
+	Parameter W bound to: 6 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized3' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-350] instance 'U_SAMP_COUNTER' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:80]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized4' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 2 - type: integer 
+	Parameter W bound to: 2 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized4' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-689] width (4) of port connection 'Q' does not match port width (2) of module 'bcdcounter__parameterized4' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:87]
+WARNING: [Synth 8-350] instance 'U_ABN_BIT_COUNTER' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:87]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized1' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+	Parameter LEN bound to: 16 - type: integer 
+	Parameter RST_PAT bound to: 16'b0000000000000000 
+	Parameter PATTERN bound to: 16'b1111111111111111 
+	Parameter HTHRESH bound to: 13 - type: integer 
+	Parameter LTHRESH bound to: 3 - type: integer 
+	Parameter W bound to: 5 - type: integer 
+	Parameter DIGIT bound to: 1'b1 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized1' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+WARNING: [Synth 8-350] instance 'U_CORREL_ABN_HIGH' of module 'correlator' requires 8 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:90]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized2' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+	Parameter LEN bound to: 16 - type: integer 
+	Parameter RST_PAT bound to: 16'b1111111111111111 
+	Parameter PATTERN bound to: 16'b0000000000000000 
+	Parameter HTHRESH bound to: 13 - type: integer 
+	Parameter LTHRESH bound to: 3 - type: integer 
+	Parameter W bound to: 5 - type: integer 
+	Parameter DIGIT bound to: 1'b0 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized2' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+WARNING: [Synth 8-350] instance 'U_CORREL_ABN_LOW' of module 'correlator' requires 8 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:91]
+INFO: [Synth 8-638] synthesizing module 'correlator__parameterized3' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+	Parameter LEN bound to: 32 - type: integer 
+	Parameter RST_PAT bound to: 16'b0000000000000000 
+	Parameter PATTERN bound to: -1 - type: integer 
+	Parameter HTHRESH bound to: 26 - type: integer 
+	Parameter LTHRESH bound to: 3 - type: integer 
+	Parameter W bound to: 6 - type: integer 
+	Parameter DIGIT bound to: 1'b1 
+INFO: [Synth 8-256] done synthesizing module 'correlator__parameterized3' (19#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/correlator.sv:25]
+WARNING: [Synth 8-350] instance 'U_CORREL_EOF' of module 'correlator' requires 8 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:92]
+INFO: [Synth 8-638] synthesizing module 'receive_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/receive_fsm.sv:24]
+	Parameter BITS_IN_BYTE bound to: 8 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/receive_fsm.sv:78]
+INFO: [Synth 8-256] done synthesizing module 'receive_fsm' (20#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/receive_fsm.sv:24]
+WARNING: [Synth 8-689] width (4) of port connection 'bit_count' does not match port width (2) of module 'receive_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:96]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter__parameterized5' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+	Parameter LAST_VAL bound to: 32 - type: integer 
+	Parameter W bound to: 6 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter__parameterized5' (20#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 2 Reference Code-20170919/bcdcounter.sv:19]
+WARNING: [Synth 8-350] instance 'U_SAMP_COUNTER_PRE' of module 'bcdcounter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:109]
+INFO: [Synth 8-638] synthesizing module 'preamble_detector_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/preamble_detector_shreg.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'preamble_detector_shreg' (21#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/preamble_detector_shreg.sv:23]
+INFO: [Synth 8-638] synthesizing module 'sfd_detector_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_detector_shreg.sv:23]
+	Parameter sfd bound to: 8'b11010000 
+INFO: [Synth 8-256] done synthesizing module 'sfd_detector_shreg' (22#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_detector_shreg.sv:23]
+INFO: [Synth 8-638] synthesizing module 'sfd_correl' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
+	Parameter LEN bound to: 128 - type: integer 
+	Parameter RST_PAT bound to: 128'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter PATTERN bound to: 128'b00000000111111110000000011111111000000001111111100000000111111111111111100000000000000001111111111111111000000001111111100000000 
+	Parameter HTHRESH bound to: 104 - type: integer 
+	Parameter LTHRESH bound to: 24 - type: integer 
+	Parameter W bound to: 8 - type: integer 
+	Parameter DIGIT bound to: 1'b0 
+WARNING: [Synth 8-3848] Net corroborating in module/entity sfd_correl does not have driver. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:32]
+INFO: [Synth 8-256] done synthesizing module 'sfd_correl' (23#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_correl.sv:23]
+WARNING: [Synth 8-350] instance 'U_CORREL_SFD' of module 'sfd_correl' requires 10 connections, but only 5 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:123]
+INFO: [Synth 8-638] synthesizing module 'data_shreg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/data_shreg.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'data_shreg' (24#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/data_shreg.sv:23]
+INFO: [Synth 8-638] synthesizing module 'sfd_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_fsm.sv:62]
+INFO: [Synth 8-256] done synthesizing module 'sfd_fsm' (25#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/sfd_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'man_receiver' (26#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/man_receiver.sv:23]
+WARNING: [Synth 8-350] instance 'U_MAN_RECEIVER' of module 'man_receiver' requires 9 connections, but only 8 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:47]
+INFO: [Synth 8-638] synthesizing module 'sasc_fifo' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:63]
+	Parameter FIFO_DEPTH bound to: 256 - type: integer 
+	Parameter POINTER_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sasc_fifo' (27#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/sasc_fifo.v:63]
+WARNING: [Synth 8-350] instance 'U_RXD_FIFO' of module 'sasc_fifo' requires 9 connections, but only 8 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:67]
+INFO: [Synth 8-638] synthesizing module 'rxd_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:79]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:131]
+INFO: [Synth 8-256] done synthesizing module 'rxd_fsm' (28#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/rxd_fsm.sv:23]
+INFO: [Synth 8-638] synthesizing module 'store_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:62]
+INFO: [Synth 8-256] done synthesizing module 'store_fsm' (29#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'receiver_module' (30#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:23]
+INFO: [Synth 8-638] synthesizing module 'asynch_transmitter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter.sv:23]
+	Parameter BAUD bound to: 9600 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized3' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 9600 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 10416 - type: integer 
+	Parameter DIVBITS bound to: 14 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized3' (30#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'bcdcounter_txd__parameterized2' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+	Parameter COUNT_CEILING bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'bcdcounter_txd__parameterized2' (30#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/bcdcounter_txd.sv:23]
+WARNING: [Synth 8-350] instance 'U_BIT_COUNTER' of module 'bcdcounter_txd' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter.sv:45]
+INFO: [Synth 8-638] synthesizing module 'asynch_transmitter_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter_fsm.sv:23]
+	Parameter D bound to: 8 - type: integer 
+	Parameter N bound to: 4 - type: integer 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter_fsm.sv:52]
+INFO: [Synth 8-256] done synthesizing module 'asynch_transmitter_fsm' (31#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter_fsm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'asynch_transmitter' (32#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/asynch_transmitter.sv:23]
+INFO: [Synth 8-638] synthesizing module 'config_mac_fsm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/config_mac_fsm.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/config_mac_fsm.sv:62]
+INFO: [Synth 8-256] done synthesizing module 'config_mac_fsm' (33#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/config_mac_fsm.sv:23]
+INFO: [Synth 8-638] synthesizing module 'reg_param' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/reg_param.sv:15]
+	Parameter W bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'reg_param' (34#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/reg_param.sv:15]
+INFO: [Synth 8-638] synthesizing module 'dispctl' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/dispctl.sv:24]
+INFO: [Synth 8-638] synthesizing module 'clkenb__parameterized4' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+	Parameter DIVFREQ bound to: 1000 - type: integer 
+	Parameter CLKFREQ bound to: 100000000 - type: integer 
+	Parameter DIVAMT bound to: 100000 - type: integer 
+	Parameter DIVBITS bound to: 17 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'clkenb__parameterized4' (34#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170919/clkenb.sv:20]
+INFO: [Synth 8-638] synthesizing module 'counter' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/counter.sv:16]
+	Parameter W bound to: 3 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter' (35#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/new/counter.sv:16]
+WARNING: [Synth 8-350] instance 'THR_B_COUNTER' of module 'counter' requires 5 connections, but only 4 given [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/dispctl.sv:43]
+INFO: [Synth 8-638] synthesizing module 'mux8_parm' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:16]
+	Parameter W bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'mux8_parm' (36#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:16]
+INFO: [Synth 8-638] synthesizing module 'mux8_parm__parameterized0' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:16]
+	Parameter W bound to: 1 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:23]
+INFO: [Synth 8-256] done synthesizing module 'mux8_parm__parameterized0' (36#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/mux8_parm.sv:16]
+INFO: [Synth 8-638] synthesizing module 'seven_seg' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/seven_seg.sv:17]
+	Parameter BLANK bound to: 7'b1111111 
+	Parameter ZERO bound to: 7'b1000000 
+	Parameter ONE bound to: 7'b1111001 
+	Parameter TWO bound to: 7'b0100100 
+	Parameter THREE bound to: 7'b0110000 
+	Parameter FOUR bound to: 7'b0011001 
+	Parameter FIVE bound to: 7'b0010010 
+	Parameter SIX bound to: 7'b0000010 
+	Parameter SEVEN bound to: 7'b1111000 
+	Parameter EIGHT bound to: 7'b0000000 
+	Parameter NINE bound to: 7'b0010000 
+	Parameter A bound to: 7'b0001000 
+	Parameter B bound to: 7'b0000011 
+	Parameter C bound to: 7'b1000110 
+	Parameter D bound to: 7'b0100001 
+	Parameter E bound to: 7'b0000110 
+	Parameter F bound to: 7'b0001110 
+INFO: [Synth 8-226] default block is never used [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/seven_seg.sv:42]
+INFO: [Synth 8-256] done synthesizing module 'seven_seg' (37#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/seven_seg.sv:17]
+INFO: [Synth 8-638] synthesizing module 'decoder_3_8_en' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv:17]
+INFO: [Synth 8-256] done synthesizing module 'decoder_3_8_en' (38#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/decoder_3_8_en.sv:17]
+INFO: [Synth 8-256] done synthesizing module 'dispctl' (39#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/lab01_7_segment/dispctl.sv:24]
+WARNING: [Synth 8-3848] Net write in module/entity nexys4DDR does not have driver. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:64]
+INFO: [Synth 8-256] done synthesizing module 'nexys4DDR' (40#1) [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/imports/imports/sources_1/imports/Downloads/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.sv:23]
+WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
+WARNING: [Synth 8-3331] design data_shreg has unconnected port sfd_detected
+WARNING: [Synth 8-3331] design sfd_correl has unconnected port corroborating
+WARNING: [Synth 8-3331] design sfd_correl has unconnected port cardet
+WARNING: [Synth 8-3331] design receive_fsm has unconnected port eof_seen
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_seen
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[7]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[6]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[5]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[4]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[3]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[2]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[1]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[0]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port WRITE
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[5]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[4]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 366.715 ; gain = 159.297
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin U_RXD_FIFO:clr to constant 0 [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/receiver_module.sv:67]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 366.715 ; gain = 159.297
+---------------------------------------------------------------------------------
+WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'blk_mem_gen_0' instantiated as 'U_TXD_MOD/U_TXD_BRAM' [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:178]
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-5428-ECE402-F6M8KB2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.runs/synth_1/.Xil/Vivado-5428-ECE402-F6M8KB2/dcp/blk_mem_gen_0_in_context.xdc] for cell 'U_TXD_MOD/U_TXD_BRAM'
+Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
+Finished Parsing XDC File [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/constrs_1/imports/Lab 1 Reference Code + Requirements Checklist-20170829/nexys4DDR.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexys4DDR_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/nexys4DDR_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 677.672 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U_TXD_MOD/U_TXD_BRAM' at clock pin 'clka' is different from the actual clock period '10.000', this can result in different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "restart_16_clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "restart_16_clk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next_ready" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "n_start_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "n_start_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'txd_fsm'
+INFO: [Synth 8-5544] ROM "reset_addr" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "reset_counter" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rdy" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "max_written" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'txd_transmit_fsm'
+INFO: [Synth 8-5546] ROM "n_d_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pkt_type0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "dest0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WATCHDOG_ERROR" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/imports/sources_1/new/variable_sampler.sv:85]
+INFO: [Synth 8-5545] ROM "result" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "n_write" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sfd_detected" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'rxd_fsm'
+INFO: [Synth 8-5546] ROM "ACK_received" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "next" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/store_fsm.sv:62]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'store_fsm'
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "next0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "next" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'config_mac_fsm'
+INFO: [Synth 8-5546] ROM "n_current_seg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "n_current_seg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "n_src_mac" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "n_src_mac" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "enb" won't be mapped to RAM because it is too sparse
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+                  TYPE_3 |                              001 |                             0111
+            NET_IDLE_CHK |                              010 |                             0100
+               CONT_WIND |                              011 |                             0011
+                TRANSMIT |                              100 |                             0101
+                ACK_WAIT |                              101 |                             0110
+             CARDET_WAIT |                              110 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'txd_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+                PREAMBLE |                              001 |                             0001
+                     SFD |                              010 |                             0010
+                    DATA |                              011 |                             0011
+                SEND_FCS |                              100 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'txd_transmit_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                        000000001 |                             0000
+              STORE_DEST |                        000000010 |                             0001
+                DEST_CHK |                        000000100 |                             1000
+               STORE_SRC |                        000001000 |                             0010
+              STORE_TYPE |                        000010000 |                             0011
+              STORE_DATA |                        000100000 |                             0100
+                 CHK_FCS |                        001000000 |                             0101
+                 READING |                        010000000 |                             0111
+                  IGNORE |                        100000000 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'rxd_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                             0001
+                 WRITING |                               01 |                             0010
+                 READING |                               10 |                             0011
+                    DONE |                               11 |                             0100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'store_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                 INC_SEG |                              001 |                              010
+                 DEC_SEG |                              010 |                              001
+                 INC_DIG |                              011 |                              100
+                 DEC_DIG |                              100 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'config_mac_fsm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 11    
+	   3 Input     32 Bit       Adders := 1     
+	  15 Input     32 Bit       Adders := 4     
+	  31 Input     32 Bit       Adders := 1     
+	 127 Input     32 Bit       Adders := 1     
+	   2 Input     27 Bit       Adders := 5     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 9     
+	   2 Input      6 Bit       Adders := 3     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 12    
+	   2 Input      3 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 2     
++---XORs : 
+	   2 Input    128 Bit         XORs := 1     
+	   2 Input     16 Bit         XORs := 3     
+	   2 Input      8 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 6     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               32 Bit    Registers := 2     
+	               27 Bit    Registers := 5     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
+	               14 Bit    Registers := 1     
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 5     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 25    
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 12    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 91    
++---RAMs : 
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 10    
+	   2 Input     27 Bit        Muxes := 5     
+	   2 Input     17 Bit        Muxes := 2     
+	   6 Input     17 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 3     
+	   5 Input      9 Bit        Muxes := 1     
+	  21 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 20    
+	   5 Input      8 Bit        Muxes := 5     
+	   4 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 1     
+	   7 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 7     
+	   7 Input      4 Bit        Muxes := 2     
+	   9 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 12    
+	   7 Input      3 Bit        Muxes := 1     
+	  21 Input      3 Bit        Muxes := 1     
+	   3 Input      3 Bit        Muxes := 1     
+	  12 Input      3 Bit        Muxes := 1     
+	  10 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 12    
+	   3 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 89    
+	   7 Input      1 Bit        Muxes := 16    
+	   8 Input      1 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 17    
+	   3 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 12    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module nexys4DDR 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module debounce 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     27 Bit       Adders := 1     
++---Registers : 
+	               27 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     27 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module ack_interface 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
+Module clkenb 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module receiver_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   7 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 5     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 7     
+	   8 Input      1 Bit        Muxes := 1     
+Module single_pulser 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module txd_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   7 Input      4 Bit        Muxes := 1     
+	  21 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	   7 Input      1 Bit        Muxes := 9     
+Module clkenb__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter_txd 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module clkenb__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter_txd__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter_txd__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module transmitter_fsm 
+Detailed RTL Component Info : 
++---Registers : 
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   9 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 7     
+	   3 Input      3 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 2     
+Module bcdcounter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module crc_generator 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module txd_write_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module bcdcounter__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module txd_transmit_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 1     
+	   5 Input      9 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 2     
+	  12 Input      3 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 4     
+Module transmitter_module 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      9 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+Module variable_sampler 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input     17 Bit        Muxes := 1     
+	   6 Input     17 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module bcdcounter__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module synchronizer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 2     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 2     
+Module correlator 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	  15 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module correlator__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	  15 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module bcdcounter__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module correlator__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	  15 Input     32 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module correlator__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	  15 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module correlator__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	  31 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module receive_fsm 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   6 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 5     
+	   7 Input      1 Bit        Muxes := 1     
+Module bcdcounter__parameterized5 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	                6 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module preamble_detector_shreg 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module sfd_detector_shreg 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+Module sfd_correl 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	 127 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input    128 Bit         XORs := 1     
++---Registers : 
+	              128 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module data_shreg 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+Module sfd_fsm 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 2     
+Module sasc_fifo 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 4     
++---Registers : 
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module rxd_fsm 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	  21 Input      9 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   9 Input      1 Bit        Muxes := 9     
+Module store_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   4 Input      8 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 2     
+Module receiver_module 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 4     
+Module clkenb__parameterized3 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               14 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module bcdcounter_txd__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module asynch_transmitter_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                2 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   6 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 3     
+	   3 Input      1 Bit        Muxes := 1     
+Module config_mac_fsm 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 2     
++---Registers : 
+	                8 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 10    
+	   5 Input      8 Bit        Muxes := 3     
+	  10 Input      3 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 1     
+Module reg_param 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+Module clkenb__parameterized4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module counter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+Module seven_seg 
+Detailed RTL Component Info : 
++---Muxes : 
+	  16 Input      7 Bit        Muxes := 1     
+Module decoder_3_8_en 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      8 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "U_BAUD_CLK/enb" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 'curr_rand_count_reg' and it is trimmed from '10' to '8' bits. [C:/Users/ahmadw/Desktop/DigitalDesign/Project_WimpFi/Project_WimpFi.srcs/sources_1/new/transmitter_module.sv:148]
+INFO: [Synth 8-5546] ROM "U_BIT_PERIOD_CLK/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_MAN_TXD/U_BAUD_RATE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_MAN_TXD/U_BAUD_2_RATE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_BRAM_WRITING/max_written" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "WATCHDOG_ERROR" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pkt_type0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "dest0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "U_BAUD_RATE/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "n_src_mac" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "n_src_mac" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "n_current_seg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "n_current_seg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "U_ANODE_DISPLAY/" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "U_CLKENB/enb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "U_SEND_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_UP_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_DOWN_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_LEFT_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "U_RIGHT_DEBOUNCE/button_state_next" won't be mapped to RAM because address size (27) is larger than maximum supported(25)
+WARNING: [Synth 8-3917] design nexys4DDR has port CFGDAT driven by constant 1
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_seen
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[7]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[6]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[5]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[4]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[3]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[2]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[1]
+WARNING: [Synth 8-3331] design transmitter_module has unconnected port type_2_source[0]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port WRITE
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[7]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[6]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[5]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[4]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[3]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[2]
+WARNING: [Synth 8-3331] design nexys4DDR has unconnected port SW[1]
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 678.688 ; gain = 471.270
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++----------------+--------------------+-----------+----------------------+----------------------------+
+|Module Name     | RTL Object         | Inference | Size (Depth x Width) | Primitives                 | 
++----------------+--------------------+-----------+----------------------+----------------------------+
+|receiver_module | U_RXD_FIFO/mem_reg | Implied   | 256 x 8              | RAM64X1D x 8  RAM64M x 8   | 
++----------------+--------------------+-----------+----------------------+----------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_UART_RXD/\U_FSM/start_state_reg[1] )
+INFO: [Synth 8-3886] merging instance 'U_UART_RXD/U_FSM/start_state_reg[2]' (FDS) to 'U_UART_RXD/U_FSM/start_state_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (U_TXD_MOD/\U_MAN_TXD/U_FSM/last_reg[1] )
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[0]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[1]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[2]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[3]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_SRC_MAC_FSM/current_seg_reg[4]' (FDRE) to 'U_SRC_MAC_FSM/current_seg_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_SRC_MAC_FSM/\current_seg_reg[5] )
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[1]' (LDC) to 'U_RXD_MOD/U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2] )
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[1]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[2]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[3]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[5]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[6]' (FDRE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_CORREL_ABN_HIGH/shreg_reg[6]'
+WARNING: [Synth 8-3332] Sequential element (U_FSM/start_state_reg[2]) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_FSM/start_state_reg[1]) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_FSM/ferr_reg) is unused and will be removed from module receiver_top.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD_START_PULSE/dq1_reg) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD_START_PULSE/dq2_reg) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD/U_FSM/last_reg[3]) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_TXD/U_FSM/last_reg[1]) is unused and will be removed from module transmitter_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_HIGH/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_ABN_LOW/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[31]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[30]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[29]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[28]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[27]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[26]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[25]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[24]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[23]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[22]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[21]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[20]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[19]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[18]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[17]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[16]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[15]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[14]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[13]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[12]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[11]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[10]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[9]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[8]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[7]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[7]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[6]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[5]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[3]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SFD_SHREG/shreg_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_SFD/prev_pulsed_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq1_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_CARDET_PULSE/dq2_reg) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[0]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[1]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[2]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[3]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[5]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_CORREL_EOF/shreg_reg[6]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[5]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[4]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[3]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[2]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[1]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (current_seg_reg[0]) is unused and will be removed from module config_mac_fsm.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/button_state_reg) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[26]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[25]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[24]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[23]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[22]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[21]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[20]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[19]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[18]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[17]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[16]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[15]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[14]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[13]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[12]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[11]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[10]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[9]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[8]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[7]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[6]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[5]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_SEND_DEBOUNCE/count_reg_reg[0]) is unused and will be removed from module nexys4DDR.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0] )
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/actualClkFreq_reg[0]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SAMPLER/accumulated_reg[0]) is unused and will be removed from module receiver_module.
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]' (FDE) to 'U_RXD_MOD/U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U_RXD_MOD/\U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3] )
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[4]) is unused and will be removed from module receiver_module.
+WARNING: [Synth 8-3332] Sequential element (U_MAN_RECEIVER/U_SYNC/phase_diff_reg[3]) is unused and will be removed from module receiver_module.
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 678.688 ; gain = 471.270
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 678.688 ; gain = 471.270
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 782.234 ; gain = 574.816
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[0]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[0]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[1]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[1]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[2]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[2]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[3]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[3]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[4]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[4]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg[5]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[6]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[6]'
+INFO: [Synth 8-3886] merging instance 'U_RXD_MOD/U_RXD_FIFO/rp_reg[7]' (FDRE) to 'U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[7]'
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[0]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[1]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[2]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[3]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[4]) is unused and will be removed from module nexys4DDR.
+WARNING: [Synth 8-3332] Sequential element (U_RXD_MOD/U_RXD_FIFO/rp_reg_rep[5]) is unused and will be removed from module nexys4DDR.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+Finished Parallel Technology Mapping Optimization  : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 790.797 ; gain = 583.379
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |blk_mem_gen_0 |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |blk_mem_gen_0 |     1|
+|2     |BUFG          |     2|
+|3     |CARRY4        |   328|
+|4     |LUT1          |   307|
+|5     |LUT2          |   402|
+|6     |LUT3          |   325|
+|7     |LUT4          |   221|
+|8     |LUT5          |   926|
+|9     |LUT6          |   385|
+|10    |MUXF7         |     4|
+|11    |RAM64M        |     8|
+|12    |RAM64X1D      |     8|
+|13    |FDRE          |   827|
+|14    |FDSE          |    53|
+|15    |LD            |     1|
+|16    |LDC           |    29|
+|17    |LDP           |     6|
+|18    |IBUF          |     8|
+|19    |OBUF          |    27|
+|20    |OBUFT         |     1|
++------+--------------+------+
+
+Report Instance Areas: 
++------+---------------------------+-------------------------------+------+
+|      |Instance                   |Module                         |Cells |
++------+---------------------------+-------------------------------+------+
+|1     |top                        |                               |  3876|
+|2     |  U_ACK_INTERFACE          |ack_interface                  |   100|
+|3     |  U_ASYNCH_TX              |asynch_transmitter             |    70|
+|4     |    U_BAUD_PULSE           |single_pulser_16               |     2|
+|5     |    U_BAUD_RATE            |clkenb__parameterized3         |    50|
+|6     |    U_BIT_COUNTER          |bcdcounter_txd__parameterized2 |    12|
+|7     |    U_FSM                  |asynch_transmitter_fsm         |     6|
+|8     |  U_D0                     |reg_param                      |     8|
+|9     |  U_DISPCTL                |dispctl                        |    85|
+|10    |    THR_B_COUNTER          |counter                        |    25|
+|11    |    U_CLKENB               |clkenb__parameterized4         |    60|
+|12    |  U_DOWN_DEBOUNCE          |debounce                       |    97|
+|13    |  U_DOWN_PULSER            |single_pulser                  |     2|
+|14    |  U_LEFT_DEBOUNCE          |debounce_0                     |    97|
+|15    |  U_LEFT_PULSER            |single_pulser_1                |     4|
+|16    |  U_RIGHT_DEBOUNCE         |debounce_2                     |   102|
+|17    |  U_RIGHT_PULSER           |single_pulser_3                |     3|
+|18    |  U_RRD_SINGLE_PULSE       |single_pulser_4                |     5|
+|19    |  U_RXD_MOD                |receiver_module                |  2472|
+|20    |    U_FCS_VERIFICATION     |crc_generator_12               |    34|
+|21    |      U_COUNT_BYTE         |bcdcounter_15                  |    10|
+|22    |    U_MAN_RECEIVER         |man_receiver                   |  2218|
+|23    |      U_ABN_BIT_COUNTER    |bcdcounter__parameterized4     |     4|
+|24    |      U_BYTE_COUNTER       |bcdcounter__parameterized2     |    14|
+|25    |      U_CORREL_ABN_HIGH    |correlator__parameterized1     |    38|
+|26    |      U_CORREL_ABN_LOW     |correlator__parameterized2     |    42|
+|27    |      U_CORREL_ONE         |correlator__parameterized0     |    42|
+|28    |      U_CORREL_SFD         |sfd_correl                     |   350|
+|29    |      U_CORREL_ZERO        |correlator                     |    44|
+|30    |      U_DATA_REG           |data_shreg                     |     9|
+|31    |      U_PRE_SHREG          |preamble_detector_shreg        |    13|
+|32    |      U_RECEIVE_FSM        |receive_fsm                    |    21|
+|33    |      U_SAMPLER            |variable_sampler               |  1506|
+|34    |      U_SAMP_COUNTER       |bcdcounter__parameterized3     |    15|
+|35    |      U_SAMP_COUNTER_PRE   |bcdcounter__parameterized5     |    16|
+|36    |      U_SFD_FSM            |sfd_fsm                        |     9|
+|37    |      U_SFD_SHREG          |sfd_detector_shreg             |    20|
+|38    |      U_STRT_RECEIVE_PULSE |single_pulser_14               |     3|
+|39    |      U_SYNC               |synchronizer                   |    64|
+|40    |        U_BIT_RECOG_COUNT  |bcdcounter__parameterized1     |    22|
+|41    |    U_RXD_FIFO             |sasc_fifo                      |    84|
+|42    |    U_RXD_FSM              |rxd_fsm                        |    42|
+|43    |    U_STORAGE_FSM          |store_fsm                      |    37|
+|44    |    U_WRITE_PULSE          |single_pulser_13               |    16|
+|45    |  U_SRC_MAC_FSM            |config_mac_fsm                 |    54|
+|46    |  U_TXD_MOD                |transmitter_module             |   556|
+|47    |    U_BIT_PERIOD_CLK       |clkenb__parameterized0         |    32|
+|48    |    U_BRAM_WRITING         |txd_write_fsm                  |    71|
+|49    |    U_FCS_FORMATION        |crc_generator                  |    31|
+|50    |      U_COUNT_BYTE         |bcdcounter                     |    11|
+|51    |    U_MAN_TXD              |rtl_transmitter                |   138|
+|52    |      U_2_BIT_COUNTER      |bcdcounter_txd__parameterized0 |    11|
+|53    |      U_BAUD_2_PULSE       |single_pulser_10               |     4|
+|54    |      U_BAUD_2_RATE        |clkenb__parameterized2         |    28|
+|55    |      U_BAUD_PULSE         |single_pulser_11               |     3|
+|56    |      U_BAUD_RATE          |clkenb__parameterized1         |    32|
+|57    |      U_BIT_COUNTER        |bcdcounter_txd                 |    13|
+|58    |      U_FSM                |transmitter_fsm                |    35|
+|59    |      U_WAIT_BIT_COUNTER   |bcdcounter_txd__parameterized1 |    12|
+|60    |    U_MAN_TXD_RDY_PULSE    |single_pulser_9                |     5|
+|61    |    U_TRANSMIT_FSM         |txd_transmit_fsm               |    90|
+|62    |      U_PRE_COUNTER        |bcdcounter__parameterized0     |    10|
+|63    |    U_TXD_FSM              |txd_fsm                        |    57|
+|64    |  U_UART_RXD               |receiver_top                   |    78|
+|65    |    U_BAUD_CLK             |clkenb                         |    27|
+|66    |    U_FSM                  |receiver_fsm                   |    51|
+|67    |  U_UP_DEBOUNCE            |debounce_5                     |    97|
+|68    |  U_UP_PULSER              |single_pulser_6                |     2|
+|69    |  U_WRITE_PULSER           |single_pulser_7                |     3|
+|70    |  U_XWR_SINGLE_PULSE       |single_pulser_8                |     2|
++------+---------------------------+-------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 123 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 790.797 ; gain = 235.059
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 583.379
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 388 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 52 instances were transformed.
+  LD => LDCE: 1 instances
+  LDC => LDCE: 29 instances
+  LDP => LDPE: 6 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 8 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 8 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+270 Infos, 186 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 790.797 ; gain = 551.051
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 790.797 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 10 17:28:47 2017...
