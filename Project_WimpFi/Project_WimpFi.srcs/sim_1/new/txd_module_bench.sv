@@ -41,8 +41,15 @@ module txd_module_bench;
     logic [7:0] MAN_DATA;
     logic MAN_RDY;
     logic writing_type_3;
+    logic rrd,RRDY,ack_seen,TYPE_2_SEEN,rxd_cardet;
+    logic [7:0] source, RDATA, RERRCNT;
     
     logic [7:0] type_data;
+    
+    
+    receiver_module DUV(.clk(clk),.reset(reset),.RXD(txd),.RRD(rrd),.mac_addr("@"),.cardet(rxd_cardet),.RDATA(RDATA),.RRDY(RRDY),
+                        .RERRCNT(RERRCNT),.type_2_seen(TYPE_2_SEEN),.ack_seen(ack_seen),.source(source));
+    
     
     //interface for sending acknowledge signals
     ack_interface U_ACK_INTERFACE(.clk(clk),.reset(reset),.send_to(type_2_source),.type_2_received(type_2_seen),.cardet(cardet),.data_out(XDATA_PSEUDO),
